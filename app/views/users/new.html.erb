@@ -1,6 +1,8 @@
 <h1>New User</h1>
 
-<form class='form' action="user_url" method="post" accept-charset="utf-8">
+<form class='form' action="<%= users_url %>" method="post" accept-charset="utf-8">
+
+  <%= token_tag nil %>
 
   <p class='form_field'>
     <label>
