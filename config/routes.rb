@@ -1,4 +1,12 @@
 CodeKindaSmart::Application.routes.draw do
+
+  resources :users, only: [:new, :create, :destroy, :index, :show]
+  resource :session, only: [:new, :create, :destroy]
+  resources :documents
+
+  root to: "documents#index"
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
