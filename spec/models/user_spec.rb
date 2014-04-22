@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe User do
-  describe "Validations" do
+
+  describe "Password Validations" do
     context "on a new user" do
       it "should not be valid without a password" do
         user = User.new username: 'testing', email: 'test@test.test',
@@ -39,4 +40,34 @@ describe User do
       end
     end
   end
+
+
+  describe 'Email Validations' do
+
+    let(:user) do
+      user = User.new username: 'testing',
+        password: 'password', password_confirmation: 'password'
+      user
+    end
+
+    it 'should not be valid with an invalid email' do
+      user.email = 'test'
+      user.should_not be_valid
+
+      user.email = 'test@test'
+      user.should_not be_valid
+
+      user.email = 'test.com'
+      user.should_not be_valid
+    end
+
+    it 'should not be valid with an empty email' do
+      user = User.new username: 'testing', email: '',
+        password: 'password', password_confirmation: 'password'
+    end
+
+    it 'should be valid with a valid email'
+  end
+
+
 end
