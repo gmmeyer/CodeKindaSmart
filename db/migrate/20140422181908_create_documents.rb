@@ -5,5 +5,6 @@ class CreateDocuments < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :documents, :document
   end
 end
