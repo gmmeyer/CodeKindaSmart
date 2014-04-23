@@ -1,6 +1,6 @@
 #[Rap Genius][rg] Clone
 
-[rg]: rapgenius,com
+[rg]: rapgenius.com
 
 ##ToDo
 ###Database
