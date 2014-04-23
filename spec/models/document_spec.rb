@@ -8,9 +8,9 @@ describe Document do
 			Document.find d.id
 		end
 		it 'will not save a document wthout a unique title' do
-			dd = Document.new(title: "Lorem", body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, itaque, nam, corporis excepturi quis distinctio officiis aut nesciunt placeat quo qui quibusdam labore recusandae nihil sapiente debitis eos vero. Adipisci.", user_id: 3)
-			puts dd
-			a.save.should be_false 
+			dd = Document.new(title: 'Lorem', body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, itaque, nam, corporis excepturi quis distinctio officiis aut nesciunt placeat quo qui quibusdam labore recusandae nihil sapiente debitis eos vero. Ablig.", user_id: 4)
+			puts dd.valid?
+			dd.valid?.should be_false 
 		end
 		it 'will not save a document without a title' do
 		end
