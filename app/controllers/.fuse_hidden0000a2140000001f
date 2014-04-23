@@ -1,0 +1,26 @@
+class AnnotationController < ApplicationController
+
+	def index
+	end
+
+	def show
+		@annotation = Annotation.find(params[:id])
+	end
+
+	def new
+		@annotation = Annotation.new
+	end
+
+	def create
+	end
+
+	def edit
+	end
+
+	def destroy
+	end
+
+	private
+	def annotation_params
+		params.require(:annotation).params(:title, :annotation, :user_id, :document_id)
+end
