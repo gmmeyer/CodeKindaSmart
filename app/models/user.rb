@@ -29,7 +29,6 @@ class User < ActiveRecord::Base
   end
 
   private
-
   def ensure_session_token
     self.session_token ||= self.class.generate_session_token
   end
