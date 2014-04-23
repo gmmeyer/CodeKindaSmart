@@ -5,9 +5,9 @@ module DocumentsHelper
 		@document = Document.find(id)
 		@annotations = @document.annotations.order("start_location ASC")
 
-		return "<p class='document-body group'>" + @document.body + "</p>" if @annotations.empty?
+		return "<div class='document-body group'><p class='document-text'>" + @document.body + "</p>" + "</div>" if @annotations.empty?
 
-		annotated_body = "<p class='document-body group'>"
+		annotated_body = "<div class='document-body group'><p class='document-text'>"
 
 		if @annotations.first.start_location >= 1
 			annotated_body += @document.body[0, @annotations.first.start_location] 
@@ -15,7 +15,7 @@ module DocumentsHelper
 
 		annotated_body = annotation_loop(annotated_body)
 
-		annotated_body += "</p>"
+		annotated_body += "</p></div>"
 
 		annotated_body
 	end

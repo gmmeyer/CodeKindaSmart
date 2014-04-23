@@ -10,10 +10,15 @@
 
 <div class="header group">
 
-	<h1 class="header">Rap Kinda Smart</h1>
+	<h1 class="header"><a href="<%= root_url %>">Rap Kinda Smart</a></h1>
 	<div class='login'>
-		<a href='<%= new_session_url %>' class='login-link group'>Login</a>
-		<a href='<%= new_user_url %>' class='login-link group'>Sign Up</a>
+		<% if current_user %>
+			<p class='welcome'>Welcome! <%= current_user.username %></p>
+			<%= button_to "Log Out", session_url, method: :delete %> 
+		<% else %>
+			<a href='<%= new_session_url %>' class='login-link group'>Login</a>
+			<a href='<%= new_user_url %>' class='login-link group'>Sign Up</a>
+		<% end %>
 	</div>
 </div>
 

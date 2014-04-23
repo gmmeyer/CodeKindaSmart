@@ -3,7 +3,7 @@
 
 <% if  current_user %>
 	
-	<form action="<%= document_annotations_url(@document.id) %>" class='new-annotation'>
+	<form action="<%= document_annotations_url(@document.id) %>" method='post' class='new-annotation'>
 
 		<%= token_tag nil %>
 		<input type='hidden' name='annotation[document_id]' value='<%= @document.id %>'>

@@ -13,7 +13,7 @@ class AnnotationsController < ApplicationController
 	def create
 		@annotation = Annotation.new(annotation_params)
 		if @annotation.save
-			redirect_to annotation_url(params[:id])
+			redirect_to document_url(@annotation.document_id)
 		else
 			flash[:errors] = @annotation.errors.full_messages
 			render :new
@@ -30,7 +30,6 @@ class AnnotationsController < ApplicationController
 
 	private
 	def annotation_params
-		params.require(:annotation).params(:title, :body, :user_id, :document_id, 
-			:start_location, :end_location)
+		params.require(:annotation).permit(:title, :body, :user_id, :document_id, :start_location, :end_location)
 	end
 end

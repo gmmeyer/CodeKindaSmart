@@ -8,14 +8,18 @@
 
 .document-title {
 	display: block;
+	float: left;
 	font-size: large;
-	margin: 25px auto;
-
+	margin: 10px auto;
 }
 
 .document-body {
+	display: block;
+	float: left;
+}
+
+.document-text {
 	display: inline;
-	margin: 25px auto;
 }
 
 .page-title {
