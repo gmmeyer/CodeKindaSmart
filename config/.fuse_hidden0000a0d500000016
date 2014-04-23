@@ -8,8 +8,8 @@ CodeKindaSmart::Application.routes.draw do
   end
   
 
-  resources :documents, only: [:index, :show, :destroy, :edit] do
-    resources :annotations, only: [:index, :edit]
+  resources :documents, only: [:index, :show, :destroy] do
+    resources :annotations, only: [:index, :new, :create]
   end
   resources :annotations, only: [:show, :destroy]
 
