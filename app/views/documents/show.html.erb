@@ -1,3 +1,23 @@
 <%= render partial: "document", locals: {document: @document} %>
 
+
+<form action="<%= document_annotations_url(@document.id) %>" class='new-annotation'>
+
+	<%= token_tag nil %>
+	<input type='hidden' name='annotation[document_id]' value='<%= @document.id %>'>
+	<input type='hidden' name='annotation[user_id]' value='<%= current_user.id %>'
+
+	<label for='start-location' class='group'>Start Annotation</label>
+	<input type='text' id='start-location' class='group' name='annotation[start_location]' value=''>
+
+	<label for='end-location' class='group'>End Annotation</label>
+	<input type='text' id='end-location' class='group' name='annotation[end_location]' value=''>
+
+
+
+
+
+	<input type='submit' value='submit'>
+</form>
+
 <!-- how do I do css for document styling -->

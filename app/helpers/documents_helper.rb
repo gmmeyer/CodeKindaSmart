@@ -5,9 +5,9 @@ module DocumentsHelper
 		@document = Document.find(id)
 		@annotations = @document.annotations.order("start_location ASC")
 
-		return @document.body if @annotations.empty?
+		return "<p class='document-body group'>" + @document.body + "</p>" if @annotations.empty?
 
-		annotated_body = "<p class='document-body'>"
+		annotated_body = "<p class='document-body group'>"
 
 		if @annotations.first.start_location >= 1
 			annotated_body += @document.body[0, @annotations.first.start_location] 
@@ -26,7 +26,7 @@ module DocumentsHelper
 			before = @document.body[0, ann.start_location - 1]
 			annotated = @document.body[ann.start_location, ann.end_location]
 
-			annotated_body += annotation_link_start(ann) + annotated + "</a></div>"
+			annotated_body += annotation_link_start(ann) + annotated + "</a></span>"
 
 		if ann == @annotations.last && ann.end_location < @document.body.length - 1
 
@@ -54,7 +54,7 @@ module DocumentsHelper
 		a_class += " my_annotation" if current_user && current_user.id == annotation.user_id
 		a_url = annotation_url(annotation.id)
 
-		anchor_tag = "<div class='annotation'><a class='annotation-link' href=" + annotation_url(annotation.id) + ">"
+		anchor_tag = "<span class='annotation'><a class='annotation-link' href=" + annotation_url(annotation.id) + ">"
 
 		# anchor_tag = URI.escape(<<-HTML)
 		# 	<a class="annotation-link" href=annotation_url(annotation.id)>

@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .annotation {
-	display: inline-block;
+	// display: inline-block;
 }
 
 .document-title {
@@ -15,10 +15,20 @@
 
 .document-body {
 	display: inline;
+	margin: 25px auto;
 }
 
 .page-title {
 	display: block;
 	font-size: x-large;
+	margin: 25px auto;
+}
+
+label.new-document{
+
+}
+
+form.new-annotation {
+	display: block;
 	margin: 25px auto;
 }
