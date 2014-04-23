@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   end
 
   def self.find_by_credentials(username, password)
-    @user = user.find_by(username: username)
+    @user = User.find_by(username: username)
 
     return @user.authenticate(password)
   end

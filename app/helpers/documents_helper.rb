@@ -7,13 +7,15 @@ module DocumentsHelper
 
 		return @document.body if @annotations.empty?
 
-		annotated_body = "<p class='document-body group'>"
+		annotated_body = "<p class='document-body'>"
 
 		if @annotations.first.start_location >= 1
 			annotated_body += @document.body[0, @annotations.first.start_location] 
 		end
 
 		annotated_body = annotation_loop(annotated_body)
+
+		annotated_body += "</p>"
 
 		annotated_body
 	end
@@ -42,8 +44,6 @@ module DocumentsHelper
 				end
 			end
 		end
-
-		annotated_body += "</p>"
 
 		return annotated_body
 	end
