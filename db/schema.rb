@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20140422235721) do
 
   create_table "annotations", force: true do |t|
     t.text     "title",          null: false
-    t.text     "annotation",     null: false
+    t.text     "body",           null: false
     t.integer  "user_id",        null: false
     t.integer  "document_id",    null: false
     t.integer  "start_location", null: false
@@ -27,15 +27,16 @@ ActiveRecord::Schema.define(version: 20140422235721) do
     t.datetime "updated_at"
   end
 
-  add_index "annotations", ["annotation"], name: "index_annotations_on_annotation", using: :btree
+  add_index "annotations", ["body"], name: "index_annotations_on_body", using: :btree
   add_index "annotations", ["document_id"], name: "index_annotations_on_document_id", using: :btree
   add_index "annotations", ["start_location", "end_location"], name: "index_annotations_on_start_location_and_end_location", using: :btree
+  add_index "annotations", ["title"], name: "index_annotations_on_title", using: :btree
   add_index "annotations", ["user_id"], name: "index_annotations_on_user_id", using: :btree
 
   create_table "documents", force: true do |t|
     t.text     "title",        null: false
     t.text     "summary"
-    t.text     "document",     null: false
+    t.text     "body",         null: false
     t.text     "author"
     t.datetime "release_date"
     t.integer  "user_id",      null: false
@@ -43,8 +44,10 @@ ActiveRecord::Schema.define(version: 20140422235721) do
     t.datetime "updated_at"
   end
 
-  add_index "documents", ["document"], name: "index_documents_on_document", using: :btree
+  add_index "documents", ["author"], name: "index_documents_on_author", using: :btree
+  add_index "documents", ["body"], name: "index_documents_on_body", using: :btree
   add_index "documents", ["title"], name: "index_documents_on_title", unique: true, using: :btree
+  add_index "documents", ["user_id"], name: "index_documents_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username",        null: false

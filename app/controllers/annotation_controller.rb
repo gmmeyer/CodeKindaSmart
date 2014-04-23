@@ -31,7 +31,7 @@ class AnnotationController < ApplicationController
 
 	private
 	def annotation_params
-		params.require(:annotation).params(:title, :annotation, :user_id, :document_id, 
+		params.require(:annotation).params(:title, :body, :user_id, :document_id, 
 			:start_location, :end_location)
 	end
 end

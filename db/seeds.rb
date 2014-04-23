@@ -18,7 +18,7 @@ bodies = Array.new(3, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit,
 
 3.times do |i|
 
-  Document.create(title: i.to_s + titles[i], document: i.to_s + bodies[i])
+  Document.create(title: i.to_s + titles[i], body: i.to_s + bodies[i])
 
 end
 

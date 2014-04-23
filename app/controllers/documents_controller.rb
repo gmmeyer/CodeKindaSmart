@@ -34,7 +34,7 @@ class DocumentsController < ApplicationController
   private
 
   def document_params
-    params.require(:document).permit(:title,:document,:summary,
+    params.require(:document).permit(:title,:body,:summary,
                                       :title,:author,:release_date)
   end
 end
