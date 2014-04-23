@@ -28,3 +28,18 @@ end
     password: user_passwords[i], password_confirmation: user_passwords[i])
 
 end
+
+User.create(username: 'greg', email: 'greg@greg.com', password: 'password', password_confirmation: 'password')
+
+annotations = Array(3, "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, unde, in deserunt at voluptate aperiam beatae facere optio vero consectetur voluptates ullam illum natus soluta cum corrupti iusto accusamus possimus!")
+start_locations = [1,20,30]
+end_locations = [10, 29, 40]
+titles = ['so so good', 'penisfish', 'genius!']
+
+
+doc = Document.all.first
+me = User.find_by(username: 'greg')
+
+3.times do |i|
+	Annotation.new(start_location: start_locations[i], end_location: end_locations[i], user_id: me.id, document_id: doc.id, title: titles[i] )
+end
