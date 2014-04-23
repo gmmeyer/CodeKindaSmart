@@ -1,0 +1,10 @@
+<h1 class='page-title'> Documents! </h1>
+
+<% @documents.each do |document| %>
+	<h2 class="document-title"><%= document.title %></h2>
+
+
+	<p class="document-body"> <%= document.body %> </p>
+
+
+<% end %>

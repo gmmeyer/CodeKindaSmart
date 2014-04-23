@@ -6,6 +6,7 @@ class DocumentsController < ApplicationController
   end
 
   def index
+    @documents = Document.all
   end
 
   def new
