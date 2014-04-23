@@ -5,7 +5,7 @@ module DocumentsHelper
 		@document = Document.find(id)
 		@annotations = Document.annotations.order("start_location DESC")
 
-		return if @annotations.empty?
+		return @document.body if @annotations.empty?
 
 		annotated_body = ""
 
