@@ -8,9 +8,10 @@
 </head>
 <body>
 
-<div class="header group">
+<header class="header group">
 
 	<h1 class="header"><a href="<%= root_url %>">Rap Kinda Smart</a></h1>
+	
 	<div class='login'>
 		<% if current_user %>
 			<p class='welcome'>Welcome! <%= current_user.username %></p>
@@ -20,7 +21,7 @@
 			<a href='<%= new_user_url %>' class='login-link group'>Sign Up</a>
 		<% end %>
 	</div>
-</div>
+</header>
 
 <%= yield %>
 
