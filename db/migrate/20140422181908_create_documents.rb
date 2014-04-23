@@ -6,6 +6,7 @@ class CreateDocuments < ActiveRecord::Migration
       t.text :document
       t.text :author
       t.datetime :release_date
+      t.integer :user_id
 
       t.timestamps
     end

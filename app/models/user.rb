@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
   validates :username, :session_token, presence: true
   before_validation :ensure_session_token
 
+  has_many :documents, dependent :destroy
+  has_many :annotations, dependent :destroy
+
   def self.generate_session_token
     SecureRandom.urlsafe_base64(32)
   end

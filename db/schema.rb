@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20140422235721) do
     t.text     "document"
     t.text     "author"
     t.datetime "release_date"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
