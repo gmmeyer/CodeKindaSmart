@@ -1,8 +1,10 @@
 <h1 class='page-title'> Documents! </h1>
 
-<% @documents.each do |document| %>
+<%= render partial: "document", collection: @documents %>
 
-	<%= render "document" %>
+<!-- <%# @documents.each do |document| %>
+
+	<%#= render partial: "document", document: document %>
 
 
-<% end %>
+<%# end %> -->
