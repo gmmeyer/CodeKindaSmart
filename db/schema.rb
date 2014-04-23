@@ -35,16 +35,16 @@ ActiveRecord::Schema.define(version: 20140422235721) do
   create_table "documents", force: true do |t|
     t.text     "title",        null: false
     t.text     "summary"
-    t.text     "document"
+    t.text     "document",     null: false
     t.text     "author"
     t.datetime "release_date"
-    t.integer  "user_id"
+    t.integer  "user_id",      null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "documents", ["document"], name: "index_documents_on_document", using: :btree
-  add_index "documents", ["title"], name: "index_documents_on_title", using: :btree
+  add_index "documents", ["title"], name: "index_documents_on_title", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username",        null: false
