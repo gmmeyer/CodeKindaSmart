@@ -17,5 +17,7 @@
 
 
 .DS_Store
+*.fuse_hidden*
+
 # Ignore application configuration
 /config/application.yml
