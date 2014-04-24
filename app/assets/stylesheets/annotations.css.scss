@@ -1,3 +1,17 @@
 // Place all the styles related to the annotations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+a.annotation-link:link {
+	color: yellow;
+}
+
+a.annotation-link:visited {
+	color: yellow;
+}
+
+a.annotation-link:hover {
+	font-style: normal;
+	background: yellow;
+	color: black;
+}

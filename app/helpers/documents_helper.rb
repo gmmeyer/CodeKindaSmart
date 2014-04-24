@@ -5,9 +5,9 @@ module DocumentsHelper
 		@document = Document.find(id)
 		@annotations = @document.annotations.order("start_location ASC")
 
-		return "<div class='document-body group'><p class='document-text'>" + @document.body + "</p>" + "</div>" if @annotations.empty?
+		return "<section class='document-body group'><p class='document-text'>" + @document.body + "</p>" + "</section>" if @annotations.empty?
 
-		annotated_body = "<div class='document-body group'><p class='document-text'>"
+		annotated_body = "<section class='document-body group'><p class='document-text'>"
 
 		if @annotations.first.start_location >= 1
 			annotated_body += @document.body[0, @annotations.first.start_location] 
@@ -15,7 +15,7 @@ module DocumentsHelper
 
 		annotated_body = annotation_loop(annotated_body)
 
-		annotated_body += "</p></div>"
+		annotated_body += "</p></section>"
 
 		annotated_body
 	end
@@ -29,8 +29,8 @@ module DocumentsHelper
 			annotated_body += annotation_link_start(ann) + annotated + "</a></span>"
 
 		if ann == @annotations.last && ann.end_location < @document.body.length - 1
-
-				annotated_body += @document.body[@annotations.last.end_location, 
+				# if it's the last annotation and there is more left in the document to go
+				annotated_body += @document.body[@annotations.last.end_location + 1, 
 					@document.body.length]
 
 			elsif ann != @annotations.last && ann.end_location < @annotations[index + 1].start_location

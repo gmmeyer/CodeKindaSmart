@@ -2,14 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.annotation {
-	// display: inline-block;
+section.articles {
+	display: block;
+	float: left;
+	width: 700px;
+}
+
+article.document {
+	display: inline-block;
+	width: 300px;
 }
 
 .document-title {
 	display: block;
 	float: left;
-	font-size: large;
+	font-size: 25px;
 	margin: 10px auto;
 }
 

@@ -23,6 +23,26 @@
 	</div>
 </header>
 
+<section class="notices">
+	<% if flash[:errors] %>
+		
+		<% flash[:errors].each do |error| %>
+			<p class='error'>
+				<%= error %>
+			</p>	
+		<% end %>
+
+	<% elsif flash[:notices] %>
+
+		<% flash[:notices].each do |msg| %>
+			<p class='error'>
+				<%= msg %>
+			</p>
+		<% end %>
+
+	<% end %>
+</section>
+
 <%= yield %>
 
 </body>

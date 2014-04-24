@@ -25,8 +25,29 @@ body {
 	color: white;
 }
 
+a {
+	color: white;
+	text-decoration: none;
+}
+
+a:active {
+}
+
+a:link {
+	color: #05aae5;
+}
+
+a:visited {
+	color: #05aae5;
+}
+
+a:hover {
+	font-style: normal;
+	color: yellow;
+}
+
 .header > h1 {
-	font-size: xx-large;
+	font-size: 35px;
 	float: left;
 }
 
@@ -39,4 +60,3 @@ div.login {
   clear: both;
   display: block;
 }
-

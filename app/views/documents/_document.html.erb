@@ -1,11 +1,11 @@
-<article class="document group">
+<article class="document">
 
-<h2 class="document-title group">
-	<a href="<%= document_url(document.id) %>" class='document-title'>
-	<%= document.title %>
-	</a>
-</h2>
+	<h2 class="document-title group">
+		<a href="<%= document_url(document.id) %>" class='document-title'>
+		<%= document.title %>
+		</a>
+	</h2>
+
+	<%= annotate_document(document.id).html_safe %>
+
 </article>
-
-
-<%= annotate_document(document.id).html_safe %>
