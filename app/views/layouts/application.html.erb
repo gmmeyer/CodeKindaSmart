@@ -22,8 +22,9 @@
 
 
 			<section class="settings">
-
-				<a class="settings" href="<%= settings_user_url(current_user.id) %>">Settings</a>
+				<% if current_user %>
+					<a class="settings" href="<%= settings_user_url(current_user.id) %>">Settings</a>
+				<% end %>
 				
 			</section>
 
