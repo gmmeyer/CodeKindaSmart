@@ -12,12 +12,17 @@
  *= require_tree .
  */
 
-h1, h2, h3, p, div, a {
+h1, h2, h3, p, div, a, html {
 	font: inherit;
 	padding: 0;
 	margin: 0;
 	border: 0;
 	font-family: sans-serif;
+}
+
+body {
+	background: black;
+	color: white;
 }
 
 .header > h1 {
