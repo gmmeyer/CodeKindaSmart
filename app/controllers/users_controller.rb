@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :require_current_user!, only: [:settings]
 
   def new
     @user = User.new
@@ -29,6 +30,12 @@ class UsersController < ApplicationController
 
   def settings
     @user = current_user
+  end
+
+  def update
+    @user = current_user
+    # unfinished. 
+    raise "DO NOT USE THIS IS NOT FINISHED"
   end
 
   private

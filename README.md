@@ -15,12 +15,15 @@
 
 [notes]: /notes/color_palette.html
 
+###Routes
+
+* Change the routes to make it just user/settings. Get rid of the :id.
+
 
 ###Database
 
 ####Annotations
-
-#####Annotations are largely done!
+#####Annotations are definitely done in Rails!
 
 The annotations will be set up using a table for the annotations and then a join table between the annotation table and the document table.
 
