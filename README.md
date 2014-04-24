@@ -4,6 +4,7 @@
 
 ##ToDo
 ###Major Pieces
+
 * notifications
 	* Use Action Mailer
 	* Implement CSS objects to notify user of it.
