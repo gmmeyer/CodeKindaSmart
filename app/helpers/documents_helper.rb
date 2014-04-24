@@ -21,7 +21,7 @@ module DocumentsHelper
 			before = document.body[0..ann.start_location - 1]
 			annotated = document.body[ann.start_location..ann.end_location]
 
-			annotated_body += annotation_link_start(ann, annotated)
+			annotated_body += annotation_link(ann, annotated)
 
 			if ann == annotations.last && ann.end_location < document.body.length - 1
 				annotated_body += document.substring(annotations.last.end_location + 1, document.body.length)

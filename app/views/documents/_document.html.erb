@@ -9,8 +9,7 @@
 	<section class='document-body'>
 		<p class='document-text'>
 			<%= annotate_document(document, 
-																	annotations.order("start_location ASC") 
-																  ).html_safe %>
+				document.annotations.order("start_location ASC")).html_safe %>
 		</p>
 	</section>
 

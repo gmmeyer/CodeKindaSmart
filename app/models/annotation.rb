@@ -7,7 +7,7 @@ class Annotation < ActiveRecord::Base
   belongs_to :user
 
   def range
-  	return [self.start_location...self.end_location]
+  	return (self.start_location..self.end_location)
   end
 
 end
