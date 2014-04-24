@@ -4,6 +4,8 @@ class AnnotationsController < ApplicationController
 
 	def show
 		@annotation = Annotation.find(params[:id])
+		@document = Document.find(@annotation.document_id)
+		render :show
 	end
 
 	def new

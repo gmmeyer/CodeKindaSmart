@@ -6,6 +6,11 @@
 		</a>
 	</h2>
 
-	<%= annotate_document(document.id).html_safe %>
+	<section class='document-body'>
+		<p class='document-text'>
+			<%= annotate_document(document.id).html_safe %>
+		</p>
+	</section>
+
 
 </article>
