@@ -3,9 +3,24 @@
 [rg]: rapgenius.com
 
 ##ToDo
+###Major Pieces
+* notifications
+	* Use Action Mailer
+	* Implement CSS objects to notify user of it.
+
+* CSS -- I need a lot of styling
+	* Get a good color scheme, there's a preliminary one in the [notes][notes] folder
+
+
+[notes]: /notes
+
+
 ###Database
 
 ####Annotations
+
+#####Annotations are largely done!
+
 The annotations will be set up using a table for the annotations and then a join table between the annotation table and the document table.
 
 The join table will store where in the document the annotation is referring to.
@@ -22,8 +37,10 @@ Some things to do for the future in documents:
 
 ####Changes to be made going along:
 * Add an authors table to the database, remove the author field from documents and then add it to the authors table.
-* Link the authors table with the users table, if there is a link.
-  * This is good, because you can post shit that is not, so to speak, yours.
+	* Link the authors table with the users table, if there is a link.
+	* This is good, because you can post shit that is not, so to speak, yours.
+	* This is for later, not for now
+
 
 #### Things to fix.
 * Add regex to check email format.
