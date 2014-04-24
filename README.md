@@ -13,7 +13,7 @@
 	* Get a good color scheme, there's a preliminary one in the [notes][notes] folder
 
 
-[notes]: /notes
+[notes]: /notes/color_palette.html
 
 
 ###Database
