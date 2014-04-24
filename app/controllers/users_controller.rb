@@ -27,6 +27,10 @@ class UsersController < ApplicationController
     @user.destroy
   end
 
+  def settings
+    @user = current_user
+  end
+
   private
   def user_params
     params.require(:user).permit(:username,:password,:password_confirmation,:email)

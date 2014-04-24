@@ -1,49 +1,52 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>RapKindaSmart</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+	<head>
+		<title>RapKindaSmart</title>
+		<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+		<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		<header class="header group">
+			<h1 class="header-title"><a href="<%= root_url %>">Rap Kinda Smart</a></h1>
+			
+			<section class='login'>
+				<% if current_user %>
+					<p class='welcome'>Welcome! <%= current_user.username %></p>
+					<%= button_to "Log Out", session_url, method: :delete %>
+				<% else %>
+					<a href='<%= new_session_url %>' class='login-link group'>Login</a>
+					<a href='<%= new_user_url %>' class='login-link group'>Sign Up</a>
+				<% end %>
+			</section>
 
-<header class="header group">
 
-	<h1 class="header-title"><a href="<%= root_url %>">Rap Kinda Smart</a></h1>
-	
-	<div class='login'>
-		<% if current_user %>
-			<p class='welcome'>Welcome! <%= current_user.username %></p>
-			<%= button_to "Log Out", session_url, method: :delete %> 
-		<% else %>
-			<a href='<%= new_session_url %>' class='login-link group'>Login</a>
-			<a href='<%= new_user_url %>' class='login-link group'>Sign Up</a>
-		<% end %>
-	</div>
-</header>
+			<section class="settings">
 
-<section class="notices">
-	<% if flash[:errors] %>
-		
-		<% flash[:errors].each do |error| %>
-			<p class='error'>
-				<%= error %>
-			</p>	
-		<% end %>
+				<a class="settings" href="<%= settings_user_url(current_user.id) %>">Settings</a>
+				
+			</section>
 
-	<% elsif flash[:notices] %>
+		</header>
+		<section class="notices">
+			<% if flash[:errors] %>
+			
+				<% flash[:errors].each do |error| %>
+					<p class='error'>
+						<%= error %>
+					</p>
+				<% end %>
+			<% elsif flash[:notices] %>
 
-		<% flash[:notices].each do |msg| %>
-			<p class='error'>
-				<%= msg %>
-			</p>
-		<% end %>
+				<% flash[:notices].each do |msg| %>
+					<p class='error'>
+						<%= msg %>
+					</p>
+				<% end %>
+			<% end %>
+		</section>
 
-	<% end %>
-</section>
 
-<%= yield %>
-
-</body>
+		<%= yield %>
+	</body>
 </html>

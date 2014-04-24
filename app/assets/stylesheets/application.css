@@ -56,12 +56,33 @@ a:hover {
 	float: left;
 }
 
-div.login {
+section.login {
+	display: block;
 	float: right;
+	margin: auto 15px;
+}
+
+section.settings {
+	display: block;
+	float: right;
+}
+
+a.settings {
+	display: block;
+	float: right;
+	padding: 12px;
+	margin: auto 15px;
+	left: 10px;
 }
 
 .group:after {
   content: "";
   clear: both;
   display: block;
+}
+
+.page-title {
+	display: block;
+	font-size: x-large;
+	margin: 25px auto;
 }
