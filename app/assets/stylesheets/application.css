@@ -34,16 +34,21 @@ a:active {
 }
 
 a:link {
-	color: #05aae5;
+	color: #00C6BE;
 }
 
 a:visited {
-	color: #05aae5;
+	color: #00C6BE;
 }
 
 a:hover {
 	font-style: normal;
 	color: yellow;
+}
+
+.header {
+	border: 3px groove #FF7100;
+	border-radius: 10px;
 }
 
 .header > h1 {

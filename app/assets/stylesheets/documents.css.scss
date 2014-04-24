@@ -20,6 +20,20 @@ article.document {
 	margin: 10px auto;
 }
 
+.document-title > a:link {
+	color: #00C6BE;
+}
+
+.document-title > a:visited {
+	color: #00C6BE;
+}
+
+.document-title > a:hover {
+	font-style: normal;
+	color: yellow;
+	transform: translate(5pxs)
+}
+
 .document-body {
 	display: block;
 	float: left;
