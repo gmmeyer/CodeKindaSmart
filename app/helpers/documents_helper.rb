@@ -1,35 +1,31 @@
 module DocumentsHelper
 
-	def annotate_document(document, annotations)
 
-		return document.body if annotations.empty?
+	def annotate_document(document, annotations)
+		segments = document.segments
+
+		return document.body if segments.empty?
 
 		annotated_body = ""
 
-		if annotations.first.start_location >= 1
-			annotated_body += document.substring(0, annotations.first.start_location) 
+		if segments.first.first.first > 0
+			annotated_body += document.substring(0, segments.first.first.first)
 		end
 
-		annotated_body = annotation_loop(document, annotations, annotated_body)
+		puts segments
 
-		annotated_body
-	end
+		ranges = segments.keys.sort_by { |key| key.first }
 
-	def annotation_loop(document, annotations, annotated_body)
+		ranges.each_with_index do |range, index|
+			annotated = document.range_substring(range)
+			anns = [*segments[range]]
+			annotated_body += annotation_link(anns, annotated)
 
-		annotations.each_with_index do |ann, index|
-			before = document.body[0..ann.start_location - 1]
-			annotated = document.body[ann.start_location..ann.end_location]
-
-			annotated_body += annotation_link(ann, annotated)
-
-			if ann == annotations.last && ann.end_location < document.body.length - 1
-				annotated_body += document.substring(annotations.last.end_location + 1, document.body.length)
-
-			elsif ann != annotations.last && ann.end_location < annotations[index + 1].start_location
-				if annotations[index + 1].start_location - ann.end_location > 0
-
-					annotated_body += document.substring(ann.end_location + 1, annotations[index + 1].start_location)
+			if range == ranges.last && range.last < document.body.length - 1
+				annotated_body += document.substring(range.last + 1, document.body.length)
+			elsif range != ranges.last && range.last < ranges[index+1].first
+				if ranges[index+1].first - range.last > 0  
+					annotated_body += document.substring(range.last + 1, ranges[index + 1].first)
 				end
 			end
 		end
@@ -37,13 +33,20 @@ module DocumentsHelper
 		return annotated_body
 	end
 
-	def annotation_link(annotation, annotated)
+	def annotation_link(annotations, annotated)
+		ids = "("
+		annotations.each do |ann|
+			ids += ann.id.to_s
+			ids += "," unless ann == annotations.last
+		end
+		ids += ")"
+
 
 		a_class = "annotation"
-		a_class += " my_annotation" if current_user && current_user.id == annotation.user_id
-		a_url = annotation_url(annotation.id)
+		# a_class += " my_annotation" if current_user && current_user.id == annotation.user_id
+		a_url = annotation_url(annotations.first.id)
 
-		return "<span class='annotation'><a class='annotation-link' href=" + annotation_url(annotation.id) + ">" + annotated + "</a></span>"
+		return "<span class='annotation'><a class='annotation-link' href=" + a_url +"?ids=#{ids}" + ">" + annotated + "</a></span>"
 	end
 
 end

@@ -9,6 +9,10 @@ class Document < ActiveRecord::Base
     self.body[starting...ending]
   end
 
+  def range_substring(range)
+  	self.body[range]
+  end
+
   def annotation_ranges
 
     anns = self.annotations

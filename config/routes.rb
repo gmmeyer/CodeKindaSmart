@@ -10,7 +10,6 @@ CodeKindaSmart::Application.routes.draw do
   end
   resources :annotations, only: [:show, :destroy]
 
-
   resource :session, only: [:new, :create, :destroy]
 
   root to: "documents#index"

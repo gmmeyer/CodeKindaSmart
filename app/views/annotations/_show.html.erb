@@ -1,0 +1,18 @@
+<article class="document-annotated group">
+
+	<section class="article">
+
+		<%= render partial: "documents/document", locals: {document: @document} %>
+		
+	</section>
+
+
+	<section class="annotation">
+		<a href="<%= document_url(@annotation.document_id) %>"></a>
+		<h2 class="annotation-title"><%= @annotation.title %></h2>
+
+
+		<p class="annotation-body"> <%= @annotation.body %> </p>
+	</section>	
+
+</article>

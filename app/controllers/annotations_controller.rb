@@ -3,8 +3,11 @@ class AnnotationsController < ApplicationController
 	end
 
 	def show
-		@annotation = Annotation.find(params[:id])
-		@document = Document.find(@annotation.document_id)
+		@annotations = Annotation.where("id IN #{params[:ids]}")
+
+		puts "==================="
+		puts @annotations.first.document_id
+		@document = Document.find(@annotations.first.document_id)
 		render :show
 	end
 
