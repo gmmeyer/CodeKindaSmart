@@ -1,38 +1,35 @@
 module DocumentsHelper
 
-	def annotate_document(id)
+	def annotate_document(document, annotations)
 
-		@document = Document.find(id) # not the responsibility of the doc to do this
-		@annotations = @document.annotations.order("start_location ASC") # prefetch the annotations for this, document.includes
+		return document.body if annotations.empty?
 
-		return @document.body if @annotations.empty?
+		annotated_body = ""
 
-		annotated_body = "" #take this out and put it on the page
-
-		if @annotations.first.start_location >= 1
-			annotated_body += @document.substring(0, @annotations.first.start_location) 
+		if annotations.first.start_location >= 1
+			annotated_body += document.substring(0, annotations.first.start_location) 
 		end
 
-		annotated_body = annotation_loop(annotated_body)
+		annotated_body = annotation_loop(document, annotations, annotated_body)
 
 		annotated_body
 	end
 
-	def annotation_loop(annotated_body)
+	def annotation_loop(document, annotations, annotated_body)
 
-		@annotations.each_with_index do |ann, index|
-			before = @document.body[0..ann.start_location - 1]
-			annotated = @document.body[ann.start_location..ann.end_location]
+		annotations.each_with_index do |ann, index|
+			before = document.body[0..ann.start_location - 1]
+			annotated = document.body[ann.start_location..ann.end_location]
 
 			annotated_body += annotation_link_start(ann, annotated)
 
-			if ann == @annotations.last && ann.end_location < @document.body.length - 1
-				annotated_body += @document.substring(@annotations.last.end_location + 1, @document.body.length)
+			if ann == annotations.last && ann.end_location < document.body.length - 1
+				annotated_body += document.substring(annotations.last.end_location + 1, document.body.length)
 
-			elsif ann != @annotations.last && ann.end_location < @annotations[index + 1].start_location
-				if @annotations[index + 1].start_location - ann.end_location > 0
+			elsif ann != annotations.last && ann.end_location < annotations[index + 1].start_location
+				if annotations[index + 1].start_location - ann.end_location > 0
 
-					annotated_body += @document.substring(ann.end_location + 1, @annotations[index + 1].start_location)
+					annotated_body += document.substring(ann.end_location + 1, annotations[index + 1].start_location)
 				end
 			end
 		end
