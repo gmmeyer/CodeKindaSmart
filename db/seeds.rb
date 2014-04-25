@@ -21,6 +21,13 @@ User.create(username: 'greg', email: 'greg@greg.com', password: 'password', pass
 
 me = User.find_by(username: 'greg')
 
+author_names = Array.new(3, "Michael")
+author_location = Array.new(3, "New York")
+
+3.times do |i|
+	Author.create(name: author_names[i], location: author_location[i])
+end
+
 
 docs = Document.new
 
@@ -29,7 +36,7 @@ bodies = Array.new(3, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit,
 
 bodies.length.times do |i|
 
-  Document.create(title: i.to_s + titles[i], body: i.to_s + bodies[i], user_id: me.id)
+  Document.create(title: i.to_s + titles[i], body: i.to_s + bodies[i], user_id: me.id, author_id: Author.first.id)
 
 end
 
@@ -43,5 +50,5 @@ doc = Document.all.first
 
 
 annotations.length.times do |i|
-	Annotation.create(start_location: start_locations[i], end_location: end_locations[i], user_id: me.id, document_id: doc.id, title: titles[i], body: annotations[i] )
+	Annotation.create(start_location: start_locations[i], end_location: end_locations[i], user_id: me.id, document_id: doc.id, title: titles[i], body: annotations[i])
 end

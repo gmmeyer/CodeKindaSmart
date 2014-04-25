@@ -70,3 +70,44 @@ form.new-document {
 //  margin: auto;
   border-radius: 5px;
 }
+
+
+article.standalone-document {
+	display: inline-block;
+	width: 400px;
+}
+
+.standalone-document > section.document-title {
+
+	margin: 20px auto;
+	padding: auto;
+	border: 2px solid #00524F;
+
+	text-align: center;
+
+}
+
+.standalone-document > .document-title > h2 > a {
+	margin: 0;
+	display: block;
+	padding: 30px auto;
+}
+
+.standalone-document > .break {
+	width: 400px;
+	height: 20px;
+
+}
+
+.standalone-document > .document-body {
+
+	display: block;
+
+	margin: auto;
+	padding: auto;
+	border: 2px solid #00524F;
+
+	
+
+}
+

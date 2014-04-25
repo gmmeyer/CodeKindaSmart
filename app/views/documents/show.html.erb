@@ -1,8 +1,16 @@
 <section class="articles">
+  
+  <article class="standalone-document group">
+    <section class="document-title group">
+      <%= render partial: "document_title", locals: {document: @document} %>
+    </section>
 
-
-  <%= render partial: "document", locals: {document: @document} %>
-
+    <section class="break"></section>
+    
+    <section class="document-body group">
+      <%= render partial: "document_body", locals: {document: @document} %>    
+    </section>
+  </article>
 
   <% if  current_user %>
 
@@ -40,4 +48,4 @@
 
   <% end %>
 
-<section class="articles">
+</section>

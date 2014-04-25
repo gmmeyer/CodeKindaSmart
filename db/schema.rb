@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140425173121) do
+ActiveRecord::Schema.define(version: 20140425182431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20140425173121) do
   add_index "annotations", ["user_id"], name: "index_annotations_on_user_id", using: :btree
 
   create_table "authors", force: true do |t|
-    t.string   "name"
+    t.string   "name",        null: false
     t.text     "description"
     t.string   "location"
     t.integer  "user_id"
@@ -42,15 +42,18 @@ ActiveRecord::Schema.define(version: 20140425173121) do
     t.datetime "updated_at"
   end
 
+  add_index "authors", ["name"], name: "index_authors_on_name", unique: true, using: :btree
+  add_index "authors", ["user_id"], name: "index_authors_on_user_id", using: :btree
+
   create_table "documents", force: true do |t|
     t.string   "title",        null: false
     t.text     "summary"
     t.text     "body",         null: false
     t.datetime "release_date"
     t.integer  "user_id",      null: false
+    t.integer  "author_id",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "author_id"
   end
 
   add_index "documents", ["author_id"], name: "index_documents_on_author_id", using: :btree
@@ -58,17 +61,22 @@ ActiveRecord::Schema.define(version: 20140425173121) do
   add_index "documents", ["title"], name: "index_documents_on_title", unique: true, using: :btree
   add_index "documents", ["user_id"], name: "index_documents_on_user_id", using: :btree
 
+  create_table "notifications", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "username",        null: false
     t.string   "email",           null: false
     t.string   "password_digest", null: false
-    t.string   "session_token"
+    t.string   "token"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["session_token"], name: "index_users_on_session_token", using: :btree
+  add_index "users", ["token"], name: "index_users_on_token", using: :btree
   add_index "users", ["username", "password_digest"], name: "index_users_on_username_and_password_digest", using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 

@@ -2,7 +2,17 @@
 
 	<section class="articles">
 
-		<%= render partial: "documents/document", locals: {document: @document} %>
+	 <article class="standalone-document group">
+	  <section class="document-title group">
+	    <%= render partial: "documents/document_title", locals: {document: @document} %>
+	  </section>
+
+	  <section class="break"></section>
+	  
+	  <section class="document-body group">
+	    <%= render partial: "documents/document_body", locals: {document: @document} %>    
+	  </section>
+	</article>
 
 	</section>
 

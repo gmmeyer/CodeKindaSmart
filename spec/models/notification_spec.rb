@@ -1,4 +1,4 @@
 require 'spec_helper'
 
-describe Annotation do
+describe Notification do
 end

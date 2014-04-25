@@ -3,7 +3,7 @@ They will automatically be included in application.css.
 You can use Sass (SCSS) here: http://sass-lang.com/ */
 
 form.new-user {
-  background: #fff;
+  background: #000;
   padding: 50px;
   width: 300px;
   margin: 50px auto;
@@ -25,7 +25,7 @@ section.new-user-page > form > h2 {
 }
 
 .input > input {
-  border: 3px solid #000;
+  border: 3px solid #fff;
   padding: 5px;
   width: 284px;
   border-radius: 5px;
@@ -39,7 +39,7 @@ section.new-user-page > form > h2 {
   position: relative;
   display: inline-block;
   background: #0c0;
-  color: #fff;
+  color: #000;
   padding: 10px 20px;
   border-radius: 5px;
   font-weight: bold;
