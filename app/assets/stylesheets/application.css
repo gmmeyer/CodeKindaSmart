@@ -57,7 +57,7 @@ ul.dropdown {
 }
 
 .header {
-	border: 3px groove #FF7100;
+	border: 3px groove #FFF500;
 	border-radius: 10px;
 	margin: auto 20px;
 }
@@ -111,12 +111,12 @@ section.articles {
 
 p.error {
 	display: block;
-	border: red dotted 2px;
-	color: red;
+	border: #FF7100 dotted 2px;
+	color: #FF7100;
 }
 
 p.notice {
 	display: block;
-	border: green dotted 2px;
-	color: green;
+	border: #00C6BE dotted 2px;
+	color: #00C6BE;
 }

@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       login!(@user)
+      flash[:notices] = ["Welcome to Rap Kinda Smart #{@user.username}, and congratulations on your new account!"]
       redirect_to root_url
     else
       flash.now[:errors] = @user.errors.full_messages
@@ -34,7 +35,7 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    # unfinished. 
+    # unfinished.
     raise "DO NOT USE THIS IS NOT FINISHED"
   end
 

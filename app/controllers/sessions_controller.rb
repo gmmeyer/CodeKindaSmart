@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
     @user = User.find_by_credentials(params[:user][:username], params[:user][:password])
     if @user
       login!(@user)
+      flash[:notices] = ["Welcome to Rap Kinda Smart, #{@user.username}!"]
       redirect_to root_url
     else
       flash.now[:errors] = ['Invalid username or password.']

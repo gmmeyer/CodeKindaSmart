@@ -15,6 +15,7 @@ class AnnotationsController < ApplicationController
 	def create
 		@annotation = Annotation.new(annotation_params)
 		if @annotation.save
+			flash[:notices] = ["You made an annotation!"]
 			redirect_to document_url(@annotation.document_id)
 		else
 			flash.now[:errors] = @annotation.errors.full_messages

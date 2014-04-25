@@ -15,9 +15,8 @@ class DocumentsController < ApplicationController
 
   def create
     @document = Document.new(document_params)
-    puts @document
-    puts document_params
     if @document.save
+      flash[:notices] = ["You've created #{@document.title}!"]
       redirect_to document_url(@document.id)
     else
       flash.now[:errors] = @document.errors.full_messages
