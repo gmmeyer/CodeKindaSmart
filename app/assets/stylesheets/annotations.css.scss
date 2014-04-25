@@ -1,6 +1,6 @@
-// Place all the styles related to the annotations controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/* Place all the styles related to the annotations controller here.
+They will automatically be included in application.css.
+You can use Sass (SCSS) here: http://sass-lang.com/ */
 
 a.annotation-link:link {
 	color: #FFF500;
@@ -15,7 +15,6 @@ a.annotation-link:hover {
 	background: #FFF500;
 	color: black;
 }
-
 
 .annotation-title {
 	display: block;
@@ -53,8 +52,6 @@ article.document-annotated {
 
 form.new-annotation {
   background: #fff;
-//  padding: 50px;
-//  width: 300px;
   margin: auto;
   border-radius: 5px;
 }
