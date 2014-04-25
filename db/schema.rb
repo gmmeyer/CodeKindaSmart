@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20140422235721) do
   enable_extension "plpgsql"
 
   create_table "annotations", force: true do |t|
-    t.text     "title",          null: false
+    t.string   "title",          null: false
     t.text     "body",           null: false
     t.integer  "user_id",        null: false
     t.integer  "document_id",    null: false
@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(version: 20140422235721) do
   add_index "annotations", ["user_id"], name: "index_annotations_on_user_id", using: :btree
 
   create_table "documents", force: true do |t|
-    t.text     "title",        null: false
+    t.string   "title",        null: false
     t.text     "summary"
     t.text     "body",         null: false
-    t.text     "author"
+    t.string   "author"
     t.datetime "release_date"
     t.integer  "user_id",      null: false
     t.datetime "created_at"
