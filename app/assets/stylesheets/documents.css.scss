@@ -64,11 +64,35 @@ form.new-annotation {
 }
 
 form.new-document {
-  background: #fff;
-//  padding: 50px;
-//  width: 300px;
-//  margin: auto;
+		background-color: #5B3779;
   border-radius: 5px;
+  display: block;
+}
+
+label.new-document {
+	color: #307371;
+	display: block;
+	margin: auto;
+}
+
+input.new-document {
+	background-color: #5B3779;
+	display: block;
+	margin: 10px auto;
+	float: left;
+	padding: auto 5px;
+	border-radius: 10px;
+	height: 40px;
+}
+
+textarea.new-document {
+	color: #000;
+	display: block;
+	margin: 10px auto;
+	float: left;
+	padding: auto;
+	border-radius: 10px;
+	width: 650px;
 }
 
 
@@ -78,13 +102,11 @@ article.standalone-document {
 }
 
 .standalone-document > section.document-title {
-
 	margin: 20px auto;
 	padding: auto;
 	border: 2px solid #00524F;
 
 	text-align: center;
-
 }
 
 .standalone-document > .document-title > h2 > a {
@@ -106,8 +128,5 @@ article.standalone-document {
 	margin: auto;
 	padding: auto;
 	border: 2px solid #00524F;
-
-	
-
 }
 

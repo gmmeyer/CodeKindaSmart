@@ -28,7 +28,7 @@ input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="submit"],
-textarea {
+input[type="textarea"] {
   -webkit-appearance: none;
   box-sizing: content-box;
   display: inline-block;
@@ -108,24 +108,32 @@ ul.dropdown > li {
 }
 
 nav.nav {
+  display: block;
 	border: 3px groove #FFF500;
 	border-radius: 10px;
+  margin: auto;
+  padding: auto;
+  height: 30px;
 /*	margin: auto 40px;*/
 }
 
-.nav > ul {
+nav.nav > ul.nav-alpha {
   list-style-type: none;
-  display: block;
-}
-
-ul.nav-alpha {
   display: block;
   float: left;
 }
 
-ul.nav-beta {
+nav.nav > ul.nav-beta {
+  list-style-type: none;
   display: block;
   float: right;
+}
+
+nav.nav > .nav-alpha > li > a.nav-link {
+  display: block;
+  float: left;
+  padding: 10px 5px;
+  margin: auto;
 }
 
 section.body {
@@ -137,7 +145,7 @@ a.login-link {
   display: block;
   padding: 12px;
   float: right;
-  margin: auto 5px;
+  margin: auto;
 }
 
 section.settings {
