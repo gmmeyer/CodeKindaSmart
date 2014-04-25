@@ -1,20 +1,18 @@
 module DocumentsHelper
 
 
-	def annotate_document(document, annotations)
+	def annotate_document(document)
 		segments = document.segments
 
 		return document.body if segments.empty?
 
 		annotated_body = ""
 
-		if segments.first.first.first > 0
-			annotated_body += document.substring(0, segments.first.first.first)
-		end
-
-		puts segments
-
 		ranges = segments.keys.sort_by { |key| key.first }
+
+		if ranges.first.first > 0
+			annotated_body += document.substring(0, ranges.first.first)
+		end
 
 		ranges.each_with_index do |range, index|
 			annotated = document.range_substring(range)
@@ -29,6 +27,8 @@ module DocumentsHelper
 				end
 			end
 		end
+
+		puts annotated_body
 
 		return annotated_body
 	end
