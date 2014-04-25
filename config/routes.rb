@@ -4,11 +4,10 @@ CodeKindaSmart::Application.routes.draw do
     member do
       get "settings"
     end
-    resources :documents, only: [:new, :create]
+    resources :documents, only: [:create]
   end
-
-
-  resources :documents, only: [:index, :show, :destroy, :edit, :update] do
+  
+  resources :documents, only: [:new, :index, :show, :destroy, :edit, :update] do
     resources :annotations, only: [:index, :edit, :new, :create]
   end
   resources :annotations, only: [:show, :destroy, :update]

@@ -10,7 +10,13 @@ class DocumentsController < ApplicationController
   end
 
   def new
-    @document = Document.new
+    if current_user
+      @document = Document.new
+      render :new
+    else
+      flash[:notices] = ["You have to log in to contribute!"]
+      redirect_to new_session_url
+    end
   end
 
   def create

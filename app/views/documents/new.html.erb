@@ -2,7 +2,7 @@
 
   <h2 class='page-title group'> New Document </h2>
 
-  <form action="<%= user_documents_url %>" method='post' class='new-document'>
+  <form action="<%= user_documents_url(current_user.id) %>" method='post' class='new-document'>
   	<%= token_tag nil %>
 
   	<input type=hidden name='document[user_id]' value='<%= current_user.id %>'>
