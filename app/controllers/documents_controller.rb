@@ -20,7 +20,7 @@ class DocumentsController < ApplicationController
     if @document.save
       redirect_to document_url(@document.id)
     else
-      flash[:errors] = @document.errors.full_messages
+      flash.now[:errors] = @document.errors.full_messages
       render :new
     end
   end

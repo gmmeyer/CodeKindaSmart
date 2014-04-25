@@ -4,9 +4,6 @@ class AnnotationsController < ApplicationController
 
 	def show
 		@annotations = Annotation.where("id IN #{params[:ids]}")
-
-		puts "==================="
-		puts @annotations.first.document_id
 		@document = Document.find(@annotations.first.document_id)
 		render :show
 	end
@@ -20,7 +17,7 @@ class AnnotationsController < ApplicationController
 		if @annotation.save
 			redirect_to document_url(@annotation.document_id)
 		else
-			flash[:errors] = @annotation.errors.full_messages
+			flash.now[:errors] = @annotation.errors.full_messages
 			render :new
 		end
 	end
