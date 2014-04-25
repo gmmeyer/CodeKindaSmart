@@ -12,7 +12,7 @@
  *= require_tree .
  */
 
-h1, h2, h3, p, div, a, html {
+h1, h2, h3, p, div, a, html, section, article, ul, li {
 	font: inherit;
 	padding: 0;
 	margin: 0;
@@ -46,14 +46,26 @@ a:hover {
 	color: yellow;
 }
 
+.header-wrapper{
+}
+
+ul.dropdown {
+	display: none;
+	float: left;
+	width: 0;
+	height: 0;
+}
+
 .header {
 	border: 3px groove #FF7100;
 	border-radius: 10px;
+	margin: auto 20px;
 }
 
 .header > h1 {
 	font-size: 35px;
 	float: left;
+	margin: auto 5px;
 }
 
 section.login {
@@ -85,4 +97,26 @@ a.settings {
 	display: block;
 	font-size: x-large;
 	margin: 25px auto;
+}
+
+section.articles {
+	display: block;
+	margin: auto 25px;
+}
+
+.notices {
+	display: block;
+	margin: auto 25px;
+}
+
+p.error {
+	display: block;
+	border: red dotted 2px;
+	color: red;
+}
+
+p.notice {
+	display: block;
+	border: green dotted 2px;
+	color: green;
 }

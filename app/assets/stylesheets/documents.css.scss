@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-section.articles {
+section.index {
 	display: block;
 	float: left;
 	width: 700px;
@@ -13,11 +13,15 @@ article.document {
 	width: 300px;
 }
 
-.document-title {
+h2.document-title {
 	display: block;
-	float: left;
+	float: center;
+	text-align: left;
 	font-size: 25px;
 	margin: 10px auto;
+}
+
+a.document-title {
 }
 
 .document-title > a:link {
