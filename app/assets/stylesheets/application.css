@@ -111,9 +111,9 @@ nav.nav {
   display: block;
 	border: 3px groove #FFF500;
 	border-radius: 10px;
-  margin: auto;
-  padding: auto;
-  height: 30px;
+  /*margin: auto;*/
+  /*padding: auto;*/
+  /*height: 30px;*/
 /*	margin: auto 40px;*/
 }
 
@@ -121,6 +121,7 @@ nav.nav > ul.nav-alpha {
   list-style-type: none;
   display: block;
   float: left;
+  margin: auto 10px;
 }
 
 nav.nav > ul.nav-beta {
@@ -132,7 +133,8 @@ nav.nav > ul.nav-beta {
 nav.nav > .nav-alpha > li > a.nav-link {
   display: block;
   float: left;
-  padding: 10px 5px;
+  font-size: 15px;
+  padding: 5px 5px;
   margin: auto;
 }
 
