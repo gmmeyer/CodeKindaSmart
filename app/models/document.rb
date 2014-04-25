@@ -1,9 +1,10 @@
 class Document < ActiveRecord::Base
-  validates :title, :body, :user_id, presence: true
+  validates :title, :body, :user_id, :author_id, presence: true
   validates :title, uniqueness: true
 
   belongs_to :user
   has_many :annotations, dependent: :destroy
+  belongs_to :author
 
   def substring(starting, ending)
     self.body[starting...ending]

@@ -3,24 +3,23 @@ class User < ActiveRecord::Base
 
   validates :password, length: { minimum: 6 }, allow_nil: true
   validates :username, :email, uniqueness: true
-  validates :username, :session_token, presence: true
-  before_validation :ensure_session_token
+  validates :username, :token, presence: true
+  before_validation :ensure_token
 
   has_many :documents, dependent: :destroy
   has_many :annotations, dependent: :destroy
 
-  def self.generate_session_token
+  def self.generate_token
     SecureRandom.urlsafe_base64(32)
   end
 
   def self.find_by_credentials(username, password)
     @user = User.find_by(username: username)
-
     return @user.authenticate(password)
   end
 
-  def reset_session_token!
-    self.session_token = self.class.generate_session_token
+  def reset_token!
+    self.token = self.class.generate_token
     self.save!
   end
 
@@ -29,8 +28,9 @@ class User < ActiveRecord::Base
   end
 
   private
-  def ensure_session_token
-    self.session_token ||= self.class.generate_session_token
+
+  def ensure_token
+    self.token ||= self.class.generate_token
   end
 
 end
