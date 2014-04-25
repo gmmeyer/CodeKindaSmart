@@ -49,6 +49,9 @@ Some things to do for the future in documents:
 	* This is good, because you can post shit that is not, so to speak, yours.
 	* This is for later, not for now
 
+####Add These to the Database
+* add_column :users, :location
+
 
 #### Things to fix.
 * Add regex to check email format.
