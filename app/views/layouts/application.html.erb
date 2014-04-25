@@ -7,27 +7,42 @@
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
-		<header class="header group">
-			<h1 class="header-title"><a href="<%= root_url %>">Rap Kinda Smart</a></h1>
-			
-			<section class='login'>
-				<% if current_user %>
-					<p class='welcome'>Welcome! <%= current_user.username %></p>
-					<%= button_to "Log Out", session_url, method: :delete %>
-				<% else %>
-					<a href='<%= new_session_url %>' class='login-link group'>Login</a>
-					<a href='<%= new_user_url %>' class='login-link group'>Sign Up</a>
-				<% end %>
-			</section>
-
-
-			<section class="settings">
-				<% if current_user %>
-					<a class="settings" href="<%= settings_user_url(current_user.id) %>">Settings</a>
-				<% end %>
+		<header class="header-wrapper group">
+<!-- 			<section class="dropdown">
+				<ul>
+					<li>
+						
+					</li>
+					<li>
+						
+					</li>
+					<li>
+						
+					</li>
+				</ul>
+			</section> -->
+			<section class="header group">
+				<h1 class="header-title"><a href="<%= root_url %>">Rap Kinda Smart</a></h1>
 				
-			</section>
+				<section class='login'>
+					<% if current_user %>
+						<p class='welcome'>Welcome! <%= current_user.username %></p>
+						<%= button_to "Log Out", session_url, method: :delete %>
+					<% else %>
+						<a href='<%= new_session_url %>' class='login-link group'>Login</a>
+						<a href='<%= new_user_url %>' class='login-link group'>Sign Up</a>
+					<% end %>
+				</section>
 
+
+				<section class="settings">
+					<% if current_user %>
+						<a class="settings" href="<%= settings_user_url(current_user.id) %>">Settings</a>
+					<% end %>
+					
+				</section>
+
+			</section>
 		</header>
 		<section class="notices">
 			<% if flash[:errors] %>
@@ -40,14 +55,17 @@
 			<% elsif flash[:notices] %>
 
 				<% flash[:notices].each do |msg| %>
-					<p class='error'>
+					<p class='notice'>
 						<%= msg %>
 					</p>
 				<% end %>
 			<% end %>
 		</section>
 
+		<section class="articles">
 
-		<%= yield %>
+			<%= yield %>
+
+		</section>
 	</body>
 </html>
