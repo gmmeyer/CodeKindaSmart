@@ -20,6 +20,10 @@
 * Change the routes to make it just user/settings. Get rid of the :id.
 
 
+###
+* Need to do inclues in the controller methods
+
+
 ###Database
 
 ####Annotations
