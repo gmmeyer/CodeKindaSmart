@@ -244,6 +244,7 @@ input.log-out {
 }
 
 p.error {
+  margin: 5px auto;
 	display: block;
 	border: #FF7100 dotted 2px;
 	color: #FF7100;
@@ -252,6 +253,7 @@ p.error {
 }
 
 p.notice {
+  margin: 5px auto;
 	display: block;
 	border: #00C6BE dotted 2px;
 	color: #00C6BE;
