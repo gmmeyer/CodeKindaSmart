@@ -1,21 +1,25 @@
-<h2 class='page-title group'> New Document </h2>
+<section class="articles">
 
-<form action="<%= user_documents_url %>" method='post' class='new-document'>
-	<%= token_tag nil %>
+  <h2 class='page-title group'> New Document </h2>
 
-	<input type=hidden name='document[user_id]' value='<%= current_user.id %>'>
+  <form action="<%= user_documents_url %>" method='post' class='new-document'>
+  	<%= token_tag nil %>
 
-	<vbox class='group'>
-		<label for='document-title' class='new-document group'>Enter the title of your document:</label>
-		<input type='text' name='document[title]' class='new-document group' id='document-title'>
-	</vbox>
+  	<input type=hidden name='document[user_id]' value='<%= current_user.id %>'>
+
+  	<vbox class='group'>
+  		<label for='document-title' class='new-document group'>Enter the title of your document:</label>
+  		<input type='text' name='document[title]' class='new-document group' id='document-title'>
+  	</vbox>
 
 
-	<vbox class='group'>
-		<label for='new-document' class='new-document group' value='Enter your document here:'>Enter your document here:</label>
-		<textarea id='new-document' class='new-document group' name=document[body] value='' multiline='true' rows='40' cols='100'></textarea>
-	</vbox>
+  	<vbox class='group'>
+  		<label for='new-document' class='new-document group' value='Enter your document here:'>Enter your document here:</label>
+  		<textarea id='new-document' class='new-document group' name=document[body] value='' multiline='true' rows='40' cols='100'></textarea>
+  	</vbox>
 
-	<input type='submit' class='button group' value='Submit'>
+  	<input type='submit' class='button group' value='Submit'>
 
-</form>
+  </form>
+
+<section class="articles">

@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+section.articles {
+	display: block;
+	margin: auto 25px;
+  float: left;
+  width: 700px;
+}
+
 section.index {
 	display: block;
 	float: left;
@@ -54,4 +61,12 @@ label.new-document{
 form.new-annotation {
 	display: block;
 	margin: 25px auto;
+}
+
+form.new-document {
+  background: #fff;
+//  padding: 50px;
+//  width: 300px;
+//  margin: auto;
+  border-radius: 5px;
 }
