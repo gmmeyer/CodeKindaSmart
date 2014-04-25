@@ -68,23 +68,42 @@ a:hover {
 .header-wrapper{
 }
 
-ul.dropdown {
+.dropdown > ul {
 	display: none;
 	float: left;
 	width: 0;
 	height: 0;
+  list-style-type: none;
+}
+
+ul.dropdown > li {
+
+}
+
+.header-wrapper {
+  margin: auto 20px;
 }
 
 .header {
 	border: 3px groove #FFF500;
 	border-radius: 10px;
-	margin: auto 20px;
 }
 
 .header > h1 {
 	font-size: 35px;
 	float: left;
 	margin: auto 5px;
+}
+
+nav.nav {
+	border: 3px groove #FFF500;
+	border-radius: 10px;
+	margin: auto 40px;
+}
+
+.nav > ul.nav {
+  list-style-type: none;
+  display: block;
 }
 
 section.body {
