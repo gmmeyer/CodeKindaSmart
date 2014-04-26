@@ -14,19 +14,21 @@ class DocumentsController < ApplicationController
       @document = Document.new
       render :new
     else
-      flash[:notices] = ["You have to log in to contribute!"]
+      flash[:errors] = ["You have to log in to contribute!"]
       redirect_to new_session_url
     end
   end
 
   def create
-
     @document = Document.new(document_params)
-
     @author = find_or_create_author
     
     if @document.save
-      flash[:notices] = ["You've created #{@document.title}!"]
+      if flash[:notices]
+        flash[:notices] << "You've created #{@document.title}!"
+      else
+        flash[:notices] = ["You've created #{@document.title}!"]
+      end
       redirect_to document_url(@document.id)
     else
       flash.now[:errors] = @document.errors.full_messages
@@ -46,10 +48,12 @@ class DocumentsController < ApplicationController
   private
 
   def find_or_create_author
-    @author = Author.find_by(name: author_params[name])
-    unless @author
-      @author = Author.new(author_params)
-      unless @author.save
+    author = Author.find_by(name: author_params[name])
+    unless author
+      author = Author.new(author_params)
+      if author.save
+        flash.now[:notices] = ["You've created a new author: #{author.name}!"]
+      else
         flash.now[:errors] = author.errors.full_messages
         render :new
       end
