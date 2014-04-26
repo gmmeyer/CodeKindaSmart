@@ -4,7 +4,8 @@ class AnnotationsController < ApplicationController
 
 	def show
 		@annotations = Annotation.where("id IN #{params[:ids]}")
-		@document = Document.find(@annotations.first.document_id)
+		@document = Document.includes(:author).find(@annotations.first.document_id)
+		@document.annotation_segments = @document.segments
 		render :show
 	end
 

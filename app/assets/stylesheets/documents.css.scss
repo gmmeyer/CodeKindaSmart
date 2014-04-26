@@ -5,8 +5,8 @@ You can use Sass (SCSS) here: http://sass-lang.com/ */
 section.articles {
 	display: block;
 	margin: auto 25px;
-  float: left;
-  width: 700px;
+ float: left;
+ width: 700px;
 }
 
 section.index {
@@ -109,7 +109,7 @@ article.standalone-document {
 	text-align: center;
 }
 
-.standalone-document > .document-title > h2 > a {
+.document-title a {
 	margin: 0;
 	display: block;
 	padding: 30px auto;

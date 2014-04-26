@@ -1,4 +1,5 @@
 class Document < ActiveRecord::Base
+  attr_accessor :annotation_segments
   validates :title, :body, :user_id, :author_id, presence: true
   validates :title, uniqueness: true
 
@@ -15,7 +16,6 @@ class Document < ActiveRecord::Base
   end
 
   def annotation_ranges
-
     anns = self.annotations
     annotation_hash = {}
 
@@ -86,5 +86,3 @@ class Document < ActiveRecord::Base
 
 
 end
-
-# Document.first.annotation_ranges.select{ |k,v| Document.first.annotations.first.end_location < v.first }

@@ -1,9 +1,7 @@
 module DocumentsHelper
 
 
-	def annotate_document(document)
-		segments = document.segments
-
+	def annotate_document(document, segments)
 		return document.body if segments.empty?
 
 		annotated_body = ""

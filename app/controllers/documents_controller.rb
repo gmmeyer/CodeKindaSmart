@@ -1,12 +1,16 @@
 class DocumentsController < ApplicationController
 
   def show
-    @document = Document.find(params[:id])
+    @document = Document.includes(:author).find(params[:id])
+    @document.annotation_segments = @document.segments
     render :show
   end
 
   def index
-    @documents = Document.all
+    @documents = Document.includes(:author).all
+    @documents.map do |document|
+      document.annotation_segments = document.segments
+    end
   end
 
   def new
@@ -22,10 +26,11 @@ class DocumentsController < ApplicationController
   def create
     @document = Document.new(document_params)
     @author = find_or_create_author
+    @document.author_id = @author.id if @author
     
     if @document.save
       if flash[:notices]
-        flash[:notices] << "You've created #{@document.title}!"
+        flash[:notices] << ["You've created a new document: #{@document.title}!"]
       else
         flash[:notices] = ["You've created #{@document.title}!"]
       end
@@ -46,19 +51,15 @@ class DocumentsController < ApplicationController
   end
 
   private
-
   def find_or_create_author
-    author = Author.find_by(name: author_params[name])
+    author = Author.find_by(name: author_params[:name])
     unless author
       author = Author.new(author_params)
       if author.save
-        flash[:notices] = ["You've created a new author: #{author.name}!"]
-      else
-        flash.now[:errors] = author.errors.full_messages
-        render :new
+        flash[:notices] = ["You've created a new author: <a href='#{author_url(author.id)}'> #{author.name}!</a>".html_safe]
       end
     end
-    return @author
+    return author
   end
 
   def document_params

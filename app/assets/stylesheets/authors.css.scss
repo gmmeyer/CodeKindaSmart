@@ -1,3 +1,38 @@
 // Place all the styles related to the authors controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+section.author {
+	display: block;
+	margin: auto 25px;
+ float: left;
+ width: 700px;
+}
+
+article.standalone-document {
+	display: inline-block;
+	width: 400px;
+}
+
+.standalone-document > section.document-title {
+	margin: 20px auto;
+	padding: auto;
+	border: 2px solid #00524F;
+
+	text-align: center;
+}
+
+.author-name  {
+	margin: 0;
+	display: block;
+	padding: 30px auto;
+}
+
+.author-name a{
+	display: block;
+	padding: 30px auto;
+	margin: 20px auto;
+	border:	2px solid #00524F;
+	font-size: 20px;
+
+}

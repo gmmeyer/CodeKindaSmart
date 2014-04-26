@@ -6,6 +6,8 @@ CodeKindaSmart::Application.routes.draw do
     end
     resources :documents, only: [:create]
   end
+
+  resources :authors, only: [:new, :create, :destroy, :index, :show, :update]
   
   resources :documents, only: [:new, :index, :show, :destroy, :edit, :update] do
     resources :annotations, only: [:index, :edit, :new, :create]

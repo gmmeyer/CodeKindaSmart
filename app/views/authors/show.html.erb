@@ -1,0 +1,23 @@
+<section class="author">
+
+<%= render partial: "author_name", locals: {author: @author} %>
+
+<p>
+Description:
+	<% if @author.description %>
+		<%= @author.description %>
+	<% end %>
+</p>
+
+<p>
+Location:
+<% if @author.location %>
+	<%= @author.location %>
+<% end %>
+</p>
+	
+
+
+</section>
+
+
