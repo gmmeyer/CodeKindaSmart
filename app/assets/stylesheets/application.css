@@ -16,7 +16,7 @@
 
 /*Resets*/
 
-h1, h2, h3, label, form, p, div, a, html, section, article, ul, li {
+h1, h2, h3, label, form, body, p, div, a, html, section, article, ul, li {
 	font: inherit;
 	padding: 0;
 	margin: 0;
