@@ -52,7 +52,7 @@ class DocumentsController < ApplicationController
     unless author
       author = Author.new(author_params)
       if author.save
-        flash.now[:notices] = ["You've created a new author: #{author.name}!"]
+        flash[:notices] = ["You've created a new author: #{author.name}!"]
       else
         flash.now[:errors] = author.errors.full_messages
         render :new
