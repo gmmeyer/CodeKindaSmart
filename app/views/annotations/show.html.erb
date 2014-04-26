@@ -4,13 +4,17 @@
 
 	 <article class="standalone-document group">
 	  <section class="document-title group">
-	    <%= render partial: "documents/document_title", locals: {document: @document} %>
+    <%= render partial: "documents/document_title", locals: {document: @document} %>
 	  </section>
+
+   <section class="author-name group">
+    <%= render partial: "authors/author_name", locals: {author: @document.author} %>      
+   </section>
 
 	  <section class="break"></section>
 	  
 	  <section class="document-body group">
-	    <%= render partial: "documents/document_body", locals: {document: @document} %>    
+    <%= render partial: "documents/document_body", locals: {document: @document} %>    
 	  </section>
 	</article>
 
