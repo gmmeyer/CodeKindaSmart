@@ -3,7 +3,7 @@ They will automatically be included in application.css.
 You can use Sass (SCSS) here: http://sass-lang.com/ */
 
 form.new-user {
-  background: #000;
+  background: #fff;
   padding: 50px;
   width: 300px;
   margin: 50px auto;
@@ -43,7 +43,7 @@ section.new-user-page > form > h2 {
   padding: 10px 20px;
   border-radius: 5px;
   font-weight: bold;
-  box-shadow: 0 3px 0 0 #070;
+  // box-shadow: 0 3px 0 0 #070;
 }
 
 .submit > input:hover {

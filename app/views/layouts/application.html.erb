@@ -7,69 +7,9 @@
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
-		<header class="header-wrapper group">
 
-      <section class="dropdown">
-        <ul>
-          <li>
-
-          </li>
-          <li>
-
-          </li>
-          <li>
-
-          </li>
-        </ul>
-      </section>
-
-			<section class="header group">
-				<h1 class="header-title"><a href="<%= root_url %>">Rap Kinda Smart</a></h1>
-
-				<section class='login'>
-					<% if current_user %>
-
-
-            <form action="<%= session_url %>" method="post" accept-charset="utf-8">
-              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-              <input type="hidden" name="_method" value="delete">
-
-              <p class="button log-out"><input type="submit" value="Log Out" class="button log-out"></p>
-            </form>
-
-            <!-- <p class='welcome user'> -->
-              <a class="settings user" href="<%= settings_user_url(current_user.id) %>">
-                Welcome! <%= current_user.username %>
-              </a>
-            <!-- </p> -->
-
-					<% else %>
-						<a href='<%= new_session_url %>' class='login-link'>Login</a>
-						<a href='<%= new_user_url %>' class='login-link'>Sign Up</a>
-					<% end %>
-				</section>
-			</section>
-      <nav class="nav group">
-
-        <ul class="nav-alpha">
-
-          <li>
-	          	<a class='nav-link' href="<%= new_document_url %>">  
-          		New Document
-	          	</a>
-          </li>
-
-        </ul>
-
-        <ul class="nav-beta">
-	        <li class="nav-link">
-        	
-	        </li>
-        </ul>
-
-      </nav>
-
-		</header>
+	<%= render partial: "shared/header" %>
+	
 		<section class="notices">
 			<% if flash[:errors] %>
 

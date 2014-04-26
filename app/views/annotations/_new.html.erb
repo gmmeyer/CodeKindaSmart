@@ -6,27 +6,29 @@
 		<input type='hidden' name='annotation[document_id]' value='<%= @document.id %>'>
 		<input type='hidden' name='annotation[user_id]' value='<%= current_user.id %>'>
 
-		<div class='input'>
+		<p class='form-field input-field input'>
 			<label for='start-location' class='group'>Start Annotation</label>
 			<input type='text' id='start-location' class='group' name='annotation[start_location]' value='<%= params[annotation: [:start_location]] %>'>
-		</div>
+		</p>
 
-		<div class='input'>
+		<p class='form-field input-field input'>
 			<label for='end-location' class='group'>End Annotation</label>
 			<input type='text' id='end-location' class='group' name='annotation[end_location]' value=''>
-		</div>
+		</p>
 
-		<div class='input'>
+		<p class='form-field input-field input'>
 			<label for="annotation-title" class='group'>Annotation Title</label>
 			<input type='text' id='annotation-title' class='group' name='annotation[title]'>
-		</div>
+		</p>
 
-		<div class='input'>
+		<p class='form-field input-field input'>
 			<label for="annotation-body" class='group'>Annotation Body</label>
 			<textarea name="annotation[body]" id="annotation-body" cols="30" rows="10" multiline='true' class="group"></textarea>		
-		</div>
+		</p>
 
-		<input type='submit' value='submit'>
+		<p class="login-button button form-field">
+			<input type='submit' value='submit'>
+		</p>
 	</form>
 
 	<!-- how do I do css for document styling -->

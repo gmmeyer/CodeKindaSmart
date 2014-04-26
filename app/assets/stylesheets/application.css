@@ -47,12 +47,11 @@ input[type="textarea"] {
 /*Basic Settings*/
 
 body {
-	background: black;
-	color: white;
+	background: white;
+	color: black;
 }
 
 a {
-	color: white;
 	text-decoration: none;
 }
 
@@ -69,167 +68,12 @@ a:visited {
 
 a:hover {
 	font-style: normal;
-	color: yellow;
-}
-
-
-
-.header-wrapper{
-
-  /*Only empty until dropdown navigation is up*/
-
-}
-
-.dropdown > ul {
-  display: none;
-  float: left;
-  width: 0;
-  height: 0;
-  list-style-type: none;
-}
-
-ul.dropdown > li {
-
-}
-
-.header-wrapper {
-  margin: auto 20px;
-}
-
-.header {
-	border: 3px groove #FFF500;
-	border-radius: 10px;
-}
-
-.header > h1 {
-	font-size: 35px;
-	float: left;
-	margin: auto 5px;
-}
-
-nav.nav {
-  display: block;
-	border: 3px groove #FFF500;
-	border-radius: 10px;
-  /*margin: auto;*/
-  /*padding: auto;*/
-  /*height: 30px;*/
-/*	margin: auto 40px;*/
-}
-
-nav.nav > ul.nav-alpha {
-  list-style-type: none;
-  display: block;
-  float: left;
-  margin: auto 10px;
-}
-
-nav.nav > ul.nav-beta {
-  list-style-type: none;
-  display: block;
-  float: right;
-}
-
-nav.nav > .nav-alpha > li > a.nav-link {
-  display: block;
-  float: left;
-  font-size: 15px;
-  padding: 5px 5px;
-  margin: auto;
+	color: #9F3BFF;
 }
 
 section.body {
   display: block;
   margin: auto 20px;
-}
-
-a.login-link {
-  display: block;
-  padding: 12px;
-  float: right;
-  margin: auto;
-}
-
-section.settings {
-	display: block;
-	float: right;
-}
-
-a.settings {
-	display: block;
-	float: right;
-	padding: 12px;
-	margin: auto 15px;
-	left: 10px;
-}
-
-.button {
-  cursor: pointer;
-}
-
-p.welcome {
-  display: block;
-  float: right;
-  padding: 12px;
-  margin: auto 15px;
-}
-
-input.log-out {
-  display: block;
-  float: right;
-  padding: 12px;
-  margin: auto 15px;
-  color: #00C6BE;
-}
-
-.logout:link {
-	color: #00C6BE;
-}
-
-.log-out:hover {
-	font-style: normal;
-	color: yellow;
-}
-
-.input {
-  margin: 20px 0;
-}
-
-.input > label {
-  display: block;
-  font-weight: bold;
-}
-
-.input > input {
-  border: 3px solid #000;
-  padding: 5px;
-  width: 284px;
-  border-radius: 5px;
-}
-
-.input > input:focus {
-  border-color: #0c0;
-}
-
-.submit > input {
-  position: relative;
-  display: inline-block;
-  background: #0c0;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-weight: bold;
-  box-shadow: 0 3px 0 0 #070;
-}
-
-.submit > input:hover {
-  background: #0b0;
-}
-
-.submit > input:active {
-  top: 3px;
-  box-shadow: none;
-  background: #0a0;
 }
 
 .page-title {

@@ -20,29 +20,12 @@ article.document {
 	width: 300px;
 }
 
-h2.document-title {
+.document-title {
 	display: block;
 	float: center;
 	text-align: left;
 	font-size: 25px;
 	margin: 10px auto;
-}
-
-a.document-title {
-}
-
-.document-title > a:link {
-	color: #00C6BE;
-}
-
-.document-title > a:visited {
-	color: #00C6BE;
-}
-
-.document-title > a:hover {
-	font-style: normal;
-	color: yellow;
-	transform: translate(5pxs)
 }
 
 .document-body {
@@ -53,48 +36,6 @@ a.document-title {
 .document-text {
 	display: inline;
 }
-
-label.new-document{
-
-}
-
-form.new-annotation {
-	display: block;
-	margin: 25px auto;
-}
-
-form.new-document {
-		background-color: #5B3779;
-  border-radius: 5px;
-  display: block;
-}
-
-label.new-document {
-	color: #307371;
-	display: block;
-	margin: auto;
-}
-
-input.new-document {
-	background-color: #5B3779;
-	display: block;
-	margin: 10px auto;
-	float: left;
-	padding: auto 5px;
-	border-radius: 10px;
-	height: 40px;
-}
-
-textarea.new-document {
-	color: #000;
-	display: block;
-	margin: 10px auto;
-	float: left;
-	padding: auto;
-	border-radius: 10px;
-	width: 650px;
-}
-
 
 article.standalone-document {
 	display: inline-block;
@@ -109,24 +50,14 @@ article.standalone-document {
 	text-align: center;
 }
 
-.document-title a {
-	margin: 0;
-	display: block;
-	padding: 30px auto;
-}
-
 .standalone-document > .break {
 	width: 400px;
 	height: 20px;
-
 }
 
 .standalone-document > .document-body {
-
 	display: block;
-
 	margin: auto;
 	padding: auto;
 	border: 2px solid #00524F;
 }
-

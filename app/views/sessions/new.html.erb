@@ -6,24 +6,24 @@
 
     <%= token_tag nil %>
 
-    <p class='form_field input'>
-      <label>
+    <p class='form-field input input-field'>
+      <label for='username'>
         username:
-        <input class='input-field' type='text'
+      </label>
+        <input class='' id='username' type='text'
           name='user[username]' value=''>
-      </label>
     </p>
 
-    <p class='form-field input'>
-      <label>
+    <p class='form-field input input-field'>
+      <label for='password'>
         password:
-        <input class='input-field' type='password'
+        </label>
+        <input class='' id='password' type='password'
           name='user[password]' value=''>
-      </label>
     </p>
 
-    <p class='form-field button'>
-      <input class='button' type="submit" value="Continue &rarr;">
+    <p class='login-button button form-field'>
+      <input class='' type="submit" value="Continue &rarr;">
     </p>
   </form>
 </section>
