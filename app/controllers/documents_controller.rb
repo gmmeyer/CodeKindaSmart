@@ -20,7 +20,11 @@ class DocumentsController < ApplicationController
   end
 
   def create
+
     @document = Document.new(document_params)
+
+    @author = find_or_create_author
+    
     if @document.save
       flash[:notices] = ["You've created #{@document.title}!"]
       redirect_to document_url(@document.id)
@@ -41,7 +45,23 @@ class DocumentsController < ApplicationController
 
   private
 
+  def find_or_create_author
+    @author = Author.find_by(name: author_params[name])
+    unless @author
+      @author = Author.new(author_params)
+      unless @author.save
+        flash.now[:errors] = author.errors.full_messages
+        render :new
+      end
+    end
+    return @author
+  end
+
   def document_params
-    params.require(:document).permit(:title,:body,:summary,:author,:release_date, :user_id)
+    params.require(:document).permit(:title,:body,:summary,:author_id,:release_date, :user_id)
+  end
+
+  def author_params
+    params.require(:author).permit(:name)
   end
 end
