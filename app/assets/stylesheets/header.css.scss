@@ -11,16 +11,20 @@
 }
 
 .user-info {
- list-style: none;
-}
-
-.user-info {
+  float: right;
   list-style: none;
 }
 
-li.notifications {
+.user-info > li{
   display: block;
-  float: right;
+  float: left;
+  position: relative;
+}
+
+//Notifications
+
+.notifications > a {
+  display: block;
   padding: 9px;
   margin: 3px 1px;
 }
@@ -35,7 +39,32 @@ li.notifications {
 }
 
 .notifications-dropbown {
+  display: none;
+  position: absolute;
+  left: -3px;
+  background: #fff;
+  border-left: 3px groove #D1A1FF;
+  border-right: 3px groove #D1A1FF;
+  border-bottom: 3px groove #D1A1FF;
   list-style: none;
+}
+
+li:hover > .notifications-dropbown {
+  display: block;
+}
+
+.notifications-dropbown > li {
+  border-top: 3px groove #D1A1FF;
+}
+
+.notifications-dropbown > li > a {
+  display: block;
+  padding: 15px;
+}
+
+.notifications-dropbown > li > a:hover {
+  background: #9F3BFF;
+  color: #fff;
 }
 
 .dropdown > li {
@@ -60,28 +89,28 @@ li.notifications {
 a.login-link {
   display: block;
   padding: 12px;
-  float: right;
   margin: auto;
 }
 
 section.settings {
   display: block;
-  float: right;
 }
 
 a.settings {
   display: block;
-  float: right;
   padding: 12px;
   margin: auto;
 }
 
 p.welcome {
   display: block;
-  float: right;
   padding: 12px;
   margin: auto 15px;
 }
+
+
+// Lower Nav Bar
+
 
 nav.nav {
   display: block;
