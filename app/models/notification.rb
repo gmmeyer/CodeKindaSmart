@@ -9,7 +9,7 @@ class Notification < ActiveRecord::Base
 	EVENT_IDS = EVENTS.invert
 
 	belongs_to :user, inverse_of: :notifications, counter_cache: true
-	belongs_to :notifiable, inverse_of: :notifications, polymorphic: true
+	belongs_to :notifiable, inverse_of: :notifications, polymorphic: true, counter_cache: true
 
 	validates :event_id, inclusion: { in: EVENTS.keys}
 	validates :is_read, inclusion: { in: [true, false]}
@@ -22,7 +22,7 @@ class Notification < ActiveRecord::Base
 	def url
 		case self.event_name
 		when :new_annotation_on_document
-			comment = self.notifiable
+			annotation = self.notifiable
 			document_url(annotation.document_id)
 		end
 	end
@@ -30,7 +30,7 @@ class Notification < ActiveRecord::Base
 	def text
 		case self.event_name
 		when :new_annotation_on_document
-			comment = self.notifiable
+			annotation = self.notifiable
 			annotation_user = annotation.user
 			document = annotation.document
 

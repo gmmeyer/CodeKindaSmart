@@ -18,9 +18,11 @@
 		<h1 class="header-title"><a href="<%= root_url %>">Rap Kinda Smart</a></h1>
 
 		<section>
-			<% if current_user %>
 
-        <ul class="user-info">
+      <ul class="user-info">
+    
+      <% if current_user %>
+
           
           <li>
 
@@ -49,8 +51,8 @@
 
             <% unless current_user.notifications.empty? %>
               <strong class="notification-number"><%= current_user.notifications.unread.size %></strong>
-              <ul>
-                <%= render partial: "notifications/notifications", collection: current_user.notifications.unread %>
+              <ul class="notifications-dropbown">
+                <%= render partial: "notifications/notifications", collection: current_user.notifications.unread, as: :notification %>
               </ul>
               
             <% end %>

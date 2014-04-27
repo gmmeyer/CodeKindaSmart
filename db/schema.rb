@@ -17,14 +17,15 @@ ActiveRecord::Schema.define(version: 20140427021530) do
   enable_extension "plpgsql"
 
   create_table "annotations", force: true do |t|
-    t.string   "title",          null: false
-    t.text     "body",           null: false
-    t.integer  "user_id",        null: false
-    t.integer  "document_id",    null: false
-    t.integer  "start_location", null: false
-    t.integer  "end_location",   null: false
+    t.string   "title",               null: false
+    t.text     "body",                null: false
+    t.integer  "user_id",             null: false
+    t.integer  "document_id",         null: false
+    t.integer  "start_location",      null: false
+    t.integer  "end_location",        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "notifications_count"
   end
 
   add_index "annotations", ["body"], name: "index_annotations_on_body", using: :btree
@@ -34,30 +35,28 @@ ActiveRecord::Schema.define(version: 20140427021530) do
   add_index "annotations", ["user_id"], name: "index_annotations_on_user_id", using: :btree
 
   create_table "authors", force: true do |t|
-    t.string   "name",                null: false
+    t.string   "name",            null: false
     t.text     "description"
     t.string   "location"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "documents_count"
-    t.integer  "notifications_count"
   end
 
   add_index "authors", ["name"], name: "index_authors_on_name", unique: true, using: :btree
   add_index "authors", ["user_id"], name: "index_authors_on_user_id", using: :btree
 
   create_table "documents", force: true do |t|
-    t.string   "title",               null: false
+    t.string   "title",             null: false
     t.text     "summary"
-    t.text     "body",                null: false
+    t.text     "body",              null: false
     t.datetime "release_date"
-    t.integer  "user_id",             null: false
-    t.integer  "author_id",           null: false
+    t.integer  "user_id",           null: false
+    t.integer  "author_id",         null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "annotations_count"
-    t.integer  "notifications_count"
   end
 
   add_index "documents", ["author_id"], name: "index_documents_on_author_id", using: :btree

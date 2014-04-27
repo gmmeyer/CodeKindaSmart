@@ -5,6 +5,7 @@ class Document < ActiveRecord::Base
 
   belongs_to :user
   has_many :annotations, dependent: :destroy
+  
   belongs_to :author, inverse_of: :documents, counter_cache: true
 
   def substring(starting, ending)

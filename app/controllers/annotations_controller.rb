@@ -14,7 +14,7 @@ class AnnotationsController < ApplicationController
 	end
 
 	def create
-		@annotation = Annotation.new(annotation_params)
+		@annotation = current_user.annotations.new(annotation_params)
 		if @annotation.save
 			flash[:notices] = ["You made an annotation!"]
 			redirect_to document_url(@annotation.document_id)
@@ -34,6 +34,6 @@ class AnnotationsController < ApplicationController
 
 	private
 	def annotation_params
-		params.require(:annotation).permit(:title, :body, :user_id, :document_id, :start_location, :end_location)
+		params.require(:annotation).permit(:title, :body, :document_id, :start_location, :end_location)
 	end
 end

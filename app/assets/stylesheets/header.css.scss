@@ -21,16 +21,21 @@
 li.notifications {
   display: block;
   float: right;
-  padding: 12px;
+  padding: 9px;
+  margin: 3px 1px;
 }
 
 .notification-number {
   display: inline;
   background: #333;
-  padding: 2px 5px;
+  padding: 2px 6px;
   border-radius: 15px;
-  font-size: 12px;
+  font-size: 16px;
+  color: #00C6BE;
+}
 
+.notifications-dropbown {
+  list-style: none;
 }
 
 .dropdown > li {
