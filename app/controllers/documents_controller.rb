@@ -32,7 +32,7 @@ class DocumentsController < ApplicationController
     
     if @document.save
       if flash[:notices]
-        flash[:notices] << ["You've created a new document: #{@document.title}!"]
+        flash[:notices] << "You've created a new document: #{@document.title}!"
       else
         flash[:notices] = ["You've created #{@document.title}!"]
       end
