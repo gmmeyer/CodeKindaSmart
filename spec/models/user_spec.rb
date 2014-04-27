@@ -66,7 +66,8 @@ describe User do
 				password: 'password', password_confirmation: 'password'
 		end
 
-		it 'should be valid with a valid email'
+		it 'should be valid with a valid email' do
+		end
 	end
 
 
