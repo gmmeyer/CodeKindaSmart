@@ -7,6 +7,8 @@ CodeKindaSmart::Application.routes.draw do
     resources :documents, only: [:create]
   end
 
+  resources :notifications, only: [:index, :show]
+
   resources :authors, only: [:new, :create, :destroy, :index, :show, :update]
   
   resources :documents, only: [:new, :index, :show, :destroy, :edit, :update] do

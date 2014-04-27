@@ -20,26 +20,61 @@
 		<section class='login'>
 			<% if current_user %>
 
-        <form action="<%= session_url %>" method="post" accept-charset="utf-8">
-          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-          <input type="hidden" name="_method" value="delete">
+        <ul>
+          
+          <li>
 
-          <p class="button log-out">
-            <input type="submit" value="Log Out" class="">
-          </p>
-        </form>
+          <form action="<%= session_url %>" method="post" accept-charset="utf-8">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <input type="hidden" name="_method" value="delete">
 
-        <a class="settings user" href="<%= settings_user_url(current_user.id) %>">
-          Welcome! <%= current_user.username %>
-        </a>
+            <p class="button log-out">
+              <input type="submit" value="Log Out" class="">
+            </p>
+          </form>
+            
+          </li>
 
-        <!-- <p class='welcome user'> -->
-        <!-- </p> -->
+          <li>
+            
+          <a class="settings user" href="<%= settings_user_url(current_user.id) %>">
+            Welcome! <%= current_user.username %>
+          </a>
+            
+          </li>
 
-			<% else %>
-        <a href='<%= new_user_url %>' class='login-link'>Sign Up</a>
-				<a href='<%= new_session_url %>' class='login-link'>Login</a>
-			<% end %>
+          <li>
+            
+            <a href="<%= notifications_url %>">Notifications</a>
+
+            <% unless current_user.notifications.empty? %>
+              <strong><%= current_user.notifications.unread.size %></strong>
+              <ul>
+                <%= render partial: "notifications/notifications", collection: current_user.notifications.unread %>
+              </ul>
+              
+            <% end %>
+
+          </li>
+
+  			<% else %>
+
+          <li>
+            
+          <a href='<%= new_user_url %>' class='login-link'>Sign Up</a>
+            
+          </li>
+
+          <li>
+
+  				<a href='<%= new_session_url %>' class='login-link'>Login</a>
+            
+          </li>
+    
+  			<% end %>
+          
+        </ul>
+
 		</section>
 	</section>
   <nav class="nav group">

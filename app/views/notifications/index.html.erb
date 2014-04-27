@@ -1,0 +1,8 @@
+<h2 class="page-title">Notifications (<%= current_user.notifications.size %>)</h2>
+
+<ul class="notifications">
+
+	<%= render partial: "notifications/notifications", collection: current_user.notifications %>
+	
+
+</ul>
