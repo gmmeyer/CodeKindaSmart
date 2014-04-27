@@ -1,26 +1,12 @@
-<article class="document-annotated group">
+<section class="articles">
+	
+	<article class="document-annotated group">
 
-	<section class="articles">
+		<%= render partial: "documents/standalone_document", locals: {document: @document} %>
 
-	 <article class="standalone-document group">
-	  <section class="document-title group">
-    <%= render partial: "documents/document_title", locals: {document: @document} %>
-	  </section>
-
-   <section class="author-name group">
-    <%= render partial: "authors/author_name", locals: {author: @document.author} %>      
-   </section>
-
-	  <section class="break"></section>
-	  
-	  <section class="document-body group">
-    <%= render partial: "documents/document_body", locals: {document: @document} %>    
+	  <section class="articles">
+	  	<%= render partial: "annotation", collection: @annotations %>
 	  </section>
 	</article>
-
-	</section>
-
-  <section class="articles">
-  	<%= render partial: "annotation", collection: @annotations %>
-  </section>
-</article>
+	
+</section>

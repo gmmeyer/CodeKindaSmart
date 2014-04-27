@@ -11,6 +11,8 @@ class DocumentsController < ApplicationController
     @documents.map do |document|
       document.annotation_segments = document.segments
     end
+
+    
   end
 
   def new

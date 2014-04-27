@@ -28,10 +28,10 @@ article.document {
 	margin: 10px auto;
 }
 
-.document-body {
-	display: block;
-	float: left;
-}
+// .document-body {
+// 	display: block;
+// 	float: left;
+// }
 
 .document-text {
 	display: inline;
@@ -46,7 +46,6 @@ article.standalone-document {
 	margin: 20px auto;
 	padding: auto;
 	border: 2px solid #00524F;
-
 	text-align: center;
 }
 
@@ -55,9 +54,8 @@ article.standalone-document {
 	height: 20px;
 }
 
-.standalone-document > .document-body {
+.document-body {
 	display: block;
 	margin: auto;
-	padding: auto;
 	border: 2px solid #00524F;
 }
