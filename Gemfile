@@ -13,7 +13,6 @@ gem 'jbuilder', '~> 1.2'
 gem 'paperclip'
 gem 'figaro'
 gem 'bcrypt-ruby', '~> 3.1.2'
-gem 'font-awesome-rails'
 
 group :production do
 	gem 'rails_12factor'
