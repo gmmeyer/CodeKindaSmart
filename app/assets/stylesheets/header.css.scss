@@ -10,7 +10,30 @@
   list-style-type: none;
 }
 
-ul.dropdown > li {
+.user-info {
+ list-style: none;
+}
+
+.user-info {
+  list-style: none;
+}
+
+li.notifications {
+  display: block;
+  float: right;
+  padding: 12px;
+}
+
+.notification-number {
+  display: inline;
+  background: #333;
+  padding: 2px 5px;
+  border-radius: 15px;
+  font-size: 12px;
+
+}
+
+.dropdown > li {
 
 }
 

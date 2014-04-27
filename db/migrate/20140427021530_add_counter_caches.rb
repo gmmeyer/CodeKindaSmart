@@ -2,11 +2,11 @@ class AddCounterCaches < ActiveRecord::Migration
   def change
 
   	add_column :users, :notifications_count, :integer
-  	add_column :users, :document_count, :integer
-  	add_column :documents, :annotation_count, :integer
-  	add_column :documents, :notification_count, :integer
-  	add_column :authors, :document_count, :integer
-  	add_column :authors, :notification_count, :integer
+  	add_column :users, :documents_count, :integer
+  	add_column :documents, :annotations_count, :integer
+  	add_column :documents, :notifications_count, :integer
+  	add_column :authors, :documents_count, :integer
+  	add_column :authors, :notifications_count, :integer
 
   end
 end

@@ -3,7 +3,7 @@ class Annotation < ActiveRecord::Base
   validates :title, :body, :user_id, :document_id,
     :start_location, :end_location, presence: true
 
-  belongs_to :document, inverse_of: :annotations, :counter_cache: true
+  belongs_to :document, inverse_of: :annotations, counter_cache: true
   belongs_to :user, inverse_of: :annotations
 
   def range
