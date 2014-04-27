@@ -4,9 +4,15 @@
 
 section.author {
 	display: block;
-	margin: auto 25px;
+	margin: 20px 25px;
  float: left;
  width: 700px;
+ border-radius: 10px;
+ border: 2px solid #00524F;
+}
+
+.author p {
+ margin: 20px 5px;
 }
 
 article.standalone-document {
@@ -14,20 +20,13 @@ article.standalone-document {
 	width: 400px;
 }
 
-// .standalone-document > section.document-title {
-// 	margin: 20px auto;
-// 	padding: auto;
-// 	border: 2px solid #00524F;
-
-// 	text-align: center;
-// }
-
 h2.author-name  {
 	margin: 0;
 	display: block;
 	padding: 30px auto;
 	border:	2px solid #00524F;
 	border-radius: 10px;
+	margin: auto 5px;
 }
 
 .author-name a{
