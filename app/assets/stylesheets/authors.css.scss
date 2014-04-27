@@ -14,25 +14,25 @@ article.standalone-document {
 	width: 400px;
 }
 
-.standalone-document > section.document-title {
-	margin: 20px auto;
-	padding: auto;
-	border: 2px solid #00524F;
+// .standalone-document > section.document-title {
+// 	margin: 20px auto;
+// 	padding: auto;
+// 	border: 2px solid #00524F;
 
-	text-align: center;
-}
+// 	text-align: center;
+// }
 
-.author-name  {
+h2.author-name  {
 	margin: 0;
 	display: block;
 	padding: 30px auto;
+	border:	2px solid #00524F;
+	border-radius: 10px;
 }
 
 .author-name a{
 	display: block;
 	padding: 30px auto;
-	margin: 20px auto;
-	border:	2px solid #00524F;
+	margin: 5px 5px;
 	font-size: 20px;
-
 }

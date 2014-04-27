@@ -20,12 +20,8 @@ article.document {
 	width: 300px;
 }
 
-.document-title {
-	display: block;
-	float: center;
-	text-align: left;
-	font-size: 25px;
-	margin: 10px auto;
+section.document-title {
+		border: none;
 }
 
 // .document-body {
@@ -33,20 +29,31 @@ article.document {
 // 	float: left;
 // }
 
+h2.document-title {
+	display: block;
+	float: center;
+	text-align: left;
+	font-size: 25px;
+	margin: 20px auto;
+	border: 2px solid #00524F;
+	border-radius: 10px;
+}
+
+a.document-title {
+	display: block;
+	float: center;
+	text-align: left;
+	margin: 5px 5px;
+}
+
 .document-text {
 	display: inline;
+	margin: 5px 5px;
 }
 
 article.standalone-document {
 	display: inline-block;
 	width: 400px;
-}
-
-.standalone-document > section.document-title {
-	margin: 20px auto;
-	padding: auto;
-	border: 2px solid #00524F;
-	text-align: center;
 }
 
 .standalone-document > .break {
@@ -56,6 +63,10 @@ article.standalone-document {
 
 .document-body {
 	display: block;
-	margin: auto;
 	border: 2px solid #00524F;
+	border-radius: 10px;
+}
+
+article.document {
+	margin: auto 5px;
 }
