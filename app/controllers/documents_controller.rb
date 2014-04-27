@@ -46,6 +46,7 @@ class DocumentsController < ApplicationController
   def destroy
     @document = Document.find(params[:id])
     @document.destroy
+    redirect_to documents_url
   end
 
   def edit
