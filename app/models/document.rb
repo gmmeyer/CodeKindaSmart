@@ -5,7 +5,7 @@ class Document < ActiveRecord::Base
 
   belongs_to :user
   has_many :annotations, dependent: :destroy
-  
+
   belongs_to :author, inverse_of: :documents, counter_cache: true
 
   def substring(starting, ending)
@@ -13,7 +13,7 @@ class Document < ActiveRecord::Base
   end
 
   def range_substring(range)
-  	self.body[range]
+    self.body[range]
   end
 
   def annotation_ranges

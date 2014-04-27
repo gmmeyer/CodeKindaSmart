@@ -12,7 +12,7 @@ class DocumentsController < ApplicationController
       document.annotation_segments = document.segments
     end
 
-    
+
   end
 
   def new
@@ -29,7 +29,7 @@ class DocumentsController < ApplicationController
     @document = Document.new(document_params)
     @author = find_or_create_author
     @document.author_id = @author.id if @author
-    
+
     if @document.save
       if flash[:notices]
         flash[:notices] << "You've created a new document: #{@document.title}!"
