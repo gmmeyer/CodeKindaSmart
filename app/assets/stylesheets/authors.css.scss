@@ -4,9 +4,10 @@
 
 section.author {
 	display: block;
-	margin: auto 25px;
+	margin: 20px 25px;
  float: left;
  width: 700px;
+ border: 2px solid #00524F;
 }
 
 article.standalone-document {
@@ -28,6 +29,7 @@ h2.author-name  {
 	padding: 30px auto;
 	border:	2px solid #00524F;
 	border-radius: 10px;
+	margin: auto 5px;
 }
 
 .author-name a{
