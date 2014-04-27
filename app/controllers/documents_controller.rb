@@ -11,8 +11,6 @@ class DocumentsController < ApplicationController
     @documents.map do |document|
       document.annotation_segments = document.segments
     end
-
-
   end
 
   def new
@@ -43,17 +41,25 @@ class DocumentsController < ApplicationController
     end
   end
 
-  def destroy
-    @document = Document.find(params[:id])
-    @document.destroy
-    redirect_to documents_url
-  end
-
   def edit
     @document = Document.find(params[:id])
   end
 
   def update
+    @document = Document.find(params[:id])
+    if @document.update(document_params)
+      flash[:messages] = ["Your edits on #{@document.title} have been saved!"]
+      redirect_to document_url(@document.id)
+    else
+      flash.now[:errors] = @document.errors.full_messages
+      render :edit
+    end
+  end
+
+  def destroy
+    @document = Document.find(params[:id])
+    @document.destroy
+    redirect_to documents_url
   end
 
   private

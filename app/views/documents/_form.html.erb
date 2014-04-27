@@ -1,0 +1,26 @@
+<form action="<%= user_documents_url(current_user.id) %>" method='post' class='new-document'>
+	<%= token_tag nil %>
+  <% if type="edit" %>
+    <input type="hidden" name="_method" value="patch">
+  <% end %>
+
+	<input type=hidden name='document[user_id]' value='<%= current_user.id %>'>
+
+  <p class="form-field input input-field group">
+    <label for="author-name" class="new-document group">Who is the Author?</label>
+    <input type="text" id="author-name" class="new-document group" name="author[name]" value="<%= document.author %>">
+  </p>
+
+	<p class='form-field input input-field group'>
+		<label for='document-title' class='new-document group'>Enter the title of your document:</label>
+		<input type='text' name='document[title]' class='new-document group' id='document-title' value="<%= document.title %>">
+	</p>
+
+
+	<p class='form-field input input-field group'>
+		<label for='new-document' class='new-document group' value='Enter your document here:'>Enter your document here:</label>
+		<textarea id='new-document' class='new-document textarea group' name="document[body]" value='<%= document.body %>' multiline='true' rows='20' cols='80'></textarea>
+	</p>
+
+	<input type='submit' class='button group' value='New Document!'>
+</form>

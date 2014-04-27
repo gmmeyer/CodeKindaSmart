@@ -4,6 +4,23 @@
 
   <%= render partial: "annotations/new", locals: {document: @document}  %>
 
-  		<%= render partial: "shared/delete_button", locals: {to_delete: @document, delete_url: document_url(@document.id)} %>
+  <% if current_user && current_user.id = @document.user_id %>
+
+  <article class="document group">
+  	<form action="<%= edit_document_url(@document.id) %>" method="get">
+
+				<%= token_tag nil %>
+				<p class="button">
+					<input type="submit" value="Edit <%= @document.title %>">					
+				</p>
+
+  	</form>
+  	<p class="break">
+  		
+  	</p>
+ 		<%= render partial: "shared/delete_button", locals: {to_delete: @document, delete_url: document_url(@document.id)} %>
+  </article>
+  	
+  <% end %>
 
 </section>
