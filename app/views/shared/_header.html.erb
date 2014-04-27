@@ -17,10 +17,12 @@
 	<section class="header group">
 		<h1 class="header-title"><a href="<%= root_url %>">Rap Kinda Smart</a></h1>
 
-		<section class='login'>
-			<% if current_user %>
+		<section>
 
-        <ul>
+      <ul class="user-info">
+    
+      <% if current_user %>
+
           
           <li>
 
@@ -43,14 +45,14 @@
             
           </li>
 
-          <li>
+          <li class="notifications">
             
             <a href="<%= notifications_url %>">Notifications</a>
 
             <% unless current_user.notifications.empty? %>
-              <strong><%= current_user.notifications.unread.size %></strong>
-              <ul>
-                <%= render partial: "notifications/notifications", collection: current_user.notifications.unread %>
+              <strong class="notification-number"><%= current_user.notifications.unread.size %></strong>
+              <ul class="notifications-dropbown">
+                <%= render partial: "notifications/notifications", collection: current_user.notifications.unread, as: :notification %>
               </ul>
               
             <% end %>
