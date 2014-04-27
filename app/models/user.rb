@@ -19,7 +19,8 @@ class User < ActiveRecord::Base
 
   def self.find_by_credentials(username, password)
     @user = User.find_by(username: username)
-    return @user.authenticate(password)
+    return @user.authenticate(password) unless @user.nil?
+    return @user
   end
 
   def reset_token!

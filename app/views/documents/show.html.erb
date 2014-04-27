@@ -2,7 +2,7 @@
   
   <%= render partial: "standalone_document", locals: {document: @document} %>
 
-  <% if  current_user %>
+  <% if current_user %>
 
   	<form action="<%= document_annotations_url(@document.id) %>" method='post' class='new-annotation'>
 

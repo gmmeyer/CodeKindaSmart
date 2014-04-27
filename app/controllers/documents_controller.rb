@@ -52,6 +52,9 @@ class DocumentsController < ApplicationController
     @document = Document.find(params[:id])
   end
 
+  def update
+  end
+
   private
   def find_or_create_author
     author = Author.find_by(name: author_params[:name])

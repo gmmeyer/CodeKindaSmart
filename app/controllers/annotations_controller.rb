@@ -27,9 +27,13 @@ class AnnotationsController < ApplicationController
   def edit
   end
 
+  def update
+  end
+
   def destroy
-    @annotation.find(params[:id])
+    @annotation = Annotation.find(params[:id])
     @annotation.destroy
+    redirect_to document_url(@annotation.document_id)
   end
 
   private

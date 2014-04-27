@@ -1,0 +1,16 @@
+<% if current_user && to_delete.user_id = current_user.id %>
+
+	<section>
+		<form action="<%= delete_url %>" method="post">
+			<%= token_tag nil %>
+
+			<input type="hidden" name="_method" value="delete">
+
+			<p class="button destroy">
+				<label for="delete-button">Delete this <%= to_delete.class %>?</label>
+				<input type="submit" id="delete-button" value="Delete <%= to_delete.class %>">					
+			</p>
+		</form>
+	</section>
+	
+<% end %>

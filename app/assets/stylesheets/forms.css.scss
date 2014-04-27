@@ -56,16 +56,41 @@
   float: right;
   padding: 9px;
   margin: 3px 15px;
-  background-color: #00f;
+  // background-color: #00f;
+  background-color: #f00;
   color: #fff;
 }
 
 .log-out > input:hover {
-  background-color: #00e;
+  // background-color: #00e;
+  background-color: #e00;
 }
 
 .log-out > input:active {
-  background-color: #00d;
+  // background-color: #00d;
+  background-color: #d00;
+}
+
+// Destroy Button
+
+.destroy > input {
+  display: block;
+  float: center;
+  padding: 9px;
+  margin: 3px 15px;
+  // background-color: #00f;
+  background-color: #f00;
+  color: #fff;
+}
+
+.destroy > input:hover {
+  // background-color: #00e;
+  background-color: #e00;
+}
+
+.destroy > input:active {
+  // background-color: #00d;
+  background-color: #d00;
 }
 
 // New Annotation
