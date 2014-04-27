@@ -6,8 +6,9 @@ class User < ActiveRecord::Base
   validates :username, :token, presence: true
   before_validation :ensure_token
 
-  has_many :documents, dependent: :destroy
-  has_many :annotations, dependent: :destroy
+  has_many :documents, inverse_of: :user, dependent: :destroy
+  has_many :annotations, inverse_of: :user, dependent: :destroy
+  has_many :notifications, inverse_of: :user, dependent: :destroy
 
   def self.generate_token
     SecureRandom.urlsafe_base64(32)
