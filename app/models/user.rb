@@ -1,15 +1,17 @@
+require 'bcrypt'
 class User < ActiveRecord::Base
   has_secure_password
-
-  has_many :documents, inverse_of: :user, dependent: :destroy
-  has_many :annotations, inverse_of: :user, dependent: :destroy
-  has_many :notifications, inverse_of: :user, dependent: :destroy
 
   validates :password, length: { minimum: 6 }, allow_nil: true
   validates :username, :email, uniqueness: true
   validates :username, :token, presence: true
+  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, on: :create }
+  has_many :notifications, inverse_of: :user, dependent: :destroy
 
-  before_validation :ensure_token
+
+  has_many :documents, inverse_of: :user, dependent: :destroy
+  has_many :annotations, inverse_of: :user, dependent: :destroy
+  has_many :notifications, inverse_of: :user, dependent: :destroy
 
   def self.generate_token
     SecureRandom.urlsafe_base64(32)
