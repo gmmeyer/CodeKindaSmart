@@ -6,11 +6,11 @@ class PagesController < ApplicationController
 
   def search
   	if params[:query]
-  		@results = PgSearch.multisearch(params[:query])
+  		@results = Document.search_documents(params[:query])
   	else
   		@results = PgSearch::Document
   	end
-  	@results = @results.includes(:searchable).page(params[:page])
+  	@results = @results.page(params[:page])
   end
 
 
