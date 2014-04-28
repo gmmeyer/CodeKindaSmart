@@ -1,0 +1,6 @@
+<section class="articles">
+  
+  <%= render partial: "documents/standalone_document", locals: {document: @document} %>
+
+  <%= render partial: "annotations/edit", locals: {annotation: @annotation, document: @document}  %>
+</section>

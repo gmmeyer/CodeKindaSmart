@@ -25,6 +25,8 @@ class AnnotationsController < ApplicationController
   end
 
   def edit
+    @annotation = Annotation.find(params[:id])
+    @document = @annotation.document
   end
 
   def update

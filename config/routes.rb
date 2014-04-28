@@ -12,9 +12,9 @@ CodeKindaSmart::Application.routes.draw do
   resources :authors, only: [:new, :create, :destroy, :index, :show, :update]
   
   resources :documents, only: [:new, :index, :show, :destroy, :edit, :update] do
-    resources :annotations, only: [:index, :edit, :new, :create]
+    resources :annotations, only: [:index, :new, :create]
   end
-  resources :annotations, only: [:show, :destroy, :update]
+  resources :annotations, only: [:show, :destroy, :update, :edit]
 
   resource :session, only: [:new, :create, :destroy]
 

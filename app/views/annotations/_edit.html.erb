@@ -1,29 +1,29 @@
 <% if  current_user %>
 	
-	<form action="<%= document_annotations_url(@document.id) %>" method='post' class='new-annotation'>
+	<form action="<%= document_annotations_url(document.id) %>" method='post' class='new-annotation'>
 
 		<%= token_tag nil %>
-		<input type='hidden' name='annotation[document_id]' value='<%= @document.id %>'>
+		<input type='hidden' name='annotation[document_id]' value='<%= document.id %>'>
 		<input type='hidden' name='annotation[user_id]' value='<%= current_user.id %>'>
 
 		<div class='input'>
 			<label for='start-location' class='group'>Start Annotation</label>
-			<input type='text' id='start-location' class='group' name='annotation[start_location]' value=''>
+			<input type='text' id='start-location' class='group' name='annotation[start_location]' value='<%= annotation.start_location %>'>
 		</div>
 
 		<div class='input'>
 			<label for='end-location' class='group'>End Annotation</label>
-			<input type='text' id='end-location' class='group' name='annotation[end_location]' value=''>
+			<input type='text' id='end-location' class='group' name='annotation[end_location]' value='<%= annotation.end_location %>'>
 		</div>
 
 		<div class='input'>
 			<label for="annotation-title" class='group'>Annotation Title</label>
-			<input type='text' id='annotation-title' class='group' name='annotation[title]'>
+			<input type='text' id='annotation-title' class='group' name='annotation[title]' value="<%= annotation.title %>">
 		</div>
 
 		<div class='input'>
 			<label for="annotation-body" class='group'>Annotation Body</label>
-			<textarea name="annotation[body]" id="annotation-body" cols="30" rows="10" multiline='true' class="group"></textarea>		
+			<textarea name="annotation[body]" id="annotation-body" cols="30" rows="10" multiline='true' class="group"><%= annotation.body %></textarea>		
 		</div>
 
 		<input type='submit' value='submit'>

@@ -16,6 +16,7 @@ class DocumentsController < ApplicationController
   def new
     if current_user
       @document = Document.new
+      @author = Author.new
       render :new
     else
       flash[:errors] = ["You have to log in to contribute!"]
@@ -43,6 +44,7 @@ class DocumentsController < ApplicationController
 
   def edit
     @document = Document.find(params[:id])
+    @author = @document.author
   end
 
   def update
