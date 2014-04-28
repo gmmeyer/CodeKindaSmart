@@ -30,6 +30,14 @@ class AnnotationsController < ApplicationController
   end
 
   def upvote
+    @vote = current_user.votes.new(vote_params)
+    if @vote.save
+      flash[:notices] = ["Upvoted!"]
+      redirect_to annotation_url(@vote.annotation_id)
+    else
+      flash[:errors] = @vote.errors.full_messages
+      render :new
+    end
   end
 
   def downvote
@@ -56,4 +64,6 @@ class AnnotationsController < ApplicationController
   def annotation_params
     params.require(:annotation).permit(:title, :body, :document_id, :start_location, :end_location)
   end
+  def vote_params
+    params.require(:vote).permit(:user_id, :annotation_id)
 end
