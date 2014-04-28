@@ -4,6 +4,7 @@ class Annotation < ActiveRecord::Base
 
   belongs_to :document, inverse_of: :annotations, counter_cache: true
   belongs_to :user, inverse_of: :annotations
+  has_many :votes
 
   has_many :notifications, as: :notifiable, inverse_of: :notifiable, dependent: :destroy
 

@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   has_many :documents, inverse_of: :user, dependent: :destroy
   has_many :annotations, inverse_of: :user, dependent: :destroy
   has_many :notifications, inverse_of: :user, dependent: :destroy
+  has_many :votes
 
   include PgSearch
   pg_search_scope :search_on_name, against: [:username, :email]
