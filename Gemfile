@@ -14,6 +14,8 @@ gem 'paperclip'
 gem 'figaro'
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'rails-font-awesome'
+gem 'pg_search'
+gem "kaminari"
 
 group :production do
 	gem 'rails_12factor'

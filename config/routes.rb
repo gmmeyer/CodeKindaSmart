@@ -18,5 +18,7 @@ CodeKindaSmart::Application.routes.draw do
 
   resource :session, only: [:new, :create, :destroy]
 
+  get "/homepage", to: 'pages#homepage'
+
   root to: "documents#index"
 end
