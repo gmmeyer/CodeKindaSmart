@@ -191,7 +191,7 @@ DEPENDENCIES
   rails (= 4.0.4)
   rails-font-awesome
   rails_12factor
-  rangy-rails
+  rangy-rails (~> 1.3alpha.780.0)
   rspec
   rspec-rails
   sass-rails (~> 4.0.0)
