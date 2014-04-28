@@ -1,16 +1,7 @@
 <section class="header group">
 	<h1 class="header-title"><a href="<%= root_url %>">Rap Kinda Smart</a></h1>
 
-  <section class="search">
-
-    <form action="<%= search_url %>" method="GET">
-
-      <input type="text" name="query" value="<%= params[:query] %>">
-      <input type="submit" value="Search!">
-
-    </form>
-
-  </section>
+    <%= render partial: "shared/search_bar" %>
 
 	<section>
 
