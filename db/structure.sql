@@ -42,7 +42,8 @@ CREATE TABLE annotations (
     end_location integer NOT NULL,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
-    notifications_count integer
+    notifications_count integer,
+    votes_count integer
 );
 
 
@@ -227,7 +228,8 @@ CREATE TABLE users (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     notifications_count integer,
-    documents_count integer
+    documents_count integer,
+    votes_count integer
 );
 
 
@@ -248,6 +250,38 @@ CREATE SEQUENCE users_id_seq
 --
 
 ALTER SEQUENCE users_id_seq OWNED BY users.id;
+
+
+--
+-- Name: votes; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE votes (
+    id integer NOT NULL,
+    user_id integer,
+    annotation_id integer,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: votes_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE votes_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: votes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE votes_id_seq OWNED BY votes.id;
 
 
 --
@@ -290,6 +324,13 @@ ALTER TABLE ONLY pg_search_documents ALTER COLUMN id SET DEFAULT nextval('pg_sea
 --
 
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY votes ALTER COLUMN id SET DEFAULT nextval('votes_id_seq'::regclass);
 
 
 --
@@ -338,6 +379,14 @@ ALTER TABLE ONLY pg_search_documents
 
 ALTER TABLE ONLY users
     ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: votes_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY votes
+    ADD CONSTRAINT votes_pkey PRIMARY KEY (id);
 
 
 --
@@ -446,6 +495,20 @@ CREATE INDEX index_users_on_username_and_password_digest ON users USING btree (u
 
 
 --
+-- Name: index_votes_on_annotation_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_votes_on_annotation_id ON votes USING btree (annotation_id);
+
+
+--
+-- Name: index_votes_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_votes_on_user_id ON votes USING btree (user_id);
+
+
+--
 -- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -471,3 +534,7 @@ INSERT INTO schema_migrations (version) VALUES ('20140425182431');
 INSERT INTO schema_migrations (version) VALUES ('20140427021530');
 
 INSERT INTO schema_migrations (version) VALUES ('20140428181155');
+
+INSERT INTO schema_migrations (version) VALUES ('20140428212132');
+
+INSERT INTO schema_migrations (version) VALUES ('20140428212546');
