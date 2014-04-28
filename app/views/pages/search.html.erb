@@ -1,10 +1,4 @@
 <div>
-  <form action="<%= search_url %>" method="GET">
-
-    <input type="text" name="query" value="<%= params[:query] %>">
-    <input type="submit" value="Search!">
-  </form>
-
   <br>
 
   <%= paginate @results %>
