@@ -50,7 +50,7 @@ class DocumentsController < ApplicationController
   def update
     @document = Document.find(params[:id])
     if @document.update(document_params)
-      flash[:messages] = ["Your edits on #{@document.title} have been saved!"]
+      flash[:notices] = ["Your edits on #{@document.title} have been saved!"]
       redirect_to document_url(@document.id)
     else
       flash.now[:errors] = @document.errors.full_messages

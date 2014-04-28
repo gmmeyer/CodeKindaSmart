@@ -17,7 +17,7 @@ class AnnotationsController < ApplicationController
     @annotation = current_user.annotations.new(annotation_params)
     if @annotation.save
       flash[:notices] = ["You made an annotation!"]
-      redirect_to document_url(@annotation.document_id)
+      redirect_to annotation_url(@annotation.id)
     else
       flash.now[:errors] = @annotation.errors.full_messages
       render :new
@@ -30,6 +30,14 @@ class AnnotationsController < ApplicationController
   end
 
   def update
+    @annotation.find(params[:id])
+    if @annotation.update(annotation_params)
+      flash[:notices] = ["Your annotation has been updated!"]
+      redirect_to annotation_url(@annotation.id)
+    else
+      flash.now[:errors] = @annotation.errors.full_messages
+      render :edit
+    end
   end
 
   def destroy
