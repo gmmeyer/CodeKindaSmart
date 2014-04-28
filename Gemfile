@@ -13,7 +13,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'paperclip'
 gem 'figaro'
 gem 'bcrypt-ruby', '~> 3.1.2'
-gem 'rails-font-awesome'
+gem 'font-awesome-rails'
 gem 'pg_search'
 gem "kaminari"
 
