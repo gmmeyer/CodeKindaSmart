@@ -11,11 +11,11 @@ class CreateDocuments < ActiveRecord::Migration
 
       t.timestamps
     end
-    
-    
+
+
     add_index :documents, :body
     add_index :documents, :title, unique: true
-    
+
     add_index :documents, :user_id
     add_index :documents, :author_id
   end

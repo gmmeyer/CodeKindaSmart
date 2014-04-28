@@ -18,7 +18,7 @@ gem 'pg_search'
 gem "kaminari"
 
 group :production do
-	gem 'rails_12factor'
+  gem 'rails_12factor'
 end
 
 group :doc do

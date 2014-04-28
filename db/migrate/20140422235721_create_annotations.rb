@@ -1,13 +1,13 @@
 class CreateAnnotations < ActiveRecord::Migration
   def change
     create_table :annotations do |t|
-        t.string :title, null: false
-        t.text :body, null: false
-        t.integer :user_id, null: false
+      t.string :title, null: false
+      t.text :body, null: false
+      t.integer :user_id, null: false
 
-        t.integer :document_id, null: false
-        t.integer :start_location, null: false
-        t.integer :end_location, null: false
+      t.integer :document_id, null: false
+      t.integer :start_location, null: false
+      t.integer :end_location, null: false
 
       t.timestamps
     end

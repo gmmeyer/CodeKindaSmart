@@ -2,11 +2,11 @@ class CreateNotifications < ActiveRecord::Migration
   def change
     create_table :notifications do |t|
 
-    		t.integer :user_id
-    		t.integer :notifiable_id
-    		t.string :notifiable_type
-    		t.integer :event_id
-    		t.boolean :is_read
+      t.integer :user_id
+      t.integer :notifiable_id
+      t.string :notifiable_type
+      t.integer :event_id
+      t.boolean :is_read
 
       t.timestamps
     end
