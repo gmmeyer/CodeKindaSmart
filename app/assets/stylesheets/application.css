@@ -29,7 +29,7 @@ input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="submit"],
-input[type="textarea"] {
+textarea {
   -webkit-appearance: none;
   box-sizing: content-box;
   display: inline-block;
@@ -37,6 +37,7 @@ input[type="textarea"] {
   padding: 0;
   border: 0;
   outline: 0;
+  font-size: 100%;
   font: inherit;
   vertical-align: baseline;
   width: auto;
@@ -44,6 +45,12 @@ input[type="textarea"] {
   color: inherit;
 }
 
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="submit"]{
+	vertical-align: baseline;
+}
 
 /*Basic Settings*/
 

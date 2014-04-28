@@ -15,24 +15,9 @@ section.new-user-page > form > h2 {
   color: #780ECF;
 }
 
-.input {
-  margin: 20px 0;
-}
-
 .input > label {
   display: block;
   font-weight: bold;
-}
-
-.input > input {
-  border: 3px solid #fff;
-  padding: 5px;
-  width: 284px;
-  border-radius: 5px;
-}
-
-.input > input:focus {
-  border-color: #0c0;
 }
 
 .submit > input {
