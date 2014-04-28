@@ -120,7 +120,6 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.3.1)
-    rangy-rails (1.3alpha.780.0)
     rdoc (4.1.1)
       json (~> 1.4)
     rspec (2.14.1)
@@ -191,7 +190,6 @@ DEPENDENCIES
   rails (= 4.0.4)
   rails-font-awesome
   rails_12factor
-  rangy-rails (~> 1.3alpha.780.0)
   rspec
   rspec-rails
   sass-rails (~> 4.0.0)

@@ -16,7 +16,6 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'rails-font-awesome'
 gem 'pg_search'
 gem "kaminari"
-gem "rangy-rails", '~> 1.3alpha.780.0'
 
 group :production do
   gem 'rails_12factor'
