@@ -8,6 +8,9 @@ class Document < ActiveRecord::Base
 
   belongs_to :author, inverse_of: :documents, counter_cache: true
 
+  include PgSearch
+  multisearchable against: [:title, :body]
+
   def substring(starting, ending)
     self.body[starting...ending]
   end

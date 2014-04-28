@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
   has_many :annotations, inverse_of: :user, dependent: :destroy
   has_many :notifications, inverse_of: :user, dependent: :destroy
 
+  include PgSearch
+  pg_search_scope :search_on_name, against: [:username, :email]
+  multisearchable againt: [:username, :email]
+
   def self.generate_token
     SecureRandom.urlsafe_base64(32)
   end

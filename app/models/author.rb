@@ -3,4 +3,7 @@ class Author < ActiveRecord::Base
 
   has_many :documents, inverse_of: :author
 
+  include PgSearch
+  multisearchable against: [:name, :location]
+
 end
