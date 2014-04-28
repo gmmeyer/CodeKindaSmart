@@ -8,7 +8,7 @@
   font-weight: bold;
 }
 
-.input > input[type="text"] {
+.input > input[type="text"], .input > input[type="password"] {
   border: 3px solid #000;
   border-radius: 10px;
   padding: 5px 5px;
@@ -30,11 +30,11 @@
   width: 650px;
 }
 
-.input > textarea:hover, .input > input[type="text"]:hover {
+.input > textarea:hover, .input > input[type="text"]:hover, .input > input[type="password"]:hover  {
   border: 3px solid #0b0;
 }
 
-.input > textarea:focus, .input > input[type="text"]:focus {
+.input > textarea:focus, .input > input[type="text"]:focus, .input > input[type="password"]:focus {
   border: 3px solid #0c0;
 }
 
