@@ -29,6 +29,12 @@ class AnnotationsController < ApplicationController
     @document = @annotation.document
   end
 
+  def upvote
+  end
+
+  def downvote
+  end
+
   def update
     @annotation.find(params[:id])
     if @annotation.update(annotation_params)
