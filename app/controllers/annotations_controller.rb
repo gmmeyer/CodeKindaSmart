@@ -50,19 +50,27 @@ class AnnotationsController < ApplicationController
   def downvote
     if params[:existing_vote].class == DownVote
       params[:existing_vote].destroy
-      redirect_to annotation_url(params[:existing_vote].annotation_id)
+      @downvote = nil
     elsif params[:existing_vote].class == UpVote
       @downvote = current_user.downvotes.new(vote_params)
       params[:existing_vote].destroy
     else
       @downvote = current_user.downvotes.new(vote_params)
     end
+
+    if @downvote.nil? || @downvote.save
+      flash[:notices] = ["Your vote has been recorded."]
+      redirect_to annotation_url(params[:annotation_id])
+    else
+      flash.now[:errors] = @downvote.errors
+      render :show
+    end
   end
 
   def upvote
     if params[:existing_vote].class == UpVote
       params[:existing_vote].destroy
-      redirect_to annotation_url(params[:existing_vote].annotation_id)
+      @upvote = nil
     elsif params[:existing_vote].class == DownVote
       @upvote = current_user.upvotes.new(vote_params)
       params[:existing_vote].destroy
@@ -70,11 +78,11 @@ class AnnotationsController < ApplicationController
       @upvote = current_user.upvotes.new(vote_params)
     end
 
-    if @upvote.save
-      flash[:notices] = ["You upvoted #{@upvote.annotation.title}!"]
-      redirect_to annotation_url(@upvote.annotation_id)
+    if @upvote.nil? || @upvote.save
+      flash[:notices] = ["Your vote has been recorded."]
+      redirect_to annotation_url(params[:annotation_id])
     else
-      flash.now[:errors] = @vote.errors.full_messages
+      flash.now[:errors] = @upvote.errors.full_messages
       render :show
     end
   end
