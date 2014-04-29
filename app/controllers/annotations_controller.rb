@@ -29,19 +29,6 @@ class AnnotationsController < ApplicationController
     @document = @annotation.document
   end
 
-  def vote
-    @vote = find_or_create_vote
-    Annotation.includes(:document).find(params[:id])
-    @document = @annotation.document
-    if @vote.save
-      flash[:notices] = ["Downvoted!"]
-      redirect_to annotation_url(@annotation.id)
-    else
-      flash.now[:errors] = @vote.errors.full_messages
-      render :show
-    end
-  end
-
   def update
     Annotation.includes(:document).find(params[:id])
     @document = @annotation.document
@@ -63,19 +50,5 @@ class AnnotationsController < ApplicationController
   private
   def annotation_params
     params.require(:annotation).permit(:title, :body, :document_id, :start_location, :end_location)
-  end
-
-  def vote_params
-    params.require(:vote).permit(:user_id, :annotation_id) #also, remember: vote_type and vote exists. Maybe just pass in the vote through the form?
-  end
-
-  def find_or_create_vote
-    if params[:vote_exists]
-      return current_user.votes.new(vote_params)
-    else
-      vote = current_user.votes.find_by(user_id: params[:user_id])
-      vote.vote_type = params[:vote_type]
-      return vote
-    end
   end
 end

@@ -14,5 +14,6 @@ class CreateVotes < ActiveRecord::Migration
     add_index :votes, :annotation_id
     add_index :votes, :upvote
     add_index :votes, :downvote
+    add_index :votes, [:user_id, :annotation_id], unique: true
   end
 end
