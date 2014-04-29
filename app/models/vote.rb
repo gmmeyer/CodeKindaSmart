@@ -20,5 +20,4 @@ class Vote < ActiveRecord::Base
   		self.upvote = 1
   	end
   end
-
 end

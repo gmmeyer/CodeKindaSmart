@@ -11,6 +11,7 @@ class CreateVotes < ActiveRecord::Migration
 
     add_index :votes, :user_id
     add_index :votes, :annotation_id
-    add_index :votes, :vote_type
+    add_index :votes, :upvote
+    add_index :votes, :downvote
   end
 end
