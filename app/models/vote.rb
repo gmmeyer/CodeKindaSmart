@@ -36,25 +36,22 @@ end
 
 class UpVote < Vote
 
+  belongs_to :user, counter_cache: true
+  belongs_to :annotation, counter_cache: true
+  
   def vote_type 
     @type = "upvote"
     @type
   end
-
-  belongs_to :user, counter_cache: true
-  belongs_to :annotation, counter_cache: true
-
-
 end
 
 class DownVote < Vote
+
+  belongs_to :user, counter_cache: true
+  belongs_to :annotation, counter_cache: true
 
   def vote_type
     @type = "downvote"
     @type
   end
-
-  belongs_to :user, counter_cache: true
-  belongs_to :annotation, counter_cache: true
-
 end
