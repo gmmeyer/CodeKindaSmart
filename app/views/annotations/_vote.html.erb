@@ -1,23 +1,19 @@
-<p class="Votes">
-	<%= fa_icon "thumbs-up" %>
+<div class="votes group">
 
 	<form action="<%= upvote_url(annotation.id) %>">
 		<input type="hidden" name="parms[existing_vote]" value="<%= annotation.my_vote %>">
 		<input type="hidden" name="vote[annotation_id]" value="<%= annotation.id %>">
-	
-		<input type="submit" class="vote" value='<%= fa_icon "thumbs_up" %>'>
-		
+		<p class="button">
+			<input type="submit" class="vote" value='&#xf164;'>
+		</p>
 	</form>
 
 	<form action="<%= downvote_url(annotation.id) %>">
-
-		<form action="<%= upvote_url(annotation.id) %>">
 		<input type="hidden" name="parms[existing_vote]" value="<%= annotation.my_vote %>">
 		<input type="hidden" name="vote[annotation_id]" value="<%= annotation.id %>">
-	
-		<input type="submit" class="vote">
-		
+		<p class="button">
+			<input type="submit" class="vote" value="&#xf165;">
+		</p>
 	</form>
 
-	</form>
-</p>
+</div>

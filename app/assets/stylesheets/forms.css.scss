@@ -8,6 +8,11 @@
   font-weight: bold;
 }
 
+input[type="submit"] {
+    font-family: "FontAwesome";
+}
+
+
 .input > input[type="text"], .input > input[type="password"] {
   border: 3px solid #000;
   border-radius: 10px;
