@@ -58,39 +58,48 @@ class AnnotationsController < ApplicationController
   end
 
   def downvote
-    if params[:existing_vote].class == DownVote
-      params[:existing_vote].destroy
-      flash[:notices] = ["Your vote has been deleted"]
-    elsif params[:existing_vote].class == UpVote
-      @downvote = current_user.downvotes.new(vote_params)
-      params[:existing_vote].destroy
+    if !current_user
+      flash[:errors] = ["You must be logged in to vote!"]
     else
-      @downvote = current_user.downvotes.new(vote_params)
-    end
+      if params[:existing_vote].class == DownVote
+        params[:existing_vote].destroy
+        flash[:notices] = ["Your vote has been deleted"]
+      elsif params[:existing_vote].class == UpVote
+        @downvote = current_user.downvotes.new(vote_params)
+        params[:existing_vote].destroy
+      else
+        @downvote = current_user.downvotes.new(vote_params)
+      end
 
-    if @downvote.save
-      flash[:notices] = ["Your vote has been recorded."]
-    else
-      flash[:errors] = @downvote.errors.full_messages
-      redirect_to annotation_url(params[:vote][:annotation_id])
+      if @downvote.save
+        flash[:notices] = ["Your vote has been recorded."]
+      else
+        flash[:errors] = @downvote.errors.full_messages
+      end
     end
+    
+    redirect_to annotation_url(params[:vote][:annotation_id])
   end
 
   def upvote
-    if params[:existing_vote].class == UpVote
-      params[:existing_vote].destroy
-      flash[:notices] = ["Your vote has been deleted"]
-    elsif params[:existing_vote].class == DownVote
-      @upvote = current_user.upvotes.new(vote_params)
-      params[:existing_vote].destroy
+    if !current_user
+      flash[:errors] = ["You must be logged in to vote!"]
     else
-      @upvote = current_user.upvotes.new(vote_params)
-    end
+      if params[:existing_vote].class == UpVote
+        params[:existing_vote].destroy
+        flash[:notices] = ["Your vote has been deleted"]
+      elsif params[:existing_vote].class == DownVote
+        @upvote = current_user.upvotes.new(vote_params)
+        params[:existing_vote].destroy
+      else
+        @upvote = current_user.upvotes.new(vote_params)
+      end
 
-    if @upvote.save
-      flash[:notices] = ["Your vote has been recorded."]
-    else
-      flash[:errors] = @upvote.errors.full_messages
+      if @upvote.save
+        flash[:notices] = ["Your vote has been recorded."]
+      else
+        flash[:errors] = @upvote.errors.full_messages
+      end
     end
 
     redirect_to annotation_url(params[:vote][:annotation_id])
@@ -100,7 +109,7 @@ class AnnotationsController < ApplicationController
   def annotation_params
     params.require(:annotation).permit(:title, :body, :document_id, :start_location, :end_location)
   end
-  
+
   def vote_params
     params.require(:vote).permit(:user_id, :annotation_id) #also, remember: vote_type and vote exists. Maybe just pass in the vote through the form?
     # existing_vote
