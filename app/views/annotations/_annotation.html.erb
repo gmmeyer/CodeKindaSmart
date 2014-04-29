@@ -4,6 +4,8 @@
 
 		<p class="annotation-body"> <%= annotation.body %> </p>
 
+		<%= render partial: "annotations/vote", locals: {annotation: annotation} %>
+
   <article class="annotation group">
 
   	<form action="<%= edit_annotation_url(annotation.id) %>" method="get">
@@ -14,7 +16,8 @@
 			</p>
 
 		</form>
-		<p class="break">
+		<p class="break"></p>
 
 		<%= render partial: "shared/delete_button", locals: {to_delete: annotation, delete_url: annotation_url(annotation.id)} %>
+		</article>
 	</section>

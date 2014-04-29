@@ -1,5 +1,7 @@
-<section class="Votes">
+<p class="Votes">
 	<form action="<%= upvote_url(annotation.id) %>">
+		<input type="hidden" name="params[:existing_vote]">
+		<input type="text" name="" id="">
 	
 		
 	</form>
@@ -7,4 +9,4 @@
 	<form action="downvote_url(annotation.id)">
 		
 	</form>
-</section>
+</p>

@@ -1,19 +1,17 @@
 class Vote < ActiveRecord::Base
   validates :annotation_id, :type, :user_id, presence: true
-  validates :annotation_id, uniqueness:{
+  validates :annotation_id, uniqueness: {
     scope: :user_id,
     message: "You can only vote once!"
   }
-  validates :cannot_vote_on_own_post
+  validate :cannot_vote_on_own_post
 
-  validates :annotation_id
+  # validates :annotation_id
   # before_validation :record_vote_type
   before_validation :ensure_one_vote
 
   belongs_to :user
   belongs_to :annotation
-
-  scope :my_votes, -> { where(user_id: current_user.id) }
 
   private
   def ensure_one_vote

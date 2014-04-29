@@ -3,7 +3,12 @@ class AnnotationsController < ApplicationController
   end
 
   def show
-    @annotations = Annotation.where("id IN #{params[:ids]}") # How do I preload with that scope?
+    # @annotations = Annotation.includes(upvotes).includes(downvotes).where("id IN #{params[:ids]}") # I don't wanna include that yet
+    Vote.new
+    @annotations = Annotation.where("id IN #{params[:ids]}")
+    @annotations.map do |annotation|
+      annotation.load_user_vote(current_user)
+    end
     @document = Document.includes(:author).find(@annotations.first.document_id)
     @document.annotation_segments = @document.segments
     render :show
