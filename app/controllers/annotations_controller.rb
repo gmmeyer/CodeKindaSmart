@@ -3,7 +3,7 @@ class AnnotationsController < ApplicationController
   end
 
   def show
-    @annotations = Annotation.where("id IN #{params[:ids]}")
+    @annotations = Annotation.where("id IN #{params[:ids]}") # How do I preload with that scope?
     @document = Document.includes(:author).find(@annotations.first.document_id)
     @document.annotation_segments = @document.segments
     render :show
