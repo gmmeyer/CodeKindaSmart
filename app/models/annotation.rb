@@ -15,7 +15,7 @@ class Annotation < ActiveRecord::Base
   def load_user_vote(current_user)
     if current_user
       downvote = downvotes.where(user_id: current_user.id) 
-      upvote = upvotes.where(user_id: current_user.id)      
+      upvote = upvotes.where(user_id: current_user.id)
       @my_vote = "downvote" if !downvote.empty?
       @my_vote = "upvote" if !upvote.empty?
     end

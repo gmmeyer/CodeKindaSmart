@@ -5,7 +5,12 @@ class AnnotationsController < ApplicationController
   def show
     # @annotations = Annotation.includes(upvotes).includes(downvotes).where("id IN #{params[:ids]}") # I don't wanna include that yet
     Vote.new
-    @annotations = Annotation.where("id IN #{params[:ids]}")
+    if params[:ids]
+      @annotations = Annotation.where("id IN (?)", params[:ids])
+    else
+      @annotations = [Annotation.find(params[:id])]
+    end
+
     @annotations.map do |annotation|
       annotation.load_user_vote(current_user)
     end
@@ -55,7 +60,7 @@ class AnnotationsController < ApplicationController
   def downvote
     if params[:existing_vote].class == DownVote
       params[:existing_vote].destroy
-      @downvote = nil
+      flash[:notices] = ["Your vote has been deleted"]
     elsif params[:existing_vote].class == UpVote
       @downvote = current_user.downvotes.new(vote_params)
       params[:existing_vote].destroy
@@ -63,19 +68,18 @@ class AnnotationsController < ApplicationController
       @downvote = current_user.downvotes.new(vote_params)
     end
 
-    if @downvote.nil? || @downvote.save
+    if @downvote.save
       flash[:notices] = ["Your vote has been recorded."]
-      redirect_to annotation_url(params[:annotation_id])
     else
-      flash.now[:errors] = @downvote.errors
-      render :show
+      flash[:errors] = @downvote.errors.full_messages
+      redirect_to annotation_url(params[:vote][:annotation_id])
     end
   end
 
   def upvote
     if params[:existing_vote].class == UpVote
       params[:existing_vote].destroy
-      @upvote = nil
+      flash[:notices] = ["Your vote has been deleted"]
     elsif params[:existing_vote].class == DownVote
       @upvote = current_user.upvotes.new(vote_params)
       params[:existing_vote].destroy
@@ -83,13 +87,13 @@ class AnnotationsController < ApplicationController
       @upvote = current_user.upvotes.new(vote_params)
     end
 
-    if @upvote.nil? || @upvote.save
+    if @upvote.save
       flash[:notices] = ["Your vote has been recorded."]
-      redirect_to annotation_url(params[:annotation_id])
     else
-      flash.now[:errors] = @upvote.errors.full_messages
-      render :show
+      flash[:errors] = @upvote.errors.full_messages
     end
+
+    redirect_to annotation_url(params[:vote][:annotation_id])
   end
 
   private

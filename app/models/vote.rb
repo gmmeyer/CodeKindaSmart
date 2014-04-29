@@ -8,25 +8,25 @@ class Vote < ActiveRecord::Base
 
   # validates :annotation_id
   # before_validation :record_vote_type
-  before_validation :ensure_one_vote
+  # before_validation :ensure_one_vote
 
   belongs_to :user
   belongs_to :annotation
 
   private
-  def ensure_one_vote
-    if self.type = "upvote"
-      self.upvote = 1
-      self.downvote = nil
-    elsif self.type = "downvote"
-      self.upvote = nil
-      self.downvote = 1
-    end
-  end
+  # def ensure_one_vote
+  #   if self.type = "upvote"
+  #     self.upvote = 1
+  #     self.downvote = nil
+  #   elsif self.type = "downvote"
+  #     self.upvote = nil
+  #     self.downvote = 1
+  #   end
+  # end
 
   def cannot_vote_on_own_post
-    if self.annotation.user_id == current_user.id
-      errors.add("You can't vote on your own annotation, silly.")
+    if self.annotation.user_id == self.user_id
+      errors[:base] << "You can't vote on your own annotation, silly." 
     end
   end
 end

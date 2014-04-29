@@ -16,6 +16,7 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'font-awesome-rails'
 gem 'pg_search'
 gem "kaminari"
+gem 'addressable'
 
 group :production do
   gem 'rails_12factor'
