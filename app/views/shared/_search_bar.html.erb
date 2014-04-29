@@ -1,6 +1,7 @@
 <section class="search">
 
   <form action="<%= search_url %>" method="GET">
+  <%= token_tag nil %>
 
   	<p class="search-bar">
 	  	<input type="text" name="query" value="<%= params[:query] %>">  		
