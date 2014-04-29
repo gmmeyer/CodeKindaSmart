@@ -105,16 +105,13 @@ ActiveRecord::Schema.define(version: 20140429005245) do
   create_table "votes", force: true do |t|
     t.integer  "user_id",       null: false
     t.integer  "annotation_id", null: false
-    t.string   "type"
-    t.integer  "downvote"
-    t.integer  "upvote"
+    t.string   "type",          null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "votes", ["annotation_id"], name: "index_votes_on_annotation_id", using: :btree
-  add_index "votes", ["downvote"], name: "index_votes_on_downvote", using: :btree
-  add_index "votes", ["upvote"], name: "index_votes_on_upvote", using: :btree
+  add_index "votes", ["user_id", "annotation_id"], name: "index_votes_on_user_id_and_annotation_id", unique: true, using: :btree
   add_index "votes", ["user_id"], name: "index_votes_on_user_id", using: :btree
 
 end

@@ -1,5 +1,5 @@
 class Vote < ActiveRecord::Base
-  validates :annotation_id, :user_id, presence: true
+  validates :annotation_id, :type, :user_id, presence: true
   validates :annotation_id, uniqueness:{
     scope: :user_id,
     message: "You can only vote once!"
@@ -13,10 +13,6 @@ class Vote < ActiveRecord::Base
   belongs_to :user
   belongs_to :annotation
 
-
-
-
-
   private
   def ensure_one_vote
     if self.type = "upvote"
@@ -29,7 +25,7 @@ class Vote < ActiveRecord::Base
   end
 
   def cannot_vote_on_own_post
-    if self.annotation.user_id == current_user.id 
+    if self.annotation.user_id == current_user.id
       errors.add("You can't vote on your own annotation, silly.")
     end
   end
@@ -55,6 +51,16 @@ class UpVote < Vote
     @type = "upvote"
     @type
   end
+
+  def self.find_or_create_upvote #this is ripe for metaprogramming
+    if params[:existing_vote]
+      return current_user.upvotes.new(vote_params)
+    else
+      vote = current_user.votes.find_by(user_id: params[:user_id])
+      vote.vote_type = params[:vote_type]
+      return vote
+    end
+  end
 end
 
 class DownVote < Vote
@@ -65,5 +71,15 @@ class DownVote < Vote
   def vote_type
     @type = "downvote"
     @type
+  end
+
+  def self.find_or_create_downvote
+    if params[:existing_vote]
+      return current_user.downvotes.new(vote_params)
+    else
+      vote = current_user.votes.find_by(user_id: params[:user_id])
+      vote.vote_type = params[:vote_type]
+      return vote
+    end
   end
 end

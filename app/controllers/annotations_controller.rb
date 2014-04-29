@@ -47,8 +47,45 @@ class AnnotationsController < ApplicationController
     redirect_to document_url(@annotation.document_id)
   end
 
+  def downvote
+    if params[:existing_vote].class == DownVote
+      params[:existing_vote].destroy
+      redirect_to annotation_url(params[:existing_vote].annotation_id)
+    elsif params[:existing_vote].class == UpVote
+      @downvote = current_user.downvotes.new(vote_params)
+      params[:existing_vote].destroy
+    else
+      @downvote = current_user.downvotes.new(vote_params)
+    end
+  end
+
+  def upvote
+    if params[:existing_vote].class == UpVote
+      params[:existing_vote].destroy
+      redirect_to annotation_url(params[:existing_vote].annotation_id)
+    elsif params[:existing_vote].class == DownVote
+      @upvote = current_user.upvotes.new(vote_params)
+      params[:existing_vote].destroy
+    else
+      @upvote = current_user.upvotes.new(vote_params)
+    end
+
+    if @upvote.save
+      flash[:notices] = ["You upvoted #{@upvote.annotation.title}!"]
+      redirect_to annotation_url(@upvote.annotation_id)
+    else
+      flash.now[:errors] = @vote.errors.full_messages
+      render :show
+    end
+  end
+
   private
   def annotation_params
     params.require(:annotation).permit(:title, :body, :document_id, :start_location, :end_location)
+  end
+  
+  def vote_params
+    params.require(:vote).permit(:user_id, :annotation_id) #also, remember: vote_type and vote exists. Maybe just pass in the vote through the form?
+    # existing_vote
   end
 end
