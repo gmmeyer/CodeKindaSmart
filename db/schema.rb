@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(version: 20140429005245) do
   create_table "votes", force: true do |t|
     t.integer  "user_id",       null: false
     t.integer  "annotation_id", null: false
+    t.string   "type"
     t.integer  "downvote"
     t.integer  "upvote"
     t.datetime "created_at"

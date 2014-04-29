@@ -3,6 +3,7 @@ class CreateVotes < ActiveRecord::Migration
     create_table :votes do |t|
       t.integer :user_id, null: false
       t.integer :annotation_id, null: false
+      t.string :type
       t.integer :downvote
       t.integer :upvote
 
