@@ -2,6 +2,17 @@
 
 [rg]: rapgenius.com
 
+##What is it?
+Rap Genius is a website where you can add notes, called "annotations," to nearly anything. The idea is to better explain the thing you're adding notes to, to clarify a complex or vague sentence, or to shed light upon some poorly known fact.
+
+##Technology Used
+* Single Table Inheritance
+* Polymorphic Association
+* 
+
+
+
+
 ##ToDo
 ###Major Pieces
 
@@ -51,7 +62,3 @@ Some things to do for the future in documents:
 
 ####Add These to the Database
 * add_column :users, :location
-
-
-#### Things to fix.
-* Add regex to check email format.
