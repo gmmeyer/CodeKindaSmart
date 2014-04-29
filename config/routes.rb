@@ -18,6 +18,9 @@ CodeKindaSmart::Application.routes.draw do
 
   resource :session, only: [:new, :create, :destroy]
 
+  get "/annotations/:id/upvote", to: "annotations#upvote", as: "upvote"
+  get "/annotations/:id/downvote", to: "annotations#downvote", as: "downvote"
+
   get "/homepage", to: 'pages#homepage'
   get "/search", to: "pages#search"
 

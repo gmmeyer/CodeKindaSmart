@@ -1,3 +1,4 @@
+require "addressable/uri"
 module DocumentsHelper
   def annotate_document(document, segments)
     return document.body if segments.empty?
@@ -30,19 +31,16 @@ module DocumentsHelper
   end
 
   def annotation_link(annotations, annotated)
-    ids = "("
+    ids = []
     annotations.each do |ann|
-      ids += ann.id.to_s
-      ids += "," unless ann == annotations.last
+      ids << ann.id
     end
-    ids += ")"
+    query_hash = Hash.new
+    query_hash[:ids] = ids
 
 
     a_class = "annotation"
-    # a_class += " my_annotation" if current_user && current_user.id == annotation.user_id
     a_url = annotation_url(annotations.first.id)
-
-    return "<span class='annotation'><a class='annotation-link' href=" + a_url +"?ids=#{ids}" + ">" + annotated + "</a></span>"
+    return "<span class='annotation'><a class='annotation-link' href=" + a_url + "?" + query_hash.to_query + ">" + annotated + "</a></span>"
   end
-
 end

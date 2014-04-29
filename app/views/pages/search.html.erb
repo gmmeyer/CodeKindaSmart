@@ -3,5 +3,6 @@
   <%= paginate @results %>
   <br>
 
-  <%= render @results %>
+  <%#= render @results %>
+  <%= render @results.map(&:searchable) %>
 </div>

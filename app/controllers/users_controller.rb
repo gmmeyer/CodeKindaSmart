@@ -27,6 +27,8 @@ class UsersController < ApplicationController
   def destroy
     @user = current_user
     @user.destroy
+    
+    redirect_to session_url
   end
 
   def settings

@@ -22,7 +22,7 @@ h1, h2, h3, label, form, body, p, div, a, html, section, article, ul, li {
 	padding: 0;
 	margin: 0;
 	border: 0;
-	font-family: "Inconsolata", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "FontAwesome", "Inconsolata", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 input[type="text"],
@@ -57,6 +57,12 @@ input[type="submit"]{
 body {
 	background: white;
 	color: black;
+}
+
+i {
+	font-family: 'font-awesome';
+	width: 20px;
+	height: 20px;
 }
 
 a {
