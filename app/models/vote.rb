@@ -31,16 +31,6 @@ class Vote < ActiveRecord::Base
       errors.add("You can't vote on your own annotation, silly.")
     end
   end
-
-  # def record_vote_type
-  #   if self.vote_type = 1
-  #     self.upvote = 1
-  #     self.downvote = nil
-  #   elsif self.vote_type = -1
-  #     self.downvote = nil
-  #     self.upvote = 1
-  #   end
-  # end
 end
 
 
