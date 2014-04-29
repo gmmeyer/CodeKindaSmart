@@ -12,8 +12,7 @@ user_passwords = Array.new(3,'password')
 
 3.times do |i|
 
-  User.create(username: user_names[i] + i.to_s, email: i.to_s + user_emails[i],
-    password: user_passwords[i], password_confirmation: user_passwords[i])
+  User.create(username: user_names[i] + i.to_s, email: i.to_s + user_emails[i], password: user_passwords[i], password_confirmation: user_passwords[i])
 
 end
 
