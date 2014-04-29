@@ -4,7 +4,7 @@ window.CodeKindaSmart = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    
   }
 };
 
