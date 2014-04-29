@@ -13,6 +13,8 @@ class Vote < ActiveRecord::Base
   belongs_to :user
   belongs_to :annotation
 
+  scope :my_votes, -> { where(user_id: current_user.id) }
+
   private
   def ensure_one_vote
     if self.type = "upvote"
