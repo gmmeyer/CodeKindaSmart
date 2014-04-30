@@ -17,6 +17,7 @@ gem 'font-awesome-rails'
 gem 'pg_search'
 gem 'kaminari'
 gem 'addressable'
+gem 'cancan'
 
 group :production do
   gem 'rails_12factor'
