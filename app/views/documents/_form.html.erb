@@ -6,7 +6,6 @@
 			<form action="<%= user_documents_url(current_user.id) %>" method='post' class='new-document'>
 			<%= token_tag nil %>
 		<% end %>
-		<% fail %>
 
 	<input type=hidden name='document[user_id]' value='<%= current_user.id %>'>
 
