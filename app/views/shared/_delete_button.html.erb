@@ -1,4 +1,4 @@
-<% if current_user && to_delete.user_id = current_user.id %>
+<% if current_user && to_delete.user_id == current_user.id %>
 
 	<section>
 		<form action="<%= delete_url %>" method="post">

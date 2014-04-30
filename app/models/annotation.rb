@@ -14,10 +14,10 @@ class Annotation < ActiveRecord::Base
 
   def load_user_vote(current_user)
     if current_user
-      downvote = downvotes.where(user_id: current_user.id) 
-      upvote = upvotes.where(user_id: current_user.id)
-      @my_vote = "downvote" if !downvote.empty?
-      @my_vote = "upvote" if !upvote.empty?
+      downvote = downvotes.find_by(user_id: current_user.id) 
+      upvote = upvotes.find_by(user_id: current_user.id)
+      return @my_vote = downvote if !downvote.nil?
+      return @my_vote = upvote if !upvote.nil?
     end
 
     @my_vote = nil
@@ -33,8 +33,7 @@ class Annotation < ActiveRecord::Base
 
   def set_notification
     notification = self.notifications.unread.event(:new_annotation_on_document).new
-    notification.user = self.user
+    notification.user = self.document.user
     notification.save
   end
-
 end

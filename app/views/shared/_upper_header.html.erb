@@ -12,43 +12,33 @@
           <!-- The right half I've gotta break this out again, this file is getting too long, again -->
 
           <li class="notifications">
-            
             <a href="<%= notifications_url %>">Notifications
+              <strong class="notification-number"><%= current_user.notifications.unread.size %></strong>
+            </a>
 
             <% unless current_user.notifications.empty? %>
-              <strong class="notification-number"><%= current_user.notifications.unread.size %></strong>
-
-              </a>
               <ul class="notifications-dropbown">
                 <%= render partial: "notifications/notifications", collection: current_user.notifications.unread, as: :notification %>
               </ul>
-          </li>
-          
-
-          <li>
-            
-          <a class="settings user" href="<%= settings_user_url(current_user.id) %>">
-            Welcome! <%= current_user.username %>
-          </a>
-            
-          </li>
-
-          <li>
-
-          <form action="<%= session_url %>" method="post" accept-charset="utf-8">
-            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-            <input type="hidden" name="_method" value="delete">
-
-            <p class="button log-out">
-              <input type="submit" value="Log Out">
-              hihihiadifaidhladihflahsd
-            </p>
-          </form>
-            
-          </li>
-              
             <% end %>
+          </li>
 
+          <li>
+            <a class="settings user" href="<%= settings_user_url(current_user.id) %>">
+              Welcome! <%= current_user.username %>
+            </a>            
+          </li>
+
+          <li>
+            <form action="<%= session_url %>" method="post" accept-charset="utf-8">
+              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+              <input type="hidden" name="_method" value="delete">
+
+              <p class="button log-out">
+                <input type="submit" value="Log Out">
+              </p>
+            </form>
+          </li>
 
   			<% else %>
           <li>
