@@ -13,6 +13,8 @@ class Vote < ActiveRecord::Base
 
   private
   def set_notification
+    # this will always be overridden. I should probably replace all of this with an alert and remove the class from the notifications.
+    # I should ask about this tomorrow.
     notification = self.notifications.unread.event(:new_vote_on_annotation).new
     notification.user = self.user
     notification.save
