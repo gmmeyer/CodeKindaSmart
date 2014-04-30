@@ -24,9 +24,7 @@ module DocumentsHelper
         end
       end
     end
-
-    puts annotated_body
-
+    
     return annotated_body
   end
 

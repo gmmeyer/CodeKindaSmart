@@ -1,4 +1,6 @@
 class AnnotationsController < ApplicationController
+  Vote.new
+
   def index
   end
 
@@ -10,7 +12,6 @@ class AnnotationsController < ApplicationController
     else
       @annotations = [Annotation.find(params[:id])]
     end
-
     @annotations.map do |annotation|
       annotation.load_user_vote(current_user)
     end
@@ -61,19 +62,21 @@ class AnnotationsController < ApplicationController
     if !current_user
       flash[:errors] = ["You must be logged in to vote!"]
     else
-      if params[:existing_vote].class == DownVote
-        params[:existing_vote].destroy
+      @annotation = Annotation.find(params[:vote][:annotation_id])
+      @annotation.load_user_vote(current_user)
+      if @annotation.my_vote.class == DownVote
+        @annotation.my_vote.destroy
         flash[:notices] = ["Your vote has been deleted"]
-      elsif params[:existing_vote].class == UpVote
+      elsif @annotation.my_vote.class == UpVote
+        @annotation.my_vote.destroy
         @downvote = current_user.downvotes.new(vote_params)
-        params[:existing_vote].destroy
       else
         @downvote = current_user.downvotes.new(vote_params)
       end
 
-      if @downvote.save
+      if @downvote && @downvote.save
         flash[:notices] = ["Your vote has been recorded."]
-      else
+      elsif @downvote
         flash[:errors] = @downvote.errors.full_messages
       end
     end
@@ -85,19 +88,21 @@ class AnnotationsController < ApplicationController
     if !current_user
       flash[:errors] = ["You must be logged in to vote!"]
     else
-      if params[:existing_vote].class == UpVote
-        params[:existing_vote].destroy
+      @annotation = Annotation.find(params[:vote][:annotation_id])
+      @annotation.load_user_vote(current_user)
+      if @annotation.my_vote.class == UpVote
+        @annotation.my_vote.destroy
         flash[:notices] = ["Your vote has been deleted"]
-      elsif params[:existing_vote].class == DownVote
+      elsif @annotation.my_vote.class == DownVote
+        @annotation.my_vote.destroy
         @upvote = current_user.upvotes.new(vote_params)
-        params[:existing_vote].destroy
       else
         @upvote = current_user.upvotes.new(vote_params)
       end
 
-      if @upvote.save
+      if @upvote && @upvote.save
         flash[:notices] = ["Your vote has been recorded."]
-      else
+      elsif @upvote
         flash[:errors] = @upvote.errors.full_messages
       end
     end

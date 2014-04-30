@@ -4,12 +4,13 @@ class Vote < ActiveRecord::Base
     scope: :user_id,
     message: "You can only vote once!"
   }
+  after_commit :set_notification#, on: [:create, :upvote, :downvote]
   validate :cannot_vote_on_own_post
 
   belongs_to :user
   belongs_to :annotation
-  after_commit :set_notification, on: [:create]
 
+  has_many :notifications, as: :notifiable, inverse_of: :notifiable, dependent: :destroy
 
   private
   def set_notification
@@ -27,6 +28,8 @@ class Vote < ActiveRecord::Base
     end
   end
 end
+
+Vote.new
 
 
 class UpVote < Vote # I should break this out into its own file.
@@ -52,7 +55,7 @@ class UpVote < Vote # I should break this out into its own file.
   private
   def set_notification
     notification = self.notifications.unread.event(:new_upvote_on_annotation).new
-    notification.user = self.user
+    notification.user = self.annotation.user
     notification.save
   end
 end
@@ -80,7 +83,7 @@ class DownVote < Vote # I should break this out, too.
   private
   def set_notification
     notification = self.notifications.unread.event(:new_downvote_on_annotation).new
-    notification.user = self.user
+    notification.user = self.annotation.user
     notification.save
   end
 end

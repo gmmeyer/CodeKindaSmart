@@ -50,11 +50,10 @@ class Notification < ActiveRecord::Base
       document = annotation.document
 
       "#{upvote_user.username} upvoted your annotation #{annotation.title} on #{document.title }"
-      annotation_url(upvote.annotation_id)
     when :new_downvote_on_annotation
       downvote = self.notifiable
-      downvote_user = upvote.user
-      annotation = upvote.annotation
+      downvote_user = downvote.user
+      annotation = downvote.annotation
       document = annotation.document
 
       "#{downvote_user.username} downvoted your annotation #{annotation.title} on #{document.title }"

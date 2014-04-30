@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140429005245) do
+ActiveRecord::Schema.define(version: 20140430171406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 20140429005245) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "notifications_count"
-    t.integer  "upvote_count"
-    t.integer  "downvote_count"
+    t.integer  "up_votes_count"
+    t.integer  "down_votes_count"
   end
 
   add_index "annotations", ["body"], name: "index_annotations_on_body", using: :btree
@@ -93,8 +93,8 @@ ActiveRecord::Schema.define(version: 20140429005245) do
     t.datetime "updated_at"
     t.integer  "notifications_count"
     t.integer  "documents_count"
-    t.integer  "upvote_count"
-    t.integer  "downvote_count"
+    t.integer  "up_votes_count"
+    t.integer  "down_votes_count"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -103,11 +103,12 @@ ActiveRecord::Schema.define(version: 20140429005245) do
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
   create_table "votes", force: true do |t|
-    t.integer  "user_id",       null: false
-    t.integer  "annotation_id", null: false
-    t.string   "type",          null: false
+    t.integer  "user_id",             null: false
+    t.integer  "annotation_id",       null: false
+    t.string   "type",                null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "notifications_count"
   end
 
   add_index "votes", ["annotation_id"], name: "index_votes_on_annotation_id", using: :btree

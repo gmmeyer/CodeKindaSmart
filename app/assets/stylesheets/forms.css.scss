@@ -45,23 +45,21 @@ input[type="submit"] {
 
 // Log Out Button
 
-.log-out > input {
+.log-out > input[type="submit"] {
   display: block;
   float: right;
-  padding: 9px;
-  margin: 3px 15px;
-  // background-color: #00f;
+  font-size: 12px;
+  padding: 7px 6px;
+  margin: 7px 15px;
   background-color: #f00;
   color: #fff;
 }
 
-.log-out > input:hover {
-  // background-color: #00e;
+.log-out > input[type="submit"]:hover {
   background-color: #e00;
 }
 
-.log-out > input:active {
-  // background-color: #00d;
+.log-out > input[type="submit"]:active {
   background-color: #d00;
 }
 
@@ -114,16 +112,6 @@ input[type="submit"] {
 .destroy > input:active {
   // background-color: #00d;
   background-color: #d00;
-}
-
-
-// New Annotation
-
-form.new-annotation {
-  display: block;
-  margin: 25px auto;
-  background: #fff;
-  border-radius: 5px;
 }
 
 

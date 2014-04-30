@@ -1,10 +1,10 @@
-<section class="articles">
+<section class="articles standalone-document">
   
   <%= render partial: "standalone_document", locals: {document: @document} %>
 
   <%= render partial: "annotations/new", locals: {document: @document}  %>
 
-  <% if current_user && current_user.id = @document.user_id %>
+  <% if current_user && current_user.id == @document.user_id %>
 
   <article class="document group">
   	<form action="<%= edit_document_url(@document.id) %>" method="get">
@@ -15,12 +15,13 @@
 				</p>
 
   	</form>
+  <% end %>
   	<p class="break">
   		
   	</p>
  		<%= render partial: "shared/delete_button", locals: {to_delete: @document, delete_url: document_url(@document.id)} %>
   </article>
   	
-  <% end %>
+  
 
 </section>

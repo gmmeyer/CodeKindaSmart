@@ -8,30 +8,34 @@
 	</head>
 	<body>
 
-	<%= render partial: "shared/header" %>
-	
-		<section class="notices">
-			<% if flash[:errors] %>
+		<%= render partial: "shared/header" %>
+		<section class="body group">
+			<section class="notices group">
+				<% if flash[:errors] %>
 
-				<% flash[:errors].each do |error| %>
-					<p class='error'>
-						<%= error %>
-					</p>
+					<% flash[:errors].each do |error| %>
+						<p class='error'>
+							<%= error %>
+						</p>
+					<% end %>
+				<% elsif flash[:notices] %>
+
+					<% flash[:notices].each do |msg| %>
+						<p class='notice'>
+							<%= msg %>
+						</p>
+					<% end %>
 				<% end %>
-			<% elsif flash[:notices] %>
+			</section>
 
-				<% flash[:notices].each do |msg| %>
-					<p class='notice'>
-						<%= msg %>
-					</p>
-				<% end %>
-			<% end %>
-		</section>
-
-    <section class="body">
+	    
 
 			<%= yield %>
 
-    </section>
+	 </section>
+
+	 <section class="footer group">
+	 	
+	 </section>
 	</body>
 </html>
