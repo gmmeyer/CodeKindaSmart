@@ -1,3 +1,76 @@
 // Place all the styles related to the notifications controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//Notifications Dropdown
+
+.notifications > a {
+  display: block;
+  padding: 9px;
+  margin: 3px 1px;
+}
+
+.notification-number {
+  display: inline;
+  background: #333;
+  padding: 2px 6px;
+  border-radius: 15px;
+  font-size: 16px;
+  color: #00C6BE;
+}
+
+.notifications-dropbown {
+  display: none;
+  position: absolute;
+  left: -80px;
+  background: #fff;
+  border-left: 3px solid #D1A1FF;
+  border-right: 3px solid #D1A1FF;
+  border-bottom: 3px solid #D1A1FF;
+  list-style: none
+}
+
+.notifications-dropbown > .notification {
+  width: 200px;
+
+}
+
+li:hover > .notifications-dropbown {
+  display: block;
+}
+
+.notifications-dropbown > li {
+  border-top: 3px solid #D1A1FF;
+}
+
+.notifications-dropbown > li > a {
+  display: block;
+  padding: 15px;
+}
+
+.notifications-dropbown > li > a:hover {
+  background: #9F3BFF;
+  color: #fff;
+}
+
+// Notifications Page
+
+article.notifications {
+	border: 2px solid #ffc31c;
+	border-radius: 10px;
+	display: block;
+	margin: 20px 20px;
+}
+
+.notifications-title{
+	padding: 10px 10px;
+	border-bottom: 2px solid #ffc31c;
+}
+
+article.notifications ul {
+	padding: 10px 10px;
+}
+
+article.notifications li {
+	padding: 5px;
+}

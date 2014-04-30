@@ -55,10 +55,20 @@ input[type="submit"]{
 /*Basic Settings*/
 
 body {
-	background: white;
+	background: #ddd;
 	color: black;
 	width: 1000px;
 	margin: auto;
+}
+
+section.body {
+	background: white;
+	border-radius: 10px;
+	border: 3px solid #ccc;
+}
+
+ul {
+	list-style: none;
 }
 
 i {
@@ -106,19 +116,19 @@ section.body {
 p.error {
   margin: 5px auto;
 	display: block;
-	border: #FF7100 dotted 2px;
+	border: #FF7100 solid 2px;
 	color: #FF7100;
   padding: 5px;
   border-radius: 10px;
 }
 
 p.notice {
-  margin: 5px auto;
+ margin: 5px auto;
 	display: block;
-	border: #00C6BE dotted 2px;
+	border: #00C6BE solid 2px;
 	color: #00C6BE;
-  padding: 5px;
-  border-radius: 10px;
+ padding: 5px;
+ border-radius: 10px;
 }
 
 .group:after {
