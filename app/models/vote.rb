@@ -15,9 +15,10 @@ class Vote < ActiveRecord::Base
   def set_notification
     # this will always be overridden. I should probably replace all of this with an alert and remove the class from the notifications.
     # I should ask about this tomorrow.
-    notification = self.notifications.unread.event(:new_vote_on_annotation).new
-    notification.user = self.user
-    notification.save
+    raise "Only use upvotes and downvote. This isn't mean to be used."
+    # notification = self.notifications.unread.event(:new_vote_on_annotation).new
+    # notification.user = self.user
+    # notification.save
   end
 
   def cannot_vote_on_own_post
