@@ -32,10 +32,8 @@ class Document < ActiveRecord::Base
   end
 
   def sort_range
-
     ranges = segments.keys.sort_by { |key| key.first }
     @annotation_segments = segments
-
     ann_arr = []
 
     ranges.each do |range|
@@ -51,13 +49,10 @@ class Document < ActiveRecord::Base
   end
 
   def builder
-
     @annotation_segments = segments
 
     Jbuilder.encode do |json|
-
       json.(self, :title, :body, :user_id, :author_id)
-
       json.username self.user.username
 
       json.segments sort_range do |range|
@@ -71,17 +66,13 @@ class Document < ActiveRecord::Base
     # rewrite with jbuilder
 
     Jbuilder.new do |document|
-
       segments = {}
       annotation_hash = self.annotation_ranges
-
       segments = overlap_loop(segments, annotation_hash)
-
       seg_array = []
       segments.keys.each do |key|
         seg_array << [key.first, key.last]
       end
-
       ann_array = []
       segments.values.each do |value|
         ann_array << nil
@@ -91,23 +82,17 @@ class Document < ActiveRecord::Base
   end
 
   def segments
-
     segments = {}
     annotation_hash = self.annotation_ranges
-
     segments = overlap_loop(segments, annotation_hash)
-
     return segments
   end
 
   def overlap_loop(segments, annotation_hash)
-
     annotation_hash.each do |ann1, range1|
       no_overlap = true
-
       annotation_hash.each do |ann2, range2|
         next if ann1 == ann2
-
         overlap = (range1.to_a & range2.to_a)
 
         if overlap.empty?
@@ -119,7 +104,6 @@ class Document < ActiveRecord::Base
 
         new_seg = ( (range1.to_a - overlap.to_a & range1.to_a).first..
                     (range1.to_a - overlap.to_a & range1.to_a).last )
-
         segments = add_to_segment_hash(segments, overlap, ann1, new_seg)
       end
 
