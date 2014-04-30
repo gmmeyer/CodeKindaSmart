@@ -15,7 +15,7 @@ gem 'figaro'
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'font-awesome-rails'
 gem 'pg_search'
-gem "kaminari"
+gem 'kaminari'
 gem 'addressable'
 gem "backbone-on-rails"
 

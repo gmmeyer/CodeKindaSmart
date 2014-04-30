@@ -3,7 +3,9 @@ class Notification < ActiveRecord::Base
   include Rails.application.routes.url_helpers
 
   EVENTS = {
-    1 => :new_annotation_on_document
+    1 => :new_annotation_on_document,
+    2 => :new_upvote_on_annotation,
+    3 => :new_downvote_on_annotation
   }
 
   EVENT_IDS = EVENTS.invert
@@ -24,6 +26,12 @@ class Notification < ActiveRecord::Base
     when :new_annotation_on_document
       annotation = self.notifiable
       document_url(annotation.document_id)
+    when :new_upvote_on_annotation
+      upvote = self.notifiable
+      annotation_url(upvote.annotation_id)
+    when :new_downvote_on_annotation
+      downvote = self.notifiable
+      annotation_url(downvote.annotation_id)
     end
   end
 
@@ -35,6 +43,21 @@ class Notification < ActiveRecord::Base
       document = annotation.document
 
       "#{annotation_user.username} annotated your document #{document.title}"
+    when :new_upvote_on_annotation
+      upvote = self.notifiable
+      upvote_user = upvote.user
+      annotation = upvote.annotation
+      document = annotation.document
+
+      "#{upvote_user.username} upvoted your annotation #{annotation.title} on #{document.title }"
+      annotation_url(upvote.annotation_id)
+    when :new_downvote_on_annotation
+      downvote = self.notifiable
+      downvote_user = upvote.user
+      annotation = upvote.annotation
+      document = annotation.document
+
+      "#{downvote_user.username} downvoted your annotation #{annotation.title} on #{document.title }"
     end
   end
 

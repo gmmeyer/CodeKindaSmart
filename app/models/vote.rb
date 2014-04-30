@@ -6,33 +6,30 @@ class Vote < ActiveRecord::Base
   }
   validate :cannot_vote_on_own_post
 
-  # validates :annotation_id
-  # before_validation :record_vote_type
-  # before_validation :ensure_one_vote
-
   belongs_to :user
   belongs_to :annotation
+  after_commit :set_notification, on: [:create]
+
 
   private
-  # def ensure_one_vote
-  #   if self.type = "upvote"
-  #     self.upvote = 1
-  #     self.downvote = nil
-  #   elsif self.type = "downvote"
-  #     self.upvote = nil
-  #     self.downvote = 1
-  #   end
-  # end
+  def set_notification
+    # this will always be overridden. I should probably replace all of this with an alert and remove the class from the notifications.
+    # I should ask about this tomorrow.
+    raise "Only use upvotes and downvote. This isn't mean to be used."
+    # notification = self.notifications.unread.event(:new_vote_on_annotation).new
+    # notification.user = self.user
+    # notification.save
+  end
 
   def cannot_vote_on_own_post
     if self.annotation.user_id == self.user_id
-      errors[:base] << "You can't vote on your own annotation, silly." 
+      errors[:base] << "You can't vote on your own annotation, silly."
     end
   end
 end
 
 
-class UpVote < Vote
+class UpVote < Vote # I should break this out into its own file.
 
   belongs_to :user, counter_cache: true
   belongs_to :annotation, counter_cache: true
@@ -51,9 +48,16 @@ class UpVote < Vote
       return vote
     end
   end
+
+  private
+  def set_notification
+    notification = self.notifications.unread.event(:new_upvote_on_annotation).new
+    notification.user = self.user
+    notification.save
+  end
 end
 
-class DownVote < Vote
+class DownVote < Vote # I should break this out, too.
 
   belongs_to :user, counter_cache: true
   belongs_to :annotation, counter_cache: true
@@ -71,5 +75,12 @@ class DownVote < Vote
       vote.vote_type = params[:vote_type]
       return vote
     end
+  end
+
+  private
+  def set_notification
+    notification = self.notifications.unread.event(:new_downvote_on_annotation).new
+    notification.user = self.user
+    notification.save
   end
 end
