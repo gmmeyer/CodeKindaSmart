@@ -31,10 +31,10 @@ class Annotation < ActiveRecord::Base
     return (self.start_location..self.end_location)
   end
 
+  private
   def set_notification
     notification = self.notifications.unread.event(:new_annotation_on_document).new
     notification.user = self.user
     notification.save
   end
-
 end

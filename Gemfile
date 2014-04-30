@@ -18,6 +18,7 @@ gem 'pg_search'
 gem 'kaminari'
 gem 'addressable'
 gem "backbone-on-rails"
+gem 'cancan'
 
 group :production do
   gem 'rails_12factor'
