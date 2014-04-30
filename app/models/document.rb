@@ -1,5 +1,5 @@
 class Document < ActiveRecord::Base
-  attr_accessor :annotation_segments
+  attr_accessor :annotation_segments, :segments, :document
   validates :title, :body, :user_id, :author_id, presence: true
   validates :title, uniqueness: true
 
@@ -29,6 +29,26 @@ class Document < ActiveRecord::Base
     end
 
     annotation_hash
+  end
+
+  def js_segments
+    # rewrite with jbuilder
+    
+    segments = {}
+    annotation_hash = self.annotation_ranges
+
+    segments = overlap_loop(segments, annotation_hash)
+
+    seg_array = []
+    segments.keys.each do |key|
+      seg_array << [key.first, key.last]
+    end
+
+    ann_array = []
+    segments.values.each do |value|
+      ann_array << nil
+    end
+
   end
 
   def segments

@@ -16,8 +16,8 @@
 //= require underscore
 //= require backbone
 //= require code_kinda_smart
-//= require_tree ../templates
 //= require_tree ./rangy
+//= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections
 //= require_tree ./views

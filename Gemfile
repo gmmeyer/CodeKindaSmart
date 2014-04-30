@@ -9,7 +9,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
-gem 'jbuilder', '~> 1.2'
+gem 'jbuilder'
 gem 'paperclip'
 gem 'figaro'
 gem 'bcrypt-ruby', '~> 3.1.2'
@@ -17,7 +17,7 @@ gem 'font-awesome-rails'
 gem 'pg_search'
 gem 'kaminari'
 gem 'addressable'
-gem "backbone-on-rails"
+gem 'backbone-on-rails'
 gem 'cancan'
 
 group :production do
