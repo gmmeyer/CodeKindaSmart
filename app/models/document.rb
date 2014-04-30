@@ -9,7 +9,7 @@ class Document < ActiveRecord::Base
   belongs_to :author, inverse_of: :documents, counter_cache: true
 
   include PgSearch
-  # implement these: [:tsearch, :dmetaphone, :trigram] 
+  # implement these: [:tsearch, :dmetaphone, :trigram]
   multisearchable against: [:title, :body]
 
   def substring(starting, ending)
@@ -31,22 +31,61 @@ class Document < ActiveRecord::Base
     annotation_hash
   end
 
-  def js_segments
-    # rewrite with jbuilder
-    
-    segments = {}
-    annotation_hash = self.annotation_ranges
+  def sort_range
 
-    segments = overlap_loop(segments, annotation_hash)
+    ranges = segments.keys.sort_by { |key| key.first }
+    @annotation_segments = segments
 
-    seg_array = []
-    segments.keys.each do |key|
-      seg_array << [key.first, key.last]
+    ann_arr = []
+
+    ranges.each do |range|
+      annotation = @annotation_segments[range]
+      if annotation.kind_of?(Array)
+        ann_arr << [[range.first, range.last], annotation.map{ |ann| ann.id }]
+      else
+        ann_arr << [[range.first, range.last], [annotation.id]]
+      end
     end
 
-    ann_array = []
-    segments.values.each do |value|
-      ann_array << nil
+    ann_arr
+  end
+
+  def builder
+
+    @annotation_segments = segments
+
+    Jbuilder.encode do |json|
+
+      json.(self, :title, :body, :user_id, :author_id)
+
+      json.username self.user.username
+
+      json.segments sort_range do |range|
+        json.range range.first
+        json.annotation_id range.last
+      end
+    end
+  end
+
+  def js_segments
+    # rewrite with jbuilder
+
+    Jbuilder.new do |document|
+
+      segments = {}
+      annotation_hash = self.annotation_ranges
+
+      segments = overlap_loop(segments, annotation_hash)
+
+      seg_array = []
+      segments.keys.each do |key|
+        seg_array << [key.first, key.last]
+      end
+
+      ann_array = []
+      segments.values.each do |value|
+        ann_array << nil
+      end
     end
 
   end
