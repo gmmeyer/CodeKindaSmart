@@ -1,5 +1,5 @@
 <li>
-	<% unless notification.is_read? %>
+	<% if !notification.is_read? %>
 		<strong>New</strong>
 	<% end %>
 	<a href="<%= notification_url(notification) %>"><%= notification.text %></a>
