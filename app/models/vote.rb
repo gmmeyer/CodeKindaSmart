@@ -28,7 +28,7 @@ class Vote < ActiveRecord::Base
 end
 
 
-class UpVote < Vote
+class UpVote < Vote # I should break this out into its own file.
 
   belongs_to :user, counter_cache: true
   belongs_to :annotation, counter_cache: true
@@ -56,7 +56,7 @@ class UpVote < Vote
   end
 end
 
-class DownVote < Vote
+class DownVote < Vote # I should break this out, too.
 
   belongs_to :user, counter_cache: true
   belongs_to :annotation, counter_cache: true
