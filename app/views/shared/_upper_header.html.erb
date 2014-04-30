@@ -7,61 +7,52 @@
 
     <ul class="user-info">
   
-    <% if current_user %>
+      <% if current_user %>
 
-        <!-- The right half I've gotta break this out again, this file is getting too long, again -->
+          <!-- The right half I've gotta break this out again, this file is getting too long, again -->
 
-        <li class="notifications">
-          
-          <a href="<%= notifications_url %>">Notifications
-
-          <% unless current_user.notifications.empty? %>
-            <strong class="notification-number"><%= current_user.notifications.unread.size %></strong>
-
+          <li class="notifications">
+            <a href="<%= notifications_url %>">Notifications
+              <strong class="notification-number"><%= current_user.notifications.unread.size %></strong>
             </a>
-            <ul class="notifications-dropbown">
-              <%= render partial: "notifications/notifications", collection: current_user.notifications.unread, as: :notification %>
-            </ul>
-        </li>
-        
 
-        <li>
-          
-        <a class="settings user" href="<%= settings_user_url(current_user.id) %>">
-          Welcome! <%= current_user.username %>
-        </a>
-          
-        </li>
+            <% unless current_user.notifications.empty? %>
+              <ul class="notifications-dropbown">
+                <%= render partial: "notifications/notifications", collection: current_user.notifications.unread, as: :notification %>
+              </ul>
+            <% end %>
+          </li>
 
-        <li>
+          <li>
+            <a class="settings user" href="<%= settings_user_url(current_user.id) %>">
+              Welcome! <%= current_user.username %>
+            </a>            
+          </li>
 
-        <form action="<%= session_url %>" method="post" accept-charset="utf-8">
-          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-          <input type="hidden" name="_method" value="delete">
+          <li>
+            <form action="<%= session_url %>" method="post" accept-charset="utf-8">
+              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+              <input type="hidden" name="_method" value="delete">
 
-          <p class="button log-out">
-            <input type="submit" value="Log Out" class="">
-          </p>
-        </form>
-          
-        </li>
+              <p class="button log-out">
+                <input type="submit" value="Log Out">
+              </p>
+            </form>
+          </li>
+
+  			<% else %>
+          <li>
+
+  				<a href='<%= new_session_url %>' class='login-link'>Login</a>
             
-          <% end %>
+          </li>
 
-
-			<% else %>
-        <li>
-
-				<a href='<%= new_session_url %>' class='login-link'>Login</a>
-          
-        </li>
-
-        <li>
-          
-        <a href='<%= new_user_url %>' class='login-link'>Sign Up</a>
-          
-        </li>
-  		<% end %>
+          <li>
+            
+          <a href='<%= new_user_url %>' class='login-link'>Sign Up</a>
+            
+          </li>
+    		<% end %>
         
       </ul>
 

@@ -1,7 +1,6 @@
 <div class="votes group">
 
 	<form action="<%= upvote_url(annotation.id) %>">
-		<input type="hidden" name="parms[existing_vote]" value="<%= annotation.my_vote %>">
 		<input type="hidden" name="vote[annotation_id]" value="<%= annotation.id %>">
 		<p class="button">
 			<input type="submit" class="vote" value='&#xf164;'>
@@ -9,7 +8,6 @@
 	</form>
 
 	<form action="<%= downvote_url(annotation.id) %>">
-		<input type="hidden" name="parms[existing_vote]" value="<%= annotation.my_vote %>">
 		<input type="hidden" name="vote[annotation_id]" value="<%= annotation.id %>">
 		<p class="button">
 			<input type="submit" class="vote" value="&#xf165;">
