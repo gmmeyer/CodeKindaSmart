@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 20140429005245) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "notifications_count"
-    t.integer  "upvote_count"
-    t.integer  "downvote_count"
+    t.integer  "up_votes_count"
+    t.integer  "down_votes_count"
   end
 
   add_index "annotations", ["body"], name: "index_annotations_on_body", using: :btree
@@ -93,8 +93,8 @@ ActiveRecord::Schema.define(version: 20140429005245) do
     t.datetime "updated_at"
     t.integer  "notifications_count"
     t.integer  "documents_count"
-    t.integer  "upvote_count"
-    t.integer  "downvote_count"
+    t.integer  "up_votes_count"
+    t.integer  "down_votes_count"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
