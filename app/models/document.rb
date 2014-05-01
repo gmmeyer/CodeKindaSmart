@@ -1,5 +1,5 @@
 class Document < ActiveRecord::Base
-  attr_accessor :annotation_segments, :segments, :document
+  attr_accessor :annotation_segments, :segments, :document, :sorted_segments
   validates :title, :body, :user_id, :author_id, presence: true
   validates :title, uniqueness: true
 

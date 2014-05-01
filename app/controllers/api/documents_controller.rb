@@ -1,16 +1,16 @@
 module Api
 	class DocumentsController < ApiController
 
-  def segments
-	  @document = Document.includes(:author).includes(:user).includes(annotation: :user).find(params[:id])
-	  @document = @document.segments_builder
-	  render @document
+  def show
+	  @document = Document.includes(:author).includes(:user).includes(annotations: :user).find(params[:id])
+	  # @document = @document.builder
+	  render :show
   end
 
-  def show
-  	@document = Document.includes(annotation: :user).find(params[:id])
-  	@segments = @document.builder
-  	render :segments_builder
+  def segments
+  	document = Document.includes(annotations: :user).find(params[:id])
+  	@sorted_segments = document.sort_segments
+  	render :segments
   end
 
 	end
