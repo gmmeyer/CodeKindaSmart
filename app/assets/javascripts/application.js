@@ -17,6 +17,7 @@
 //= require backbone
 //= require rangy
 //= require code_kinda_smart
+//= require stickUp
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections
