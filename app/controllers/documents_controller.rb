@@ -1,13 +1,13 @@
 class DocumentsController < ApplicationController
 
   def show
-    @document = Document.includes(:author).find(params[:id])
+    @document = Document.includes(:author).includes(:user).includes(annotations: :user).find(params[:id])
     @document.annotation_segments = @document.segments
     render :show
   end
 
   def index
-    @documents = Document.includes(:author).all
+    @documents = @document = Document.includes(:author).includes(:user).includes(annotations: :user).all
     @documents.map do |document|
       document.annotation_segments = document.segments
     end
@@ -43,8 +43,7 @@ class DocumentsController < ApplicationController
   end
 
   def edit
-    @document = Document.find(params[:id])
-    @author = @document.author
+    @document = Document.includes(:author).find(params[:id])
   end
 
   def update
