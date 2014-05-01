@@ -6,7 +6,7 @@ CodeKindaSmart.Collections.Segments = Backbone.Collection.extend({
   },
   
   url: function() {
-  	return: "/api/documents/" + this.document.id + "segments"
+  	return "/api/documents/" + this.document.id + "segments"
   }
 
 });
