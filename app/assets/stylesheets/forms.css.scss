@@ -1,6 +1,6 @@
 // General
 .input {
-  margin: 20px 0;
+  margin: 10px 0;
 }
 
 .input > label {
@@ -13,19 +13,18 @@ input[type="submit"] {
 }
 
 
-.input > input[type="text"], .input > input[type="password"] {
+.input input[type="text"], .input input[type="password"] {
   border: 3px solid #000;
-  border-radius: 10px;
-  padding: 5px 5px;
+  // border-radius: 10px;
+  padding: 0 2px;
   width: 284px;
   margin: 10px auto;
   float: left;
-  height: 40px;
 }
 
 .input > textarea {
   border: 3px solid #000;
-  border-radius: 10px;
+  // border-radius: 10px;
   color: #000;
   display: block;
   margin: 10px auto;
@@ -79,7 +78,7 @@ input[type="submit"] {
   background: #0c0;
   color: #fff;
   padding: 10px 20px;
-  border-radius: 5px;
+  // border-radius: 5px;
   font-weight: bold;
   cursor: pointer;
 }
@@ -119,7 +118,7 @@ input[type="submit"] {
 
 form.new-document {
   background-color: #fff;
-  border-radius: 5px;
+  // border-radius: 5px;
   display: block;
 }
 
@@ -132,45 +131,3 @@ label.new-document {
   display: block;
   margin: auto;
 }
-
-// input.new-document {
-//   background-color: #fff;
-//   display: block;
-//   margin: 10px auto;
-//   float: left;
-//   padding: auto 5px;
-//   border-radius: 10px;
-//   height: 40px;
-// }
-
-// textarea.new-document {
-//   color: #000;
-//   display: block;
-//   margin: 10px auto;
-//   float: left;
-//   padding: auto;
-//   rows: 20;
-//   border-radius: 10px;
-//   width: 650px;
-// }
-
-// .submit > input {
-//   position: relative;
-//   display: inline-block;
-//   background: #0c0;
-//   color: #fff;
-//   padding: 10px 20px;
-//   border-radius: 5px;
-//   font-weight: bold;
-//   box-shadow: 0 3px 0 0 #070;
-// }
-
-// .submit > input:hover {
-//   background: #0b0;
-// }
-
-// .submit > input:active {
-//   top: 3px;
-//   box-shadow: none;
-//   background: #0a0;
-// }

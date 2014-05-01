@@ -6,8 +6,13 @@
 
 .notifications > a {
   display: block;
-  padding: 9px;
-  margin: 3px 1px;
+  padding: 11px 10px;
+  color: #00C6BE;
+}
+
+.notifications > a:hover {
+  color: #fff;
+  background: #9F3BFF;
 }
 
 .notification-number {
@@ -16,7 +21,6 @@
   padding: 2px 6px;
   border-radius: 15px;
   font-size: 16px;
-  color: #00C6BE;
 }
 
 .notifications-dropbown {
@@ -57,7 +61,7 @@ li:hover > .notifications-dropbown {
 
 article.notifications {
 	border: 2px solid #ffc31c;
-	border-radius: 10px;
+	// border-radius: 10px;
 	display: block;
 	margin: 20px 20px;
 }
