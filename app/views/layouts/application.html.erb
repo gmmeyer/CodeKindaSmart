@@ -10,6 +10,7 @@
 
 		<%= render partial: "shared/header" %>
 		<section class="body group">
+		
 			<section class="notices group">
 				<% if flash[:errors] %>
 
@@ -28,8 +29,6 @@
 				<% end %>
 			</section>
 
-	    
-
 			<%= yield %>
 
 	 </section>
@@ -37,5 +36,15 @@
 	 <section class="footer group">
 	 	
 	 </section>
+
+	 <script>
+			//initiating jQuery
+			jQuery(function($) {
+			  $(document).ready( function() {
+			    //enabling stickUp on the '.navbar-wrapper' class
+			    $('.navbar-wrapper').stickUp();
+			  });
+			});
+	 </script>
 	</body>
 </html>
