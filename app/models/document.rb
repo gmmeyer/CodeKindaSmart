@@ -55,31 +55,13 @@ class Document < ActiveRecord::Base
     Jbuilder.encode do |json|
       json.(self, :title, :body, :user_id, :author_id)
       json.username self.user.username
+      json.author self.author.name
 
       json.segments sorted_segments do |segment|
         json.range segment.first
         json.annotation segment.last
       end
     end
-  end
-
-  def js_segments
-    # rewrite with jbuilder
-
-    Jbuilder.new do |document|
-      segments = {}
-      annotation_hash = self.annotation_ranges
-      segments = overlap_loop(segments, annotation_hash)
-      seg_array = []
-      segments.keys.each do |key|
-        seg_array << [key.first, key.last]
-      end
-      ann_array = []
-      segments.values.each do |value|
-        ann_array << nil
-      end
-    end
-
   end
 
   def segments

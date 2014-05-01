@@ -26,6 +26,7 @@ class Annotation < ActiveRecord::Base
   def builder
     Jbuilder.encode do |json|
       json.(self, :id, :title, :body, :user_id, :start_location, :end_location, :up_votes_count, :down_votes_count)
+      json.username self.user.username
     end
   end
 

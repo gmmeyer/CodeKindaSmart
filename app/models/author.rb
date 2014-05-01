@@ -7,4 +7,10 @@ class Author < ActiveRecord::Base
   include PgSearch
   multisearchable against: [:name, :location]
 
+  def builder
+  	Jbuilder.encode do |json|
+  		json.(self, name)
+  	end
+  end
+
 end
