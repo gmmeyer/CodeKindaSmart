@@ -1,5 +1,4 @@
 class AnnotationsController < ApplicationController
-  Vote.new
 
   def index
   end

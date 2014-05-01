@@ -1,5 +1,11 @@
 CodeKindaSmart::Application.routes.draw do
 
+  namespace :api, defaults: { format: :json } do
+    resources :documents
+    get "/documents/:id/segments", to: "documents#segments", as: "segments"
+    resources :annotations
+  end
+
   resources :users, only: [:new, :create, :destroy, :index, :show, :update] do
     member do
       get "settings"

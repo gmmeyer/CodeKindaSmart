@@ -1,15 +1,9 @@
 class DocumentsController < ApplicationController
 
   def show
-    if request.xhr
-      @document = Document.includes(:author).includes(:user).includes(annotation: :user).find(params[:id])
-      @document = @document.builder
-      render @document
-    else
-      @document = Document.includes(:author).includes(:user).includes(annotations: :user).find(params[:id])
-      @document.annotation_segments = @document.segments
-      render :show
-    end
+    @document = Document.includes(:author).includes(:user).includes(annotations: :user).find(params[:id])
+    @document.annotation_segments = @document.segments
+    render :show
   end
 
   def index

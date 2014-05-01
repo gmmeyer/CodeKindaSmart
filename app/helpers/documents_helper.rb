@@ -39,6 +39,6 @@ module DocumentsHelper
 
     a_class = "annotation"
     a_url = annotation_url(annotations.first.id)
-    return "<span class='annotation'><a class='annotation-link' href=" + a_url + "?" + query_hash.to_query + ">" + annotated + "</a></span>"
+    return "<span class='annotation-highliht'><a class='annotation-link' href=" + a_url + "?" + query_hash.to_query + ">" + annotated + "</a></span>"
   end
 end

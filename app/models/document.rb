@@ -48,13 +48,17 @@ class Document < ActiveRecord::Base
     ann_arr
   end
 
-  def builder
-    sorted_segments = sort_segments
-
+  def segments_builder
     Jbuilder.encode do |json|
       json.(self, :title, :body, :user_id, :author_id)
       json.username self.user.username
       json.author self.author.name
+    end
+  end
+
+  def builder
+    Jbuilder.encode do |json|
+      sorted_segments = self.sort_segments
 
       json.segments sorted_segments do |segment|
         json.range segment.first

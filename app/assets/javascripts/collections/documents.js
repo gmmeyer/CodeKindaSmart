@@ -1,5 +1,6 @@
 CodeKindaSmart.Collections.Documents = Backbone.Collection.extend({
 
-  model: CodeKindaSmart.Models.Document
+  model: CodeKindaSmart.Models.Document,
+  url: "api/documents/"
 
 });
