@@ -23,6 +23,12 @@ class Annotation < ActiveRecord::Base
     @my_vote = nil
   end
 
+  def builder
+    Jbuilder.encode do |json|
+      json.(self, :id, :title, :body, :user_id, :start_location, :end_location, :up_votes_count, :down_votes_count)
+    end
+  end
+
   def my_vote
     @my_vote
   end

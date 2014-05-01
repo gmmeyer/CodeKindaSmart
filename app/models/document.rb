@@ -31,7 +31,7 @@ class Document < ActiveRecord::Base
     annotation_hash
   end
 
-  def sort_range
+  def sort_segments
     ranges = segments.keys.sort_by { |key| key.first }
     @annotation_segments = segments
     ann_arr = []
@@ -39,9 +39,9 @@ class Document < ActiveRecord::Base
     ranges.each do |range|
       annotation = @annotation_segments[range]
       if annotation.kind_of?(Array)
-        ann_arr << [[range.first, range.last], annotation.map{ |ann| ann.id }]
+        ann_arr << [[range.first, range.last], annotation.map{ |ann| ann.builder }]
       else
-        ann_arr << [[range.first, range.last], [annotation.id]]
+        ann_arr << [[range.first, range.last], [annotation.builder]]
       end
     end
 
@@ -50,14 +50,15 @@ class Document < ActiveRecord::Base
 
   def builder
     @annotation_segments = segments
+    sorted_segments = sort_segments
 
     Jbuilder.encode do |json|
       json.(self, :title, :body, :user_id, :author_id)
       json.username self.user.username
 
-      json.segments sort_range do |range|
-        json.range range.first
-        json.annotation_id range.last
+      json.segments sorted_segments do |segment|
+        json.range segment.first
+        json.annotation segment.last
       end
     end
   end
