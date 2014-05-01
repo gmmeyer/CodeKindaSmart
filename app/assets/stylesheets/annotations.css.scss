@@ -32,27 +32,24 @@ a.annotation-link:hover {
 
 .document-annotated > section.annotations {
 	margin: 10px 10px 50px 10px;
+	float: right;
 }
 
-article.annotation {
-	display: block;
-	float: left;
-	width: 200px;
-}
-
-section.annotation {
+.annotation {
 	display: block;
 	float: left;
 	width: 210px;
-	border-radius: 15px;
-	border: 3px groove #D1A1FF;
+	// border-radius: 15px;
+	border: 3px solid #D1A1FF;
 }
 
-article.document-annotated {
+.document-annotated {
 	display: block;
 	float: left;
 	width: 700px;
 }
+
+
 
 .votes {
 	display: block;
@@ -71,5 +68,5 @@ form.new-annotation {
   display: block;
   margin: 25px auto;
   background: #fff;
-  border-radius: 5px;
+  // border-radius: 5px;
 }

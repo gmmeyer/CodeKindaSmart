@@ -39,20 +39,25 @@
 
 .header {
 	border: 3px solid #D1A1FF;
-	border-radius: 10px;
+	// border-radius: 10px;
   background: white;
 }
 
-.header-title {
+.header-title > a {
 	font-size: 35px;
 	float: left;
-	margin: 1px 5px;
+	padding: 3px 5px 4px 5px;
 }
 
 a.login-link {
   display: block;
-  padding: 12px;
+  padding: 13px 12px;
   margin: auto;
+}
+
+.header-wrapper a:hover {
+  background: #9F3BFF;
+  color: #fff;
 }
 
 section.settings {
@@ -61,7 +66,7 @@ section.settings {
 
 a.settings {
   display: block;
-  padding: 12px;
+  padding: 13px 12px;
   margin: auto;
 }
 
@@ -78,7 +83,7 @@ p.welcome {
 nav.nav {
   display: block;
 	border: 3px solid #D1A1FF;
-	border-radius: 10px;
+	// border-radius: 10px;
   background: white;
 }
 
