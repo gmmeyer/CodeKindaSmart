@@ -206,6 +206,7 @@ DEPENDENCIES
   cancan
   coffee-rails (~> 4.0.0)
   debugger
+  ejs
   figaro
   font-awesome-rails
   jbuilder
