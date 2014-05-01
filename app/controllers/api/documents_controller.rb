@@ -3,13 +3,13 @@ module Api
 
   def segments
 	  @document = Document.includes(:author).includes(:user).includes(annotation: :user).find(params[:id])
-	  @document = @document.builder
+	  @document = @document.segments_builder
 	  render @document
   end
 
   def show
   	@document = Document.includes(annotation: :user).find(params[:id])
-  	@segments = @document.segments_builder
+  	@segments = @document.builder
   	render :segments_builder
   end
 
