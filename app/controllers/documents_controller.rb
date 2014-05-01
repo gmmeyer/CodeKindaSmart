@@ -2,18 +2,18 @@ class DocumentsController < ApplicationController
 
   def show
     if request.xhr
-      @document = Document.includes(:author).includes(:user).includes(:annotations).find(params[:id])
+      @document = Document.includes(:author).includes(:user).includes(annotation: :user).find(params[:id])
       @document = @document.builder
-      render json: @document
+      render @document
     else
-      @document = Document.includes(:author).includes(:user).includes(:annotations).find(params[:id])
+      @document = Document.includes(:author).includes(:user).includes(annotations: :user).find(params[:id])
       @document.annotation_segments = @document.segments
       render :show
     end
   end
 
   def index
-    @documents = Document.includes(:author).all
+    @documents = @document = Document.includes(:author).includes(:user).includes(annotations: :user).all
     @documents.map do |document|
       document.annotation_segments = document.segments
     end
@@ -49,8 +49,7 @@ class DocumentsController < ApplicationController
   end
 
   def edit
-    @document = Document.find(params[:id])
-    @author = @document.author
+    @document = Document.includes(:author).find(params[:id])
   end
 
   def update

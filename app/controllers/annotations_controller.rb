@@ -8,14 +8,14 @@ class AnnotationsController < ApplicationController
     # @annotations = Annotation.includes(upvotes).includes(downvotes).where("id IN #{params[:ids]}") # I don't wanna include that yet
     Vote.new
     if params[:ids]
-      @annotations = Annotation.where("id IN (?)", params[:ids])
+      @annotations = Annotation.includes(document: {:user, :author}).where("id IN (?)", params[:ids])
     else
       @annotations = [Annotation.find(params[:id])]
     end
     @annotations.map do |annotation|
       annotation.load_user_vote(current_user)
     end
-    @document = Document.includes(:author).find(@annotations.first.document_id)
+    @document = Annotation.document
     @document.annotation_segments = @document.segments
     render :show
   end
