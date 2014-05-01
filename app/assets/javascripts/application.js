@@ -15,8 +15,8 @@
 //= require turbolinks
 //= require underscore
 //= require backbone
+//= require rangy
 //= require code_kinda_smart
-//= require_tree ./rangy
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections
