@@ -36,8 +36,6 @@ module DocumentsHelper
     query_hash = Hash.new
     query_hash[:ids] = ids
 
-
-    a_class = "annotation"
     a_url = annotation_url(annotations.first.id)
     return "<span class='annotation-highliht'><a class='annotation-link' href=" + a_url + "?" + query_hash.to_query + ">" + annotated + "</a></span>"
   end

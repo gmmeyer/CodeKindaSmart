@@ -41,7 +41,12 @@ a.annotation-link:hover {
 	width: 700px;
 }
 
-
+.annotation {
+	display: block;
+	float: left;
+	width: 210px;
+	border: 3px solid #D1A1FF;
+}
 
 .votes {
 	display: block;
