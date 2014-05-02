@@ -9,6 +9,11 @@ section.articles {
  width: 700px;
 }
 
+.document-paragraph {
+	margin-bottom: 5px;
+	text-indent: 15px;
+}
+
 section.index {
 	display: block;
 	float: left;
@@ -58,11 +63,12 @@ a.document-title:hover{
 
 section.standalone-document {
 	display: inline-block;
-	width: 300px;
+	width: 500px;
 }
 
 section.single-document {
-	width: 300px;
+	width: 500px;
+	margin: 0 0;
 }
 
 .break {

@@ -18,19 +18,22 @@ a.annotation-link:hover {
 
 .annotation-title {
 	display: block;
-	float: center;
-	text-align: left;
+	text-align: center;
 	font-size: 25px;
 	margin: 10px auto;
+	padding-bottom: 5px;
+	border-bottom: 3px solid #ffc31c;
 }
 
 .annotation-body {
 	display: block;
-	float: left;
-	margin: 10px auto;
+	text-align: left;
+	margin: 20px 10px;
+	text-indent: 10px;
 }
 
-.document-annotated > section.annotations {
+section.annotations {
+	// position: fixed;
 	margin: 10px 10px 50px 10px;
 	float: right;
 }
@@ -38,20 +41,36 @@ a.annotation-link:hover {
 .document-annotated {
 	display: block;
 	float: left;
-	width: 700px;
+	width: 800px;
+	margin-bottom: 50px;
 }
 
-.annotation {
+.annotation-wrapper {
+	// position: absolute;
+	float: right;
 	display: block;
-	float: left;
 	width: 210px;
-	border: 3px solid #D1A1FF;
+	border: 3px solid #ffc31c;
+	background: white;
 }
 
 .votes {
 	display: block;
 	width: 200px;
 	margin: auto;
+	float: left;
+	margin-bottom: 5px;
+}
+
+.annotation {
+	display: block;
+	border-bottom: 3px solid #ffc31c;
+	margin-bottom: 5px;
+}
+
+.annotation-highlight{
+	display: inline-block;
+	position: relative;
 }
 
 .button > .vote {
@@ -59,7 +78,6 @@ a.annotation-link:hover {
 }
 
 .annotation-buttons {
-	border-top: 3px solid #D1A1FF;
 	margin-top: 3px;
 }
 
