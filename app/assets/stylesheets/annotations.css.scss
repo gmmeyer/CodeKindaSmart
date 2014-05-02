@@ -2,18 +2,13 @@
 They will automatically be included in application.css.
 You can use Sass (SCSS) here: http://sass-lang.com/ */
 
-.bookmark {
-	float: right;
-	display: block;
-	position: relative;
-}
-
 .isHidden {
 	display: none;
 }
 
 .annotation-highlight{
 	// display: inline-block;
+	position: relative;
 }
 
 a.annotation-link:link {

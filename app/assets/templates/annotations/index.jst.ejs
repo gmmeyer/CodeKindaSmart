@@ -1,0 +1,24 @@
+<section class="annotations">
+
+  <% annotations.each(function (annotation) { %>
+
+    <section id="<%= annotation.id %>" class="annotation-wrapper .idHidden">
+      <section class="annotation">
+
+        <h2 class="annotation-title"><%= annotation.title%></h2>
+        <span class="annotation-body group"> <% annotation.body%></span>
+        
+      </section>
+
+        <%= this.partial({url: 'templates/annotations/votes.ejs'}) %>
+
+
+
+    </section>
+  
+
+
+  <% }) %>
+  
+
+</section>

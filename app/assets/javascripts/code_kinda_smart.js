@@ -4,9 +4,16 @@ window.CodeKindaSmart = {
   Views: {},
   Routers: {},
   initialize: function() {
-    CodeKindaSmart.router = new CodeKindaSmart.Routers.Annotations({
-      $rootEl: $('.bookmark')
+    CodeKindaSmart.annotations = new CodeKindaSmart.Collections.Annotations();
+    CodeKindaSmart.router = new CodeKindaSmart.Router({
+      $rootEl: $('#content')
     });
-    Backbone.history.start();
+    // if (!History.started){
+      // Backbone.history.start();
+    // }
   }
 };
+
+$(document).ready(function () {
+  CodeKindaSmart.initialize();
+})

@@ -1,4 +1,7 @@
 <section class="articles standalone-document">
+  <% tmp = @document.id %>
+  <%= content_tag :div, class: "tempInformation", data: {temp: @document} do %>
+  <% end %>
   
   <%= render partial: "standalone_document", locals: {document: @document} %>
 
@@ -27,6 +30,10 @@
 
 <script>
   $(document).ready(function(){
-    CodeKindaSmart.initialize();
+
+    var doc = $('.tempInformation').data('temp');
+
+    CodeKindaSmart.annotations = new CodeKindaSmart.Collections.Annotations({}, {document: doc});
+    CodeKindaSmart.annotations.fetch();
   });
 </script>

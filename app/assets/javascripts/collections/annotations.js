@@ -3,11 +3,14 @@ CodeKindaSmart.Collections.Annotations = Backbone.Collection.extend({
   model: CodeKindaSmart.Models.Annotation,
 
   initialize: function(models, options) {
-    this.document = options.document;
   },
 
+  setDocument: function(doc) {
+    this.document = options.doc;
+  }
+
   url: function () {
-    return "api/annotations" + this.document.id + 
+    return "api/documents/" + this.document.id + "/annotations"
   },
 
 	getOrFetch: function (id) {

@@ -1,16 +1,24 @@
-class AnnotationsController < ApiController
+module Api
+	class AnnotationsController < ApiController
 
-	def index
-		@annotations = Document.find(:id). 
+		def index
+			@document = Document.includes(:author).includes(:user).find(params[:document_id])
+			@annotations = @document.annotations.includes(:user)
+			render :index
+		end
+
+		def show
+			@annotation = Annotation.includes(:user).includes(document: [:user, :author]).find(params[:id])
+		end
+
+		def save
+		end
+
+		def edit
+		end
+
+		def update
+		end
+
 	end
-
-	def save
-	end
-
-	def edit
-	end
-
-	def update
-	end
-
 end
