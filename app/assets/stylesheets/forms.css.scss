@@ -13,10 +13,10 @@ input[type="submit"] {
 }
 
 
-.input input[type="text"], .input input[type="password"] {
+.input input[type="text"], .input input[type="password"], .input input[type="email"] {
   border: 3px solid #000;
   // border-radius: 10px;
-  padding: 0 2px;
+  padding: 2px 2px;
   width: 284px;
   margin: 10px auto;
   float: left;
@@ -28,17 +28,18 @@ input[type="submit"] {
   color: #000;
   display: block;
   margin: 10px auto;
+  padding: 2px 2px;
   float: left;
   padding: auto;
   rows: 20;
   width: 650px;
 }
 
-.input > textarea:hover, .input > input[type="text"]:hover, .input > input[type="password"]:hover  {
+.input > textarea:hover, .input input[type="text"]:hover, .input input[type="password"]:hover, .input input[type="email"]:hover {
   border: 3px solid #0b0;
 }
 
-.input > textarea:focus, .input > input[type="text"]:focus, .input > input[type="password"]:focus {
+.input > textarea:focus, .input input[type="text"]:focus, .input input[type="password"]:focus, .input input[type="email"]:focus {
   border: 3px solid #0c0;
 }
 

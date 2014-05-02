@@ -4,7 +4,10 @@ window.CodeKindaSmart = {
   Views: {},
   Routers: {},
   initialize: function() {
-    
+    CodeKindaSmart.router = new CodeKindaSmart.Routers.Segments({
+      $rootEl: $('#content')
+    });
+    // Backbone.history.start();
   }
 };
 

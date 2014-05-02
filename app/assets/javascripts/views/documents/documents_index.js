@@ -1,5 +1,6 @@
 CodeKindaSmart.Views.DocumentsIndex = Backbone.View.extend({
 
-  template: JST['documents/index']
+  template: JST['documents/index'],
+  
 
 });

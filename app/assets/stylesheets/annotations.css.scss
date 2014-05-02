@@ -4,16 +4,19 @@ You can use Sass (SCSS) here: http://sass-lang.com/ */
 
 a.annotation-link:link {
 	color: #9F3BFF;
+	position: relative;
 }
 
 a.annotation-link:visited {
 	color: #9F3BFF;
+	position: relative;
 }
 
 a.annotation-link:hover {
 	font-style: normal;
 	background: #9F3BFF;
 	color: #fff;
+	position: relative;
 }
 
 .annotation-title {
@@ -68,10 +71,10 @@ section.annotations {
 	margin-bottom: 5px;
 }
 
-.annotation-highlight{
-	display: inline-block;
-	position: relative;
-}
+// .annotation-highlight{
+// 	display: inline-block;
+// 	position: relative;
+// }
 
 .button > .vote {
 	float: left;
