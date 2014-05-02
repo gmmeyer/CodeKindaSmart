@@ -124,3 +124,5 @@ If they dare to come out in the open field and defend the gold standard as a goo
 cross_of_gold = Document.create(body: cross_of_gold, author_id: william_jennings_bryan.id, title: "Cross of Gold (speech)", summary: "The most famous political speech in American history.", release_date: 1896, user_id: gergz.id)
 
 Annotation.create(start_location: 0, end_location: 10, title: "This speech just goes on forever", body: "just, like, really.", document_id: cross_of_gold.id, user_id: me.id)
+
+

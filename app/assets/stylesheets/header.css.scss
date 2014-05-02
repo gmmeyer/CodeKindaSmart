@@ -10,7 +10,6 @@
 
 .navbar-wrapper {
   margin: auto auto;
-  position: absolute;
   width: 960px;
 }
 
@@ -81,7 +80,7 @@ p.welcome {
 
 
 nav.nav {
-  display: block;
+  // display: block;
 	border: 3px solid #D1A1FF;
 	// border-radius: 10px;
   background: white;
@@ -89,21 +88,28 @@ nav.nav {
 
 nav.nav > ul.nav-alpha {
   list-style-type: none;
-  display: block;
+  // display: block;
   float: left;
   margin: auto 10px;
 }
 
+.nav-alpha > li {
+  float: left;
+}
+
+.nav-beta > li {
+  float: left
+}
+
 nav.nav > ul.nav-beta {
   list-style-type: none;
-  display: block;
+  // display: block;
   float: right;
 }
 
-nav.nav > .nav-alpha > li > a.nav-link {
+.nav a.nav-link {
   display: block;
-  float: left;
   font-size: 15px;
   padding: 5px 5px;
-  margin: auto;
+  margin: 0 5px;
 }

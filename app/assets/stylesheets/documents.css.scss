@@ -9,6 +9,10 @@ section.articles {
  width: 700px;
 }
 
+.document-paragraph {
+	margin-bottom: 10px;
+}
+
 section.index {
 	display: block;
 	float: left;
@@ -52,17 +56,18 @@ a.document-title:hover{
 }
 
 .document-text {
-	display: inline;
+	// display: inline;
 	margin: 5px 5px;
 }
 
 section.standalone-document {
 	display: inline-block;
-	width: 300px;
+	width: 500px;
 }
 
 section.single-document {
-	width: 300px;
+	width: 500px;
+	margin: 0 0;
 }
 
 .break {
