@@ -16,6 +16,16 @@ user_passwords = Array.new(3,'password')
 
 end
 
+fake_users = []
+
+20.times do |i|
+
+	fake_users << User.create(username: Faker::Internet.user_name, email: Faker::Internet.safe_email, password: user_passowrds[1], password_confirmation: user_passwords[1]
+
+end
+
+
+
 User.create(username: 'greg', email: 'greg@greg.com', password: 'password', password_confirmation: 'password')
 
 me = User.find_by(username: 'greg')
@@ -31,16 +41,16 @@ author_location = Array.new(3, "New York")
 end
 
 
-docs = Document.new
+# docs = Document.new
 
-titles = Array.new(3,'asdf')
-bodies = Array.new(3, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et doloremagna aliqua. Ut enim ad minim veniam, quis nostrudexercitation ullamco laboris nisi ut aliquip ex eacommodo consequat. Duis aute irure dolor inreprehenderit in voluptate velit esse cillum dolore eufugiat nulla pariatur. Excepteur sint occaecat cupidatatnon proident, sunt in culpa qui officia deserunt mollitanim id est laborum.')
+# titles = Array.new(3,'asdf')
+# bodies = Array.new(3, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et doloremagna aliqua. Ut enim ad minim veniam, quis nostrudexercitation ullamco laboris nisi ut aliquip ex eacommodo consequat. Duis aute irure dolor inreprehenderit in voluptate velit esse cillum dolore eufugiat nulla pariatur. Excepteur sint occaecat cupidatatnon proident, sunt in culpa qui officia deserunt mollitanim id est laborum.')
 
-bodies.length.times do |i|
+# bodies.length.times do |i|
 
-  Document.create(title: i.to_s + titles[i], body: i.to_s + bodies[i], user_id: me.id, author_id: Author.first.id)
+  # Document.create(title: i.to_s + titles[i], body: i.to_s + bodies[i], user_id: me.id, author_id: Author.first.id)
 
-end
+# end
 
 annotations = Array.new(4, "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, unde, in deserunt at voluptate aperiam beatae facere optio vero consectetur voluptates ullam illum natus soluta cum corrupti iusto accusamus possimus!")
 start_locations = [1, 20, 25, 30]
@@ -126,3 +136,14 @@ cross_of_gold = Document.create(body: cross_of_gold, author_id: william_jennings
 Annotation.create(start_location: 0, end_location: 10, title: "This speech just goes on forever", body: "just, like, really.", document_id: cross_of_gold.id, user_id: me.id)
 
 
+anns_t = ["I hate this god damn speech" "Why?" "Really though, I mean, come on."]
+anns_b = ["Why is it so long?", "Why didn't you seed the database with better things than this?", "Aren't there gems or whatever for this kind of thing? Comeon."]
+
+starts = [100, 500, 700]
+ends = [200, 600, 800]
+
+
+
+3.times do |i|
+	Annotation.create( user_id: fake_users[i].id, title: anns_t[i], body: anns_b[i], document_id: cross_of_gold.id, start_location: starts[i], end_location: ends[i] )
+end
