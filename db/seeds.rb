@@ -52,18 +52,18 @@ end
 
 # end
 
-annotations = Array.new(4, "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, unde, in deserunt at voluptate aperiam beatae facere optio vero consectetur voluptates ullam illum natus soluta cum corrupti iusto accusamus possimus!")
-start_locations = [1, 20, 25, 30]
-end_locations = [10, 29, 35, 40]
-titles = ['so so good', 'gergz', 'genius!', 'another one']
+# annotations = Array.new(4, "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, unde, in deserunt at voluptate aperiam beatae facere optio vero consectetur voluptates ullam illum natus soluta cum corrupti iusto accusamus possimus!")
+# start_locations = [1, 20, 25, 30]
+# end_locations = [10, 29, 35, 40]
+# titles = ['so so good', 'gergz', 'genius!', 'another one']
 
 
-doc = Document.all.first
+# doc = Document.all.first
 
 
-annotations.length.times do |i|
-	Annotation.create(start_location: start_locations[i], end_location: end_locations[i], user_id: me.id, document_id: doc.id, title: titles[i], body: annotations[i])
-end
+# annotations.length.times do |i|
+# 	Annotation.create(start_location: start_locations[i], end_location: end_locations[i], user_id: me.id, document_id: doc.id, title: titles[i], body: annotations[i])
+# end
 
 william_jennings_bryan = Author.create(name: "William Jennings Bryan", location: "Minnesota", description: "A three time losing presidential candidate for the democratic party, William Jennings Bryan was both the greatest orator of his era, and one of the worst politicians. He started his national career by giving the Cross of Gold speech at the Democratic National Convention in 1896, which lead the convention to nominate him nearly by acclimation, making him the (still) yougest presidentail nominee ever at the age of 36. He would end it, paradoxically, on the wrong side of history, by assaulting the teaching of evolution in the Scopes Monkey Trial.")
 
