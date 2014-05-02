@@ -117,6 +117,4 @@ class Document < ActiveRecord::Base
 
     segments
   end
-
-
 end
