@@ -18,6 +18,7 @@
 //= require rangy
 //= require code_kinda_smart
 //= require stickUp
+//= require gritter
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections

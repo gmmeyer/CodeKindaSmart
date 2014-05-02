@@ -20,6 +20,7 @@ gem 'kaminari'
 gem 'addressable'
 gem 'backbone-on-rails'
 gem 'cancan'
+gem 'gritter'
 
 group :production do
   gem 'rails_12factor'
