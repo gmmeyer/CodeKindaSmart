@@ -19,6 +19,7 @@ gem 'kaminari'
 gem 'addressable'
 gem 'cancan'
 gem 'delayed_job_active_record'
+gem 'whenever', require: false
 
 group :production do
   gem 'rails_12factor'
