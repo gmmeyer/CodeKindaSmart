@@ -20,8 +20,13 @@
   		
   	</p>
  		<%= render partial: "shared/delete_button", locals: {to_delete: @document, delete_url: document_url(@document.id)} %>
-  </article>
-  	
+  </article> 	
   
 
 </section>
+
+<script>
+  $(document).ready(function(){
+    CodeKindaSmart.initialize();
+  });
+</script>

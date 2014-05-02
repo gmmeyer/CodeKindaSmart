@@ -2,6 +2,7 @@ class Document < ActiveRecord::Base
   attr_accessor :annotation_segments, :segments, :document, :sorted_segments
   validates :title, :body, :user_id, :author_id, presence: true
   validates :title, uniqueness: true
+  before_validation :sanitize_text
 
   belongs_to :user
   has_many :annotations, dependent: :destroy
@@ -116,5 +117,10 @@ class Document < ActiveRecord::Base
     end
 
     segments
+  end
+
+  private
+  def sanitize_text
+    self.body = strip_tags(self.body)
   end
 end

@@ -4,7 +4,6 @@ class AnnotationsController < ApplicationController
   end
 
   def show
-    # @annotations = Annotation.includes(upvotes).includes(downvotes).where("id IN #{params[:ids]}") # I don't wanna include that yet
     Vote.new
     if params[:ids]
       @annotations = Annotation.includes(document: [:user, :author]).where("id IN (?)", params[:ids])

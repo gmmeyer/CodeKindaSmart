@@ -4,13 +4,9 @@ window.CodeKindaSmart = {
   Views: {},
   Routers: {},
   initialize: function() {
-    CodeKindaSmart.router = new CodeKindaSmart.Routers.Segments({
+    CodeKindaSmart.router = new CodeKindaSmart.Routers.Annotations({
       $rootEl: $('.bookmark')
     });
-    // Backbone.history.start();
+    Backbone.history.start();
   }
 };
-
-$(document).ready(function(){
-  CodeKindaSmart.initialize();
-});

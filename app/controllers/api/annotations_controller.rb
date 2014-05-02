@@ -1,5 +1,9 @@
 class AnnotationsController < ApiController
 
+	def index
+		@annotations = Document.find(:id). 
+	end
+
 	def save
 	end
 
