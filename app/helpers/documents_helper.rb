@@ -38,7 +38,7 @@ module DocumentsHelper
 
     a_url = annotation_url(annotations.first.id)
     #tags = "<span class='annotation-highlight'><a class='annotation-link' href=" + a_url + "?" + query_hash.to_query + ">" + annotated + "</a></span>"
-    tags = "<a class='annotation-highlight annotation-link' href=" + a_url + "?" + query_hash.to_query + ">" + annotated + "</a>"
+    tags = "<a class='annotation-highlight annotation-link' href=" + a_url + "?" + query_hash.to_query + ">" + annotated.first + "<span class='bookmark' id='#{ids}'></span>" + annotated[1..-1] + "</a>"
     return tags
   end
 end

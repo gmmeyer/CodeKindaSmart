@@ -5,7 +5,7 @@ window.CodeKindaSmart = {
   Routers: {},
   initialize: function() {
     CodeKindaSmart.router = new CodeKindaSmart.Routers.Segments({
-      $rootEl: $('#content')
+      $rootEl: $('.bookmark')
     });
     // Backbone.history.start();
   }

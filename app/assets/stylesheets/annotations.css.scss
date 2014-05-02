@@ -2,21 +2,32 @@
 They will automatically be included in application.css.
 You can use Sass (SCSS) here: http://sass-lang.com/ */
 
+.bookmark {
+	float: right;
+	display: block;
+	position: relative;
+}
+
+.isHidden {
+	display: none;
+}
+
+.annotation-highlight{
+	// display: inline-block;
+}
+
 a.annotation-link:link {
 	color: #9F3BFF;
-	position: relative;
 }
 
 a.annotation-link:visited {
 	color: #9F3BFF;
-	position: relative;
 }
 
 a.annotation-link:hover {
 	font-style: normal;
 	background: #9F3BFF;
 	color: #fff;
-	position: relative;
 }
 
 .annotation-title {
@@ -70,11 +81,6 @@ section.annotations {
 	border-bottom: 3px solid #ffc31c;
 	margin-bottom: 5px;
 }
-
-// .annotation-highlight{
-// 	display: inline-block;
-// 	position: relative;
-// }
 
 .button > .vote {
 	float: left;
