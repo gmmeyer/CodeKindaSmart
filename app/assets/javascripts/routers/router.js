@@ -6,16 +6,32 @@ CodeKindaSmart.Router = Backbone.Router.extend({
 
 	routes: {
 		"annotations/:ids" : "showAnnotations",
-		"annotations" : "annotationIndex",
-		"" : "annotationIndex"
+		"documents/:id/annotations" : "annotationIndex",
+		"documents/:id" : "annotationIndex",
+		"" : "staticHomepage"
 	},
 
 	annotationIndex: function () {
+		event.preventDefault();
 		var view = new CodeKindaSmart.Views.AnnotationsIndex({
 			collection: CodeKindaSmart.annotations
 		});
 		this._swapView(view);
 	},
+
+	showAnnotations: function () {
+	},
+
+	showDocument: function() {
+		var view = new CodeKindaSmart.Views.DocumentsShow({
+			model: CodeKindaSmart
+		})
+	},
+
+	staticHomepage: function () {
+				
+	},
+
 
 
 	_swapView: function (newView) {

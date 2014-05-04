@@ -58,14 +58,17 @@ input[type="submit"]{
 body {
 	background: #ddd;
 	color: black;
-	width: 1000px;
 	margin: auto;
+	font-size: 25px;
 }
 
 section.body {
+	padding-top: 10px;
+	padding-bottom: 10px;
 	background: white;
 	/*border-radius: 10px;*/
-	border: 3px solid #ccc;
+	border-left: 3px solid #ccc;
+	border-right: 3px solid #ccc;
 }
 
 ul {
@@ -100,12 +103,13 @@ a:hover {
 
 section.body {
   display: block;
-  margin: auto 20px;
+  width: 1000px;
+  margin: auto auto;
 }
 
 .page-title {
 	display: block;
-	font-size: x-large;
+	font-size: 40px;
 	margin: 25px auto;
 }
 

@@ -33,18 +33,14 @@
 
 	 </section>
 
-	 <section class="footer group">
-	 	
-	 </section>
+	 <%= render partial: "shared/footer" %>
 
 	 <script>
 			//initiating jQuery
 			jQuery(function($) {
 			  $(document).ready( function() {
 			    //enabling stickUp on the '.navbar-wrapper' class
-			    $('.navbar-wrapper').stickUp({
-			    	marginTop: 10px
-			    });
+			    $('.navbar-wrapper').stickUp();
 			  });
 			});
 	 </script>

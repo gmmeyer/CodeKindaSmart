@@ -32,5 +32,5 @@ CodeKindaSmart::Application.routes.draw do
   get "/homepage", to: 'pages#homepage'
   get "/search", to: "pages#search"
 
-  root to: "documents#index"
+  root to: "pages#homepage"
 end

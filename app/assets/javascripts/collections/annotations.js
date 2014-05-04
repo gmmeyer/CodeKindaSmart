@@ -2,15 +2,11 @@ CodeKindaSmart.Collections.Annotations = Backbone.Collection.extend({
 
   model: CodeKindaSmart.Models.Annotation,
 
-  initialize: function(models, options) {
+  initialize: function(options) {
   },
 
-  setDocument: function(doc) {
-    this.document = options.doc;
-  }
-
   url: function () {
-    return "api/documents/" + this.document.id + "/annotations"
+    return "api/documents/" + this._document.id + "/annotations"
   },
 
 	getOrFetch: function (id) {
@@ -20,6 +16,7 @@ CodeKindaSmart.Collections.Annotations = Backbone.Collection.extend({
       model.collection = this;
     }
     model.fetch(); // fetch anyways
+
     return model;
 	}
 

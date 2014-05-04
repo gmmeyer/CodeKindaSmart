@@ -8,9 +8,7 @@ window.CodeKindaSmart = {
     CodeKindaSmart.router = new CodeKindaSmart.Router({
       $rootEl: $('#content')
     });
-    // if (!History.started){
-      // Backbone.history.start();
-    // }
+    Backbone.history.start()
   }
 };
 

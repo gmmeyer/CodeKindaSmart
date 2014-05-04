@@ -1,5 +1,4 @@
 <section class="articles standalone-document">
-  <% tmp = @document.id %>
   <%= content_tag :div, class: "tempInformation", data: {temp: @document} do %>
   <% end %>
   
@@ -33,7 +32,8 @@
 
     var doc = $('.tempInformation').data('temp');
 
-    CodeKindaSmart.annotations = new CodeKindaSmart.Collections.Annotations({}, {document: doc});
-    CodeKindaSmart.annotations.fetch();
+    CodeKindaSmart.doc = new CodeKindaSmart.Models.Document({}, {doc: doc });
+    //CodeKindaSmart.Collections.Annotations({}, {document: doc});
+    // CodeKindaSmart.doc.fetch();
   });
 </script>
