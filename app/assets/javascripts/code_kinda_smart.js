@@ -4,9 +4,8 @@ window.CodeKindaSmart = {
   Views: {},
   Routers: {},
   initialize: function() {
-    CodeKindaSmart.annotations = new CodeKindaSmart.Collections.Annotations();
     CodeKindaSmart.router = new CodeKindaSmart.Router({
-      $rootEl: $('#content')
+      $rootEl: $('#body')
     });
     Backbone.history.start()
   }

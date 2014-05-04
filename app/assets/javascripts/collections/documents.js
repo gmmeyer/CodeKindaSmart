@@ -1,7 +1,7 @@
 CodeKindaSmart.Collections.Documents = Backbone.Collection.extend({
 
   model: CodeKindaSmart.Models.Document,
-  url: "api/documents/",
+  url: "documents",
   
  	getOrFetch: function (id) {
    var model = this.get(id);

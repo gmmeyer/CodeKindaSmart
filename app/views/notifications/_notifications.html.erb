@@ -1,6 +1,10 @@
 <li class="notification">
+
+	<a href="<%= notification_url(notification) %>">
 	<% if !notification.is_read? %>
-		<strong>New</strong>
+		<strong class="new">New</strong>
 	<% end %>
-	<a href="<%= notification_url(notification) %>"><%= notification.text %></a>
+	<%= notification.text %>
+	</a>
+
 </li>

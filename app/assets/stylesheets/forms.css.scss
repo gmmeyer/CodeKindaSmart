@@ -15,7 +15,6 @@ input[type="submit"] {
 
 .input input[type="text"], .input input[type="password"], .input input[type="email"] {
   border: 3px solid #000;
-  // border-radius: 10px;
   padding: 2px 2px;
   width: 284px;
   margin: 10px auto;
@@ -24,7 +23,6 @@ input[type="submit"] {
 
 .input > textarea {
   border: 3px solid #000;
-  // border-radius: 10px;
   color: #000;
   display: block;
   margin: 10px auto;
@@ -50,7 +48,7 @@ input[type="submit"] {
   float: right;
   font-size: 12px;
   padding: 7px 6px;
-  margin: 7px 15px;
+  margin: 10px 15px 0 15px;
   background-color: #f00;
   color: #fff;
 }
@@ -79,7 +77,6 @@ input[type="submit"] {
   background: #0c0;
   color: #fff;
   padding: 10px 20px;
-  // border-radius: 5px;
   font-weight: bold;
   cursor: pointer;
 }
@@ -99,18 +96,15 @@ input[type="submit"] {
   float: left;
   padding: 9px;
   margin: 3px 15px;
-  // background-color: #00f;
   background-color: #f00;
   color: #fff;
 }
 
 .destroy > input:hover {
-  // background-color: #00e;
   background-color: #e00;
 }
 
 .destroy > input:active {
-  // background-color: #00d;
   background-color: #d00;
 }
 
@@ -119,7 +113,6 @@ input[type="submit"] {
 
 form.new-document {
   background-color: #fff;
-  // border-radius: 5px;
   display: block;
 }
 

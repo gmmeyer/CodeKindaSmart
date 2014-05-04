@@ -12,7 +12,7 @@
 
           <!-- The right half I've gotta break this out again, this file is getting too long, again -->
 
-          <li class="notifications">
+          <li class="notifications-number-link">
             <a href="<%= notifications_url %>">
             <!-- Notifications -->
               <strong class="notification-number"><%= current_user.notifications.unread.size %></strong>
@@ -26,7 +26,7 @@
           </li>
 
           <li>
-            <a class="settings user" href="<%= settings_user_url(current_user.id) %>">
+            <a class="login-link" href="<%= settings_user_url(current_user.id) %>">
               Welcome! <%= current_user.username %>
             </a>            
           </li>

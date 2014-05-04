@@ -4,13 +4,15 @@
 
 //Notifications Dropdown
 
-.notifications > a {
+.notifications-number-link > a {
   display: block;
-  padding: 13px 10px;
+  padding: 0 10px;
+  padding-top: 8px;
+  padding-bottom: 14px;
   color: #00C6BE;
 }
 
-.notifications > a:hover {
+.notifications-number-link > a:hover {
   color: #fff;
   background: #9F3BFF;
 }
@@ -18,7 +20,7 @@
 .notification-number {
   display: inline;
   background: #333;
-  padding: 2px 6px 3px 6px;
+  padding: 3px 6px 3px 6px;
   border-radius: 15px;
   font-size: 16px;
 }
@@ -75,6 +77,15 @@ article.notifications ul {
 	padding: 10px 10px;
 }
 
-article.notifications li {
+.notifications a {
 	padding: 5px;
+  display: block;
+}
+
+.notifications a:hover {
+  color: #fff;
+}
+
+.notifications a:hover {
+  color: #fff;
 }

@@ -39,7 +39,6 @@
 
 .header {
 	border: 3px solid #D1A1FF;
-	// border-radius: 10px;
   background: white;
 }
 
@@ -87,16 +86,13 @@ p.welcome {
 
 
 nav.nav {
-  // display: block;
 	border: 3px solid #D1A1FF;
   border-top: 0px solid #D1A1FF;
-	// border-radius: 10px;
   background: white;
 }
 
 nav.nav > ul.nav-alpha {
   list-style-type: none;
-  // display: block;
   float: left;
   margin: auto 10px;
 }
@@ -111,7 +107,6 @@ nav.nav > ul.nav-alpha {
 
 nav.nav > ul.nav-beta {
   list-style-type: none;
-  // display: block;
   float: right;
 }
 
