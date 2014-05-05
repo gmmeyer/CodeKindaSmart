@@ -26,7 +26,7 @@ CodeKindaSmart.Models.Document = Backbone.Model.extend({
   }
 
   return this._annotations;
- },
+ }
 
 
 

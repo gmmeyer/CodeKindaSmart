@@ -1,11 +1,9 @@
 class PagesController < ApplicationController
 
   def homepage
-    render :homepage
   end
 
   def search
-    # fail
     if params[:query]
       @results = PgSearch.multisearch(params[:query])
     else

@@ -41,27 +41,7 @@ input[type="submit"] {
   border: 3px solid #0c0;
 }
 
-// Log Out Button
-
-.log-out > input[type="submit"] {
-  display: block;
-  float: right;
-  font-size: 12px;
-  padding: 7px 6px;
-  margin: 10px 15px 0 15px;
-  background-color: #f00;
-  color: #fff;
-}
-
-.log-out > input[type="submit"]:hover {
-  background-color: #e00;
-}
-
-.log-out > input[type="submit"]:active {
-  background-color: #d00;
-}
-
-// Destroy Button
+// General Button Settings
 
 .button > input{
   box-shadow: 0 1px 0 0 rgba(0,0,0,.2);
@@ -86,10 +66,33 @@ input[type="submit"] {
 }
 
 .button > input:active {
-  top: 1px;
-  box-shadow: none;
+  // top: 1px;
+  box-shadow: 1px 1px 1px 1px rgba(0,0,0,.2);
   background: #0a0;
 }
+
+
+// Log Out Button
+
+.log-out > input[type="submit"] {
+  display: block;
+  float: right;
+  font-size: 12px;
+  padding: 7px 6px;
+  margin: 10px 15px 0 15px;
+  background-color: #f00;
+  color: #fff;
+}
+
+.log-out > input[type="submit"]:hover {
+  background-color: #e00;
+}
+
+.log-out > input[type="submit"]:active {
+  background-color: #d00;
+}
+
+// Destroy Button
 
 .destroy > input {
   display: block;

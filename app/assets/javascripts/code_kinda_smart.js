@@ -4,6 +4,7 @@ window.CodeKindaSmart = {
   Views: {},
   Routers: {},
   initialize: function() {
+    CodeKindaSmart.documents = new CodeKindaSmart.Collections.Documents();
     CodeKindaSmart.router = new CodeKindaSmart.Router({
       $rootEl: $('#body')
     });
@@ -11,6 +12,6 @@ window.CodeKindaSmart = {
   }
 };
 
-$(document).ready(function () {
-  CodeKindaSmart.initialize();
-})
+// $(document).ready(function () {
+//   CodeKindaSmart.initialize();
+// })
