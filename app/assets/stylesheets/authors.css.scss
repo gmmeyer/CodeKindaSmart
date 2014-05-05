@@ -7,12 +7,17 @@ section.author {
 	margin: 20px 25px;
  float: left;
  width: 700px;
- // border-radius: 10px;
  border: 2px solid #D1A1FF;
 }
 
 .author p {
- margin: 20px 5px;
+ margin: 5px 5px;
+}
+
+.section-title {
+	display: block;
+	padding: 0 5px;
+	margin-top: 10px;
 }
 
 article.standalone-document {
@@ -23,14 +28,12 @@ article.standalone-document {
 h2.author-name  {
 	margin: 0;
 	display: block;
-	border:	2px solid #D1A1FF;
-	// border-radius: 10px;
-	margin: auto 5px;
+	text-align: center;
 }
 
 .author-name a{
 	display: block;
-	padding: 20px 15px;
+	padding: 20px 20px;
 	font-size: 20px;
 }
 
