@@ -7,8 +7,8 @@ section.author {
 	margin: 20px 25px;
  float: left;
  width: 700px;
- border-radius: 10px;
- border: 2px solid #00524F;
+ // border-radius: 10px;
+ border: 2px solid #D1A1FF;
 }
 
 .author p {
@@ -23,15 +23,18 @@ article.standalone-document {
 h2.author-name  {
 	margin: 0;
 	display: block;
-	padding: 5px 10px;
-	border:	2px solid #00524F;
-	border-radius: 10px;
+	border:	2px solid #D1A1FF;
+	// border-radius: 10px;
 	margin: auto 5px;
 }
 
 .author-name a{
 	display: block;
-	padding: 30px auto;
-	margin: 5px 5px;
+	padding: 20px 15px;
 	font-size: 20px;
+}
+
+.author-name a:hover{
+	color: #fff;
+	background-color: #9F3BFF;
 }

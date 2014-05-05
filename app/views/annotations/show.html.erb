@@ -1,10 +1,10 @@
 <section class="articles">
 	
-	<article class="document-annotated group">
+	<article class="document-annotated">
 
 		<%= render partial: "documents/standalone_document", locals: {document: @document} %>
 
-	  <section class="articles annotations group">
+	  <section class="annotations">
 	  	<%= render partial: "annotation", collection: @annotations %>
 	  </section>
 	</article>

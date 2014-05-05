@@ -1,21 +1,29 @@
-	<section class="annotation">
-		<h2 class="annotation-title"><%= annotation.title %></h2>
+	<section class="annotation-wrapper">
+		<section class="annotation">
+			<h2 class="annotation-title"><%= annotation.title %></h2>
+			<h2 class="annotation-title"><%= annotation.user.username %></h2>
+			<span class="annotation-body group"> <%= annotation.body %> </span>
+		</section>
 
-
-		<p class="annotation-body"> <%= annotation.body %> </p>
 
 		<%= render partial: "annotations/vote", locals: {annotation: annotation} %>
 
-  <article class="annotation group">
+		<% if current_user %>
 
-  	<form action="<%= edit_annotation_url(annotation.id) %>" method="get">
+	  <article class="annotation-buttons group">
 
-			<%= token_tag nil %>
-			<p class="button">
-				<input type="submit" value="Edit <%= annotation.title %>">			
-			</p>
+	  	<form action="<%= edit_annotation_url(annotation.id) %>" method="get">
 
-		</form>
+				<%= token_tag nil %>
+				<p class="button group">
+					<label for="Edit">Edit this annotation?</label>
+					<input type="submit" id="Edit" value="Edit!">
+				</p>
+
+			</form>
+
+		<% end %>
+
 		<p class="break"></p>
 
 		<%= render partial: "shared/delete_button", locals: {to_delete: annotation, delete_url: annotation_url(annotation.id)} %>

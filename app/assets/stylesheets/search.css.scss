@@ -5,10 +5,21 @@ section.search {
 	margin: 7px 2px 7px 20px;
 	border: 3px solid #000;
 	padding: 2px 4px;
-	border-radius: 10px;
+	// border-radius: 10px;
 	float: left;
 	width: 200px;
 }
+
+.search-bar input:hover{
+	border: 3px solid #0b0;
+}
+
+.search-bar input:focus {
+	border: 3px solid #0c0;
+}
+
+
+
 
 .search-button input{
 	margin: 7px 0 7px 0;

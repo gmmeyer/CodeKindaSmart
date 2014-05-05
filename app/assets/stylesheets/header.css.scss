@@ -10,7 +10,6 @@
 
 .navbar-wrapper {
   margin: auto auto;
-  position: absolute;
   width: 960px;
 }
 
@@ -39,20 +38,25 @@
 
 .header {
 	border: 3px solid #D1A1FF;
-	border-radius: 10px;
+	// border-radius: 10px;
   background: white;
 }
 
-.header-title {
+.header-title > a {
 	font-size: 35px;
 	float: left;
-	margin: 1px 5px;
+	padding: 3px 5px 4px 5px;
 }
 
 a.login-link {
   display: block;
-  padding: 12px;
+  padding: 13px 12px;
   margin: auto;
+}
+
+.header-wrapper a:hover {
+  background: #9F3BFF;
+  color: #fff;
 }
 
 section.settings {
@@ -61,7 +65,7 @@ section.settings {
 
 a.settings {
   display: block;
-  padding: 12px;
+  padding: 13px 12px;
   margin: auto;
 }
 
@@ -76,29 +80,36 @@ p.welcome {
 
 
 nav.nav {
-  display: block;
+  // display: block;
 	border: 3px solid #D1A1FF;
-	border-radius: 10px;
+	// border-radius: 10px;
   background: white;
 }
 
 nav.nav > ul.nav-alpha {
   list-style-type: none;
-  display: block;
+  // display: block;
   float: left;
   margin: auto 10px;
 }
 
+.nav-alpha > li {
+  float: left;
+}
+
+.nav-beta > li {
+  float: left
+}
+
 nav.nav > ul.nav-beta {
   list-style-type: none;
-  display: block;
+  // display: block;
   float: right;
 }
 
-nav.nav > .nav-alpha > li > a.nav-link {
+.nav a.nav-link {
   display: block;
-  float: left;
   font-size: 15px;
   padding: 5px 5px;
-  margin: auto;
+  margin: 0 5px;
 }
