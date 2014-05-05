@@ -1,5 +1,4 @@
 <section class="articles standalone-document">
-  <% tmp = @document.id %>
   <%= content_tag :div, class: "tempInformation", data: {temp: @document} do %>
   <% end %>
   
@@ -24,4 +23,6 @@
   	</p>
  		<%= render partial: "shared/delete_button", locals: {to_delete: @document, delete_url: document_url(@document.id)} %>
   </article> 	
+  
+
 </section>

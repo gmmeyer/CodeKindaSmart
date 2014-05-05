@@ -2,15 +2,19 @@
 
 <%= render partial: "author_name", locals: {author: @author} %>
 
+<strong class="section-title group">
+	Description
+</strong>
 <p>
-Description:
 	<% if @author.description %>
 		<%= @author.description %>
 	<% end %>
 </p>
 
+<strong class="section-title group">
+	Location
+</strong>
 <p>
-Location:
 <% if @author.location %>
 	<%= @author.location %>
 <% end %>
