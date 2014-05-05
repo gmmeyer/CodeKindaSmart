@@ -10,7 +10,7 @@ CodeKindaSmart::Application.routes.draw do
 
   resources :users, only: [:new, :create, :destroy, :index, :show, :update] do
     member do
-      get "settings"
+      get "settings", as: "settings"
     end
     resources :documents, only: [:create]
   end

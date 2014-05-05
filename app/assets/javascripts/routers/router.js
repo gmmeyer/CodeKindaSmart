@@ -5,9 +5,9 @@ CodeKindaSmart.Router = Backbone.Router.extend({
   },
 
 	routes: {
-		'annotations/:id' : 'showAnnotations',
-		'documents/:id/annotations' : 'annotationIndex',
-		'documents/:id' : 'showDocument',
+		'/annotations/:id' : 'showAnnotations',
+		'/documents/:id/annotations' : 'annotationIndex',
+		'/documents/:id' : 'showDocument',
 		'' : 'staticHomepage'
 	},
 
@@ -22,7 +22,6 @@ CodeKindaSmart.Router = Backbone.Router.extend({
 	},
 
 	showDocument: function(id) {
-		console.log(id)
 		var doc = CodeKindaSmart.documents.getOrFetch(id);
 		var view = new CodeKindaSmart.Views.DocumentsShow({
 			doc: doc
@@ -30,12 +29,10 @@ CodeKindaSmart.Router = Backbone.Router.extend({
 		this._swapView(view)
 	},
 
-	// staticHomepage: function () {
-	// 	var view = new CodeKindaSmart.Views.StaticHomepage()
-	// 	this._swapView(view)
-	// },
-
-
+	staticHomepage: function () {
+		var view = new CodeKindaSmart.Views.StaticHomepage()
+		this._swapView(view)
+	},
 
 	_swapView: function (newView) {
 	  this._currentView && this._currentView.remove();

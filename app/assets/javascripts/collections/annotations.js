@@ -6,7 +6,7 @@ CodeKindaSmart.Collections.Annotations = Backbone.Collection.extend({
   },
 
   url: function () {
-    return "api/documents/" + this._document.id + "/annotations"
+    return "/api/documents/" + this._document.id + "/annotations"
   },
 
 	getOrFetch: function (id) {

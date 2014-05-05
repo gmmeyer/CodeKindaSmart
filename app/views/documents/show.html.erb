@@ -28,12 +28,12 @@
 </section>
 
 <script>
-  // $(document).ready(function(){
+  $(document).ready(function () {
 
-    // var doc = $('.tempInformation').data('temp');
+    var doc = $('.tempInformation').data('temp');
 
-    // CodeKindaSmart.doc = new CodeKindaSmart.Models.Document({}, {doc: doc });
-    //CodeKindaSmart.Collections.Annotations({}, {document: doc});
-    // CodeKindaSmart.doc.fetch();
-  // });
+    CodeKindaSmart.doc = new CodeKindaSmart.Models.Document([], {id: doc.id });
+    CodeKindaSmart.doc.fetch();
+    // CodeKindaSmart.Collections.Annotations({}, {document: doc});
+  });
 </script>

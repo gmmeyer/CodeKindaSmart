@@ -12,6 +12,6 @@ window.CodeKindaSmart = {
   }
 };
 
-// $(document).ready(function () {
-//   CodeKindaSmart.initialize();
-// })
+$(document).ready(function () {
+  CodeKindaSmart.initialize();
+})
