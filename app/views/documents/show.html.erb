@@ -32,8 +32,7 @@
 
     var doc = $('.tempInformation').data('temp');
 
-    CodeKindaSmart.doc = new CodeKindaSmart.Models.Document([], {id: doc.id });
-    CodeKindaSmart.doc.fetch();
-    // CodeKindaSmart.Collections.Annotations({}, {document: doc});
+    // CodeKindaSmart.documents.getOrFetch(doc.id)
+    // CodeKindaSmart.doc.fetch();
   });
 </script>

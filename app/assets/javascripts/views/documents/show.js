@@ -5,7 +5,7 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
 
   render: function () {
   	var content = this.template({
-  		doc: this.doc
+  		doc: this.model
   	});
   	this.$el.html(content);
   	return this;

@@ -1,7 +1,16 @@
 <section class="articles standalone-document">
-	<%= this.partial({url: 'title.ejs'}) %>
+	<p class='document-text'>
+		<%= doc.annotated_body %>
+	</p>
+	<h2 class="document-title group">
+	console.log(this)
+		<!-- <a href="<//%= document_url(doc.id) %>" class='document-title'> -->
+		<%= doc.title %>
+		<!-- </a> -->
+	</h2>
+	<!-- <//%= this.partial({url: 'title.ejs'}) %> -->
 
-	<%= this.partial({url: 'body.ejs'}) %>
+	<!-- <//%= this.partial({url: 'body.ejs'}) %> -->
 
 	<article class="document group">
 		
