@@ -5,21 +5,21 @@ CodeKindaSmart.Router = Backbone.Router.extend({
   },
 
 	routes: {
-		// 'annotations/:id': 'showAnnotations',
-		// 'documents/:id/annotations': 'annotationIndex',
+		'documents/:id/annotations': 'annotationIndex',
+		'annotations/:id': 'showAnnotations',
 		'documents/:id': 'showDocument',
 		'': 'staticHomepage'
 	},
 
-	// annotationIndex: function () {
-	// 	var view = new CodeKindaSmart.Views.AnnotationsIndex({
-	// 		collection: CodeKindaSmart.annotations
-	// 	});
-	// 	this._swapView(view);
-	// },
+	annotationIndex: function () {
+		var view = new CodeKindaSmart.Views.AnnotationsIndex({
+			collection: CodeKindaSmart.annotations
+		});
+		this._swapView(view);
+	},
 
-	// showAnnotations: function () {
-	// },
+	showAnnotations: function () {
+	},
 
 	showDocument: function(id) {
 		that = this;
