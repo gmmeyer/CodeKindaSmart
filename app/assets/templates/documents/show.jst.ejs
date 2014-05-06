@@ -1,16 +1,31 @@
 <section class="articles standalone-document">
-	<article class="document group">
-		
-		<p class='document-text'>
-			<%= doc.annotated_body %>
-		</p>
+
+	<section class="single-document">
 		<h2 class="document-title group">
-		console.log(this)
-			<a href="<%= CodeKindaSmart.doc.url %>" class='document-title'>
-			<%= doc.title %>
+			<a href="<%= CodeKindaSmart.doc.url() %>" class='document-title'>
+			<%= CodeKindaSmart.doc.attributes.title %>
 			</a>
 		</h2>
 
-	</article>
+	<section class="author-name group">
+
+		<h2 class="author-name group">
+			<a href="/author/<%= CodeKindaSmart.doc.attributes.author.id %>" class="author-name">
+				<%= CodeKindaSmart.doc.attributes.author.name %>
+			</a>
+		</h1>
+
+		<section class="break"></section>
+
+	</section>
+		
+		<section class='document-body'>
+			<p class="document-text"></p>
+
+			<%= CodeKindaSmart.doc.attributes.annotated_body %>
+
+		</section>
+
+	</section>
 	
 </section>
