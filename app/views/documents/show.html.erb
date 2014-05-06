@@ -1,0 +1,36 @@
+<section id="content">  
+</section>
+
+<%= content_tag :div, class: "tempInformation", data: {temp: @document} do %>
+<% end %>
+
+<script>
+
+  $(document).ready(function () {
+
+    var doc = $('.tempInformation').data('temp');
+
+    _swapView = function (newView) {
+		  this._currentView && this._currentView.remove();
+		  this._currentView = newView;
+		  $("#content").html(newView.render().$el);
+		};
+
+		showDocument = function(id) {
+			that = this;
+			var doc = CodeKindaSmart.documents.getOrFetch(id,
+				function (doc) {
+					CodeKindaSmart.doc = doc
+					var view = new CodeKindaSmart.Views.DocumentsShow({
+						model: doc
+					});
+					that._swapView(view)
+				}
+			);
+		};
+
+		showDocument(doc.id)
+    // CodeKindaSmart.doc.fetch();
+  });
+  
+</script>
