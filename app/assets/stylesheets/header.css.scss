@@ -84,6 +84,10 @@ p.welcome {
 
 // Lower Nav Bar
 
+.navbar-wrapper {
+  width: 100%;
+}
+
 
 nav.nav {
 	border: 3px solid #D1A1FF;
@@ -96,6 +100,8 @@ nav.nav > ul.nav-alpha {
   float: left;
   margin: auto 10px;
 }
+
+
 
 .nav-alpha > li {
   float: left;
@@ -115,4 +121,12 @@ nav.nav > ul.nav-beta {
   font-size: 15px;
   padding: 5px 5px;
   margin: 0 5px;
+}
+
+.hide {
+  display: none;
+}
+
+.isStuck .hide {
+  display: block;
 }

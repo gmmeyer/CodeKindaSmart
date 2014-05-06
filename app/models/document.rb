@@ -90,6 +90,7 @@ class Document < ActiveRecord::Base
           overlap = ( (range1.to_a & range2.to_a).first..(range1.to_a & range2.to_a).last )
         end
 
+        # I can factor out the ranges stuff, to a method that just finds ranges.
         new_seg = ( (range1.to_a - overlap.to_a & range1.to_a).first..
                     (range1.to_a - overlap.to_a & range1.to_a).last )
         segments = add_to_segment_hash(segments, overlap, ann1, new_seg)
