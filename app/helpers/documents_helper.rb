@@ -37,9 +37,9 @@ module DocumentsHelper
     query_hash[:ids] = ids
 
     a_url = annotation_url(annotations.first.id)
-    # backbone_url = "/annotations/" +
-    # tags = "<a class='annotation-highlight annotation-link' href=" + a_url + "?" + query_hash.to_query + ">" + annotated.first + annotated[1..-1] + "</a>"
-    tags = "<a class='annotation-highlight annotation-link' data-ids='#{ids}' href=" + a_url + "?" + query_hash.to_query + ">" + annotated.first + annotated[1..-1] + "</a>"
+    # Bootstraps the ids of the annotations, so that it knows which one it's clicking on without expensive queries.
+    tags = "<a class='annotation-highlight annotation-link' data-ids='#{ids}' href=" + 
+              a_url + "?" + query_hash.to_query + ">" + annotated.first + annotated[1..-1] + "</a>"
     return tags
   end
 end
