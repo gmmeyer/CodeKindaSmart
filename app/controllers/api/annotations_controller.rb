@@ -2,7 +2,7 @@ module Api
 	class AnnotationsController < ApiController
 
 		def index
-			@document = Document.includes(:author).includes(:user).find(params[:document_id])
+			@document = Document.includes(annotations: [:user]).find(params[:document_id])
 			@annotations = @document.annotations.includes(:user)
 			render :index
 		end

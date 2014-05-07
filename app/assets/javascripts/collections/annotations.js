@@ -2,7 +2,8 @@ CodeKindaSmart.Collections.Annotations = Backbone.Collection.extend({
 
   model: CodeKindaSmart.Models.Annotation,
 
-  initialize: function(options) {
+  initialize: function(models, options) {
+    this._document = options.doc
   },
 
   url: function () {

@@ -12,6 +12,8 @@ CodeKindaSmart.Collections.Documents = Backbone.Collection.extend({
      model.fetch({
       success: function () {
         that.add(model);
+        model._annotations = new CodeKindaSmart.Collections.Annotations([],{doc: model})
+        model._annotations.fetch()
         callback(model);
       }
     });

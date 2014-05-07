@@ -1,14 +1,14 @@
 <section id="content">  
 </section>
 
-<%= content_tag :div, class: "tempInformation", data: {temp: @document} do %>
+<%= content_tag :div, class: "tempInformation", data: {temp: @document.id} do %>
 <% end %>
 
 <script>
 
   $(document).ready(function () {
 
-    var doc = $('.tempInformation').data('temp');
+    var doc_id = $('.tempInformation').data('temp');
 
     _swapView = function (newView) {
 		  this._currentView && this._currentView.remove();
@@ -29,8 +29,7 @@
 			);
 		};
 
-		showDocument(doc.id)
-    // CodeKindaSmart.doc.fetch();
+		showDocument(doc_id)
   });
   
 </script>
