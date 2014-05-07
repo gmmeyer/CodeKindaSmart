@@ -6,6 +6,11 @@ You can use Sass (SCSS) here: http://sass-lang.com/ */
 	display: none;
 }
 
+.annotation-column {
+	float: right;
+	width: 400px;
+}
+
 a.annotation-link:link {
 	color: #9F3BFF;
 }

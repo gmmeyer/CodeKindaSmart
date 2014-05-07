@@ -1,31 +1,45 @@
-<section class="articles standalone-document">
+<ul class="document-annotation-wrapper group">
 
-	<section class="single-document">
-		<h2 class="document-title group">
-			<a href="/documents/<%= CodeKindaSmart.doc.attributes.id %>" class='document-title'>
-			<%= CodeKindaSmart.doc.attributes.title %>
-			</a>
-		</h2>
+	<li class="document-column">
+		<section class="articles standalone-document">
 
-	<section class="author-name group">
+			
+			<section class="single-document">
+				<h2 class="document-title group">
+					<a href="/documents/<%= CodeKindaSmart.doc.attributes.id %>" class='document-title'>
+					<%= CodeKindaSmart.doc.attributes.title %>
+					</a>
+				</h2>
 
-		<h2 class="author-name group">
-			<a href="/author/<%= CodeKindaSmart.doc.attributes.author.id %>" class="author-name">
-				<%= CodeKindaSmart.doc.attributes.author.name %>
-			</a>
-		</h2>
+			<section class="author-name group">
 
-		<section class="break"></section>
+				<h2 class="author-name group">
+					<a href="/author/<%= CodeKindaSmart.doc.attributes.author.id %>" class="author-name">
+						<%= CodeKindaSmart.doc.attributes.author.name %>
+					</a>
+				</h2>
 
-	</section>
-		
-		<section class='document-body'>
-			<p class="document-text"></p>
+				<section class="break"></section>
 
-			<%= CodeKindaSmart.doc.attributes.annotated_body %>
+			</section>
+				
+				<section class='document-body'>
+					<p class="document-text"></p>
+
+					<%= CodeKindaSmart.doc.attributes.annotated_body %>
+
+				</section>
+
+			</section>
 
 		</section>
+		</li>
 
-	</section>
+		<li class="annotation-column">
+			
+
+		</li>
+	</ul>
+
+
 	
-</section>

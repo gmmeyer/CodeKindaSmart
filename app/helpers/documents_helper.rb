@@ -14,7 +14,7 @@ module DocumentsHelper
     ranges.each_with_index do |range, index|
       annotated = document.range_substring(range)
       anns = [*segments[range]]
-      annotated_body += annotation_link(anns, annotated)
+      annotated_body += annotation_link(anns, annotated, index)
 
       if range == ranges.last && range.last < document.body.length - 1
         annotated_body += document.substring(range.last + 1, document.body.length)
@@ -28,7 +28,7 @@ module DocumentsHelper
     return annotated_body
   end
 
-  def annotation_link(annotations, annotated)
+  def annotation_link(annotations, annotated, index)
     ids = []
     annotations.each do |ann|
       ids << ann.id
@@ -38,7 +38,7 @@ module DocumentsHelper
 
     a_url = annotation_url(annotations.first.id)
     # Bootstraps the ids of the annotations, so that it knows which one it's clicking on without expensive queries.
-    tags = "<a class='annotation-highlight annotation-link' data-ids='#{ids}' href='" + 
+    tags = "<a class='annotation-highlight annotation-link' id='#{index}' data-ids='#{ids}' href='" + 
               a_url + "?" + query_hash.to_query + "'>" + annotated.first + annotated[1..-1] + "</a>"
     return tags
   end
