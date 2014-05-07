@@ -10,13 +10,21 @@ CodeKindaSmart.Collections.Annotations = Backbone.Collection.extend({
     return "/api/documents/" + this._document.id + "/annotations"
   },
 
-	getOrFetch: function (id) {
+	getOrFetch: function (callback) {
+    var that = this
     var model = this.get(id);
     if(!model) {
       model = new CodeKindaSmart.Models.Annotation({ id: id });
       model.collection = this;
+      model.fetch({
+        success: function() {
+          that.add(model)
+          callback(model)
+        }
+      });
+    } else {
+      callback(model)
     }
-    model.fetch(); // fetch anyways
 
     return model;
 	}

@@ -10,8 +10,8 @@ CodeKindaSmart.Models.Document = Backbone.Model.extend({
 	},
 
  annotations: function () {
-  if(!this._annotations && this.attributes.annotations) {
-    this._annotations = new CodeKindaSmart.Collections.Annotations([], { 
+  if(!this.annotations && this.attributes.annotations) {
+    this.annotations = new CodeKindaSmart.Collections.Annotations([], { 
     	_document: this,
     	annotations: this.attributes.annotations
     });
