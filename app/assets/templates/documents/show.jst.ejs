@@ -2,7 +2,7 @@
 
 	<section class="single-document">
 		<h2 class="document-title group">
-			<a href="<%= CodeKindaSmart.doc.url() %>" class='document-title'>
+			<a href="/documents/<%= CodeKindaSmart.doc.attributes.id %>" class='document-title'>
 			<%= CodeKindaSmart.doc.attributes.title %>
 			</a>
 		</h2>
@@ -13,7 +13,7 @@
 			<a href="/author/<%= CodeKindaSmart.doc.attributes.author.id %>" class="author-name">
 				<%= CodeKindaSmart.doc.attributes.author.name %>
 			</a>
-		</h1>
+		</h2>
 
 		<section class="break"></section>
 

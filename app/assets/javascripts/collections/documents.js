@@ -13,6 +13,7 @@ CodeKindaSmart.Collections.Documents = Backbone.Collection.extend({
       success: function () {
         that.add(model);
         model._annotations = new CodeKindaSmart.Collections.Annotations([],{doc: model})
+        model._segments = new CodeKindaSmart.Collections.Segments(model.segments, {document: model})
         model._annotations.fetch()
         callback(model);
       }
