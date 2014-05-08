@@ -1,0 +1,38 @@
+<section class="articles standalone-document">
+  <%= content_tag :div, class: "tempInformation", data: {temp: @document} do %>
+  <% end %>
+  
+  <%= render partial: "standalone_document", locals: {document: @document} %>
+
+  <%= render partial: "annotations/new", locals: {document: @document}  %>
+
+  <% if current_user && current_user.id == @document.user_id %>
+
+  <article class="document group">
+  	<form action="<%= edit_document_url(@document.id) %>" method="get">
+
+				<%= token_tag nil %>
+				<p class="button">
+					<input type="submit" value="Edit <%= @document.title %>">					
+				</p>
+
+  	</form>
+  <% end %>
+  	<p class="break">
+  		
+  	</p>
+ 		<%= render partial: "shared/delete_button", locals: {to_delete: @document, delete_url: document_url(@document.id)} %>
+  </article> 	
+  
+
+</section>
+
+<script>
+  $(document).ready(function () {
+
+    var doc = $('.tempInformation').data('temp');
+
+    // CodeKindaSmart.documents.getOrFetch(doc.id)
+    // CodeKindaSmart.doc.fetch();
+  });
+</script>

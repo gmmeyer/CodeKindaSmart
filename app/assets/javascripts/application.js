@@ -12,5 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require stickUp.js
-//= require_tree .
+//= require underscore
+//= require backbone
+//= require rangy
+//= require code_kinda_smart
+//= require stickUp
+//= require gritter
+//= require keypress
+//= require_tree ../templates
+//= require_tree ./models
+//= require_tree ./collections
+//= require_tree ./views
+//= require_tree ./routers
