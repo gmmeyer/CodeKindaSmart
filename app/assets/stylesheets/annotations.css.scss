@@ -48,7 +48,7 @@ a.annotation-link:active {
 
 section.annotations {
 	margin: 10px 10px 50px 10px;
-	float: right;
+	float: left;
 }
 
 .document-annotated {
@@ -95,4 +95,14 @@ form.new-annotation {
   display: block;
   margin: 25px auto;
   background: #fff;
+}
+
+.activeAnnotations { 
+	position: absolute;
+	top: 0;
+}
+
+.shield {
+	width: 100%;
+	height: 100%;
 }

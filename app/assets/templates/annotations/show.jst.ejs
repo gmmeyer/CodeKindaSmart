@@ -1,7 +1,6 @@
 <section class="annotations">
 
-
-	<% annotations.each(function(annotation) { %>
+	<% _.each(CodeKindaSmart.activeAnnotations, function(annotation) { %>
 		<section class="annotation-wrapper">
 			<section class="annotation">
 				<h2 class="annotation-title"><%= annotation.attributes.title %></h2>
@@ -43,7 +42,7 @@
 
 			<p class="break"></p>
 
-			<% if(currentUser && annotation.attributes.user_id == currentUser.id) %>
+			<% if(CodeKindaSmart.currentUser && annotation.attributes.user_id == CodeKindaSmart.currentUser.id) { %>
 
 				<section>
 					<form action="<//%= delete_url %>" method="post">
@@ -57,7 +56,7 @@
 					</form>
 				</section>
 				
-			<% end %>
+			<% } %>
 
 
 

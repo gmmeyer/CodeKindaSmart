@@ -4,6 +4,7 @@ CodeKindaSmart.Views.AnnotationsIndex = Backbone.View.extend({
   },
 
   template: JST['annotations/index'],
+  className: "activeAnnotations",
 
   events: { 
   	"click .annotation-highlight .annotation-link" : "showAnnotation"
@@ -22,10 +23,6 @@ CodeKindaSmart.Views.AnnotationsIndex = Backbone.View.extend({
   showAnnotation: function (event) {
     event.preventDefault();
     console.log(event)
-    var view = new CodeKindaSmart.Views.AnnotationsShow({
-      annotations: this.collection
-    });
-    // $(event.currentTarget).replaceWith(view.render().$el);
   }
   
 

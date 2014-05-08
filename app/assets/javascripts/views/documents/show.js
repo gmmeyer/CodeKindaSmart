@@ -3,13 +3,17 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
   template: JST['documents/show'],
   annotationTemplate: JST['annotations/show'],
 
+  initialize: function () {
+
+  },
+
   events: {
   	"click .annotation-highlight" : "showAnnotation",
     "click .upvote" : "upVote",
     "click .downvote" : "downVote",
     "click .edit" : "editAnnotation",
     "click .save" : "saveAnnotation",
-    "click .hide body" : "hideAnnotation"
+    "click .standalone-document" : "hideAnnotation"
   },
 
 
@@ -24,33 +28,39 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
   showAnnotation: function (event) {
     event.preventDefault();
     var ids = event.currentTarget.dataset.ids
+    var annotationOffset = event.currentTarget.offsetTop - $('.annotation-column').offset().top
+    that = this;
 
-    this.activeAnnotations = CodeKindaSmart.doc.annotations.getOrFetch(ids,
-      function (activeAnnotations) {
-        // var view = new CodeKindaSmart.Views.AnnotationsShow({
-        //   annotations: activeAnnotations //wow I'm dumb. don't render the view. render the template.
-        // });
-        $(".annotation-column").append(view)
+    $('.activeAnnotations').remove()
+
+    CodeKindaSmart.activeAnnotations = CodeKindaSmart.doc.annotations.getOrFetch(ids,
+      function (annotationOffset) {
+        var view = new CodeKindaSmart.Views.AnnotationsShow();
+        $(".annotation-column").append(view.render().$el);
+        $(".annotations").addClass("activeAnnotations");
+        $(".activeAnnotations").css("top", "+=200");
+        CodeKindaSmart.annotationsActive = true
       }
     );
   },
 
-  renderAnnotation: function (annotation) {
+  renderAnnotation: function () {
     var content = this.annotationTemplate({
-      annotation: this._annotation
+      annotations: this.activeAnnotations
     })
     this.$el.html(content);
     return this;
   },
 
-  hideAnnotation: function () {
-    $(".activeAnnotations").addClass("hidden")
-    $(".activeAnnotations").removeClass("activeAnnotations")
+  hideAnnotation: function (event) {
+
+
+
   },
 
 
   upVote: function () {
-    // this._activeAnnotations = CodeKindaSmart.doc.annotations.getOrFetch(id,
+    // this.activeAnnotations = CodeKindaSmart.doc.annotations.getOrFetch(id,
     //   function (annotation) {
     //     var view = new CodeKindaSmart.Views.AnnotationsShow({
     //       annotation: annotation
