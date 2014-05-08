@@ -12,11 +12,14 @@ CodeKindaSmart.Views.AnnotationsShow = Backbone.View.extend({
 		"click .save" : "saveAnnotation"
   },
 
-  initialize: function () {
+  initialize: function (options) {
+    this.annotationId = options.annotationId
   },
 
   render: function () {
-    var content = this.template();
+    var content = this.template({
+      annotationId: this.annotationId
+    });
     this.$el.html(content);
     return this;
   },

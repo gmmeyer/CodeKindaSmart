@@ -4,7 +4,6 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
   annotationTemplate: JST['annotations/show'],
 
   initialize: function () {
-
   },
 
   events: {
@@ -27,21 +26,39 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
 
   showAnnotation: function (event) {
     event.preventDefault();
+    $('.activeAnnotations').addClass('isHidden')
+    $('.activeAnnotations').removeClass('activeAnnotations')
     var ids = event.currentTarget.dataset.ids
-    var annotationOffset = event.currentTarget.offsetTop - $('.annotation-column').offset().top
+    this.annotationId = event.currentTarget.id
+    this.annotationOffset = event.currentTarget.offsetTop - $('.annotation-column').offset().top
     that = this;
 
-    $('.activeAnnotations').remove()
+    console.log($('#ann-' + this.annotationId)[0])
+    console.log($('#ann-' + this.annotationId)[0] == undefined)
 
-    CodeKindaSmart.activeAnnotations = CodeKindaSmart.doc.annotations.getOrFetch(ids,
-      function (annotationOffset) {
-        var view = new CodeKindaSmart.Views.AnnotationsShow();
-        $(".annotation-column").append(view.render().$el);
-        $(".annotations").addClass("activeAnnotations");
-        $(".activeAnnotations").css("top", "+=200");
-        CodeKindaSmart.annotationsActive = true
-      }
-    );
+    if ($('#ann-' + this.annotationId)[0] != undefined) {
+
+      console.log('booo')
+      console.log($('#ann-' + this.annotationId))
+
+      $('#ann-' + this.annotationId).removeClass("isHidden")
+      $('#ann-' + this.annotationId).addClass('activeAnnotations')
+
+    } else {
+
+      CodeKindaSmart.activeAnnotations = CodeKindaSmart.doc.annotations.getOrFetch(ids,
+        function (activeAnnotations) {
+          var view = new CodeKindaSmart.Views.AnnotationsShow({
+            annotationId: that.annotationId
+          });
+          $(".annotation-column").append(view.render().$el);
+          $(".activeAnnotations").css("top", "+=" + that.annotationOffset);
+          CodeKindaSmart.annotationsActive = true
+        }
+      );
+
+    }
+
   },
 
   renderAnnotation: function () {
