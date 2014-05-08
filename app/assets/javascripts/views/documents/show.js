@@ -53,34 +53,20 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
   },
 
   hideAnnotation: function (event) {
-
-
-
   },
 
 
-  upVote: function () {
-    // this.activeAnnotations = CodeKindaSmart.doc.annotations.getOrFetch(id,
-    //   function (annotation) {
-    //     var view = new CodeKindaSmart.Views.AnnotationsShow({
-    //       annotation: annotation
-    //     });
-    //     that._swapView(view)
-    //   }
-    // );
-  },
+  // upVote: function () {
+  // },
 
-  downVote: function () {
+  // downVote: function () {
+  // },
 
-  },
+  // editAnnotation: function () {
+  // },
 
-  editAnnotation: function () {
-
-  },
-
-  saveAnnotation: function () {
-
-  },
+  // saveAnnotation: function () {
+  // },
 
   _swapView: function (newView, options) {
     this._currentView && this._currentView.remove();
@@ -90,11 +76,3 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
   
 
 });
-    // this._activeAnnotations = CodeKindaSmart.doc.annotations.getOrFetch(id,
-    //   function (annotation) {
-    //     var view = new CodeKindaSmart.Views.AnnotationsShow({
-    //       annotation: annotation
-    //     });
-    //     that._swapView(view)
-    //   }
-    // );
