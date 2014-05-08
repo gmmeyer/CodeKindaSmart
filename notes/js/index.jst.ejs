@@ -1,0 +1,46 @@
+<section id='annotation.id' class="annotation-wrapper">
+  <section class="annotation">
+    <h2 class="annotation-title">#{annotation.title}</h2>
+    <span class="annotation-body group"> #{annotation.body} </span>
+  </section>
+
+
+
+
+  <% if current_user %>
+
+  <article class="annotation-buttons group">
+
+    <form action="#{edit_annotation_url(annotation.id)}" method="get">
+
+      <%= token_tag nil %>
+      <p class="button group">
+        <label for="Edit">Edit this annotation?</label>
+        <input type="submit" id="Edit" value="Edit!">
+      </p>
+
+    </form>
+
+  <% end %>
+
+  <p class="break"></p>
+
+    <% if current_user && #{annotation.id} == current_user.id %>
+
+    <section>
+      <form action="#{annotation_url(annotation.id)}" method="post">
+        <%= token_tag nil %>
+
+        <input type="hidden" name="_method" value="delete">
+
+        <p class="button destroy group">
+          <label for="delete-button">Delete this Annotation? </label>
+          <input type="submit" id="delete-button" value="Delete!">          
+        </p>
+      </form>
+    </section>
+  
+  <% end %>
+
+  </article>
+</section>

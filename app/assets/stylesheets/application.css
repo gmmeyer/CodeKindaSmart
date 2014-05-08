@@ -15,7 +15,6 @@
  */
 
 
-
 /*Resets*/
 
 h1, h2, h3, label, form, body, p, div, a, html, section, article, ul, li {
@@ -23,7 +22,7 @@ h1, h2, h3, label, form, body, p, div, a, html, section, article, ul, li {
 	padding: 0;
 	margin: 0;
 	border: 0;
-	font-family: "FontAwesome", "Inconsolata", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "FontAwesome", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
 }
 
 input[type="text"],
@@ -58,14 +57,16 @@ input[type="submit"]{
 body {
 	background: #ddd;
 	color: black;
-	width: 1000px;
 	margin: auto;
+	font-size: 25px;
 }
 
 section.body {
+	padding-top: 10px;
+	padding-bottom: 10px;
 	background: white;
-	/*border-radius: 10px;*/
-	border: 3px solid #ccc;
+	border-left: 3px solid #ccc;
+	border-right: 3px solid #ccc;
 }
 
 ul {
@@ -100,12 +101,13 @@ a:hover {
 
 section.body {
   display: block;
-  margin: auto 20px;
+  width: 1000px;
+  margin: auto auto;
 }
 
 .page-title {
 	display: block;
-	font-size: x-large;
+	font-size: 40px;
 	margin: 25px auto;
 }
 
@@ -115,21 +117,19 @@ section.body {
 }
 
 p.error {
- margin: 5px auto;
+	margin: 5px auto;
 	display: block;
 	border: #FF7100 solid 2px;
 	color: #FF7100;
- padding: 5px;
- /*border-radius: 10px;*/
+	padding: 5px;
 }
 
 p.notice {
- margin: 5px auto;
+	margin: 5px auto;
 	display: block;
 	border: #00C6BE solid 2px;
 	color: #00C6BE;
- padding: 5px;
- /*border-radius: 10px;*/
+	padding: 5px;
 }
 
 .group:after {

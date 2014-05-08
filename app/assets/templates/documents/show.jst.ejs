@@ -1,0 +1,45 @@
+<ul class="document-annotation-wrapper group">
+
+	<li class="document-column">
+		<section class="articles standalone-document">
+
+			
+			<section class="single-document">
+				<h2 class="document-title group">
+					<a href="/documents/<%= CodeKindaSmart.doc.attributes.id %>" class='document-title'>
+					<%= CodeKindaSmart.doc.attributes.title %>
+					</a>
+				</h2>
+
+			<section class="author-name group">
+
+				<h2 class="author-name group">
+					<a href="/authors/<%= CodeKindaSmart.doc.attributes.author.id %>" class="author-name">
+						<%= CodeKindaSmart.doc.attributes.author.name %>
+					</a>
+				</h2>
+
+				<section class="break"></section>
+
+			</section>
+				
+				<section class='document-body'>
+					<p class="document-text"></p>
+
+					<%= CodeKindaSmart.doc.attributes.annotated_body %>
+
+				</section>
+
+			</section>
+
+		</section>
+		</li>
+
+		<li class="annotation-column">
+			
+
+		</li>
+	</ul>
+
+
+	

@@ -1,27 +1,38 @@
-<section class="articles standalone-document">
-  <% tmp = @document.id %>
-  <%= content_tag :div, class: "tempInformation", data: {temp: @document} do %>
-  <% end %>
-  
-  <%= render partial: "standalone_document", locals: {document: @document} %>
-
-  <%= render partial: "annotations/new", locals: {document: @document}  %>
-
-  <% if current_user && current_user.id == @document.user_id %>
-
-  <article class="document group">
-  	<form action="<%= edit_document_url(@document.id) %>" method="get">
-
-				<%= token_tag nil %>
-				<p class="button">
-					<input type="submit" value="Edit <%= @document.title %>">					
-				</p>
-
-  	</form>
-  <% end %>
-  	<p class="break">
-  		
-  	</p>
- 		<%= render partial: "shared/delete_button", locals: {to_delete: @document, delete_url: document_url(@document.id)} %>
-  </article> 	
+<section id="content">  
 </section>
+
+<%= content_tag :div, class: "tempInformation", data: {temp: @document.id} do %>
+<% end %>
+
+<%= content_tag :div, class: "currentUserInformation", data: {currentUser: current_user} do %>
+<% end %>
+
+<script>
+
+  $(document).ready(function () {
+    var doc_id = $('.tempInformation').data('temp');
+    this.currentUser = $('.currentUserInformation').data('currentuser')
+
+    _swapView = function (newView) {
+		  this._currentView && this._currentView.remove();
+		  this._currentView = newView;
+		  $("#content").html(newView.render().$el);
+		};
+
+		showDocument = function(id) {
+			that = this;
+			var doc = CodeKindaSmart.documents.getOrFetch(id,
+				function (doc) {
+					CodeKindaSmart.doc = doc
+					var view = new CodeKindaSmart.Views.DocumentsShow({
+						model: doc
+					});
+					that._swapView(view)
+				}
+			);
+		};
+
+		showDocument(doc_id)
+  });
+  
+</script>

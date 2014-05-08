@@ -28,11 +28,6 @@ section.document-title {
 		border: none;
 }
 
-// .document-body {
-// 	display: block;
-// 	float: left;
-// }
-
 h2.document-title {
 	display: block;
 	float: center;
@@ -40,7 +35,10 @@ h2.document-title {
 	font-size: 25px;
 	margin: 20px auto;
 	border: 2px solid #D1A1FF;
-	// border-radius: 10px;
+}
+
+.document-column {
+	float: left;
 }
 
 a.document-title {
@@ -56,7 +54,6 @@ a.document-title:hover{
 }
 
 .document-text {
-	// display: inline;
 	margin: 5px 5px;
 }
 
@@ -78,7 +75,6 @@ section.single-document {
 .document-body {
 	display: block;
 	border: 2px solid #D1A1FF;
-	// border-radius: 10px;
 	padding: 10px 10px;
 }
 

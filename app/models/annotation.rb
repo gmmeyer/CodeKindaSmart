@@ -1,6 +1,7 @@
 class Annotation < ActiveRecord::Base
 
   validates :title, :body, :user_id, :document_id, :start_location, :end_location, presence: true
+  validate :length_check
 
   belongs_to :document, inverse_of: :annotations, counter_cache: true
   belongs_to :user, inverse_of: :annotations
@@ -23,6 +24,13 @@ class Annotation < ActiveRecord::Base
     @my_vote = nil
   end
 
+  def builder
+    Jbuilder.encode do |json|
+      json.(self, :id, :title, :body, :user_id, :start_location, :end_location, :up_votes_count, :down_votes_count)
+      json.username self.user.username
+    end
+  end
+
   def my_vote
     @my_vote
   end
@@ -32,6 +40,11 @@ class Annotation < ActiveRecord::Base
   end
 
   private
+  def length_check
+    if self.start_location == self.end_location
+      add.errors("The length of your annotation must be greater than one letter")
+    end
+  end
   def set_notification
     notification = self.notifications.unread.event(:new_annotation_on_document).new
     notification.user = self.document.user

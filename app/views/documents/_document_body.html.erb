@@ -1,3 +1,4 @@
 <p class='document-text'>
+	<!-- Why is this only called when this is rendered? It would be faster to do it before I render the page. -->
 	<%= simple_format(annotate_document(document, document.segments), {class: "document-paragraph"}, sanitize: false) %>
 </p>

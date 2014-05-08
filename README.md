@@ -16,12 +16,9 @@ Rap Genius is a website where you can add notes, called "annotations," to nearly
 ##ToDo
 ###Major Pieces
 
-* Backbone
-* notifications
-	* Use Action Mailer
-	* Implement CSS objects to notify user of it.
-	* Sendgrid
-		* or associated tech
+* Finish implementing backbone
+* Design a tour
+* Do the ranking
 
 ##Minor Pieces
 * CSS on new user page.
