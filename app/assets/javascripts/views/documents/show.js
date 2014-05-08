@@ -7,12 +7,11 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
   },
 
   events: {
-  	"click .annotation-highlight" : "showAnnotation",
-    "click .upvote" : "upVote",
-    "click .downvote" : "downVote",
-    "click .edit" : "editAnnotation",
-    "click .save" : "saveAnnotation",
-    "click .standalone-document" : "hideAnnotation"
+  	"click .annotation-highlight" : "showAnnotation"//,
+    // "click .upvote" : "upVote",
+    // "click .downvote" : "downVote",
+    // "click .edit" : "editAnnotation",
+    // "click .save" : "saveAnnotation"
   },
 
 
@@ -33,19 +32,10 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
     this.annotationOffset = event.currentTarget.offsetTop - $('.annotation-column').offset().top
     that = this;
 
-    console.log($('#ann-' + this.annotationId)[0])
-    console.log($('#ann-' + this.annotationId)[0] == undefined)
-
     if ($('#ann-' + this.annotationId)[0] != undefined) {
-
-      console.log('booo')
-      console.log($('#ann-' + this.annotationId))
-
       $('#ann-' + this.annotationId).removeClass("isHidden")
       $('#ann-' + this.annotationId).addClass('activeAnnotations')
-
     } else {
-
       CodeKindaSmart.activeAnnotations = CodeKindaSmart.doc.annotations.getOrFetch(ids,
         function (activeAnnotations) {
           var view = new CodeKindaSmart.Views.AnnotationsShow({
@@ -67,9 +57,6 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
     })
     this.$el.html(content);
     return this;
-  },
-
-  hideAnnotation: function (event) {
   },
 
 

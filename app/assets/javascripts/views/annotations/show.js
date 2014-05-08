@@ -23,4 +23,25 @@ CodeKindaSmart.Views.AnnotationsShow = Backbone.View.extend({
     this.$el.html(content);
     return this;
   },
+
+  upVote: function (event) {
+    event.preventDefault()
+    console.log('upVote')
+  },
+
+  downVote: function (event) {
+    event.preventDefault()
+    console.log('downVote')
+  },
+
+  editAnnotation: function (event) {
+    event.preventDefault()
+    console.log('editAnnotation')
+  },
+
+  saveAnnotation: function (event) {
+    event.preventDefault()
+    console.log('saveAnnotation')
+  }
+
 });

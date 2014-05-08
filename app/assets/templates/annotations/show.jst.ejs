@@ -12,22 +12,22 @@
 				<div class="votes group">
 
 				  <form action="<%= annotation.attributes.id %>">
-				    <input type="hidden" name="vote[annotation_id]" value="<% annotation.attributes.id %>}">
+				    <input type="hidden" name="vote[annotation_id]" value="<% annotation.attributes.id %>">
 				    <p class="button">
-				      <input type="submit" class="vote" value='&#xf164;'>
+				      <input type="submit" class="vote upvote" value='&#xf164;'>
 				    </p>
 				  </form>
 
 				  <form action="<%= annotation.attributes.id %>">
-				    <input type="hidden" name="vote[annotation_id]" value="<% annotation.attributes.id %>}">
+				    <input type="hidden" name="vote[annotation_id]" value="<% annotation.attributes.id %>">
 				    <p class="button">
-				      <input type="submit" class="vote" value="&#xf165;">
+				      <input type="submit" class="vote downvote" value="&#xf165;">
 				    </p>
 				  </form>
 
 				</div>
 
-			<% if (CodeKindaSmart.currentUser) { %>
+			<% if(CodeKindaSmart.currentUser && annotation.attributes.user_id == CodeKindaSmart.currentUser.id) { %>
 
 		  <article class="annotation-buttons group">
 
@@ -40,11 +40,8 @@
 
 				</form>
 
-			<% } %>
-
 			<p class="break"></p>
 
-			<% if(CodeKindaSmart.currentUser && annotation.attributes.user_id == CodeKindaSmart.currentUser.id) { %>
 
 				<section>
 					<form action="<//%= delete_url %>" method="post">

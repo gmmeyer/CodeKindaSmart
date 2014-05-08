@@ -12,7 +12,7 @@
   $(document).ready(function () {
 
     var doc_id = $('.tempInformation').data('temp');
-    CodeKindaSmart.currentUser = $('currentUserInformation').data('currentUser')
+    this.currentUser = $('.currentUserInformation').data('currentuser')
 
     _swapView = function (newView) {
 		  this._currentView && this._currentView.remove();
