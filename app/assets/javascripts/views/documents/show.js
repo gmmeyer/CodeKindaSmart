@@ -22,23 +22,41 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
   },
 
   showAnnotation: function (event) {
-    event.preventDefault()
+    event.preventDefault();
+
+    console.log(event.currentTarget)
+
+
+
+    // this._activeAnnotations = CodeKindaSmart.doc.annotations.getOrFetch(id,
+    //   function (annotation) {
+    //     var view = new CodeKindaSmart.Views.AnnotationsShow({
+    //       annotation: annotation
+    //     });
+    //     that._swapView(view)
+    //   }
+    // );
+
+
     
     // $(".annotation-column").append() // More to come, folks.
-    $(event.currentTarget)
+    // $(event.currentTarget)
     console.log(event)
-  },
-
-  hideAnnotation: function () {
-    $(".activeAnnotations").addClass("hidden")
-    $(".activeAnnotations").removeClass(".activeAnnotations")
   },
 
   renderAnnotation: function (annotation) {
     var content = this.annotationTemplate({
-      annotation: this.whatever
+      annotation: this._annotation
     })
+    this.$el.html(content);
+    return this;
   },
+
+  hideAnnotation: function () {
+    $(".activeAnnotations").addClass("hidden")
+    $(".activeAnnotations").removeClass("activeAnnotations")
+  },
+
 
   upVote: function () {
 
@@ -54,6 +72,12 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
 
   saveAnnotation: function () {
 
+  },
+
+  _swapView: function (newView, options) {
+    this._currentView && this._currentView.remove();
+    this._currentView = newView;
+    this.$rootEl.html(newView.render().$el);
   }
   
 

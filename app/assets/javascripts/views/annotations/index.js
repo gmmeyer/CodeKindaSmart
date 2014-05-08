@@ -1,9 +1,6 @@
 CodeKindaSmart.Views.AnnotationsIndex = Backbone.View.extend({
 
   initialize: function () {
-    // $(".annotation-highlight").click(function (event) {
-    //   event.preventDefault();
-    // })
   },
 
   template: JST['annotations/index'],
