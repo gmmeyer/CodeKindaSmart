@@ -4,11 +4,15 @@
 <%= content_tag :div, class: "tempInformation", data: {temp: @document.id} do %>
 <% end %>
 
+<%= content_tag :div, class: "currentUserInformation", data: {currentUser: current_user} do %>
+<% end %>
+
 <script>
 
   $(document).ready(function () {
 
     var doc_id = $('.tempInformation').data('temp');
+    CodeKindaSmart.currentUser = $('currentUserInformation').data('currentUser')
 
     _swapView = function (newView) {
 		  this._currentView && this._currentView.remove();

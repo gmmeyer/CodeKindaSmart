@@ -23,25 +23,16 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
 
   showAnnotation: function (event) {
     event.preventDefault();
+    var ids = event.currentTarget.dataset.ids
 
-    console.log(event.currentTarget)
-
-
-
-    // this._activeAnnotations = CodeKindaSmart.doc.annotations.getOrFetch(id,
-    //   function (annotation) {
-    //     var view = new CodeKindaSmart.Views.AnnotationsShow({
-    //       annotation: annotation
-    //     });
-    //     that._swapView(view)
-    //   }
-    // );
-
-
-    
-    // $(".annotation-column").append() // More to come, folks.
-    // $(event.currentTarget)
-    console.log(event)
+    this.activeAnnotations = CodeKindaSmart.doc.annotations.getOrFetch(ids,
+      function (activeAnnotations) {
+        // var view = new CodeKindaSmart.Views.AnnotationsShow({
+        //   annotations: activeAnnotations //wow I'm dumb. don't render the view. render the template.
+        // });
+        $(".annotation-column").append(view)
+      }
+    );
   },
 
   renderAnnotation: function (annotation) {
@@ -59,7 +50,14 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
 
 
   upVote: function () {
-
+    // this._activeAnnotations = CodeKindaSmart.doc.annotations.getOrFetch(id,
+    //   function (annotation) {
+    //     var view = new CodeKindaSmart.Views.AnnotationsShow({
+    //       annotation: annotation
+    //     });
+    //     that._swapView(view)
+    //   }
+    // );
   },
 
   downVote: function () {
@@ -82,3 +80,11 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
   
 
 });
+    // this._activeAnnotations = CodeKindaSmart.doc.annotations.getOrFetch(id,
+    //   function (annotation) {
+    //     var view = new CodeKindaSmart.Views.AnnotationsShow({
+    //       annotation: annotation
+    //     });
+    //     that._swapView(view)
+    //   }
+    // );

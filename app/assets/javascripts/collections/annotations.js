@@ -3,11 +3,11 @@ CodeKindaSmart.Collections.Annotations = Backbone.Collection.extend({
   model: CodeKindaSmart.Models.Annotation,
 
   initialize: function(models, options) {
-    this._document = options.doc
+    this.document = options.doc
   },
 
   url: function () {
-    return "/api/documents/" + this._document.id + "/annotations"
+    return "/api/documents/" + this.document.id + "/annotations"
   },
 
 	getOrFetch: function (ids, callback) {
@@ -15,9 +15,9 @@ CodeKindaSmart.Collections.Annotations = Backbone.Collection.extend({
     var models = []
 
     for(var i = 0; i < ids.length; i++) {
-      var model = this.get(id);
+      var model = this.get(ids[i]);
       if(!model) {
-        model = new CodeKindaSmart.Models.Annotation({ id: id });
+        model = new CodeKindaSmart.Models.Annotation({ id: ids[i] });
         model.collection = this;
         model.fetch({
           success: function() {
@@ -31,11 +31,12 @@ CodeKindaSmart.Collections.Annotations = Backbone.Collection.extend({
       models.push(model)
     }
 
-    if(models[1] === 'undefined'){
-      return models[0];
-    } else {
-      return models;
-    }
+    // if(models[1] === 'undefined'){
+    //   return models[0];
+    // } else {
+    //   return models;
+    // }
+    return models;
 	}
 
 });

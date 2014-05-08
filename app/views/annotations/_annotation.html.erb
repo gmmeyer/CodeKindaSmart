@@ -11,9 +11,8 @@
 
 	  <article class="annotation-buttons group">
 
-	  	<form action="<%= edit_annotation_url(annotation.id) %>" method="get">
+	  	<form action="<//%= edit_annotation_url(annotation.id) %>" method="get">
 
-				<%= token_tag nil %>
 				<p class="button group">
 					<label for="Edit">Edit this annotation?</label>
 					<input type="submit" id="Edit" value="Edit!">
@@ -25,6 +24,22 @@
 
 		<p class="break"></p>
 
-		<%= render partial: "shared/delete_button", locals: {to_delete: annotation, delete_url: annotation_url(annotation.id)} %>
+		<//% if current_user && to_delete.user_id == current_user.id %>
+
+			<section>
+				<form action="<//%= delete_url %>" method="post">
+
+					<input type="hidden" name="_method" value="delete">
+
+					<p class="button destroy group">
+						<label for="delete-button">Delete this <%= to_delete.class %>?</label>
+						<input type="submit" id="delete-button" value="Delete!">					
+					</p>
+				</form>
+			</section>
+			
+		<//% end %>
+
+
 		</article>
 	</section>

@@ -2,7 +2,7 @@ CodeKindaSmart.Collections.Segments = Backbone.Collection.extend({
 
   model: CodeKindaSmart.Models.Segment,
   initialize: function (models, options) {
-  	this._document = options.document
+  	this.document = options.document
   },
   
   url: function() {

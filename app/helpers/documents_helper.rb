@@ -39,7 +39,7 @@ module DocumentsHelper
 
     a_url = annotation_url(annotations.first.id)
     # Bootstraps the ids of the annotations, so that it knows which one it's clicking on without expensive queries.
-    tags = "<a class='annotation-highlight annotation-link' id='#{index}' data-ids='#{ids}' data-start-position='#{range.first}' data-end-position='#{range.last}' href='" + 
+    tags = "<a class='annotation-highlight annotation-link' id='#{index}' data-ids='#{ids.join(',')}' data-start-position='#{range.first}' data-end-position='#{range.last}' href='" + 
               a_url + "?" + query_hash.to_query + "'>" + annotated + "</a>"
     return tags
   end

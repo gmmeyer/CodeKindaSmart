@@ -1,0 +1,68 @@
+<section class="annotations">
+
+
+	<% annotations.each(function(annotation) { %>
+		<section class="annotation-wrapper">
+			<section class="annotation">
+				<h2 class="annotation-title"><%= annotation.attributes.title %></h2>
+				<span class="annotation-body group"> <%= annotation.attributes.body %> </span>
+			</section>
+
+				<div class="votes group">
+
+				  <form action="<%= annotation.attributes.id %>">
+				    <input type="hidden" name="vote[annotation_id]" value="<% annotation.attributes.id %>}">
+				    <p class="button">
+				      <input type="submit" class="vote" value='&#xf164;'>
+				    </p>
+				  </form>
+
+				  <form action="<%= annotation.attributes.id %>">
+				    <input type="hidden" name="vote[annotation_id]" value="<% annotation.attributes.id %>}">
+				    <p class="button">
+				      <input type="submit" class="vote" value="&#xf165;">
+				    </p>
+				  </form>
+
+				</div>
+
+			<% if (CodeKindaSmart.currentUser) { %>
+
+		  <article class="annotation-buttons group">
+
+		  	<form action="< //%= edit_annotation_url(annotation.id) %>" method="get">
+
+					<p class="button group">
+						<label for="Edit">Edit this annotation?</label>
+						<input type="submit" id="Edit" value="Edit!">
+					</p>
+
+				</form>
+
+			<% } %>
+
+			<p class="break"></p>
+
+			<% if(currentUser && annotation.attributes.user_id == currentUser.id) %>
+
+				<section>
+					<form action="<//%= delete_url %>" method="post">
+
+						<input type="hidden" name="_method" value="delete">
+
+						<p class="button destroy group">
+							<label for="delete-button">Delete this Annotation?</label>
+							<input type="submit" id="delete-button" value="Delete!">					
+						</p>
+					</form>
+				</section>
+				
+			<% end %>
+
+
+
+			</article>
+		</section>
+	<% }); %>
+
+</section>

@@ -1,17 +1,14 @@
 CodeKindaSmart.Models.Annotation = Backbone.Model.extend({
 
-	urlRoot: function () {
-		return "/api/annotations/" + this.id
+	initialize: function (models, options) {
+
+		// this.id = options.id
+			
 	},
 
-  document: function() {
-    if(!this._document) {
-      this._document = new CodeKindaSmart.Models.Document([], {
-        _document: this
-      });
-	  };
-
-	  return this._document;
-  }
+	urlRoot: function () {
+		// return "/api/annotations/" + this.id
+		return "/api/annotations/"
+	}
 
 });
