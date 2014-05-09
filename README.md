@@ -16,9 +16,14 @@ Rap Genius is a website where you can add notes, called "annotations," to nearly
 * The frontend of the application is a combination of symantic HTML, handwritten CSS, Rails and Backbone. 
 	* The Backbone is mostly on the actual document pages to allow for the displaying and other various CRUDing of the annotations themselves, though, in fact, the entire document page is written in backbone.
 	* The other pages are largely written in a combination of symantic HTML and Rails's ERB templating methods. This allows for the pages to be dynamic and flexible.
-* The votes for the Single Table Inheritance
-* Polymorphic Association
-* Backbone
+* Voting on the annotations is accomplished through Single Table Inheritance. 
+	* There is a vote table, and then there is a vote model. There is then an Upvote and Downvote model that inherit from their common parent. 
+	* The votes are only ever accessed through the child models, but because they are almost exactly the same, there is no reason to separate them. 
+	*Additionally, the minimal complexity of the implementation allows for an easy transition to polymorphism, were there anything else to vote on.
+* Whenever an event of importance happens to one of the users, the system sends them a notification. 
+	* The notifications are accomplished through polymorphic association.
+	* This allows nearly anything to trigger a notification, and for them to be sent to anything from anything.
+	* Their versitility is what makes them powerful and useful.
 
 
 
@@ -28,8 +33,3 @@ Rap Genius is a website where you can add notes, called "annotations," to nearly
 
 * Finish implementing backbone
 * Design a tour
-* Do the ranking
-
-##Minor Pieces
-* CSS on new user page.
-* Replace purple borders with yellow.
