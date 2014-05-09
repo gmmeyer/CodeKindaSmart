@@ -39,6 +39,7 @@ class Annotation < ActiveRecord::Base
     return (self.start_location..self.end_location)
   end
 
+
   # Ranking
 
   # Checks existence and then returns the score.
@@ -72,6 +73,9 @@ class Annotation < ActiveRecord::Base
   # only the score.
   # This algorithm is strongly, very strongly, 
   # based off the reddit algorithm.
+
+  # Ranking is looking not at what is hot in total,
+  # but at what it hot that moment.
 
   def ranking
 
