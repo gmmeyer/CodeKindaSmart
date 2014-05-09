@@ -5,8 +5,8 @@ You can use Sass (SCSS) here: http://sass-lang.com/ */
 section.articles {
 	display: block;
 	margin: auto 25px;
- float: left;
- width: 700px;
+	float: left;
+	width: 700px;
 }
 
 .document-paragraph {
@@ -25,7 +25,7 @@ article.document {
 }
 
 section.document-title {
-		border: none;
+	border: none;
 }
 
 h2.document-title {
@@ -35,6 +35,7 @@ h2.document-title {
 	font-size: 25px;
 	margin: 20px auto;
 	border: 2px solid #D1A1FF;
+	box-shadow: 4px 3px 3px 1px rgba(0,0,0,.4);
 }
 
 .document-column {
@@ -51,6 +52,11 @@ a.document-title {
 a.document-title:hover{
 	color: white;
 	background-color: #9F3BFF;
+}
+
+a.document-title:active {
+	background-color: #7F2FCC;
+	color: #fff;
 }
 
 .document-text {
@@ -76,6 +82,7 @@ section.single-document {
 	display: block;
 	border: 2px solid #D1A1FF;
 	padding: 10px 10px;
+	box-shadow: 4px 3px 3px 1px rgba(0,0,0,.4);
 }
 
 article.document {

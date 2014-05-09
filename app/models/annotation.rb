@@ -17,8 +17,8 @@ class Annotation < ActiveRecord::Base
     if current_user
       downvote = downvotes.find_by(user_id: current_user.id) 
       upvote = upvotes.find_by(user_id: current_user.id)
-      return @my_vote = downvote if !downvote.nil?
-      return @my_vote = upvote if !upvote.nil?
+      return @my_vote = downvote if downvote
+      return @my_vote = upvote if upvote
     end
 
     @my_vote = nil

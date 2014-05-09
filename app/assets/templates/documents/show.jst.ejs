@@ -2,36 +2,62 @@
 
 	<li class="document-column">
 		<section class="articles standalone-document">
-
 			
 			<section class="single-document">
 				<h2 class="document-title group">
-					<a href="/documents/<%= CodeKindaSmart.doc.attributes.id %>" class='document-title'>
+					<a href="/documents/<%= CodeKindaSmart.doc.id %>" class='document-title'>
 					<%= CodeKindaSmart.doc.attributes.title %>
 					</a>
 				</h2>
 
-			<section class="author-name group">
+				<section class="author-name group">
 
-				<h2 class="author-name group">
-					<a href="/authors/<%= CodeKindaSmart.doc.attributes.author.id %>" class="author-name">
-						<%= CodeKindaSmart.doc.attributes.author.name %>
-					</a>
-				</h2>
+					<h2 class="author-name group">
+						<a href="/authors/<%= CodeKindaSmart.doc.attributes.author.id %>" class="author-name">
+							<%= CodeKindaSmart.doc.attributes.author.name %>
+						</a>
+					</h2>
 
-				<section class="break"></section>
+					<section class="break"></section>
 
-			</section>
+				</section>
 				
 				<section class='document-body'>
 					<p class="document-text"></p>
+					<div>
+						<%= CodeKindaSmart.doc.attributes.annotated_body %>
+					</div>
 
-					<%= CodeKindaSmart.doc.attributes.annotated_body %>
+					<div>
+						
+						<% if(CodeKindaSmart.currentUser && CodeKindaSmart.doc.attributes.user_id == CodeKindaSmart.currentUser.id) { %>
+							<article class="document group">
+								<form action="" method="get">
+								
+										<p class="edit-document button">
+											<input type="submit" value="Edit <%= CodeKindaSmart.doc.attributes.title %>">					
+										</p>
 
+								</form>
+
+								<section>
+									<form action="" method="post">
+
+										<input type="hidden" name="_method" value="delete">
+
+										<p class="delete-document button destroy group">
+											<label for="delete-button">Delete this Document?</label>
+											<input type="submit" id="delete-button" value="Delete!">					
+										</p>
+									</form>
+								</section>
+							</article>
+
+						<% } %>
+
+					</div>
 				</section>
-
 			</section>
-
 		</section>
 		</li>
 

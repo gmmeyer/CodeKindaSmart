@@ -8,8 +8,9 @@ CodeKindaSmart.Views.AnnotationsShow = Backbone.View.extend({
   events: {
   	"click .upvote" : "upVote",
   	"click .downvote" : "downVote",
-  	"click .edit" : "editAnnotation", 
-		"click .save" : "saveAnnotation"
+  	"click .edit-annotation" : "editAnnotation",
+		"click .save-annotation" : "saveAnnotation",
+    "click .delete-annotation" : "deleteAnnotation"
   },
 
   initialize: function (options) {
@@ -42,6 +43,11 @@ CodeKindaSmart.Views.AnnotationsShow = Backbone.View.extend({
   saveAnnotation: function (event) {
     event.preventDefault()
     console.log('saveAnnotation')
+  },
+
+  deleteAnnotation: function (event) {
+    event.preventDefault();
+    console.log('deleteAnnotation');
   }
 
 });

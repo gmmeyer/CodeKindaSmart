@@ -1,8 +1,8 @@
 desc "This task is called by the Heroku scheduler add-on"
 task :update_ranking => :environment do
 	puts "Updating Ranking..."
-	Document.update_score
-	User.update_score
-	Annotation.update_score
+	Document.update_ranking
+	User.update_ranking
+	Annotation.update_ranking
 	puts "done."
 end
