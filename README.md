@@ -14,9 +14,9 @@ Rap Genius is a website where you can add notes, called "annotations," to nearly
 ##Technology Used
 * The backend of the application is done entirely in Rails, which interfaces with the database, written in postgres.
 * The frontend of the application is a combination of symantic HTML, handwritten CSS, Rails and Backbone. 
-** The Backbone is mostly on the actual document pages to allow for the displaying and other various CRUDing of the annotations themselves, though, in fact, the entire document page is written in backbone.
-** The other pages are largely written in a combination of symantic HTML and Rails's ERB templating methods. This allows for the pages to be dynamic and flexible.
-* Single Table Inheritance
+	* The Backbone is mostly on the actual document pages to allow for the displaying and other various CRUDing of the annotations themselves, though, in fact, the entire document page is written in backbone.
+	* The other pages are largely written in a combination of symantic HTML and Rails's ERB templating methods. This allows for the pages to be dynamic and flexible.
+* The votes for the Single Table Inheritance
 * Polymorphic Association
 * Backbone
 
