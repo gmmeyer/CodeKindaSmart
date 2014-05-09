@@ -41,6 +41,9 @@ class User < ActiveRecord::Base
 
   # Ranking
 
+  # The algo is described in the Annotation model,
+  # this algo is merely a variation on that one.
+  # Look there for further discussion of it.
 
   def score
 
