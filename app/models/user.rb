@@ -41,14 +41,41 @@ class User < ActiveRecord::Base
 
   # Ranking
 
-  def self.update_score
 
+  def score
 
+    if self.annotations_count
+      return self.annotations_count
+    else
+      return 0
+    end
 
   end
 
-  def self.update_ranking
+  def ranking
 
+    s = self.score
+
+    # Natural logarithms are the only logaritms that matter.
+    # Why do math in base 10 when you can use base e?
+    order = Math.log([s, 1].max)
+
+    if s > 0
+      sign = 1
+    else
+      sign = 0
+    end
+
+    rank = (order * sign) + self.created_at.to_i / 45000
+
+    rank
+  end
+
+  def self.update_ranking
+    self.find_each do |user|
+      user.rank = user.ranking
+      user.save
+    end
   end
 
 

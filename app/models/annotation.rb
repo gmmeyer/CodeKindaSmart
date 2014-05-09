@@ -4,7 +4,7 @@ class Annotation < ActiveRecord::Base
   validate :length_check
 
   belongs_to :document, inverse_of: :annotations, counter_cache: true
-  belongs_to :user, inverse_of: :annotations
+  belongs_to :user, inverse_of: :annotations, counter_cache: true
 
   has_many :upvotes, class_name: "UpVote"
   has_many :downvotes, class_name: "DownVote"

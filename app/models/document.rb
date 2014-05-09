@@ -5,7 +5,7 @@ class Document < ActiveRecord::Base
   validates :title, uniqueness: true
   before_validation :sanitize_text
 
-  belongs_to :user
+  belongs_to :user, inverse_of: :documents, counter_cache: true
   has_many :annotations, dependent: :destroy
 
   belongs_to :author, inverse_of: :documents, counter_cache: true
@@ -164,17 +164,11 @@ class Document < ActiveRecord::Base
     rank
   end
 
-  def self.update_the_ranking
-
+  def self.update_ranking
     self.find_each do |document|
       document.rank = document.ranking
       document.save
     end
-
-    # Document.all do |document|
-    #   puts document
-    # end
-
   end
 
   private
