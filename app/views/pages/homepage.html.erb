@@ -1,73 +1,14 @@
-<section class="trending">
-
-<h2> Trending <h2>
-
-<% @documents.each do |document| %>
+<section class="left">
 	
-			
-	<h3 class="homepage-link">
-		<a href="<%= document_url(document.id) %>">
-			<div class="title">
-				<%= document.title %>
-			</div>
+	<section class="homepage trending group">
 
-			<div class="rank">
-				<%= document.score %>
-			</div>
-		</a>
-	</h3>
+	<h2> Trending <h2>
 
-<% end %>
-
-</section>
-
-<section class='homepage-annotations'>
-	
-	<h2> Top Annotations</h2>
-
-	<% @annotations.each do |annotation| %>
-
-		<h3 class="homepage-link">
-			<a href="<%= document_url(annotation.document_id) %>">
-				<div class="title">
-					<%= annotation.title %>
-				</div>
-
-				<div class="rank">
-					<%= annotation.score %>
-				</div>
-			</a>
-		</h3>
-
-	<% end %>
-</section>
-
-<section class="annotators">
-	
-	<h2> Top Annotators </h2>
-
-	<% @users.each do |user| %>
+	<% @documents.each do |document| %>
 		
+				
 		<h3 class="homepage-link">
-			<div class="title">
-				<%= user.username %>
-			</div>
-			
-			<div class="rank">
-				<%= user.score %>
-			</div>
-		</h3>
-	<% end %>
-</section>
-
-<section class="new">
-
-<h2> Give These New Documents Some Love! <h2>
-
-	<% @new_documents.each do |document| %>
-
-		<h3 class="homepage-link">
-			<a href="<%= document_url(document.id) %>">
+			<a class="group" href="<%= document_url(document.id) %>">
 				<div class="title">
 					<%= document.title %>
 				</div>
@@ -75,8 +16,77 @@
 				<div class="rank">
 					<%= document.score %>
 				</div>
-			</a>			
+			</a>
 		</h3>
+
 	<% end %>
 
+	</section>
+
+	<section class='homepage homepage-annotations'>
+		
+		<h2> Top Annotations</h2>
+
+		<% @annotations.each do |annotation| %>
+
+			<h3 class="homepage-link">
+				<a class="group" href="<%= document_url(annotation.document_id) %>">
+					<div class="title">
+						<%= annotation.title %>
+					</div>
+
+					<div class="rank">
+						<%= annotation.score %>
+					</div>
+				</a>
+			</h3>
+
+		<% end %>
+	</section>
+
+
+	<section class="homepage group">
+
+	<h2> Give These New Documents Some Love! <h2>
+
+		<% @new_documents.each do |document| %>
+
+			<h3 class="homepage-link">
+				<a class="group" href="<%= document_url(document.id) %>">
+					<div class="title">
+						<%= document.title %>
+					</div>
+
+					<div class="rank">
+						<%= document.score %>
+					</div>
+				</a>			
+			</h3>
+		<% end %>
+
+	</section>
+
+</section>
+
+
+<section class="right">
+
+	<section class="homepage annotators group">
+		
+		<h2> Top Annotators </h2>
+
+		<% @users.each do |user| %>
+			
+			<h3 class="homepage-link group">
+				<div class="title">
+					<%= user.username %>
+				</div>
+				
+				<div class="rank">
+					<%= user.score %>
+				</div>
+			</h3>
+		<% end %>
+	</section>
+	
 </section>

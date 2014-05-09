@@ -1,0 +1,47 @@
+.homepage {
+	margin: 20px 20px;
+	display: block;
+	padding: 5px;
+}
+
+.homepage > h3 {
+	font-size: 20px;
+}
+
+.title {
+	float: left;
+}
+
+.rank {
+	float: right;
+	margin-left: 10px;
+}
+
+
+.homepage-link {
+	border: 2px solid #D1A1FF;
+	margin: 5px;
+}
+
+.homepage-link a {
+	padding: 5px;
+	display: block;
+}
+
+.homepage-link a:hover {
+	background-color: #9F3BFF;
+	color: #fff;
+}
+
+.homepage-link a:active {
+	background-color: #7F2FCC;
+	color: #fff;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
