@@ -14,6 +14,29 @@ class Document < ActiveRecord::Base
   # implement these: [:tsearch, :dmetaphone, :trigram]
   multisearchable against: [:title, :body]
 
+  # Jbuilder
+
+  def builder
+    Jbuilder.encode do |json|
+      json.(self, :title, :body, :user_id, :author_id)
+      json.username self.user.username
+      json.author self.author.name
+    end
+  end
+
+  def segments_builder
+    Jbuilder.encode do |json|
+      sorted_segments = self.sort_segments
+
+      json.segments sorted_segments do |segment|
+        json.range segment.first
+        json.annotation segment.last
+      end
+    end
+  end
+
+  # Substrings
+
   def substring(starting, ending)
     self.body[starting...ending]
   end
@@ -21,6 +44,8 @@ class Document < ActiveRecord::Base
   def range_substring(range)
     self.body[range]
   end
+
+  # Segments and Annotation
 
   def annotation_ranges
     anns = self.annotations
@@ -48,25 +73,6 @@ class Document < ActiveRecord::Base
     end
 
     ann_arr
-  end
-
-  def builder
-    Jbuilder.encode do |json|
-      json.(self, :title, :body, :user_id, :author_id)
-      json.username self.user.username
-      json.author self.author.name
-    end
-  end
-
-  def segments_builder
-    Jbuilder.encode do |json|
-      sorted_segments = self.sort_segments
-
-      json.segments sorted_segments do |segment|
-        json.range segment.first
-        json.annotation segment.last
-      end
-    end
   end
 
   def segments
@@ -119,6 +125,14 @@ class Document < ActiveRecord::Base
     end
 
     segments
+  end
+
+  # Ranking
+
+  def update_ranking
+
+    
+
   end
 
   private

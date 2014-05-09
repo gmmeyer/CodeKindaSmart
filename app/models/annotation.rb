@@ -39,6 +39,12 @@ class Annotation < ActiveRecord::Base
     return (self.start_location..self.end_location)
   end
 
+  # Ranking
+
+  def update_ranking
+
+  end
+
   private
   def length_check
     if self.start_location == self.end_location

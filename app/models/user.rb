@@ -39,6 +39,13 @@ class User < ActiveRecord::Base
     self.authenticate(password)
   end
 
+  # Ranking
+
+  def update_ranking
+
+  end
+
+
   private
 
   def ensure_token

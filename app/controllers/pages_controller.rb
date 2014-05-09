@@ -1,6 +1,10 @@
 class PagesController < ApplicationController
 
   def homepage
+    # here's how we need to design the fetch for this:
+    # fetch .order('ranking DESC').first(10)
+
+
   end
 
   def search
