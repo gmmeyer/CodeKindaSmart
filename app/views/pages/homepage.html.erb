@@ -6,7 +6,7 @@
 	
 			
 	<h3 class="homepage-link">
-		<a href="<%= document_url(@document.id) %>">
+		<a href="<%= document_url(document.id) %>">
 			<div class="title">
 				<%= document.title %>
 			</div>
@@ -21,14 +21,14 @@
 
 </section>
 
-<section class='annotations'>
+<section class='homepage-annotations'>
 	
 	<h2> Top Annotations</h2>
 
 	<% @annotations.each do |annotation| %>
 
 		<h3 class="homepage-link">
-			<a href="<%= document_url(annotaiton.document_id) %>">
+			<a href="<%= document_url(annotation.document_id) %>">
 				<div class="title">
 					<%= annotation.title %>
 				</div>
@@ -67,14 +67,15 @@
 	<% @new_documents.each do |document| %>
 
 		<h3 class="homepage-link">
-			<div class="title">
-				<%= document.title %>
-			</div>
+			<a href="<%= document_url(document.id) %>">
+				<div class="title">
+					<%= document.title %>
+				</div>
 
-			<div class="rank">
-				<%= document.score %>
-			</div>
-			
+				<div class="rank">
+					<%= document.score %>
+				</div>
+			</a>			
 		</h3>
 	<% end %>
 
