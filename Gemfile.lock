@@ -54,9 +54,6 @@ GEM
     cancan (1.6.10)
     climate_control (0.0.3)
       activesupport (>= 3.0)
-    clockwork (0.7.5)
-      activesupport
-      tzinfo
     cocaine (0.5.4)
       climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
@@ -220,7 +217,6 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   cancan
-  clockwork
   coffee-rails (~> 4.0.0)
   debugger
   delayed_job_active_record

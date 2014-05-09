@@ -41,7 +41,65 @@ class Annotation < ActiveRecord::Base
 
   # Ranking
 
-  def update_ranking
+  # Checks existence and then returns the score.
+  def score
+
+    if self.up_votes_count && self.down_votes_counts
+      return self.up_votes_count - self.down_votes_count
+
+    elsif self.up_votes_count
+      return self.up_votes_count
+
+    elsif self.down_votes_count
+      return self.down_votes_count
+    
+    else
+      return 0
+    
+    end
+  end
+
+  # Gets the score of the annotation, 
+  # and transforms it into a rank 
+  # by looking at the rank in a temporal manner. 
+  # It is only a good score if it is recent.
+  # And, that is because an old annotation 
+  # can get a very high score.
+  # However, its age should not be the only 
+  # determining factor in that score,
+  # which is why I chose to use this algorithm, 
+  # rather than one that used
+  # only the score.
+  # This algorithm is strongly, very strongly, 
+  # based off the reddit algorithm.
+
+  def ranking
+
+    s = self.score
+
+    # Natural logarithms are the only logaritms that matter.
+    # Why do math in base 10 when you can use base e?
+    order = Math.log([s.abs, 1].max)
+
+    if s > 0
+      sign = 1
+    elsif s < 0
+      sign = -1
+    else
+      sign = 0
+    end
+
+    rank = (order * sign) + self.created_at.to_i / 45000
+
+    rank
+  end
+
+  def self.update_ranking
+
+    Annotation.find_each do |annotation|
+      annotation.rank = annotation.ranking
+      annotation.save
+    end
 
   end
 

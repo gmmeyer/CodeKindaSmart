@@ -41,9 +41,16 @@ class User < ActiveRecord::Base
 
   # Ranking
 
-  def update_ranking
+  def self.update_score
+
+
 
   end
+
+  def self.update_ranking
+
+  end
+
 
 
   private

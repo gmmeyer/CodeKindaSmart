@@ -129,9 +129,47 @@ class Document < ActiveRecord::Base
 
   # Ranking
 
-  def update_ranking
+  # For a discussion on this algorithm
+  # see my comments in the annotation model.
+  # While the ranking itself is slightly different, 
+  # the mechanism is quite similar. And I have 
+  # purposefully retained the paralells.
 
-    
+  def score
+
+    if self.annotations_count
+      return self.annotations_count
+    else
+      return 0
+    end
+
+  end
+
+  def ranking
+
+    s = self.score
+
+    # Natural logarithms are the only logaritms that matter.
+    # Why do math in base 10 when you can use base e?
+    order = Math.log([s, 1].max)
+
+    if s > 0
+      sign = 1
+    else
+      sign = 0
+    end
+
+    rank = (order * sign) + self.created_at.to_i / 45000
+
+    rank
+  end
+
+  def self.update_ranking
+
+    Document.find_all do |document|
+      document.rank = document.ranking
+      document.save
+    end
 
   end
 
