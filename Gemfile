@@ -20,8 +20,8 @@ gem 'kaminari'
 gem 'addressable'
 gem 'backbone-on-rails'
 gem 'cancan'
+gem 'clockwork'
 gem 'delayed_job_active_record'
-gem 'whenever', require: false
 gem 'gritter'
 gem 'faker'
 
