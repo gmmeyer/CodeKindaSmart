@@ -96,7 +96,7 @@ class Annotation < ActiveRecord::Base
 
   def self.update_ranking
 
-    Annotation.find_each do |annotation|
+    self.find_each do |annotation|
       annotation.rank = annotation.ranking
       annotation.save
     end

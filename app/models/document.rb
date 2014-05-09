@@ -164,12 +164,16 @@ class Document < ActiveRecord::Base
     rank
   end
 
-  def self.update_ranking
+  def self.update_the_ranking
 
-    Document.find_all do |document|
+    self.find_each do |document|
       document.rank = document.ranking
       document.save
     end
+
+    # Document.all do |document|
+    #   puts document
+    # end
 
   end
 
