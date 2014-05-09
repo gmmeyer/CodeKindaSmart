@@ -9,6 +9,7 @@
 Rap Genius is a website where you can add notes, called "annotations," to nearly anything. The idea is to better explain the thing you're adding notes to, to clarify a complex or vague sentence, or to shed light upon some poorly known fact.
 
 ##Technology Used
+* [Heroku][heroku] hosts the app.
 * The backend of the application is done entirely in Rails, which interfaces with the database, written in postgres.
 * The frontend of the application is a combination of symantic HTML, handwritten CSS, Rails and Backbone. 
 	* The Backbone is mostly on the actual document pages to allow for the displaying and other various CRUDing of the annotations themselves, though, in fact, the entire document page is written in backbone.
@@ -18,6 +19,9 @@ Rap Genius is a website where you can add notes, called "annotations," to nearly
 	* The votes are only ever accessed through the child models, but because they are almost exactly the same, there is no reason to separate them. 
 	*Additionally, the minimal complexity of the implementation allows for an easy transition to polymorphism, were there anything else to vote on.
 * The annotations, in addition to other things, is then ranked with a [Cron][cron] feature.
+	* [Heroku][heroku] makes this both easy and hard.
+			* Because the dynos eventually spin down, [the traditional rails/unix interfaces don't work][soheroku].
+			* However, [Heroku gives us an addon][scheduler] that makes it very easy to do with just a rake task.
 * Whenever an event of importance happens to one of the users, the system sends them a notification. 
 	* The notifications are accomplished through polymorphic association.
 	* This allows nearly anything to trigger a notification, and for them to be sent to anything from anything.
@@ -26,6 +30,10 @@ Rap Genius is a website where you can add notes, called "annotations," to nearly
 
 [cron]: http://en.wikipedia.org/wiki/Cron
 [rangy]: https://code.google.com/p/rangy/
+[heroku]: http://www.heroku.com
+[scheduler]: https://devcenter.heroku.com/articles/scheduler
+[soheroku]: http://stackoverflow.com/questions/8619754/whenever-gem-running-cron-jobs-on-heroku
+
 
 
 ##ToDo
