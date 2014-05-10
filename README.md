@@ -41,6 +41,9 @@ Rap Genius is a website where you can add notes, called "annotations," to nearly
 
 * Design a tour
 * Finish implementing backbone + Rangy
+* Make every page look the same, the document page is the model.
+* Simplify the CSS and the tags, there is no reason for having as many as I do.
+
 
 ###Minor pieces
 * Get rid of junk -- There's a lot of JS hanging around that isn't needed and is throwing off my github stats.
