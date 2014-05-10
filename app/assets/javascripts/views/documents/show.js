@@ -5,6 +5,12 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
   className: 'document',
 
   initialize: function () {
+
+    this.highlighter = rangy.createHighlighter();
+    this.highlighter.addClassApplier(rangy.createCssClassApplier("highlight", {
+      ignoreWhiteSpace: true,
+      tagNames: ["span", "a"]
+    }));
   },
 
   events: {
@@ -107,24 +113,38 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
       return;
     }
 
-    var range = sel.getRangeAt(0);
+    that.range = sel.getRangeAt(0);
+
+    that.annotation = new CodeKindaSmart.Models.Annotation
 
     var lowEnd = sel.focusOffset < sel.anchorOffset ? sel.focusOffset : sel.anchorOffset;
     var highEnd = sel.focusOffset < sel.anchorOffset ? sel.anchorOffset : sel.focusOffset;
 
-    var startIndex = this.selStartIndex(sel) + lowEnd;
+    var startIndex = that.selStartIndex(sel) + lowEnd;
     var endIndex = startIndex + (highEnd - lowEnd);
 
-    that.start_location = CodeKindaSmart.doc.attributes.body.indexOf(range)
-    that.end_location = that.start_location + range.toString().length;
+    that.annotation.attributes.start_location =  CodeKindaSmart.doc.attributes.body.indexOf(that.range)
+    that.annotation.attributes.start_location =  that.start_location + that.range.toString().length;
+    that.annotation.attributes.user_id = CodeKindaSmart.currentUser.id
 
-    this.highlightSelection(range)
+    if ( that.highlighter.removeAllHighlights() == undefined ) {
 
-    // if ( this.surroundRange(range) ) {
-    //   that.createButton(sel)
-    // }
+      that.highlighter.highlightSelection("highlight");
+      that.createButton(that.range);
+      
+    }
   },
 
+
+  highlightSelectedText: function (range) {
+    highlighter = rangy.createHighlighter();
+    highlighter.addClassApplier(rangy.createCssClassApplier("highlight", {
+      ignoreWhiteSpace: true,
+      tagNames: ["span", "a"]
+    }));
+
+    highlighter.highlightSelection("highlight");
+  },
 
   surroundRange: function (range) {
       if (range) {
@@ -140,7 +160,7 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
       }
   },
 
-  createButton: function (sel) {
+  createButton: function (range) {
     var that = this;
     that.annotationOffset = (that.finalY/2 + that.initialY/ 2) - 50 - $('.annotation-column').offset().top
 
@@ -148,14 +168,16 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
       $(".newAnnotation").css("top", "=" + 0);
       $(".newAnnotation").css("top", "+=" + that.annotationOffset);
     } else {
-      content = $("<div class='group newAnnotation'> <a href=''> + </a> </div>")
+      content = $("<div class='group newAnnotation'> <a data-range='" + range + "' href=''> + </a> </div>")
       $(".annotation-column").append(content);
       $(".newAnnotation").css("top", "+=" + that.annotationOffset);
     }
   },
 
-  newAnnotation: function(sel) {
+  newAnnotation: function() {
     event.preventDefault();
+    console.log(this.range)
+
   },
 
   selStartIndex: function(sel) {
