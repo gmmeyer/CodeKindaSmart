@@ -29,6 +29,7 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
     event.preventDefault();
     $('.activeAnnotations').addClass('isHidden')
     $('.activeAnnotations').removeClass('activeAnnotations')
+    $(".newAnnotation").remove()
     var ids = event.currentTarget.dataset.ids
     this.annotationId = event.currentTarget.id
     this.annotationOffset = event.currentTarget.offsetTop - $('.annotation-column').offset().top
@@ -116,37 +117,38 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
 
     that.start_location = CodeKindaSmart.doc.attributes.body.indexOf(range)
     that.end_location = that.start_location + range.toString().length;
-    console.log(that.start_location)
-    console.log(that.end_location)
 
-    that.createButton(sel)
+    this.highlightSelection(range)
+
+    // if ( this.surroundRange(range) ) {
+    //   that.createButton(sel)
+    // }
   },
 
 
   surroundRange: function (range) {
       if (range) {
-          var el = document.createElement("span");
-          el.style.backgroundColor = "#9F3BFF";
-          el.style.color = "#fff"
-          try {
-              range.surroundContents(el);
-          } catch(ex) {
-          }
+        var el = document.createElement("span");
+        el.style.backgroundColor = "#9F3BFF";
+        el.style.color = "#fff"
+        try {
+          range.surroundContents(el);
+          return true;
+        } catch(ex) {
+          return false;
+        }
       }
   },
 
   createButton: function (sel) {
     var that = this;
-    this.annotationOffset = (that.finalY/2 + that.initialX/ 2) - 100 - $('.annotation-column').offset().top
-
-    console.log('boo')
+    that.annotationOffset = (that.finalY/2 + that.initialY/ 2) - 50 - $('.annotation-column').offset().top
 
     if($('.newAnnotation')[0] != undefined) {
-      $(".newAnnotation").css("top", "=" + that.annotationOffset);
+      $(".newAnnotation").css("top", "=" + 0);
       $(".newAnnotation").css("top", "+=" + that.annotationOffset);
     } else {
       content = $("<div class='group newAnnotation'> <a href=''> + </a> </div>")
-      console.log(content.html())
       $(".annotation-column").append(content);
       $(".newAnnotation").css("top", "+=" + that.annotationOffset);
     }
