@@ -125,7 +125,8 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
 
     that.annotation.attributes.start_location =  CodeKindaSmart.doc.attributes.body.indexOf(that.range)
     that.annotation.attributes.start_location =  that.start_location + that.range.toString().length;
-    that.annotation.attributes.user_id = CodeKindaSmart.currentUser.id
+
+    console.log(that.range);
 
     if ( that.highlighter.removeAllHighlights() == undefined ) {
 
@@ -175,6 +176,7 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
   },
 
   newAnnotation: function() {
+    // that.annotation.attributes.user_id = CodeKindaSmart.currentUser.id
     event.preventDefault();
     console.log(this.range)
 
