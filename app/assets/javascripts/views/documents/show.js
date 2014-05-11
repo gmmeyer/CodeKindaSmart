@@ -14,7 +14,7 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
   },
 
   events: {
-  	"click .annotation-highlight" : "showAnnotation",
+      "click .annotation-highlight" : "showAnnotation",
     "click .edit-document" : "editDocument",
     "click .delete-document" : "deleteDocument",
     "mousedown .document-body" : "startSelect",
@@ -176,10 +176,23 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
   },
 
   newAnnotation: function() {
-    // that.annotation.attributes.user_id = CodeKindaSmart.currentUser.id
+      // this needs to be ammended:
+      // I need to add this to the DOM,
+      // not merely return this, I need to do
+      // what I did with show annotation.
+
     event.preventDefault();
     console.log(this.range)
-
+    if(CodeKindaSmart.currentUser) {
+	var content = new CodeKindaSmart.Views.AnnotationNew({
+	    start_location = this.start_location,
+	      end_location = this.end_location
+	  })
+      } else {
+	  // enable an error here for no user
+      }
+      this.$el.html(content);
+      return this;
   },
 
   selStartIndex: function(sel) {
