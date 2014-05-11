@@ -181,6 +181,12 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
     // not merely return this, I need to do
     // what I did with show annotation.
 
+     var view = new CodeKindaSmart.Views.AnnotationsShow({
+        annotationId: that.annotationId
+      });
+      $(".annotation-column").append(view.render().$el);
+      $(".activeAnnotations").css("top", "+=" + that.annotationOffset);
+
     event.preventDefault();
     console.log(this.range)
     if(CodeKindaSmart.currentUser) {
