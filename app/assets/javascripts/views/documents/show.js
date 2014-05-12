@@ -126,13 +126,11 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
     that.annotation.attributes.start_location =  CodeKindaSmart.doc.attributes.body.indexOf(that.range)
     that.annotation.attributes.start_location =  that.start_location + that.range.toString().length;
 
-    console.log(that.range);
+    // console.log(that.range);
 
     if ( that.highlighter.removeAllHighlights() == undefined ) {
-
       that.highlighter.highlightSelection("highlight");
       that.createButton(that.range);
-      
     }
   },
 
@@ -169,7 +167,7 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
       $(".newAnnotation").css("top", "=" + 0);
       $(".newAnnotation").css("top", "+=" + that.annotationOffset);
     } else {
-      content = $("<div class='group newAnnotation'> <a data-range='" + range + "' href=''> + </a> </div>")
+      content = $("<div class='group newButton newAnnotation'> <a data-range='" + range + "' href=''> + </a> </div>")
       $(".annotation-column").append(content);
       $(".newAnnotation").css("top", "+=" + that.annotationOffset);
     }
@@ -180,25 +178,22 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
     // I need to add this to the DOM,
     // not merely return this, I need to do
     // what I did with show annotation.
-
-     var view = new CodeKindaSmart.Views.AnnotationsShow({
-        annotationId: that.annotationId
-      });
-      $(".annotation-column").append(view.render().$el);
-      $(".activeAnnotations").css("top", "+=" + that.annotationOffset);
-
     event.preventDefault();
-    console.log(this.range)
-    if(CodeKindaSmart.currentUser) {
-    	var content = new CodeKindaSmart.Views.AnnotationNew({
-  	    start_location: this.start_location,
-	      end_location: this.end_location
-  	  })
+    if(CodeKindaSmart.currentUser){
+     var view = new CodeKindaSmart.Views.AnnotationsNew({
+        // annotationId: this.annotationId,
+        range: this.range,
+        start_location: this.start_location,
+        end_location: this.end_location
+    });
+    $(".newButton").remove()
+    $(".annotation-column").append(view.render().$el);
+    $(".activeAnnotations").css("top", "+=" + this.annotationOffset);
+      
     } else {
-	  // enable an error here for no user
+      $('.newButton').remove()
     }
-    this.$el.html(content);
-    return this;
+
   },
 
   selStartIndex: function(sel) {
