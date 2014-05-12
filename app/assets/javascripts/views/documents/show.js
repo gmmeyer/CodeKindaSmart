@@ -191,8 +191,8 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
     console.log(this.range)
     if(CodeKindaSmart.currentUser) {
     	var content = new CodeKindaSmart.Views.AnnotationNew({
-  	    start_location = this.start_location,
-	      end_location = this.end_location
+  	    start_location: this.start_location,
+	      end_location: this.end_location
   	  })
     } else {
 	  // enable an error here for no user
