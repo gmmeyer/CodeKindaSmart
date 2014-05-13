@@ -12,13 +12,22 @@ module Api
 		end
 
 	  def create
-	    @annotation = current_user.annotations.new(annotation_params)
-	    if @annotation.save
-	      flash[:notices] = ["You made an annotation!"]
-	      render json: @annotation
-	    else
-	      render json: @annotation.errors.full_messages
-	    end
+	  	@annotation = Annotation.find(params[:id])
+	  	if @annotation
+	  		if @annotation.update(annotation_params)
+	  			render "annotations/show"
+	  		else
+	  			render @annotation.errors.full_messages
+	  		end
+	  	else
+		    @annotation = current_user.annotations.new(annotation_params)
+		    if @annotation.save
+		      flash[:notices] = ["You made an annotation!"]
+		      render json: @annotation
+		    else
+		      render json: @annotation.errors.full_messages
+		    end
+		  end
 	  end
 
 		def save
@@ -29,6 +38,18 @@ module Api
 		end
 
 		def update
+			Annotation.find(params[:id])
+			if @annotation.update(annotation_params)
+				render "annotations/show"
+			else
+				render @annotation.errors.full_messages
+			end
+		end
+
+		def destroy
+			annotation = Annotation.find(params[:id])
+			annotation.destroy
+			render json: 'annotations/index'
 		end
 
 		private

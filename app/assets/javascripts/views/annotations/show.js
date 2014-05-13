@@ -15,6 +15,7 @@ CodeKindaSmart.Views.AnnotationsShow = Backbone.View.extend({
 
   initialize: function (options) {
     this.annotationId = options.annotationId
+    console.log(this.annotationId);
   },
 
   render: function () {
@@ -37,17 +38,33 @@ CodeKindaSmart.Views.AnnotationsShow = Backbone.View.extend({
 
   editAnnotation: function (event) {
     event.preventDefault()
-    console.log('editAnnotation')
-  },
+    CodeKindaSmart.activeAnnotations = CodeKindaSmart.doc.annotations.getOrFetch(this.annotationId,
+      function (activeAnnotations) {
+        if(CodeKindaSmart.currentUser){
+         var view = new CodeKindaSmart.Views.AnnotationsForm({
+          annotation: activeAnnotations
+        });
+        $('.activeAnnotations').addClass('isHidden')
+        $('.activeAnnotations').removeClass('activeAnnotations')
 
-  saveAnnotation: function (event) {
-    event.preventDefault()
-    console.log('saveAnnotation')
+        $(".annotation-column").append(view.render().$el);
+        $(".form-annotation-wrapper").css("top", "+=" + this.annotationOffset); 
+        } else {
+          $('.newButton').remove()
+        }
+      }
+    )
   },
 
   deleteAnnotation: function (event) {
     event.preventDefault();
-    console.log('deleteAnnotation');
+    var attrs = this.$("form.delete-annotation").serializeJSON();
+
+    annotation = CodeKindaSmart.doc.annotations.getOrFetch(this.annotationId,
+      function(annotation) {
+        annotation.destroy()   
+      }
+    )
   }
 
 });

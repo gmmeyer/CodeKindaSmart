@@ -6,6 +6,9 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
 
   initialize: function () {
 
+    this.listenTo(CodeKindaSmart.doc.annotations, 'change', this.render)
+    this.listenTo(CodeKindaSmart.doc, 'change', this.render)
+
     this.highlighter = rangy.createHighlighter();
     this.highlighter.addClassApplier(rangy.createCssClassApplier("highlight", {
       ignoreWhiteSpace: true,
@@ -171,17 +174,15 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
 
   newAnnotation: function() {
     event.preventDefault();
-    console.log(this.start_location)
-    console.log(this.end_location);
     if(CodeKindaSmart.currentUser){
-     var view = new CodeKindaSmart.Views.AnnotationsNew({
+     var view = new CodeKindaSmart.Views.AnnotationsForm({
       range: this.range,
       start_location: this.start_location,
       end_location: this.end_location
     });
     $(".newButton").remove()
     $(".annotation-column").append(view.render().$el);
-    $("annotation-wrapper").css("top", "+=" + this.annotationOffset);
+    $(".form-annotation-wrapper").css("top", "+=" + this.annotationOffset);
       
     } else {
       $('.newButton').remove()

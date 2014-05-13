@@ -43,9 +43,10 @@
 
 
 				<section>
-					<form action="<//%= delete_url %>" method="post">
+					<form class="delete-annotation" action="<//%= delete_url %>" method="post">
 
 						<input type="hidden" name="_method" value="delete">
+						<input type="hidden" name='annotation[id]' value="<%= annotation.id %>">
 
 						<p class="delete-annotation button destroy group">
 							<label for="delete-button">Delete this Annotation?</label>

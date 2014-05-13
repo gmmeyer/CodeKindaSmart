@@ -86,7 +86,7 @@ section.annotations {
 
 .annotation {
 	display: block;
-	border-bottom: 3px solid #ffc31c;
+	// border-bottom: 3px solid #ffc31c;
 	margin-bottom: 5px;
 }
 
@@ -96,6 +96,7 @@ section.annotations {
 
 .annotation-buttons {
 	margin-top: 3px;
+	border-top: 3px solid #ffc31c;
 }
 
 
