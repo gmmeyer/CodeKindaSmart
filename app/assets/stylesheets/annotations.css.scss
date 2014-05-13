@@ -21,21 +21,21 @@ You can use Sass (SCSS) here: http://sass-lang.com/ */
 	width: 400px;
 }
 
-.document-paragraph > a.annotation-link:link {
+.document-body a.annotation-link:link {
 	color: #9F3BFF;
 }
 
-.document-paragraph > a.annotation-link:visited {
+.document-body a.annotation-link:visited {
 	color: #9F3BFF;
 }
 
-.document-paragraph > a.annotation-link:hover {
+.document-body a.annotation-link:hover {
 	font-style: normal;
 	background-color: #9F3BFF;
 	color: #fff;
 }
 
-.document-paragraph > a.annotation-link:active {
+.document-body a.annotation-link:active {
 	background: #7F2FCC;
 }
 
