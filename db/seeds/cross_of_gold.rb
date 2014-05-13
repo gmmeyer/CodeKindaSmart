@@ -75,8 +75,6 @@ anns_b = ["Why is it so long?", "Why didn't you seed the database with better th
 starts = [100, 500, 700]
 ends = [200, 600, 800]
 
-
-
 3.times do |i|
 	Annotation.create( user_id: fake_users[i].id, title: anns_t[i], body: anns_b[i], document_id: cross_of_gold.id, start_location: starts[i], end_location: ends[i] )
 end

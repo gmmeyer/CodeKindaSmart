@@ -67,4 +67,6 @@ end
 
 
 
-
+load('./seeds/cross_of_gold.rb')
+# load('./seeds/ulysses.rb')
+load('./seeds/gpl.rb')
