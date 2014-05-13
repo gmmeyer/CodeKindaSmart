@@ -2,7 +2,7 @@ def gpl
 
 	fsf = Author.create(name: "Free Software Foundation", location: "Boston", description: "Promoting the right to free software.")
 
-	fsf_user = User.create(username: "fsf", email: 'fsf@fsf.com', password: 'stallman', password_confirmation: 'stallman')
+	fsf_user = User.create(username: "fsf", email: 'fsf@fsf.com', password: 'password', password_confirmation: 'password')
 
 	gnugpl = Document.create(body: gpl_body, author_id: fsf.id, title: "GNU GPL", summary: "GNU GPL.", release_date: 2007, user_id: fsf_user.id)
 
