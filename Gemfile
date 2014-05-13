@@ -22,6 +22,7 @@ gem 'backbone-on-rails'
 gem 'delayed_job_active_record'
 gem 'gritter'
 gem 'faker'
+gem 'nokogiri'
 
 group :production do
   gem 'rails_12factor'

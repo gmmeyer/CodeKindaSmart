@@ -173,6 +173,7 @@ class Document < ActiveRecord::Base
 
   private
   def sanitize_text
-    self.body = strip_tags(self.body)
+    self.body = Nokogiri::HTML(self.body).text
+    # self.body = strip_tags(self.body)
   end
 end

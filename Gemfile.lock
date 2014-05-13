@@ -110,8 +110,11 @@ GEM
       treetop (~> 1.4.8)
     method_source (0.8.2)
     mime-types (1.25.1)
+    mini_portile (0.5.3)
     minitest (5.3.3)
     multi_json (1.10.0)
+    nokogiri (1.6.2)
+      mini_portile (~> 0.5.2)
     paperclip (4.1.1)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -226,6 +229,7 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   kaminari
+  nokogiri
   paperclip
   pg
   pg_search
