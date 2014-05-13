@@ -6,7 +6,7 @@ def beowulf
 
 	titles = ["I  love this poem", "Why?"]
 	bodies = ["Seriously, this is my favorite of all the great epic poems.", "I don't really know. I think it's because it's just so much more straightforward than the other epic poems. It gets to the point: we're insane, but we're going to go kill a god damn monster."]
-	starts = [0, 250]
+	starts = [0, 245]
 	ends = [200, 350]
 
 	titles.length.times do |i|

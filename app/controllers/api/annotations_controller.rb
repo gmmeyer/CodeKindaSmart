@@ -8,8 +8,6 @@ module Api
 		end
 
 		def show
-	    puts '========================='
-	    puts params[:ids]
 			@annotation = Annotation.includes(:user).includes(document: [:user, :author]).find(params[:id])
 		end
 
