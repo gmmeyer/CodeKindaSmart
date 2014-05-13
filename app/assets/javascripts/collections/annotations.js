@@ -11,6 +11,8 @@ CodeKindaSmart.Collections.Annotations = Backbone.Collection.extend({
   },
 
 	getOrFetch: function (ids, callback) {
+    console.log(ids)
+    console.log(ids.length);
     var that = this
     var models = []
 

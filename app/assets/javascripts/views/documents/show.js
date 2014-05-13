@@ -39,7 +39,9 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
     $('.activeAnnotations').addClass('isHidden')
     $('.activeAnnotations').removeClass('activeAnnotations')
     $(".newAnnotation").remove()
-    var ids = event.currentTarget.dataset.ids
+    var ids = []
+    ids = ids.concat(event.currentTarget.dataset.ids)
+    console.log(ids);
     this.annotationId = event.currentTarget.id
     this.annotationOffset = event.currentTarget.offsetTop - $('.annotation-column').offset().top
     that = this;
