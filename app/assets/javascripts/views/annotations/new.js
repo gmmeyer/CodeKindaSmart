@@ -1,6 +1,6 @@
 CodeKindaSmart.Views.AnnotationsNew = Backbone.View.extend({
 
-	className: "new-annotation-wrapper"
+	className: "new-annotation-wrapper",
 
 	template: JST['annotations/new'],
 
