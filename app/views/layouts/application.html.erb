@@ -8,6 +8,9 @@
 	</head>
 	<body>
 
+		<%= content_tag :div, class: "currentUserInformation", data: {currentUser: current_user} do %>
+		<% end %>
+
 		<%= render partial: "shared/header" %>
 		<section class="body group">
 		
@@ -36,6 +39,8 @@
 	 <%= render partial: "shared/footer" %>
 
 	 <script>
+	 		CodeKindaSmart.currentUser = $('.currentUserInformation').data('currentuser')
+
 			//initiating jQuery
 			jQuery(function($) {
 			  $(document).ready( function() {

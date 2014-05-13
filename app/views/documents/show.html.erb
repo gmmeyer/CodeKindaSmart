@@ -13,28 +13,7 @@
 
   	rangy.init();
 
-  	// highlighter.addClassApplier(rangy.createCssClassApplier("highlight", {
-  	//     ignoreWhiteSpace: true,
-  	//     tagNames: ["span", "a"]
-  	// }));
-
-  	// highlighter.addClassApplier(rangy.createCssClassApplier("note", {
-  	//     ignoreWhiteSpace: true,
-  	//     elementTagName: "a",
-  	//     elementProperties: {
-  	//         href: "#",
-  	//         onclick: function() {
-  	//             var highlight = highlighter.getHighlightForElement(this);
-  	//             if (window.confirm("Delete this note (ID " + highlight.id + ")?")) {
-  	//                 highlighter.removeHighlights( [highlight] );
-  	//             }
-  	//             return false;
-  	//         }
-  	//     }
-  	// }));
-
     var doc_id = $('.tempInformation').data('temp');
-    CodeKindaSmart.currentUser = $('.currentUserInformation').data('currentuser')
 
     _swapView = function (newView) {
 		  this._currentView && this._currentView.remove();
