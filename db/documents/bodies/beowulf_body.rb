@@ -3,11 +3,6 @@ def beowulf_body
 	<<-HTML 
 		I.
 
-		THE LIFE AND DEATH OF SCYLD.
-
-
-		{The famous race of Spear-Danes.}
-
 		          Lo! the Spear-Danes' glory through splendid achievements
 		          The folk-kings' former fame we have heard of,
 		          How princes displayed then their prowess-in-battle.
