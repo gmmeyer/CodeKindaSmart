@@ -20,8 +20,8 @@ Rap Genius is a website where you can add notes, called "annotations," to nearly
 	*Additionally, the minimal complexity of the implementation allows for an easy transition to polymorphism, were there anything else to vote on.
 * The annotations, in addition to other things, is then ranked with a [Cron][cron] feature.
 	* [Heroku][heroku] makes this both easy and hard.
-			* Because the dynos eventually spin down, [the traditional rails/unix interfaces don't work][soheroku].
-			* However, [Heroku gives us an addon][scheduler] that makes it very easy to do with just a rake task.
+	  	* Because the dynos eventually spin down, [the traditional rails/unix interfaces don't work][soheroku].
+		* However, [Heroku gives us an addon][scheduler] that makes it very easy to do with just a rake task.
 * Whenever an event of importance happens to one of the users, the system sends them a notification. 
 	* The notifications are accomplished through polymorphic association.
 	* This allows nearly anything to trigger a notification, and for them to be sent to anything from anything.
