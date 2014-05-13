@@ -115,8 +115,6 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
 
     that.range = sel.getRangeAt(0);
 
-    // that.annotation = new CodeKindaSmart.Models.Annotation
-
     var lowEnd = sel.focusOffset < sel.anchorOffset ? sel.focusOffset : sel.anchorOffset;
     var highEnd = sel.focusOffset < sel.anchorOffset ? sel.anchorOffset : sel.focusOffset;
 
@@ -125,8 +123,6 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
 
     that.start_location =  CodeKindaSmart.doc.attributes.body.indexOf(that.range)
     that.end_location =  that.start_location + that.range.toString().length;
-
-    // console.log(that.range);
 
     if ( that.highlighter.removeAllHighlights() == undefined ) {
       that.highlighter.highlightSelection("highlight");
