@@ -68,7 +68,7 @@ section.annotations {
 }
 
 .annotation-wrapper {
-	float: right;
+	float: left;
 	display: block;
 	width: 210px;
 	border: 3px solid #ffc31c;
@@ -101,10 +101,13 @@ section.annotations {
 
 // New Annotation
 
-form.new-annotation {
+.new-annotation {
   display: block;
   margin: 25px auto;
+  float: left;
   background: #fff;
+	border: 3px solid #ffc31c;
+	box-shadow: 1px 1px 0 0 rgba(0,0,0,.4);
 }
 
 .activeAnnotations { 

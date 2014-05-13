@@ -115,7 +115,7 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
 
     that.range = sel.getRangeAt(0);
 
-    that.annotation = new CodeKindaSmart.Models.Annotation
+    // that.annotation = new CodeKindaSmart.Models.Annotation
 
     var lowEnd = sel.focusOffset < sel.anchorOffset ? sel.focusOffset : sel.anchorOffset;
     var highEnd = sel.focusOffset < sel.anchorOffset ? sel.anchorOffset : sel.focusOffset;
@@ -123,8 +123,8 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
     var startIndex = that.selStartIndex(sel) + lowEnd;
     var endIndex = startIndex + (highEnd - lowEnd);
 
-    that.annotation.attributes.start_location =  CodeKindaSmart.doc.attributes.body.indexOf(that.range)
-    that.annotation.attributes.start_location =  that.start_location + that.range.toString().length;
+    that.start_location =  CodeKindaSmart.doc.attributes.body.indexOf(that.range)
+    that.end_location =  that.start_location + that.range.toString().length;
 
     // console.log(that.range);
 
@@ -174,21 +174,18 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
   },
 
   newAnnotation: function() {
-    // this needs to be ammended:
-    // I need to add this to the DOM,
-    // not merely return this, I need to do
-    // what I did with show annotation.
     event.preventDefault();
+    console.log(this.start_location)
+    console.log(this.end_location);
     if(CodeKindaSmart.currentUser){
      var view = new CodeKindaSmart.Views.AnnotationsNew({
-        // annotationId: this.annotationId,
-        range: this.range,
-        start_location: this.start_location,
-        end_location: this.end_location
+      range: this.range,
+      start_location: this.start_location,
+      end_location: this.end_location
     });
     $(".newButton").remove()
     $(".annotation-column").append(view.render().$el);
-    $(".activeAnnotations").css("top", "+=" + this.annotationOffset);
+    $("annotation-wrapper").css("top", "+=" + this.annotationOffset);
       
     } else {
       $('.newButton').remove()

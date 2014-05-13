@@ -33,6 +33,16 @@ input[type="submit"] {
   width: 650px;
 }
 
+.input > .annotation-body > textarea {
+  border: 3px solid #000;
+  color: #000;
+  display: block;
+  margin: 10px auto;
+  padding: 2px 2px;
+  float: left;
+  padding: auto;
+}
+
 .input > textarea:hover, .input input[type="text"]:hover, .input input[type="password"]:hover, .input input[type="email"]:hover {
   border: 3px solid #0b0;
 }
