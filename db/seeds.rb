@@ -15,3 +15,8 @@ gpl
 ulysses
 
 beowulf
+
+
+Document.update_ranking
+User.update_ranking
+Annotation.update_ranking
