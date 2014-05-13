@@ -14,7 +14,7 @@ def beowulf
 	end
 
 	User.all.each do |user|
-		next if user == @me
+		next if user.id == @me.id
 		my_annotations.each do |my_annotation|
 			UpVote.create(annotation_id: my_annotation.id, user_id: user.id)
 		end

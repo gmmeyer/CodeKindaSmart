@@ -45,7 +45,7 @@ class Annotation < ActiveRecord::Base
   # Checks existence and then returns the score.
   def score
 
-    if self.up_votes_count && self.down_votes_counts
+    if self.up_votes_count && self.down_votes_count
       return self.up_votes_count - self.down_votes_count
 
     elsif self.up_votes_count
@@ -101,6 +101,7 @@ class Annotation < ActiveRecord::Base
   def self.update_ranking
 
     self.find_each do |annotation|
+      puts annotation.title
       annotation.rank = annotation.ranking
       annotation.save
     end
