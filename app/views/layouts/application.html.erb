@@ -7,8 +7,13 @@
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
-
-		<%= content_tag :div, class: "currentUserInformation", data: {currentUser: current_user} do %>
+		<% if current_user %>
+			<%= content_tag :div, class: "currentUserInformation", data: {currentUser: current_user} do %>
+			<% end %>
+		<% else %>
+			<%= content_tag :div, class: "currentUserInformation",
+				data: {currentUser: User.new} do %>
+			<% end %>
 		<% end %>
 
 		<%= render partial: "shared/header" %>

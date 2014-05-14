@@ -2,5 +2,5 @@ json.(@annotation, :title, :body, :user_id, :start_location, :end_location, :up_
 json.id = @annotation.id
 puts @annotation.title
 
-json.user_vote @annotation.load_user_vote(current_user)
+json.user_vote @annotation.load_user_vote(current_user).class
 json.username @annotation.user.username

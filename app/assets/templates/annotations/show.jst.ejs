@@ -12,6 +12,7 @@
 
 				  <form action="<%= annotation.attributes.id %>">
 				    <input type="hidden" name="vote[annotation_id]" value="<% annotation.attributes.id %>">
+				    <input type="hidden" name="vote[user_id]" value='<%CodeKindaSmart.currentUser.id%>'>
 				    <p class="button">
 				      <input type="submit" class="vote upvote" value='&#xf164;'>
 				    </p>
@@ -19,6 +20,7 @@
 
 				  <form action="<%= annotation.attributes.id %>">
 				    <input type="hidden" name="vote[annotation_id]" value="<% annotation.attributes.id %>">
+				    <input type="hidden" name="vote[user_id]" value='<%CodeKindaSmart.currentUser.id%>'>
 				    <p class="button">
 				      <input type="submit" class="vote downvote" value="&#xf165;">
 				    </p>

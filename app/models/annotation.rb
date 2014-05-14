@@ -52,7 +52,7 @@ class Annotation < ActiveRecord::Base
       return self.up_votes_count
 
     elsif self.down_votes_count
-      return self.down_votes_count
+      return (- self.down_votes_count)
     
     else
       return 0

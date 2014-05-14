@@ -176,8 +176,5 @@ class Document < ActiveRecord::Base
     self.body = Nokogiri::HTML(self.body)
     self.body.xpath('/t').remove
     self.body = self.body.text
-    # self.body = Nokogiri::HTML(self.body).text
-    # self.body
-    # self.body = strip_tags(self.body)
   end
 end

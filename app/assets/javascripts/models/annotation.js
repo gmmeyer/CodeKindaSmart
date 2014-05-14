@@ -1,11 +1,10 @@
 CodeKindaSmart.Models.Annotation = Backbone.Model.extend({
 
 	initialize: function (models, options) {
-		this.id = options.id
-			
 	},
 
 	urlRoot: function () {
+		console.log(this)
 		return "/api/annotations/" + this.id
 	}
 

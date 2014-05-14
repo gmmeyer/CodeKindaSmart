@@ -113,7 +113,6 @@ class AnnotationsController < ApplicationController
   end
 
   def vote_params
-    params.require(:vote).permit(:user_id, :annotation_id) #also, remember: vote_type and vote exists. Maybe just pass in the vote through the form?
-    # existing_vote
+    params.require(:vote).permit(:user_id, :annotation_id)
   end
 end

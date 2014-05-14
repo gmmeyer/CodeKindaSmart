@@ -2,7 +2,7 @@ CodeKindaSmart.Views.AnnotationsForm = Backbone.View.extend({
 
 	className: "form-annotation-wrapper",
 
-	template: JST['annotations/new'],
+	template: JST['annotations/form'],
 
 	initialize: function (options) {
 		this.annotation = new CodeKindaSmart.Models.Annotation()
@@ -34,9 +34,9 @@ CodeKindaSmart.Views.AnnotationsForm = Backbone.View.extend({
     this.annotation.save(attrs, {
       success: function (post) {
         that.annotation.collection.add(post);
-        Backbone.history.navigate("", { trigger: true });
+        // Backbone.history.navigate("", { trigger: true });
       }
     });
   }
 
-})
+});

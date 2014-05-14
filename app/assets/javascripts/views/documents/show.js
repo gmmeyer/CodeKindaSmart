@@ -40,6 +40,7 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
     $('.activeAnnotations').removeClass('activeAnnotations')
     $(".newAnnotation").remove()
     var ids = []
+    console.log(event)
     ids = ids.concat(event.currentTarget.dataset.ids)
     console.log(ids);
     this.annotationId = event.currentTarget.id
@@ -63,21 +64,14 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
     }
   },
 
-  renderAnnotation: function () {
-    var content = this.annotationTemplate({
-      annotations: this.activeAnnotations
-    })
-    this.$el.html(content);
-    return this;
-  },
-
   editDocument: function (event) {
-    event.preventDefault();
-
+    console.log(event);
   },
 
   deleteDocument: function (event) {
     event.preventDefault();
+    doc = CodeKindaSmart.doc.destroy()
+    
   },
 
   _swapView: function (newView, options) {

@@ -4,17 +4,23 @@
 
 	<h2> Trending <h2>
 
-	<% for (var i = 0; i < ranking.documents.length; i++) { %>
+	<% for(var i = 0; i < ranking.documents.length; i++) { %>
 		
 				
 		<h3 class="homepage-link">
-			<a class="group" href="<%= '#documents/' + ranking.documents[i].id %>">
+			<a class="group" href="#documents/ <%= ranking.documents[i].id %>">
 				<div class="title">
 					<%= ranking.documents[i].title %>
 				</div>
 
 				<div class="rank">
-					<%= ranking.documents[i].score %>
+					<% if(ranking.documents[i].annotation_count){ %>
+
+						<%= ranking.documents[i].annotation_count %>
+
+					<% } else { %>
+						<%= 0 %>
+					<% } %>
 				</div>
 			</a>
 		</h3>
@@ -27,16 +33,29 @@
 		
 		<h2> Top Annotations</h2>
 
-		<% for (var i = 0; i < ranking.annotations.length; i++) { %>
+		<% for(var i = 0; i < ranking.annotations.length; i++) { %>
 
 			<h3 class="homepage-link">
-				<a class="group" href="<%= '#documents/' + ranking.annotations[i].document_id %>">
+				<a class="group" href="#documents/<%= ranking.annotations[i].document_id %>">
 					<div class="title">
 						<%= ranking.annotations[i].title %>
 					</div>
 
 					<div class="rank">
-						<%= ranking.annotations[i].score %>
+						<% if(ranking.annotations[i].up_votes_count && ranking.annotations[i].down_votes_count ){ %>
+
+							<%= ranking.annotations[i].up_votes_count - ranking.annotations[i].down_votes_count %>
+
+						<% } else if (ranking.annotations[i].up_votes_count){ %>
+
+							<%= ranking.annotations[i].up_votes_count%>
+
+						<% } else if (ranking.annotations[i].down_votes_count) { %>
+
+							<%= ranking.annotations[i].down_votes_count%>
+						<% } else { %>
+							<%= 0 %>
+						<% } %>
 					</div>
 				</a>
 			</h3>
@@ -49,20 +68,26 @@
 
 	<h2> Give These New Documents Some Love! <h2>
 
-		<% for (var i = 0; i < ranking.new_documents.length; i++) { %>
+		<% for(var i = 0; i < ranking.new_documents.length; i++) { %>
 
 			<h3 class="homepage-link">
-				<a class="group" href="<%= '#documents/' + ranking.new_documents[i].id  %>">
+				<a class="group" href="#documents/<%= ranking.new_documents[i].id  %>">
 					<div class="title">
 						<%= ranking.new_documents[i].title %>
 					</div>
 
 					<div class="rank">
-						<%= ranking.new_documents[i].score %>
+						<% if(ranking.documents[i].annotation_count) { %>
+
+							<%= ranking.documents[i].annotation_count %>
+
+						<% } else { %>
+							<%= 0 %>
+						<% } %>
 					</div>
 				</a>			
 			</h3>
-		<% end %>
+		<% } %>
 
 	</section>
 
@@ -75,7 +100,7 @@
 		
 		<h2> Top Annotators </h2>
 
-		<% for (var i = 0; i < ranking.users.length; i++) { %>
+		<% for(var i = 0; i < ranking.users.length; i++) { %>
 			
 			<h3 class="homepage-link group">
 				<div class="title">
@@ -83,7 +108,13 @@
 				</div>
 				
 				<div class="rank">
-					<%= ranking.users[i].score %>
+					<% if(ranking.users[i].annotations_count){ %>
+
+						<%= ranking.users[i].annotations_count %>
+
+					<% } else { %>
+						<%= 0 %>
+					<% } %>
 				</div>
 			</h3>
 		<% } %>

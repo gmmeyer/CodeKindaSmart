@@ -3,7 +3,9 @@ CodeKindaSmart.Views.AnnotationsShow = Backbone.View.extend({
   template: JST['annotations/show'],
   tagName: "div",
 
-
+  initialize: function () {
+    // this.listenTo()
+  },
 
   events: {
   	"click .upvote" : "upVote",
@@ -28,12 +30,12 @@ CodeKindaSmart.Views.AnnotationsShow = Backbone.View.extend({
 
   upVote: function (event) {
     event.preventDefault()
-    console.log('upVote')
+
   },
 
   downVote: function (event) {
     event.preventDefault()
-    console.log('downVote')
+
   },
 
   editAnnotation: function (event) {
