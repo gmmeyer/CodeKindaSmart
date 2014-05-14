@@ -17,7 +17,6 @@ class User < ActiveRecord::Base
   has_many :downvotes, class_name: "DownVote"
 
   include PgSearch
-  pg_search_scope :search_on_name, against: [:username, :email]
   multisearchable againt: [:username, :email]
 
   def self.generate_token

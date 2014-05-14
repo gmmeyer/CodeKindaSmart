@@ -4,8 +4,6 @@ module Api
   def show
 	  @document = Document.includes(:author).includes(:user).includes(annotations: :user).find(params[:id])
 	  # @document = @document.builder
-    puts '====================='
-    puts @document.author
 	  render :show
   end
 

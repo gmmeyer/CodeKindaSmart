@@ -20,9 +20,9 @@ CodeKindaSmart::Application.routes.draw do
   resources :authors, only: [:new, :create, :destroy, :index, :show, :update]
   
   resources :documents, only: [:new, :index, :show, :destroy, :edit, :update] do
-    resources :annotations, only: [:index, :new, :create]
+    resources :annotations, only: [:index, :new, :create, :show]
   end
-  resources :annotations, only: [:show, :destroy, :update, :edit]
+  resources :annotations, only: [:destroy, :update, :edit]
 
   resource :session, only: [:new, :create, :destroy]
 
@@ -31,6 +31,7 @@ CodeKindaSmart::Application.routes.draw do
 
   get "/homepage", to: 'pages#homepage'
   get "/search", to: "pages#search"
+  get "/api/homepage", to: 'api/pages#homepage'
 
   root to: "pages#homepage"
 end

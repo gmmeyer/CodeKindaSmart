@@ -4,22 +4,22 @@
 
 	<h2> Trending <h2>
 
-	<% for (var i = 0; i < ranking.documents.length; i++) { %>
+	<% @documents.each do |document| %>
 		
 				
 		<h3 class="homepage-link">
-			<a class="group" href="<%= '#documents/' + ranking.documents[i].id %>">
+			<a class="group" href="<%= "#documents/" + document.id %>">
 				<div class="title">
-					<%= ranking.documents[i].title %>
+					<%= document.title %>
 				</div>
 
 				<div class="rank">
-					<%= ranking.documents[i].score %>
+					<%= document.score %>
 				</div>
 			</a>
 		</h3>
 
-	<% } %>
+	<% end %>
 
 	</section>
 
@@ -27,21 +27,21 @@
 		
 		<h2> Top Annotations</h2>
 
-		<% for (var i = 0; i < ranking.annotations.length; i++) { %>
+		<% @annotations.each do |annotation| %>
 
 			<h3 class="homepage-link">
-				<a class="group" href="<%= '#documents/' + ranking.annotations[i].document_id %>">
+				<a class="group" href="<%= "#documents/" + document_id %>">
 					<div class="title">
-						<%= ranking.annotations[i].title %>
+						<%= annotation.title %>
 					</div>
 
 					<div class="rank">
-						<%= ranking.annotations[i].score %>
+						<%= annotation.score %>
 					</div>
 				</a>
 			</h3>
 
-		<% } %>
+		<% end %>
 	</section>
 
 
@@ -49,16 +49,16 @@
 
 	<h2> Give These New Documents Some Love! <h2>
 
-		<% for (var i = 0; i < ranking.new_documents.length; i++) { %>
+		<% @new_documents.each do |document| %>
 
 			<h3 class="homepage-link">
-				<a class="group" href="<%= '#documents/' + ranking.new_documents[i].id  %>">
+				<a class="group" href="<%= "#documents/" + document_id  %>">
 					<div class="title">
-						<%= ranking.new_documents[i].title %>
+						<%= document.title %>
 					</div>
 
 					<div class="rank">
-						<%= ranking.new_documents[i].score %>
+						<%= document.score %>
 					</div>
 				</a>			
 			</h3>
@@ -75,18 +75,18 @@
 		
 		<h2> Top Annotators </h2>
 
-		<% for (var i = 0; i < ranking.users.length; i++) { %>
+		<% @users.each do |user| %>
 			
 			<h3 class="homepage-link group">
 				<div class="title">
-					<%= ranking.users[i].username %>
+					<%= user.username %>
 				</div>
 				
 				<div class="rank">
-					<%= ranking.users[i].score %>
+					<%= user.score %>
 				</div>
 			</h3>
-		<% } %>
+		<% end %>
 	</section>
 	
 </section>

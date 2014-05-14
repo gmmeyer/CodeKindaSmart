@@ -4,7 +4,7 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
   annotationTemplate: JST['annotations/show'],
   className: 'document',
 
-  initialize: function () {
+  initialize: function (options) {
 
     this.listenTo(CodeKindaSmart.doc.annotations, 'change', this.render)
     this.listenTo(CodeKindaSmart.doc, 'change', this.render)

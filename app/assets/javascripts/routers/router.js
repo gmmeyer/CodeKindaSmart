@@ -5,7 +5,9 @@ CodeKindaSmart.Router = Backbone.Router.extend({
   },
 
 	routes: {
-		'annotations/:id': 'showAnnotations',
+		'documents/:document_id/annotations/:id': 'showAnnotations',
+		'documents/:id' : 'showDocument',
+		'' : 'showHomepage'
 	},
 
 	annotationIndex: function () {
@@ -15,22 +17,32 @@ CodeKindaSmart.Router = Backbone.Router.extend({
 		this._swapView(view);
 	},
 
-	showAnnotations: function (id) {
-		that = this;
-		var annotation = CodeKindaSmart.doc.annotations.getOrFetch(id,
-			function (annotation) {
-				var view = new CodeKindaSmart.Views.AnnotationsShow({
-					annotation: annotation
-				});
-				that._swapView(view)
-			}
-		);
+	showAnnotations: function (document_id, id) {
+		// that = this;
+		// var doc = CodeKindaSmart.documents.getOrFetch(id,
+		// 	function (doc) {
+		// 		var view = new CodeKindaSmart.Views.DocumentsShow({
+		// 			model: doc,
+		// 			annotation_id: id
+		// 		});
+		// 		that._swapView(view)
+		// 	}
+		// );
+		// var annotation = CodeKindaSmart.doc.annotations.getOrFetch(id,
+		// 	function (annotation) {
+		// 		var view = new CodeKindaSmart.Views.AnnotationsShow({
+		// 			annotation: annotation
+		// 		});
+		// 		that._swapView(view)
+		// 	}
+		// );
 	},
 
 	showDocument: function(id) {
 		that = this;
 		var doc = CodeKindaSmart.documents.getOrFetch(id,
 			function (doc) {
+				CodeKindaSmart.doc = doc
 				var view = new CodeKindaSmart.Views.DocumentsShow({
 					model: doc
 				});
@@ -39,7 +51,7 @@ CodeKindaSmart.Router = Backbone.Router.extend({
 		);
 	},
 
-	staticHomepage: function () {
+	showHomepage: function () {
 		var view = new CodeKindaSmart.Views.StaticHomepage()
 		this._swapView(view)
 	},
@@ -47,6 +59,7 @@ CodeKindaSmart.Router = Backbone.Router.extend({
 	_swapView: function (newView) {
 	  this._currentView && this._currentView.remove();
 	  this._currentView = newView;
-	  this.$rootEl.html(newView.render().$el);
+	  $("#content").html(newView.render().$el);
+	  // this.$rootEl.html(newView.render().$el);
 	}
 });

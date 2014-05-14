@@ -1,17 +1,7 @@
 <article class="document">
-
 	<h2 class="document-title group">
-		<a href="<%= document_url(document.id) %>" class='document-title'>
+		<a href="<%= '#documents/' + document.id %>" class='document-title'>
 		<%= document.title %>
 		</a>
 	</h2>
-
-	
-
-	<section class='document-body'>
-		<p class='document-text'>
-			<!-- Why is this only called when I render? It'd be faster to call it beforehand. -->
-			<%= simple_format(annotate_document(document, document.segments), {class: "document-paragraph"}, sanitize: false) %>
-		</p>
-	</section>
 </article>
