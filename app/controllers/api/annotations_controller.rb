@@ -12,8 +12,8 @@ module Api
 		end
 
 	  def create
-	  	@annotation = Annotation.find(params[:id])
-	  	if @annotation
+	  	if params[:id]
+		  	@annotation = Annotation.find(params[:id])
 	  		if @annotation.update(annotation_params)
 	  			render "annotations/show"
 	  		else
@@ -101,7 +101,7 @@ module Api
 		def destroy
 			annotation = Annotation.find(params[:id])
 			annotation.destroy
-			render json: 'annotations/index'
+			render json: 'annotation/index'
 		end
 
 		private

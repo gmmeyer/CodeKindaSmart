@@ -33,7 +33,7 @@ CodeKindaSmart.AppRouter = Backbone.Router.extend({
 		that = this;
 		var doc = CodeKindaSmart.documents.getOrFetch(id,
 			function (doc) {
-				CodeKindaSmart.doc = doc
+				CodeKindaSmart.doc = doc;
 				var view = new CodeKindaSmart.Views.DocumentsShow({
 					model: doc
 				});

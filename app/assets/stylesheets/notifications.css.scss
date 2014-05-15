@@ -38,7 +38,8 @@
   border-left: 3px solid #D1A1FF;
   border-right: 3px solid #D1A1FF;
   border-bottom: 3px solid #D1A1FF;
-  list-style: none
+  list-style: none;
+  z-index: 1500;
 }
 
 .notifications-dropbown > .notification {

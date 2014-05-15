@@ -23,20 +23,18 @@ CodeKindaSmart.Collections.Annotations = Backbone.Collection.extend({
         model.fetch({
           success: function() {
             that.add(model)
-            callback(model)
+            if(callback){
+              callback(model)
+            }
           }
         });
       } else {
-        callback(model)
+        if(callback){
+          callback(model)
+        }
       }
       models.push(model)
     }
-
-    // if(models[1] === 'undefined'){
-    //   return models[0];
-    // } else {
-    //   return models;
-    // }
     return models;
 	}
 

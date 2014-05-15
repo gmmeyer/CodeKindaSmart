@@ -33,7 +33,7 @@ input[type="submit"] {
   width: 650px;
 }
 
-.input > .annotation-body > textarea {
+.new-annotation textarea {
   border: 3px solid #000;
   color: #000;
   display: block;
@@ -41,6 +41,7 @@ input[type="submit"] {
   padding: 2px 2px;
   float: left;
   padding: auto;
+  width: inherit;
 }
 
 .input > textarea:hover, .input input[type="text"]:hover, .input input[type="password"]:hover, .input input[type="email"]:hover {
@@ -135,4 +136,8 @@ label.new-document {
   color: #307371;
   display: block;
   margin: auto;
+}
+
+.form-annotation-wrapper {
+  top: 0;
 }

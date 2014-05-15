@@ -1,6 +1,12 @@
 def beowulf_body
 
-	<<-HTML 
+	<<-HTML
+		I.
+
+		THE LIFE AND DEATH OF SCYLD.
+
+
+		{The famous race of Spear-Danes.}
 
 		          Lo! the Spear-Danes' glory through splendid achievements
 		          The folk-kings' former fame we have heard of,
@@ -106,6 +112,9 @@ def beowulf_body
 		    (1) v. 1347; (2) it affords a parallel to 'men' in v. 50.
 
 
+
+
+		II.
 
 		SCYLD'S SUCCESSORS.--HROTHGAR'S GREAT MEAD-HALL.
 
@@ -213,6 +222,9 @@ def beowulf_body
 		    giant-race._
 
 
+
+
+		III.
 
 		GRENDEL THE MURDERER.
 
@@ -354,6 +366,9 @@ def beowulf_body
 
 
 
+
+		IV.
+
 		BEOWULF GOES TO HROTHGAR'S ASSISTANCE.
 
 
@@ -483,6 +498,9 @@ def beowulf_body
 		    in another's house_.
 
 
+
+
+		V.
 
 		THE GEATS REACH HEOROT.
 

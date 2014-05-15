@@ -1,6 +1,6 @@
 CodeKindaSmart.Views.AnnotationsForm = Backbone.View.extend({
 
-	className: "form-annotation-wrapper",
+	className: "form-annotation-wrapper group",
 
 	template: JST['annotations/form'],
 

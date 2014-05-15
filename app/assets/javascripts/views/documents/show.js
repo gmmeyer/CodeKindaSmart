@@ -6,7 +6,7 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
 
   initialize: function (options) {
 
-    this.listenTo(CodeKindaSmart.doc.annotations, 'change', this.render)
+    // this.listenTo(CodeKindaSmart.Models.Annotation, 'change', function(){CodeKindaSmart.doc.fetch()})
     this.listenTo(CodeKindaSmart.doc, 'change', this.render)
 
     this.highlighter = rangy.createHighlighter();
@@ -40,9 +40,7 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
     $('.activeAnnotations').removeClass('activeAnnotations')
     $(".newAnnotation").remove()
     var ids = []
-    console.log(event)
     ids = ids.concat(event.currentTarget.dataset.ids)
-    console.log(ids);
     this.annotationId = event.currentTarget.id
     this.annotationOffset = event.currentTarget.offsetTop - $('.annotation-column').offset().top
     that = this;
@@ -178,7 +176,7 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
     });
     $(".newButton").remove()
     $(".annotation-column").append(view.render().$el);
-    $(".form-annotation-wrapper").css("top", "+=" + this.annotationOffset);
+    $(".new-annotation").css("top", "+=" + this.annotationOffset);
       
     } else {
       $('.newButton').remove()
