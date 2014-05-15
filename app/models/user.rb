@@ -11,7 +11,6 @@ class User < ActiveRecord::Base
   has_many :notifications, inverse_of: :user, dependent: :destroy
   has_many :documents, inverse_of: :user, dependent: :destroy
   has_many :annotations, inverse_of: :user, dependent: :destroy
-  has_many :notifications, inverse_of: :user, dependent: :destroy
 
   has_many :upvotes, class_name: "UpVote"
   has_many :downvotes, class_name: "DownVote"

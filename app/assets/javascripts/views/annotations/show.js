@@ -16,12 +16,14 @@ CodeKindaSmart.Views.AnnotationsShow = Backbone.View.extend({
   },
 
   initialize: function (options) {
-    this.annotationId = options.annotationId
+    this.annotationId = options.annotationId;
+    this.annotations = [options.annotations];
   },
 
   render: function () {
     var content = this.template({
-      annotationId: this.annotationId
+      annotationId: this.annotationId,
+      annotations: this.annotations
     });
     this.$el.html(content);
     return this;
@@ -59,16 +61,16 @@ CodeKindaSmart.Views.AnnotationsShow = Backbone.View.extend({
 
   deleteAnnotation: function (event) {
     event.preventDefault();
-    console.log(event);
     var attrs = this.$(".form-delete-annotation").serializeJSON();
     var ids = [attrs.annotation.id]
 
-    console.log(ids)
-
     annotation = CodeKindaSmart.doc.annotations.getOrFetch(ids[0],
       function(model) {
-        console.log(model);
-        model.destroy()
+        model.destroy({
+          success: function(){
+            CodeKindaSmart.doc.fetch()
+          }
+        })
       }
     )
   }

@@ -5,7 +5,7 @@ window.CodeKindaSmart = {
   Routers: {},
   initialize: function() {
     CodeKindaSmart.documents = new CodeKindaSmart.Collections.Documents();
-    CodeKindaSmart.approuter = new CodeKindaSmart.AppRouter({
+    CodeKindaSmart.appRouter = new CodeKindaSmart.AppRouter({
       $rootEl: $('#content')
     });
     Backbone.history.start()

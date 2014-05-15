@@ -5,9 +5,11 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
   className: 'document',
 
   initialize: function (options) {
+    var that = this;
 
-    // this.listenTo(CodeKindaSmart.Models.Annotation, 'change', function(){CodeKindaSmart.doc.fetch()})
-    this.listenTo(CodeKindaSmart.doc, 'change', this.render)
+
+    // this.listenTo(CodeKindaSmart.doc.annotations, 'destroy', this.render);
+    this.listenTo(CodeKindaSmart.doc, 'sync', this.render);
 
     this.highlighter = rangy.createHighlighter();
     this.highlighter.addClassApplier(rangy.createCssClassApplier("highlight", {
@@ -43,16 +45,16 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
     ids = ids.concat(event.currentTarget.dataset.ids)
     this.annotationId = event.currentTarget.id
     this.annotationOffset = event.currentTarget.offsetTop - $('.annotation-column').offset().top
-    that = this;
+    var that = this;
 
     if ($('#ann-' + this.annotationId)[0] != undefined) {
       $('#ann-' + this.annotationId).removeClass("isHidden")
       $('#ann-' + this.annotationId).addClass('activeAnnotations')
     } else {
-      CodeKindaSmart.activeAnnotations = CodeKindaSmart.doc.annotations.getOrFetch(ids,
+      activeAnnotations = CodeKindaSmart.doc.annotations.getOrFetch(ids,
         function (activeAnnotations) {
           var view = new CodeKindaSmart.Views.AnnotationsShow({
-            annotationId: that.annotationId
+            annotations: activeAnnotations
           });
           $(".annotation-column").append(view.render().$el);
           $(".activeAnnotations").css("top", "+=" + that.annotationOffset);
@@ -69,13 +71,6 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
   deleteDocument: function (event) {
     event.preventDefault();
     doc = CodeKindaSmart.doc.destroy()
-    
-  },
-
-  _swapView: function (newView, options) {
-    this._currentView && this._currentView.remove();
-    this._currentView = newView;
-    this.$rootEl.html(newView.render().$el);
   },
 
   startSelect: function(event) {

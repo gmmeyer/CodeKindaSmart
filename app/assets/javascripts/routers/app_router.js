@@ -17,7 +17,7 @@ CodeKindaSmart.AppRouter = Backbone.Router.extend({
 	},
 
 	editDocument: function (id) {
-		that = this;
+		var that = this;
 		var doc = CodeKindaSmart.documents.getOrFetch(id,
 			function (doc) {
 				CodeKindaSmart.doc = doc
@@ -30,7 +30,7 @@ CodeKindaSmart.AppRouter = Backbone.Router.extend({
 	},
 
 	showDocument: function(id) {
-		that = this;
+		var that = this;
 		var doc = CodeKindaSmart.documents.getOrFetch(id,
 			function (doc) {
 				CodeKindaSmart.doc = doc;

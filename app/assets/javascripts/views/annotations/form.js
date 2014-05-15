@@ -34,7 +34,7 @@ CodeKindaSmart.Views.AnnotationsForm = Backbone.View.extend({
     this.annotation.save(attrs, {
       success: function (post) {
         that.annotation.collection.add(post);
-        // Backbone.history.navigate("", { trigger: true });
+        CodeKindaSmart.doc.fetch()
       }
     });
   }

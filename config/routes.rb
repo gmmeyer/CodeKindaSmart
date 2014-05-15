@@ -2,9 +2,9 @@ CodeKindaSmart::Application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resources :documents do
-      resources :annotations, only: [:index]
+      resources :annotations
     end
-    resources :annotations, except: [:index]
+    # resources :annotations, except: [:index]
     get "/documents/:id/segments", to: "documents#segments", as: "segments"
   end
 

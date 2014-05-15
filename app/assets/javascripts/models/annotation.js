@@ -6,12 +6,15 @@ CodeKindaSmart.Models.Annotation = Backbone.Model.extend({
 		}
 	},
 
-	urlRoot: function () {
-		if(this.id){
-			return "/api/annotations/" + this.id
-		} else {
-			return "/api/annotations"
-		}
-	}
+	// url: "/api/annotations",
+
+	// urlRoot: function () {
+	// 	console.log('oh hai');
+	// 	if(this.id){
+	// 		return "/api/annotations/" + this.id
+	// 	} else {
+	// 		return "/api/annotations/"
+	// 	}
+	// }
 
 });
