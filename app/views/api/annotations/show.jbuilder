@@ -4,3 +4,4 @@ puts @annotation.title
 
 json.user_vote @annotation.load_user_vote(current_user).class
 json.username @annotation.user.username
+json.score @annotation.score
