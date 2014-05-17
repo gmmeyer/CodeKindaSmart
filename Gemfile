@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby "2.1.1"
+ruby "2.1.2"
 
 gem 'rails'
 gem 'pg'
@@ -42,5 +42,6 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'pry-rails'
-  gem 'debugger'
+  # gem 'debugger'
+  gem 'byebug'
 end
