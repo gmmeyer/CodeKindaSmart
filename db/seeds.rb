@@ -13,7 +13,6 @@ require_relative('documents/index')
 cross_of_gold
 gpl
 ulysses
-
 beowulf
 
 
