@@ -26,8 +26,11 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
     "mouseup .document-body" : "handleSelect",
     "click .newAnnotation" : "newAnnotation",
     "click .tour-wrapper" : 'hideTour',
-    "click .tour-button" : 'hideTour',
-    "click .close-tour" : 'hideTour'
+    "click .tour-button-ok" : 'hideTour',
+    "click .close-tour" : 'hideTour',
+    "click .tour-button-next" : "nextTour",
+    "click .tour-button-back" : "backTour",
+    "click .tour-button-beginning" : "firstTour"
   },
 
 
@@ -37,6 +40,22 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
   	});
   	this.$el.html(content);
   	return this;
+  },
+
+  hideTour: function (event) {
+    event.preventDefault()
+    $(".tour-wrapper").addClass('isHidden')
+  },
+
+  nextTour: function (event) {
+    event.preventDefault()
+    currentSlide = $('.currentSlide')
+  },
+
+  firstTour: function () {
+    $('.currentSlide').addClass('isHidden')
+    $('.currentSlide').removeClass('currentSlide')
+    $('.tour ul li').first().addClass('currentSlide')
   },
 
   showAnnotation: function (event) {

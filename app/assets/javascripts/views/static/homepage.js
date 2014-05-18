@@ -28,11 +28,13 @@ CodeKindaSmart.Views.StaticHomepage = Backbone.View.extend({
 		return this;
 	},
 
-	hideTour: function () {
+	hideTour: function (event) {
+		event.preventDefault()
 		$(".tour-wrapper").addClass('isHidden')
 	},
 
-	nextTour: function () {
+	nextTour: function (event) {
+		event.preventDefault()
 		currentSlide = $('.currentSlide')
 	},
 
