@@ -1,4 +1,4 @@
-def gpl
+def gpl(me)
 
 	fsf = Author.create(name: "Free Software Foundation", location: "Boston", description: "Promoting the right to free software.")
 
@@ -21,7 +21,7 @@ def gpl
 
 	gpl_annotations.length.times do |i|
 
-		Annotation.create( user_id: @me.id, title: titles[i], body: gpl_annotations[i], document_id: gnugpl.id, start_location: start_locations[i], end_location: end_locations[i] )
+		Annotation.create( user_id: me.id, title: titles[i], body: gpl_annotations[i], document_id: gnugpl.id, start_location: start_locations[i], end_location: end_locations[i] )
 
 	end
 end

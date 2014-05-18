@@ -24,7 +24,10 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
     "click .delete-document" : "deleteDocument",
     "mousedown .document-body" : "startSelect",
     "mouseup .document-body" : "handleSelect",
-    "click .newAnnotation" : "newAnnotation"
+    "click .newAnnotation" : "newAnnotation",
+    "click .tour-wrapper" : 'hideTour',
+    "click .tour-button" : 'hideTour',
+    "click .close-tour" : 'hideTour'
   },
 
 

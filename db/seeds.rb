@@ -6,15 +6,19 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-@anon = Author.create(name: "Anonymous")
+anon = Author.create(name: "Anonymous")
 
 require_relative('documents/index')
 
-cross_of_gold
-gpl
-ulysses
-beowulf
+me, gergz, guest_user, fake_users = create_users
 
+
+
+cross_of_gold(me, gergz, fake_users)
+gpl(me)
+ulysses(me)
+beowulf(anon, gergz, me)
+robert_frost(guest_user)
 
 Document.update_ranking
 User.update_ranking

@@ -1,6 +1,6 @@
-def beowulf
+def beowulf(anon, gergz, me)
 
-	beowulf = Document.create(title: "Beowulf", body: beowulf_body, author_id: @anon.id, user_id: @gergz.id)
+	beowulf = Document.create(title: "Beowulf", body: beowulf_body, author_id: anon.id, user_id: gergz.id)
 
 	my_annotations = []
 
@@ -10,11 +10,11 @@ def beowulf
 	ends = [200, 350]
 
 	titles.length.times do |i|
-		my_annotations << Annotation.create(title: titles[i], body: bodies[i], start_location: starts[i], end_location: ends[i], user_id: @me.id, document_id: beowulf.id)
+		my_annotations << Annotation.create(title: titles[i], body: bodies[i], start_location: starts[i], end_location: ends[i], user_id: me.id, document_id: beowulf.id)
 	end
 
 	User.all.each do |user|
-		next if user.id == @me.id
+		next if user.id == me.id
 		my_annotations.each do |my_annotation|
 			UpVote.create(annotation_id: my_annotation.id, user_id: user.id)
 		end

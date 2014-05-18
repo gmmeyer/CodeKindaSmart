@@ -1,3 +1,39 @@
+<% if(!CodeKindaSmart.currentUser.username || CodeKindaSmart.currentUser.guest_user){ %>
+
+	<div class='tour-wrapper'>		
+		<section class='tour'>
+			<ul class="slides">
+				<li class='tourSlide currentSlide'>
+					Welcome to Rap Kinda Smart!
+				</li>
+				<li class='tourSlide nextSlide'>
+					
+				</li>
+				<li class="tourSlide isHidden">
+					
+				</li>
+			</ul>
+			<ul class="buttons">
+				<li>
+					<form action="">
+						<span class=".tour-button-back button">
+							<input type="submit" value="Back">					
+						</span>
+					</form>
+				</li>
+				<li>
+					<form action="">
+						<span class='.tour-button-next button'>
+							<input type="submit" value="Next">
+						</span>
+					</form>
+				</li>
+			</ul>
+		</section>
+	</div>
+
+<% } %>
+
 <ul class="document-annotation-wrapper group">
 
 	<li class="document-column">

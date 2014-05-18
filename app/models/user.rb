@@ -78,9 +78,7 @@ class User < ActiveRecord::Base
       user.save
     end
   end
-
-
-
+  
   private
 
   def ensure_token
