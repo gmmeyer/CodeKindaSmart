@@ -54,7 +54,8 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
       activeAnnotations = CodeKindaSmart.doc.annotations.getOrFetch(ids,
         function (activeAnnotations) {
           var view = new CodeKindaSmart.Views.AnnotationsShow({
-            annotations: activeAnnotations
+            annotations: activeAnnotations,
+            annotationOffset: that.annotationOffset
           });
           $(".annotation-column").append(view.render().$el);
           $(".activeAnnotations").css("top", "+=" + that.annotationOffset);

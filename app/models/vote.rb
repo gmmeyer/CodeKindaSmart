@@ -17,5 +17,4 @@ class Vote < ActiveRecord::Base
   def set_notification
     raise "Only use upvotes and downvote. This isn't mean to be used."
   end
-
 end

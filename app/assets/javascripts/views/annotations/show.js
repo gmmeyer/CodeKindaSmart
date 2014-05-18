@@ -3,8 +3,10 @@ CodeKindaSmart.Views.AnnotationsShow = Backbone.View.extend({
   template: JST['annotations/show'],
   tagName: "div",
 
-  initialize: function () {
-    // this.listenTo()
+  initialize: function (options) {
+    console.log(options)
+    this.annotationOffset = options.annotationOffset;
+    this.annotations = this.activeAnnotations;
   },
 
   events: {
@@ -41,11 +43,12 @@ CodeKindaSmart.Views.AnnotationsShow = Backbone.View.extend({
 
   editAnnotation: function (event) {
     event.preventDefault()
-    CodeKindaSmart.activeAnnotations = CodeKindaSmart.doc.annotations.getOrFetch(this.annotationId,
+    CodeKindaSmart.activeAnnotations = CodeKindaSmart.doc.annotations.getOrFetch([this.annotationId],
       function (activeAnnotations) {
         if(CodeKindaSmart.currentUser){
          var view = new CodeKindaSmart.Views.AnnotationsForm({
-          annotation: activeAnnotations
+          annotation: this.annotations[0],
+          annotationOffset: this.annotationOffset
         });
         $('.activeAnnotations').addClass('isHidden')
         $('.activeAnnotations').removeClass('activeAnnotations')

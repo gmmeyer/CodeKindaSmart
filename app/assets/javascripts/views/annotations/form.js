@@ -5,11 +5,14 @@ CodeKindaSmart.Views.AnnotationsForm = Backbone.View.extend({
 	template: JST['annotations/form'],
 
 	initialize: function (options) {
-		this.annotation = new CodeKindaSmart.Models.Annotation()
+		if(options.annotation) {
+			this.annotation = options.annotation;
+		} else {
+			this.annotation = new CodeKindaSmart.Models.Annotation()
+		}
+
 		this.start_location = options.start_location;
 		this.end_location = options.end_location;
-
-		// this.listenTo(CodeKindaSmart.doc, 'sync', this.remove());
 		this.annotation.collection = CodeKindaSmart.doc.annotations;
 	},
 
