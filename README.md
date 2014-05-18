@@ -1,12 +1,17 @@
 #[Rap Kinda Smart][rkc]
 
-##a [Rap Genius][rg] Clone
+##a Shameless [Rap Genius][rg] Clone
 
 [rg]: http://www.rapgenius.com
 [rkc]: http://www.rapkindasmart.com
 
 ##What is it?
-Rap Genius is a website where you can add notes, called "annotations," to nearly anything. The idea is to better explain the thing you're adding notes to, to clarify a complex or vague sentence, or to shed light upon some poorly known fact.
+[Rap Kinda Smart][rkc] is a website where you can add notes, called "annotations," to nearly anything. The idea is to better explain the thing you're adding notes to, to clarify a complex or vague sentence, or to shed light upon some poorly known fact.
+
+##What are people saying about it?
+* Me: "This is pretty neat!"
+* My mom: "What is this? I don't understand it."
+* The [New York Times][http://nytimes.com]: "No comment."
 
 ##Technology Used
 * [Heroku][heroku] hosts the app.
@@ -17,11 +22,10 @@ Rap Genius is a website where you can add notes, called "annotations," to nearly
 * Voting on the annotations is accomplished through Single Table Inheritance. 
 	* There is a vote table, and then there is a vote model. There is then an Upvote and Downvote model that inherit from their common parent. 
 	* The votes are only ever accessed through the child models, but because they are almost exactly the same, there is no reason to separate them. 
-	*Additionally, the minimal complexity of the implementation allows for an easy transition to polymorphism, were there anything else to vote on.
-* The annotations, in addition to other things, is then ranked with a [Cron][cron] feature.
-	* [Heroku][heroku] makes this both easy and hard.
-	  	* Because the dynos eventually spin down, [the traditional rails/unix interfaces don't work][soheroku].
-		* However, [Heroku gives us an addon][scheduler] that makes it very easy to do with just a rake task.
+	* The minimal complexity of the implementation allows for an easy transition to polymorphism, were there anything else to vote on.
+* The annotations, Users and Documents are ranked with a [Cron][cron] feature.
+	* [Heroku][heroku] prevents traditional Rails/*nix implementations of Cron, as the [dynos eventually down][soheroku].
+		* However, heroku's [scheduler addon][scheduler] is a reasonable replacement.
 * Whenever an event of importance happens to one of the users, the system sends them a notification. 
 	* The notifications are accomplished through polymorphic association.
 	* This allows nearly anything to trigger a notification, and for them to be sent to anything from anything.
@@ -43,3 +47,8 @@ Rap Genius is a website where you can add notes, called "annotations," to nearly
 * Finish implementing backbone + Rangy
 * Make every page look the same, the document page is the model.
 * Simplify the CSS and the tags, there is no reason for having as many as I do.
+
+##Liscense
+Rap Kinda Smart is released under an [MIT Liscense][/LISCENSE]
+---
+Developed by [Greg Meyer][http://gmmeyer.com]
