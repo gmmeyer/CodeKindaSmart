@@ -23,14 +23,14 @@
 				<% if flash[:errors] %>
 
 					<% flash[:errors].each do |error| %>
-						<p class='error'>
+						<p id="error" class='error'>
 							<%= error %>
 						</p>
 					<% end %>
 				<% elsif flash[:notices] %>
 
 					<% flash[:notices].each do |msg| %>
-						<p class='notice'>
+						<p id='notice' class='notice'>
 							<%= msg %>
 						</p>
 					<% end %>

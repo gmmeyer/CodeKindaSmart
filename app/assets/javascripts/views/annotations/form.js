@@ -9,8 +9,7 @@ CodeKindaSmart.Views.AnnotationsForm = Backbone.View.extend({
 		this.start_location = options.start_location;
 		this.end_location = options.end_location;
 
-		this.listenTo(CodeKindaSmart.doc, 'sync', this.remove());
-
+		// this.listenTo(CodeKindaSmart.doc, 'sync', this.remove());
 		this.annotation.collection = CodeKindaSmart.doc.annotations;
 	},
 

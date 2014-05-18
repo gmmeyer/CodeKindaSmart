@@ -69,7 +69,7 @@ module Api
       end
     end
     
-    redirect_to annotation_url(params[:vote][:annotation_id])
+    render :index
   end
 
   def upvote
@@ -95,7 +95,7 @@ module Api
       end
     end
 
-    redirect_to annotation_url(params[:vote][:annotation_id])
+    render :index
   end
 
 		def destroy
