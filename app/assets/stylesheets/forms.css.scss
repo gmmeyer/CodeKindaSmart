@@ -21,7 +21,7 @@ input[type="submit"] {
   float: left;
 }
 
-.input > textarea {
+.input textarea {
   border: 3px solid #000;
   color: #000;
   display: block;
@@ -44,11 +44,11 @@ input[type="submit"] {
   width: inherit;
 }
 
-.input > textarea:hover, .input input[type="text"]:hover, .input input[type="password"]:hover, .input input[type="email"]:hover {
+.input textarea:hover, .input input[type="text"]:hover, .input input[type="password"]:hover, .input input[type="email"]:hover {
   border: 3px solid #0b0;
 }
 
-.input > textarea:focus, .input input[type="text"]:focus, .input input[type="password"]:focus, .input input[type="email"]:focus {
+.input textarea:focus, .input input[type="text"]:focus, .input input[type="password"]:focus, .input input[type="email"]:focus {
   border: 3px solid #0c0;
 }
 

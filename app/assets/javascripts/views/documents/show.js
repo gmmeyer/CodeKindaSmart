@@ -8,7 +8,7 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
     var that = this;
 
 
-    // this.listenTo(CodeKindaSmart.doc.annotations, 'destroy', this.render);
+    this.listenTo(CodeKindaSmart.doc.annotations, 'destroy', this.render);
     this.listenTo(CodeKindaSmart.doc, 'sync', this.render);
 
     this.highlighter = rangy.createHighlighter();
@@ -163,7 +163,7 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
 
   newAnnotation: function() {
     event.preventDefault();
-    if(CodeKindaSmart.currentUser){
+    if(CodeKindaSmart.currentUser.username){
      var view = new CodeKindaSmart.Views.AnnotationsForm({
       range: this.range,
       start_location: this.start_location,
