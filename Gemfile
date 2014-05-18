@@ -5,15 +5,16 @@ ruby "2.1.2"
 gem 'rails'
 gem 'pg'
 gem 'ejs'
-gem 'sass-rails', '~> 4.0.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
+
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
 gem 'paperclip'
 gem 'figaro'
-gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'bcrypt'
 gem 'font-awesome-rails'
 gem 'pg_search'
 gem 'kaminari'
@@ -23,6 +24,9 @@ gem 'delayed_job_active_record'
 gem 'gritter'
 gem 'faker'
 gem 'nokogiri'
+gem 'oauth'
+gem 'letter_opener'
+gem 'sendgrid'
 
 group :production do
   gem 'rails_12factor'
@@ -42,6 +46,6 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'pry-rails'
-  # gem 'debugger'
   gem 'byebug'
+  gem 'factory_girl_rails'
 end
