@@ -14,7 +14,7 @@
 	padding: 20px;
 	position: absolute;
 	border: 3px solid #ccc;
-	box-shadow: 4px 3px 3px 1px rgba(0,0,0,.4);
+	box-shadow: 6px 5px 3px 3px rgba(0,0,0,.4);
 	top: 100px;
 	left: 30%;
 	height: 300px;
@@ -86,4 +86,24 @@
 
 .isHidden {
 	display: none;
+}
+
+.button-disabled input{
+	background: #bbb;
+	cursor: default;
+	box-shadow: none;
+}
+
+.button-disabled input:hover{
+	background: #bbb;
+	box-shadow: none;
+}
+
+.button-disabled input:active{
+	background: #bbb;
+	box-shadow: none;
+}
+
+.tourSlide p {
+	margin-bottom: 5px;
 }

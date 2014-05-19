@@ -29,7 +29,6 @@ CodeKindaSmart.Views.StaticHomepage = Backbone.View.extend({
 
 	hideTour: function (event) {
 		event.preventDefault()
-		console.log(event)
 		$('.tour').addClass('isHidden')
 		$(".tour-wrapper").addClass('isHidden')
 	},
@@ -42,22 +41,25 @@ CodeKindaSmart.Views.StaticHomepage = Backbone.View.extend({
 
 	backTour: function (event) {
 		event.preventDefault()
-		console.log(event)
 		currentSlide = $('.currentSlide')
 		prevSlide = currentSlide.prev();
-		currentSlide.removeClass('currentSlide')
-		prevSlide.addClass('currentSlide')
+		if(!!prevSlide[0]){
+			currentSlide.removeClass('currentSlide')
+			prevSlide.addClass('currentSlide')
+			$('.tour-button-back').addClass('button-disabled')
+			$('.tour-button-next').removeClass('button-disabled')			
+		}
 	},
 
 	nextTour: function (event) {
 		event.preventDefault()
-		console.log(event)
 		currentSlide = $('.currentSlide')
 		nextSlide = currentSlide.next();
-		currentSlide.removeClass('currentSlide')
-		nextSlide.addClass('currentSlide')
-		if(!nextSlide.next()){
-			$('.tour-button-next').addClass('isHidden')
+		if(!!nextSlide[0]){
+			currentSlide.removeClass('currentSlide')
+			nextSlide.addClass('currentSlide')
+			$('.tour-button-next').addClass('button-disabled')
+			$('.tour-button-back').removeClass('button-disabled')			
 		}
 	},
 

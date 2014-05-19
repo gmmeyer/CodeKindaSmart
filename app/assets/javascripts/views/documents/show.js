@@ -45,7 +45,6 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
 
   hideTour: function (event) {
     event.preventDefault()
-    console.log(event)
     $('.tour').addClass('isHidden')
     $(".tour-wrapper").addClass('isHidden')
     this.listenTo(CodeKindaSmart.doc, 'sync', this.render);
