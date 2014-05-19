@@ -15,7 +15,7 @@ def create_users
 
 	gergz = User.create(username: "gergz", email: "gmeypop@gmail.com", password: "password", password_confirmation: "password")
 
-	guest_user = User.create(username: 'Guest', password: 'Guest', email: 'guest@example.com', password_confirmation: 'Guest')
+	guest_user = User.create(username: 'Guest', password: 'password', email: 'guest@example.com', password_confirmation: 'password')
 
 	[me, gergz, guest_user, fake_users]
 

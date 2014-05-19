@@ -26,11 +26,10 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
     "mouseup .document-body" : "handleSelect",
     "click .newAnnotation" : "newAnnotation",
     "click .tour-wrapper" : 'hideTour',
-    "click .tour-button-ok" : 'hideTour',
+    "click .tour-button-ok input" : 'hideTour',
     "click .close-tour" : 'hideTour',
-    "click .tour-button-next" : "nextTour",
-    "click .tour-button-back" : "backTour",
-    "click .tour-button-beginning" : "firstTour"
+    "click .tour-button-next input" : "nextTour",
+    "click .tour-button-back input" : "backTour"
   },
 
 
@@ -44,6 +43,8 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
 
   hideTour: function (event) {
     event.preventDefault()
+    console.log(event)
+    $('.tour').addClass('isHidden')
     $(".tour-wrapper").addClass('isHidden')
   },
 
@@ -105,12 +106,9 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
   },
 
   handleSelect: function(event) {
-
     var that = this;
-
     that.finalX = event.pageX
     that.finalY = event.pageY
-
     $('.activeAnnotations').addClass('isHidden')
     $('.activeAnnotations').removeClass('activeAnnotations')
     var sel = window.getSelection();
@@ -119,17 +117,13 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
     if (sel.anchorNode && sel.anchorNode.constructor.name === "HTMLLabelElement") {
       return;
     }
-
     if (!that.started) {
       return;
     }
-
     if (sel.type !== "Range") {
       return;
     }
-
     that.range = sel.getRangeAt(0);
-
     var lowEnd = sel.focusOffset < sel.anchorOffset ? sel.focusOffset : sel.anchorOffset;
     var highEnd = sel.focusOffset < sel.anchorOffset ? sel.anchorOffset : sel.focusOffset;
 
@@ -152,7 +146,6 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
       ignoreWhiteSpace: true,
       tagNames: ["span", "a"]
     }));
-
     highlighter.highlightSelection("highlight");
   },
 
@@ -173,7 +166,6 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
   createButton: function (range) {
     var that = this;
     that.annotationOffset = (that.finalY/2 + that.initialY/ 2) - 50 - $('.annotation-column').offset().top
-
     if($('.newAnnotation')[0] != undefined) {
       $(".newAnnotation").css("top", "=" + 0);
       $(".newAnnotation").css("top", "+=" + that.annotationOffset);
@@ -195,20 +187,15 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
     $(".newButton").remove()
     $(".annotation-column").append(view.render().$el);
     $(".new-annotation").css("top", "+=" + this.annotationOffset);
-      
     } else {
       $('.newButton').remove()
     }
-
   },
 
   selStartIndex: function(sel) {
     var node = sel.anchorNode.previousSibling;
     var annRange = "";
-
-
     while (node) {
-
       if (node.nodeType === 3) {
         annRange += node.data;
       } else {
@@ -217,15 +204,11 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
         $div.append($node);
         annRange += $div.html();
       }
-
-
-
       node = node.previousSibling;
       if (node === undefined) {
         break;
       }
     }
-
     return annRange.length
   }  
 

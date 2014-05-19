@@ -1,40 +1,38 @@
-<% if(!CodeKindaSmart.currentUser.username || CodeKindaSmart.currentUser.guest_user){ %>
+<ul class="document-annotation-wrapper group">
+<% console.log(CodeKindaSmart.currentUser) %>
 
-	<div class='tour-wrapper'>		
+	<% if(!CodeKindaSmart.currentUser.username || CodeKindaSmart.currentUser.username === 'Guest'){ %>
+
+
+	<!-- || CodeKindaSmart.currentUser.username = 'Guest' -->
+
+		<div class='tour-wrapper'>		
+		</div>
+
 		<section class='tour'>
-			<ul class="slides">
+			<ul class='slides'>
 				<li class='tourSlide currentSlide'>
-					Welcome to Rap Kinda Smart!
-				</li>
-				<li class='tourSlide nextSlide'>
-					
-				</li>
-				<li class="tourSlide isHidden">
-					
+					<p class='document-tour'>
+						Just select some text to make a new annotation!
+					</p>
+					<p></p>
+					<p>
+						Or, you can click on an old one to see what other people have to say!
+					</p>
 				</li>
 			</ul>
-			<ul class="buttons">
+			<ul class="document-buttons buttons">
 				<li>
 					<form action="">
-						<span class=".tour-button-back button">
-							<input type="submit" value="Back">					
-						</span>
-					</form>
-				</li>
-				<li>
-					<form action="">
-						<span class='.tour-button-next button'>
-							<input type="submit" value="Next">
-						</span>
+						<p class="tour-button-ok button">
+							<input type="submit" value="Close">
+						</p>
 					</form>
 				</li>
 			</ul>
 		</section>
-	</div>
 
-<% } %>
-
-<ul class="document-annotation-wrapper group">
+	<% } %>
 
 	<li class="document-column">
 		<section class="articles standalone-document">

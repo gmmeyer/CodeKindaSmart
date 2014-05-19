@@ -2,46 +2,53 @@
 
 	<% if(!CodeKindaSmart.currentUser.username || CodeKindaSmart.currentUser.guest_user){ %>
 	
-		<div class='tour-wrapper'>		
-			<section class='tour'>
-				<ul class="slides">
-					<li class='tourSlide currentSlide'>
-						Welcome to Rap Kinda Smart!
-					</li>
-					<li class='tourSlide nextSlide'>
-						
-					</li>
-					<li class="tourSlide isHidden">
-						
-					</li>
-				</ul>
-				<ul class=".homepage-buttons buttons">
-					<li>
-						<form action="">
-							<span class=".tour-button-back button">
-								<input type="submit" value="Back">					
-							</span>
-						</form>
-					</li>
-					<li>
-						<form action="/session" method="post">
-								<input type="hidden" name='user[username]' value='Guest'>
-								<input type="hidden" name="user[password]" value='Guest'>
-							<span class='button'>
-								<input type="submit" value="Guest Login">
-							</span>
-						</form>
-					</li>
-					<li>
-						<form action="">
-							<span class='.tour-button-next button'>
-								<input type="submit" value="Next">
-							</span>
-						</form>
-					</li>
-				</ul>
-			</section>
+		<div class='tour-wrapper'>
 		</div>
+
+		<section class='tour'>
+			<ul class="slides">
+				<li class='tourSlide currentSlide'>
+					<p>Welcome to Rap Kinda Smart!</p>
+					<p></p>
+					<p>The site where you can annotate some of the world!</p> 
+				</li>
+				<li class='tourSlide'>
+					<p>If you're visiting, or an employer, feel free to log in with a guest account, your comments will be wiped at the end of the day, but you can try it out!</p>
+					<p></p>
+					<p>Just click the middle button below!</p>					
+				</li>
+				<li class="tourSlide">
+					
+				</li>
+			</ul>
+			<ul class="homepage-buttons buttons">
+				<li>
+					<form action="">
+						<span class="tour-button-back button">
+							<input type="submit" value="Back">					
+						</span>
+					</form>
+				</li>
+				<li>
+					<form action="/session" method="post">
+						<input type="hidden" name="authenticity_token" value="<%=$('meta[name="csrf-token"]').attr('content')%>">
+						<input type="hidden" name='auth'>
+						<input type="hidden" name='user[username]' value='Guest'>
+						<input type="hidden" name="user[password]" value='password'>
+						<span class='button'>
+							<input type="submit" value="Guest Login">
+						</span>
+					</form>
+				</li>
+				<li>
+					<form action="">
+						<span class='tour-button-next button'>
+							<input type="submit" value="Next">
+						</span>
+					</form>
+				</li>
+			</ul>
+		</section>
 
 	<% } %>
 
