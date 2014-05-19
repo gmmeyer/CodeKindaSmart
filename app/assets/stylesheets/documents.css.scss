@@ -92,3 +92,8 @@ article.document {
 .new-document {
 	margin: 20px 20px 20px 0;
 }
+
+.document-body ::selection {
+  background: #9F3BFF;
+  color: #fff;
+}

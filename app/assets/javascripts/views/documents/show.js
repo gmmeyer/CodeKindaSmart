@@ -51,17 +51,6 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
     this.listenTo(CodeKindaSmart.doc.annotations, 'destroy', this.render);
   },
 
-  nextTour: function (event) {
-    event.preventDefault()
-    currentSlide = $('.currentSlide')
-  },
-
-  firstTour: function () {
-    $('.currentSlide').addClass('isHidden')
-    $('.currentSlide').removeClass('currentSlide')
-    $('.tour ul li').first().addClass('currentSlide')
-  },
-
   showAnnotation: function (event) {
     event.preventDefault();
     $('.activeAnnotations').addClass('isHidden')
@@ -136,34 +125,7 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
     that.start_location =  CodeKindaSmart.doc.attributes.body.indexOf(that.range)
     that.end_location =  that.start_location + that.range.toString().length;
 
-    if ( that.highlighter.removeAllHighlights() == undefined ) {
-      that.highlighter.highlightSelection("highlight");
-      that.createButton(that.range);
-    }
-  },
-
-
-  highlightSelectedText: function (range) {
-    highlighter = rangy.createHighlighter();
-    highlighter.addClassApplier(rangy.createCssClassApplier("highlight", {
-      ignoreWhiteSpace: true,
-      tagNames: ["span", "a"]
-    }));
-    highlighter.highlightSelection("highlight");
-  },
-
-  surroundRange: function (range) {
-      if (range) {
-        var el = document.createElement("span");
-        el.style.backgroundColor = "#9F3BFF";
-        el.style.color = "#fff"
-        try {
-          range.surroundContents(el);
-          return true;
-        } catch(ex) {
-          return false;
-        }
-      }
+    that.createButton(that.range);
   },
 
   createButton: function (range) {
