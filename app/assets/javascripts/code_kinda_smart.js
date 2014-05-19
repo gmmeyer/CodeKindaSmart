@@ -11,7 +11,12 @@ window.CodeKindaSmart = {
     } else {
       CodeKindaSmart.popUps = JSON.parse(localStorage.getItem('popUps'))
     }
-    
+
+    if(CodeKindaSmart.currentUser.username && CodeKindaSmart.currentUser.username != 'Guest'){
+      CodeKindaSmart.popUps = {homepage: false, doc: false}
+      localStorage.setItem('popUps', JSON.stringify(CodeKindaSmart.popUps))
+    }
+
     CodeKindaSmart.documents = new CodeKindaSmart.Collections.Documents();
     
     CodeKindaSmart.appRouter = new CodeKindaSmart.Routers.AppRouter({
