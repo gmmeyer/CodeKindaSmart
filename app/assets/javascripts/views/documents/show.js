@@ -106,21 +106,7 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
     var sel = window.getSelection();
     // console.log(sel); // Delete me and die. Your debugging will kill you.
 
-    if (sel.anchorNode && sel.anchorNode.constructor.name === "HTMLLabelElement") {
-      return;
-    }
-    if (!that.started) {
-      return;
-    }
-    if (sel.type !== "Range") {
-      return;
-    }
     that.range = sel.getRangeAt(0);
-    var lowEnd = sel.focusOffset < sel.anchorOffset ? sel.focusOffset : sel.anchorOffset;
-    var highEnd = sel.focusOffset < sel.anchorOffset ? sel.anchorOffset : sel.focusOffset;
-
-    var startIndex = that.selStartIndex(sel) + lowEnd;
-    var endIndex = startIndex + (highEnd - lowEnd);
 
     that.start_location =  CodeKindaSmart.doc.attributes.body.indexOf(that.range)
     that.end_location =  that.start_location + that.range.toString().length;
@@ -155,26 +141,6 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
     } else {
       $('.newButton').remove()
     }
-  },
-
-  selStartIndex: function(sel) {
-    var node = sel.anchorNode.previousSibling;
-    var annRange = "";
-    while (node) {
-      if (node.nodeType === 3) {
-        annRange += node.data;
-      } else {
-        var $node = $(node).clone();
-        var $div = $("<div></div>");
-        $div.append($node);
-        annRange += $div.html();
-      }
-      node = node.previousSibling;
-      if (node === undefined) {
-        break;
-      }
-    }
-    return annRange.length
-  }  
+  }
 
 });
