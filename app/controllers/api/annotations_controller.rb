@@ -101,7 +101,7 @@ module Api
 		def destroy
 			annotation = Annotation.find(params[:id])
 			annotation.destroy
-			render json: 'annotation/index'
+			render json: annotation
 		end
 
 		private

@@ -37,6 +37,7 @@ CodeKindaSmart.Views.StaticHomepage = Backbone.View.extend({
 	login: function (event) {
 		$('.tour').addClass('isHidden')
 		$('.tour-wrapper').addClass('isHidden')
+		CodeKindaSmart.currentUser.username = 'Guest'
 	},
 
 	backTour: function (event) {

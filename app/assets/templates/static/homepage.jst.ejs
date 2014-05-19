@@ -1,8 +1,11 @@
 <section class="left">
 
-	<% if(!CodeKindaSmart.popUps.homepage && (!CodeKindaSmart.currentUser.username || CodeKindaSmart.currentUser.username === 'Guest')){ %>
+	<%console.log(CodeKindaSmart.popUps.homepage)%>
+	<% if(CodeKindaSmart.popUps.homepage){ %>
+	<% if((!CodeKindaSmart.currentUser.username || CodeKindaSmart.currentUser.username === 'Guest')){ %>
 
-	<% CodeKindaSmart.popUps.homepage = true %>
+	<% CodeKindaSmart.popUps.homepage = false %>
+	<% localStorage.setItem('popUps', JSON.stringify(CodeKindaSmart.popUps))%>
 	
 		<div class='tour-wrapper'>
 		</div>
@@ -51,6 +54,7 @@
 			</ul>
 		</section>
 
+	<% } %>
 	<% } %>
 
 		

@@ -8,8 +8,10 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
     var that = this;
 
 
-    this.listenTo(CodeKindaSmart.doc.annotations, 'destroy', this.render);
-    this.listenTo(CodeKindaSmart.doc, 'sync', this.render);
+    if(!CodeKindaSmart.popUps.doc){
+      this.listenTo(CodeKindaSmart.doc.annotations, 'destroy', this.render);
+      this.listenTo(CodeKindaSmart.doc, 'sync', this.render);
+    }
 
     this.highlighter = rangy.createHighlighter();
     this.highlighter.addClassApplier(rangy.createCssClassApplier("highlight", {
@@ -46,6 +48,8 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
     console.log(event)
     $('.tour').addClass('isHidden')
     $(".tour-wrapper").addClass('isHidden')
+    this.listenTo(CodeKindaSmart.doc, 'sync', this.render);
+    this.listenTo(CodeKindaSmart.doc.annotations, 'destroy', this.render);
   },
 
   nextTour: function (event) {

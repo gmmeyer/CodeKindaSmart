@@ -65,17 +65,14 @@ CodeKindaSmart.Views.AnnotationsShow = Backbone.View.extend({
   deleteAnnotation: function (event) {
     event.preventDefault();
     var attrs = this.$(".form-delete-annotation").serializeJSON();
-    var ids = [attrs.annotation.id]
+    var id = attrs.annotation.id
+    console.log(id)
 
-    annotation = CodeKindaSmart.doc.annotations.getOrFetch(ids[0],
-      function(model) {
-        model.destroy({
-          success: function(){
-            CodeKindaSmart.doc.fetch()
-          }
-        })
+    CodeKindaSmart.doc.annotations.get(id).destroy({
+      success: function () {
+        CodeKindaSmart.doc.fetch()
       }
-    )
+    })
   }
 
 });

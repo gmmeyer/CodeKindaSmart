@@ -6,8 +6,6 @@
 		<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
 		<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 		<%= csrf_meta_tags %>
-	</head>
-	<body>
 		<% if current_user %>
 			<%= content_tag :div, class: "currentUserInformation", data: {currentUser: current_user} do %>
 			<% end %>
@@ -16,6 +14,8 @@
 				data: {currentUser: User.new} do %>
 			<% end %>
 		<% end %>
+	</head>
+	<body>
 
 		<%= render partial: "shared/header" %>
 
