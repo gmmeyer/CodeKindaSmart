@@ -70,7 +70,11 @@ CodeKindaSmart.Views.AnnotationsShow = Backbone.View.extend({
 
     CodeKindaSmart.doc.annotations.get(id).destroy({
       success: function () {
-        CodeKindaSmart.doc.fetch()
+        CodeKindaSmart.doc.fetch({
+          success: function () {
+            console.log('here')
+          }
+        })
       }
     })
   }
