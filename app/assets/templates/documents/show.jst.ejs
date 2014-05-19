@@ -1,7 +1,9 @@
 <ul class="document-annotation-wrapper group">
 <% console.log(CodeKindaSmart.currentUser) %>
 
-	<% if(!CodeKindaSmart.currentUser.username || CodeKindaSmart.currentUser.username === 'Guest'){ %>
+	<% if(!CodeKindaSmart.popUps.document && (!CodeKindaSmart.currentUser.username || CodeKindaSmart.currentUser.username === 'Guest')){ %>
+
+	<% CodeKindaSmart.popUps.document = true %>
 
 
 	<!-- || CodeKindaSmart.currentUser.username = 'Guest' -->

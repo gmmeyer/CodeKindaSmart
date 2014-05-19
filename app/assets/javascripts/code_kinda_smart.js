@@ -10,6 +10,8 @@ window.CodeKindaSmart = {
       $rootEl: $('#content')
     });
 
+    CodeKindaSmart.popUps = {homepage: false, document: false}
+
     Backbone.history.start();
   }
 };
