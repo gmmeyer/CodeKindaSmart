@@ -6,8 +6,8 @@ class Annotation < ActiveRecord::Base
   belongs_to :document, inverse_of: :annotations, counter_cache: true
   belongs_to :user, inverse_of: :annotations, counter_cache: true
 
-  has_many :upvotes, class_name: "UpVote"
-  has_many :downvotes, class_name: "DownVote"
+  has_many :upvotes, class_name: "UpVote", dependent: :destroy
+  has_many :downvotes, class_name: "DownVote", dependent: :destroy
 
   has_many :notifications, as: :notifiable, inverse_of: :notifiable
 
