@@ -34,10 +34,9 @@
 				<li>
 					<form action="/session" method="post">
 						<input type="hidden" name="authenticity_token" value="<%=$('meta[name="csrf-token"]').attr('content')%>">
-						<input type="hidden" name='auth'>
 						<input type="hidden" name='user[username]' value='Guest'>
 						<input type="hidden" name="user[password]" value='password'>
-						<span class='button'>
+						<span class='guest-login button'>
 							<input type="submit" value="Guest Login">
 						</span>
 					</form>

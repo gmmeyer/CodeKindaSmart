@@ -15,7 +15,8 @@ CodeKindaSmart.Views.StaticHomepage = Backbone.View.extend({
     "click .tour-button-ok input" : 'hideTour',
     "click .close-tour" : 'hideTour',
     "click .tour-button-next input" : "nextTour",
-    "click .tour-button-back input" : "backTour"
+    "click .tour-button-back input" : "backTour",
+    "click .guest-login" : "login"
 	},
 
 	render: function () {
@@ -32,6 +33,11 @@ CodeKindaSmart.Views.StaticHomepage = Backbone.View.extend({
 		$('.tour').addClass('isHidden')
 		$(".tour-wrapper").addClass('isHidden')
 	},
+
+	login: function (event) {
+		$('.tour').addClass('isHidden')
+		$('.tour-wrapper').addClass('isHidden')
+	}
 
 	backTour: function (event) {
 		event.preventDefault()
