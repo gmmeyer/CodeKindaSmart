@@ -56,6 +56,7 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
     $('.activeAnnotations').addClass('isHidden')
     $('.activeAnnotations').removeClass('activeAnnotations')
     $(".newAnnotation").remove()
+    $(".new-annotation").remove()
     var ids = []
     ids = ids.concat(event.currentTarget.dataset.ids)
     this.annotationId = event.currentTarget.id

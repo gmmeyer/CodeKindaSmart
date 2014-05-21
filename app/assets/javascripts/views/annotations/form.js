@@ -5,6 +5,8 @@ CodeKindaSmart.Views.AnnotationsForm = Backbone.View.extend({
 	template: JST['annotations/form'],
 
 	initialize: function (options) {
+		console.log('annotaitons form')
+		console.log(options)
 		if(options.annotation) {
 			this.annotation = options.annotation;
 		} else {

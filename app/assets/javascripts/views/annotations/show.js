@@ -4,9 +4,12 @@ CodeKindaSmart.Views.AnnotationsShow = Backbone.View.extend({
   tagName: "div",
 
   initialize: function (options) {
+    console.log('show anns')
     console.log(options)
     this.annotationOffset = options.annotationOffset;
-    this.annotations = this.activeAnnotations;
+    // this.annotations = this.activeAnnotations;
+    this.annotations = [options.annotations];
+    this.annotationId = options.annotationId;
   },
 
   events: {
@@ -15,11 +18,6 @@ CodeKindaSmart.Views.AnnotationsShow = Backbone.View.extend({
   	"click .edit-annotation" : "editAnnotation",
 		"click .save-annotation" : "saveAnnotation",
     "click .delete-annotation" : "deleteAnnotation"
-  },
-
-  initialize: function (options) {
-    this.annotationId = options.annotationId;
-    this.annotations = [options.annotations];
   },
 
   render: function () {
@@ -43,23 +41,16 @@ CodeKindaSmart.Views.AnnotationsShow = Backbone.View.extend({
 
   editAnnotation: function (event) {
     event.preventDefault()
-    CodeKindaSmart.activeAnnotations = CodeKindaSmart.doc.annotations.getOrFetch([this.annotationId],
-      function (activeAnnotations) {
-        if(CodeKindaSmart.currentUser){
-         var view = new CodeKindaSmart.Views.AnnotationsForm({
-          annotation: this.annotations[0],
-          annotationOffset: this.annotationOffset
-        });
-        $('.activeAnnotations').addClass('isHidden')
-        $('.activeAnnotations').removeClass('activeAnnotations')
-
-        $(".annotation-column").append(view.render().$el);
-        $(".form-annotation-wrapper").css("top", "+=" + this.annotationOffset); 
-        } else {
-          $('.newButton').remove()
-        }
-      }
-    )
+    if(CodeKindaSmart.currentUser){
+      var view = new CodeKindaSmart.Views.AnnotationsForm({
+        annotation: this.annotations[0],
+        annotationOffset: this.annotationOffset
+      });
+      $('.activeAnnotations').addClass('isHidden')
+      $('.activeAnnotations').removeClass('activeAnnotations')
+      $(".annotation-column").append(view.render().$el);
+      $("form.new-annotation").css("top", "+=" + this.annotationOffset);
+    }
   },
 
   deleteAnnotation: function (event) {
