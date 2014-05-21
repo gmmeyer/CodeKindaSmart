@@ -3,6 +3,8 @@ CodeKindaSmart::Application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :documents do
       resources :annotations
+        get "/annotations/:id/upvote", to: "annotations#upvote", as: "upvote"
+        get "/annotations/:id/downvote", to: "annotations#downvote", as: "downvote"
     end
     # resources :annotations, except: [:index]
     get "/documents/:id/segments", to: "documents#segments", as: "segments"
@@ -22,6 +24,7 @@ CodeKindaSmart::Application.routes.draw do
   resources :documents, only: [:new, :index, :show, :destroy, :edit, :update] do
     resources :annotations, only: [:index, :new, :create, :show]
   end
+  
   resources :annotations, only: [:destroy, :update, :edit]
 
   resource :session, only: [:new, :create, :destroy]
