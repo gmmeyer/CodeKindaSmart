@@ -27,6 +27,8 @@ gem 'nokogiri'
 gem 'oauth'
 gem 'letter_opener'
 gem 'sendgrid'
+gem 'pry-byebug'
+gem 'pry-stack_explorer'
 
 group :production do
   gem 'rails_12factor'

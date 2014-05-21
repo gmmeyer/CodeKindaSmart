@@ -1,43 +1,6 @@
 # -*- coding: utf-8 -*-
 def ulysses_body
-	"The Project Gutenberg EBook of Ulysses, by James Joyce
-
-	This eBook is for the use of anyone anywhere at no cost and with
-	almost no restrictions whatsoever.  You may copy it, give it away or
-	re-use it under the terms of the Project Gutenberg License included
-	with this eBook or online at www.gutenberg.org
-
-
-	Title: Ulysses
-
-	Author: James Joyce
-
-	Posting Date: August 1, 2008 [EBook #4300]
-	Release Date: July, 2003
-	[Last updated: November 17, 2011]
-
-	Language: English
-
-
-	*** START OF THIS PROJECT GUTENBERG EBOOK ULYSSES ***
-
-
-
-
-	Produced by Col Choat
-
-
-
-
-
-	ULYSSES
-
-	by James Joyce
-
-
-
-
-	-- I --
+	"-- I --
 
 	Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of
 	lather on which a mirror and a razor lay crossed. A yellow dressinggown,
