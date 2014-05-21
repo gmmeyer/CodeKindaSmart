@@ -174,7 +174,9 @@ class Document < ActiveRecord::Base
   private
   def sanitize_text
     self.body = Nokogiri::HTML(self.body)
+    self.title = Nokogiri::HTML(self.title)
     self.body.xpath('/t').remove
+    self.title = self.title.text
     self.body = self.body.text
   end
 end

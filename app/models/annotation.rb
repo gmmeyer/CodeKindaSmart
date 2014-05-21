@@ -2,6 +2,7 @@ class Annotation < ActiveRecord::Base
 
   validates :title, :body, :user_id, :document_id, :start_location, :end_location, presence: true
   validate :length_check
+  before_validation :sanitize_text
 
   belongs_to :document, inverse_of: :annotations, counter_cache: true
   belongs_to :user, inverse_of: :annotations, counter_cache: true
@@ -117,5 +118,12 @@ class Annotation < ActiveRecord::Base
     notification = self.notifications.unread.event(:new_annotation_on_document).new
     notification.user = self.document.user
     notification.save
+  end
+  def sanitize_text
+    self.body = Nokogiri::HTML(self.body)
+    self.title = Nokogiri::HTML(self.title)
+    self.body.xpath('/t').remove
+    self.title = self.title.text
+    self.body = self.body.text
   end
 end
