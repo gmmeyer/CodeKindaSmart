@@ -7,7 +7,7 @@ def cross_of_gold(me, gergz, fake_users)
 	Annotation.create(start_location: 0, end_location: 10, title: "This speech just goes on forever", body: "just, like, really.", document_id: cross_of_gold.id, user_id: me.id)
 
 
-	anns_t = ["This is the most famous speech" "It won him the nomination" "It was unique"]
+	anns_t = ["This is the most famous speech", "It won him the nomination", "It was unique"]
 	anns_b = ["ever delivered by an american politician.", "It was almost instant, by proclimation.", "Nothing like it ever happened before, or again"]
 
 	starts = [100, 500, 700]
