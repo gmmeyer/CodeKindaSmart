@@ -19,6 +19,7 @@ gpl(me)
 ulysses(me)
 beowulf(anon, gergz, me)
 robert_frost(guest_user)
+star_wars(me)
 
 Document.update_ranking
 User.update_ranking
