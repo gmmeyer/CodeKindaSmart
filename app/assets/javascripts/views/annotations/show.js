@@ -4,8 +4,6 @@ CodeKindaSmart.Views.AnnotationsShow = Backbone.View.extend({
   tagName: "div",
 
   initialize: function (options) {
-    console.log('show anns')
-    console.log(options)
     this.annotationOffset = options.annotationOffset;
     // this.annotations = this.activeAnnotations;
     this.annotations = [options.annotations];
@@ -13,29 +11,56 @@ CodeKindaSmart.Views.AnnotationsShow = Backbone.View.extend({
   },
 
   events: {
-  	"click .upvote" : "upVote",
-  	"click .downvote" : "downVote",
+  	"click .button .upvote" : "upVote",
+  	"click .button .downvote" : "downVote",
   	"click .edit-annotation" : "editAnnotation",
 		"click .save-annotation" : "saveAnnotation",
     "click .delete-annotation" : "deleteAnnotation"
   },
 
   render: function () {
+    // I should move the placement variables to the render function
+    // and then call the jquery here, so that I can rerender this when needed
     var content = this.template({
       annotationId: this.annotationId,
       annotations: this.annotations
     });
     this.$el.html(content);
+    // $(".activeAnnotations").css("top", "+=" + this.annotationOffset);
     return this;
   },
 
   upVote: function (event) {
     event.preventDefault()
+    currentTarget = event.currentTarget
+    parentElement = currentTarget.parentElement
+    if(parentElement.classList.contains("my-vote")){
+      $(parentElement).removeClass('my-vote');
+    } else {
+      $(parentElement).addClass('my-vote');
+    }
+    var that = this;
+    var attrs = this.$("form.upvote").serializeJSON();
+    var xhReq = new XMLHttpRequest();
+    xhReq.open("GET", "/api/annotations/" + this.annotations[0].id + "/upvote", false);
+    xhReq.send();
 
   },
 
   downVote: function (event) {
     event.preventDefault()
+    currentTarget = event.currentTarget
+    parentElement = currentTarget.parentElement
+    if(parentElement.classList.contains("my-vote")){
+      $(parentElement).removeClass('my-vote');
+    } else {
+      $(parentElement).addClass('my-vote');
+    }
+    var that = this;
+    var attrs = this.$("form.downvote").serializeJSON();
+    var xhReq = new XMLHttpRequest();
+    xhReq.open("GET", "/api/annotations/" + this.annotations[0].id + "/downvote", false);
+    xhReq.send();
 
   },
 

@@ -69,6 +69,7 @@ section.body {
 	background: white;
 	border-left: 3px solid #ccc;
 	border-right: 3px solid #ccc;
+	z-index: 1;
 }
 
 ul {

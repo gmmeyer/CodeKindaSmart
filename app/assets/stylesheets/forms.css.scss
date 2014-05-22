@@ -81,6 +81,14 @@ input[type="submit"] {
   background: #0a0;
 }
 
+.my-vote > input {
+  color: #FF7100;
+}
+
+.my-vote > input:active {
+ color: #6A2F00;
+}
+
 
 // Log Out Button
 

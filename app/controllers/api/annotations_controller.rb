@@ -22,7 +22,7 @@ module Api
 	  	else
 		    @annotation = current_user.annotations.new(annotation_params)
 		    if @annotation.save
-		      flash[:notices] = ["You made an annotation!"]
+		      # flash[:notices] = ["You made an annotation!"]
 		      render json: @annotation
 		    else
 		      render json: @annotation.errors.full_messages
@@ -50,52 +50,52 @@ module Api
     if !current_user
       flash[:errors] = ["You must be logged in to vote!"]
     else
-      @annotation = Annotation.find(params[:vote][:annotation_id])
+      @annotation = Annotation.find(params[:id])
       @annotation.load_user_vote(current_user)
       if @annotation.my_vote.class == DownVote
         @annotation.my_vote.destroy
-        flash[:notices] = ["Your vote has been deleted"]
+        # flash[:notices] = ["Your vote has been deleted"]
       elsif @annotation.my_vote.class == UpVote
         @annotation.my_vote.destroy
-        @downvote = current_user.downvotes.new(vote_params)
+        @downvote = current_user.downvotes.new(annotation_id: params[:id])
       else
-        @downvote = current_user.downvotes.new(vote_params)
+        @downvote = current_user.downvotes.new(annotation_id: params[:id])
       end
 
       if @downvote && @downvote.save
-        flash[:notices] = ["Your vote has been recorded."]
+        # flash[:notices] = ["Your vote has been recorded."]
       elsif @downvote
-        flash[:errors] = @downvote.errors.full_messages
+        # flash[:errors] = @downvote.errors.full_messages
       end
     end
     
-    render :index
+    render json: @annotation
   end
 
   def upvote
     if !current_user
       flash[:errors] = ["You must be logged in to vote!"]
     else
-      @annotation = Annotation.find(params[:vote][:annotation_id])
+      @annotation = Annotation.find(params[:id])
       @annotation.load_user_vote(current_user)
       if @annotation.my_vote.class == UpVote
         @annotation.my_vote.destroy
-        flash[:notices] = ["Your vote has been deleted"]
+        # flash[:notices] = ["Your vote has been deleted"]
       elsif @annotation.my_vote.class == DownVote
         @annotation.my_vote.destroy
-        @upvote = current_user.upvotes.new(vote_params)
+        @upvote = current_user.upvotes.new(annotation_id: params[:id])
       else
-        @upvote = current_user.upvotes.new(vote_params)
+        @upvote = current_user.upvotes.new(annotation_id: params[:id])
       end
 
       if @upvote && @upvote.save
-        flash[:notices] = ["Your vote has been recorded."]
+        # flash.now[:notices] = ["Your vote has been recorded."]
       elsif @upvote
-        flash[:errors] = @upvote.errors.full_messages
+        # flash.now[:errors] = @upvote.errors.full_messages
       end
     end
 
-    render :index
+    render json: @annotation
   end
 
 		def destroy
@@ -109,9 +109,9 @@ module Api
 	    params.require(:annotation).permit(:title, :body, :document_id, :start_location, :end_location)
 	  end
 
-	  def vote_params
-	  	params.require(:vote).permit(:user_id, :annotation_id)
-	  end
+	  # def vote_params
+	  # 	params.require(:vote).permit(:user_id, :annotation_id)
+	  # end
 
 	end
 end

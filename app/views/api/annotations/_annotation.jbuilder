@@ -10,4 +10,4 @@ json.down_votes_count annotation.down_votes_count
 json.id annotation.id
 
 json.username annotation.user.username
-json.user_vote annotation.my_vote
+json.user_vote annotation.my_vote.class.to_s

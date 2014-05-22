@@ -1,8 +1,6 @@
 <section class="annotations activeAnnotations" id="<%= 'ann-' +  annotationId %>">
 
 
-
-	<//% _.each(CodeKindaSmart.activeAnnotations, function(annotation) { %>
 	<%_.each(annotations, function(annotation) { %>
 		<section class="annotation-wrapper">
 			<section class="annotation">
@@ -15,19 +13,28 @@
 		  <article class="annotation-buttons group">
 
 				<div class="votes group">
-				  <form action="<%= annotation.attributes.id %>">
+				  <form class='upvote' action="">
 				    <input type="hidden" name="vote[annotation_id]" value="<% annotation.attributes.id %>">
 				    <input type="hidden" name="vote[user_id]" value='<%CodeKindaSmart.currentUser.id%>'>
-				    <p class="button">
+				    <% if(annotation.attributes.user_vote === 'UpVote'){ %>
+				    	<p class="my-vote button">
+				    <% } else { %>
+							<p class="button">
+				    <% } %>
 				      <input type="submit" class="vote upvote" value='&#xf164;'>
+				    
 				    </p>
 				  </form>
 
 
-				  <form action="<%= annotation.attributes.id %>">
+				  <form class='downvote' action="">
 				    <input type="hidden" name="vote[annotation_id]" value="<% annotation.attributes.id %>">
 				    <input type="hidden" name="vote[user_id]" value='<%CodeKindaSmart.currentUser.id%>'>
-				    <p class="button">
+				    <% if(annotation.attributes.user_vote === 'DownVote'){ %>
+				    	<p class="my-vote button">
+				    <% } else { %>
+							<p class="button">
+				    <% } %>
 				      <input type="submit" class="vote downvote" value="&#xf165;">
 				    </p>
 				  </form>
