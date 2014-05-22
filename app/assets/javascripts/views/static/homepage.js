@@ -7,7 +7,6 @@ CodeKindaSmart.Views.StaticHomepage = Backbone.View.extend({
 		xhReq.open("GET", "/api/homepage", false);
 		xhReq.send(null);
 		this.ranking = JSON.parse(xhReq.responseText);
-		console.log(this.ranking)
 	},
 
 	events: {

@@ -1,6 +1,5 @@
 <section class="left">
 
-	<%console.log(CodeKindaSmart.popUps.homepage)%>
 	<% if(CodeKindaSmart.popUps.homepage){ %>
 	<% if((!CodeKindaSmart.currentUser.username || CodeKindaSmart.currentUser.username === 'Guest')){ %>
 
@@ -65,15 +64,15 @@
 		
 				
 		<h3 class="homepage-link">
-			<a class="group" href="#documents/<%= ranking.documents[i].id %>">
+			<a class="group" href="#documents/<%= ranking.documents[i].document.id %>">
 				<div class="title">
-					<%= ranking.documents[i].title %>
+					<%= ranking.documents[i].document.title %> -- <%= ranking.documents[i].author.name %>
 				</div>
 
 				<div class="rank">
-					<% if(ranking.documents[i].annotations_count){ %>
+					<% if(ranking.documents[i].document.annotations_count){ %>
 
-						<%= ranking.documents[i].annotations_count %>
+						<%= ranking.documents[i].document.annotations_count %>
 
 					<% } else { %>
 						<%= 0 %>
@@ -93,23 +92,23 @@
 		<% for(var i = 0; i < ranking.annotations.length; i++) { %>
 
 			<h3 class="homepage-link">
-				<a class="group" href="#documents/<%= ranking.annotations[i].document_id %>">
+				<a class="group" href="#documents/<%= ranking.annotations[i].annotation.document_id %>">
 					<div class="title">
-						<%= ranking.annotations[i].title %>
+						<%= ranking.annotations[i].annotation.title %> -- <%= ranking.annotations[i].user.username %>
 					</div>
 
 					<div class="rank">
-						<% if(ranking.annotations[i].up_votes_count && ranking.annotations[i].down_votes_count ){ %>
+						<% if(ranking.annotations[i].annotation.up_votes_count && ranking.annotations[i].annotation.down_votes_count ){ %>
 
-							<%= ranking.annotations[i].up_votes_count - ranking.annotations[i].down_votes_count %>
+							<%= ranking.annotations[i].annotation.up_votes_count - ranking.annotations[i].annotation.down_votes_count %>
 
-						<% } else if (ranking.annotations[i].up_votes_count){ %>
+						<% } else if (ranking.annotations[i].annotation.up_votes_count){ %>
 
-							<%= ranking.annotations[i].up_votes_count%>
+							<%= ranking.annotations[i].annotation.up_votes_count%>
 
-						<% } else if (ranking.annotations[i].down_votes_count) { %>
+						<% } else if (ranking.annotations[i].annotation.down_votes_count) { %>
 
-							<%= ranking.annotations[i].down_votes_count%>
+							<%= ranking.annotations[i].annotation.down_votes_count%>
 						<% } else { %>
 							<%= 0 %>
 						<% } %>
@@ -128,15 +127,15 @@
 		<% for(var i = 0; i < ranking.new_documents.length; i++) { %>
 
 			<h3 class="homepage-link">
-				<a class="group" href="#documents/<%= ranking.new_documents[i].id  %>">
+				<a class="group" href="#documents/<%= ranking.new_documents[i].document.id  %>">
 					<div class="title">
-						<%= ranking.new_documents[i].title %>
+						<%= ranking.new_documents[i].document.title %> -- <%= ranking.new_documents[i].author.name %> 
 					</div>
 
 					<div class="rank">
-						<% if(ranking.documents[i].annotations_count) { %>
+						<% if(ranking.documents[i].document.annotations_count) { %>
 
-							<%= ranking.documents[i].annotations_count %>
+							<%= ranking.documents[i].document.annotations_count %>
 
 						<% } else { %>
 							<%= 0 %>
