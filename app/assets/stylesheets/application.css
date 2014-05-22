@@ -70,6 +70,9 @@ section.body {
 	border-left: 3px solid #ccc;
 	border-right: 3px solid #ccc;
 	z-index: 1;
+  display: block;
+  width: 1000px;
+  margin: auto auto;
 }
 
 ul {
@@ -100,12 +103,6 @@ a:visited {
 a:hover {
 	font-style: normal;
 	color: #9F3BFF;
-}
-
-section.body {
-  display: block;
-  width: 1000px;
-  margin: auto auto;
 }
 
 .page-title {
