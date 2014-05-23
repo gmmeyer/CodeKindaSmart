@@ -27,8 +27,6 @@ gem 'nokogiri'
 gem 'oauth'
 gem 'letter_opener'
 gem 'sendgrid'
-gem 'pry-byebug'
-gem 'pry-stack_explorer'
 
 group :production do
   gem 'rails_12factor'
@@ -50,4 +48,6 @@ group :development, :test do
   gem 'pry-rails'
   gem 'byebug'
   gem 'factory_girl_rails'
+  gem 'pry-byebug'
+  gem 'pry-stack_explorer'
 end
