@@ -1,6 +1,6 @@
 #[Rap Kinda Smart][rkc]
 
-##a Shameless [Rap Genius][rg] Clone
+##A Shameless [Rap Genius][rg] Clone
 
 [rg]: http://www.rapgenius.com
 [rkc]: http://www.rapkindasmart.com
@@ -30,7 +30,9 @@
 	* The notifications are accomplished through polymorphic association.
 	* This allows nearly anything to trigger a notification, and for them to be sent to anything from anything.
 	* Their versitility is what makes them powerful and useful.
-* The selection of text is done through a JS library called [Rangy][rangy].
+* The selection of text is now done through a browser's native selection methods.
+	* I used to use the JS library [Rangy][rangy] for this.
+	* Modern browsers don't need Rangy.
 
 [cron]: http://en.wikipedia.org/wiki/Cron
 [rangy]: https://code.google.com/p/rangy/
