@@ -50,7 +50,7 @@
 * Make every page look the same, the document page is the model.
 * Simplify the CSS and the tags, there is no reason for having as many as I do.
 
-##Liscense
-Rap Kinda Smart is released under an [MIT Liscense][/LISCENSE]
+##License
+Rap Kinda Smart is released under an [MIT Liscense][/LICENSE]
 ---
 Developed by [Greg Meyer][http://gmmeyer.com]
