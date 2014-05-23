@@ -51,6 +51,6 @@
 * Simplify the CSS and the tags, there is no reason for having as many as I do.
 
 ##License
-Rap Kinda Smart is released under an [MIT Liscense][/LICENSE]
+Rap Kinda Smart is released under an [MIT Liscense](/LICENSE)
 ---
-Developed by [Greg Meyer][http://gmmeyer.com]
+Developed by [Greg Meyer](http://gmmeyer.com)
