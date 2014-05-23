@@ -15,7 +15,13 @@ CodeKindaSmart.Views.StaticHomepage = Backbone.View.extend({
     "click .close-tour" : 'hideTour',
     "click .tour-button-next input" : "nextTour",
     "click .tour-button-back input" : "backTour",
-    "click .guest-login" : "login"
+    "click .guest-login" : "login",
+    "click .home" : "home",
+	},
+
+	home: function (event) {
+		event.preventDefault()
+		CodeKindaSmart.appRouter.navigate("", {trigger: true})
 	},
 
 	render: function () {

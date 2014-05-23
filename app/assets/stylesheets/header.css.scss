@@ -30,10 +30,6 @@
   position: relative;
 }
 
-.dropdown > li {
-
-}
-
 .header {
 	border: 3px solid #D1A1FF;
   background: white;
@@ -87,7 +83,11 @@ p.welcome {
 // Lower Nav Bar
 
 .navbar-wrapper {
+  position: relative;
   width: 100%;
+  margin: auto auto;
+  box-shadow: 0 3px 3px 1px rgba(0,0,0,.4);
+  z-index: 1000;
 }
 
 
@@ -103,6 +103,11 @@ nav.nav > ul.nav-alpha {
   margin: auto 10px;
 }
 
+nav.nav > ul.nav-beta {
+  list-style-type: none;
+  float: right;
+}
+
 .nav-alpha > li {
   float: left;
 }
@@ -111,22 +116,11 @@ nav.nav > ul.nav-alpha {
   float: left
 }
 
-nav.nav > ul.nav-beta {
-  list-style-type: none;
-  float: right;
-}
-
 .nav a.nav-link {
   display: block;
   font-size: 15px;
   padding: 5px 5px;
   margin: 0 5px;
-}
-
-.navbar-wrapper {
-  margin: auto auto;
-  box-shadow: 0 3px 3px 1px rgba(0,0,0,.4);
-  z-index: 1000;
 }
 
 .hide {

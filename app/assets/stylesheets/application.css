@@ -24,7 +24,7 @@ h1, h2, h3, label, form, body, p, div, a, html, section, article, ul, li {
 	border: 0;
 	background: inherit;
 	background-color: inherit;
-	font-family: "FontAwesome", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+	font-family: "FontAwesome", "Arial", sans-serif;
 }
 
 input[type="text"],
@@ -122,6 +122,11 @@ p.error {
 	border: #FF7100 solid 2px;
 	color: #FF7100;
 	padding: 5px;
+}
+
+.break {
+	width: 100%;
+	height: 20px;
 }
 
 p.notice {

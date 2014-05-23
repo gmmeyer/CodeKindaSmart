@@ -12,12 +12,6 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
       this.listenTo(CodeKindaSmart.doc.annotations, 'destroy', this.render);
       this.listenTo(CodeKindaSmart.doc, 'sync', this.render);
     }
-
-    this.highlighter = rangy.createHighlighter();
-    this.highlighter.addClassApplier(rangy.createCssClassApplier("highlight", {
-      ignoreWhiteSpace: true,
-      tagNames: ["span", "a"]
-    }));
   },
 
   events: {
@@ -31,7 +25,13 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
     "click .tour-button-ok input" : 'hideTour',
     "click .close-tour" : 'hideTour',
     "click .tour-button-next input" : "nextTour",
-    "click .tour-button-back input" : "backTour"
+    "click .tour-button-back input" : "backTour",
+    "click .home" : "home"
+  },
+
+  home: function (event) {
+    event.preventDefault()
+    CodeKindaSmart.appRouter.navigate("", {trigger: true})
   },
 
 
@@ -128,7 +128,7 @@ CodeKindaSmart.Views.DocumentsShow = Backbone.View.extend({
     }
   },
 
-  newAnnotation: function() {
+  newAnnotation: function(event) {
     event.preventDefault();
     if(CodeKindaSmart.currentUser.username){
      var view = new CodeKindaSmart.Views.AnnotationsForm({

@@ -20,24 +20,6 @@ You can use Sass (SCSS) here: http://sass-lang.com/ */
 	width: 400px;
 }
 
-a.annotation-link:link {
-	color: #9F3BFF;
-}
-
-a.annotation-link:visited {
-	color: #9F3BFF;
-}
-
-a.annotation-link:hover, a.annotation-link:hover .document-paragraph {
-	font-style: normal;
-	background: #9F3BFF;
-	color: #fff;
-}
-
-a.annotation-link:active, a.annotation-link:active .document-paragraph {
-	background: #7F2FCC;
-}
-
 span.annotation-link {
 	color: #9F3BFF;
 	display: inline;
@@ -95,6 +77,11 @@ section.annotations {
 	box-shadow: 4px 3px 3px 1px rgba(0,0,0,.4);
 }
 
+.annotation {
+	display: block;
+	margin-bottom: 5px;
+}
+
 .votes {
 	display: block;
 	width: 200px;
@@ -103,11 +90,6 @@ section.annotations {
 	margin-bottom: 5px;
 }
 
-.annotation {
-	display: block;
-	// border-bottom: 3px solid #ffc31c;
-	margin-bottom: 5px;
-}
 
 .button > .vote {
 	float: left;
@@ -147,19 +129,9 @@ section.annotations {
 	position: absolute;
 	top: 0;
 	z-index: 100;
-	width: 100px;
-	height: 100px;
+	min-width: 100px;
+	min-height: 100px;
 	color: #ffc31c;
-	background-color: #eee;
-	font-size: 100px;
-	border: 3px solid #ffc31c;
-	box-shadow: 1px 1px 0 0 rgba(0,0,0,.4);
-}
-
-.newAnnotation {
-	position: absolute;
-	top: 0;
-	z-index: 100;
 	background-color: #eee;
 	font-size: 75px;
 	border: 3px solid #ffc31c;

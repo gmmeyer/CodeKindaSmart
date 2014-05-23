@@ -15,7 +15,6 @@
 //= require jquery.serializeJSON
 //= require underscore
 //= require backbone
-//= require rangy
 //= require code_kinda_smart
 //= require stickUp
 //= require gritter
