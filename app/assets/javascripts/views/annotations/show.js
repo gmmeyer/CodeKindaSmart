@@ -34,10 +34,13 @@ CodeKindaSmart.Views.AnnotationsShow = Backbone.View.extend({
     event.preventDefault()
     currentTarget = event.currentTarget
     parentElement = currentTarget.parentElement
-    if(parentElement.classList.contains("my-vote")){
-      $(parentElement).removeClass('my-vote');
-    } else {
-      $(parentElement).addClass('my-vote');
+    if(CodeKindaSmart.currentUser.username){
+      if(parentElement.classList.contains("my-vote")){
+        $(parentElement).removeClass('my-vote');
+      } else {
+        $(".downvote p.button").removeClass('my-vote')
+        $(parentElement).addClass('my-vote');
+      }
     }
     var that = this;
     var attrs = this.$("form.upvote").serializeJSON();
@@ -51,10 +54,13 @@ CodeKindaSmart.Views.AnnotationsShow = Backbone.View.extend({
     event.preventDefault()
     currentTarget = event.currentTarget
     parentElement = currentTarget.parentElement
-    if(parentElement.classList.contains("my-vote")){
-      $(parentElement).removeClass('my-vote');
-    } else {
-      $(parentElement).addClass('my-vote');
+    if(CodeKindaSmart.currentUser.username){
+      if(parentElement.classList.contains("my-vote")){
+        $(parentElement).removeClass('my-vote');
+      } else {
+        $(".upvote p.button").removeClass('my-vote')
+        $(parentElement).addClass('my-vote');
+      }
     }
     var that = this;
     var attrs = this.$("form.downvote").serializeJSON();
