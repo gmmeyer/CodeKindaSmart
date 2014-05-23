@@ -109,16 +109,19 @@ class Annotation < ActiveRecord::Base
   end
 
   private
+
   def length_check
     if self.start_location == self.end_location
       add.errors("The length of your annotation must be greater than one letter")
     end
   end
+
   def set_notification
     notification = self.notifications.unread.event(:new_annotation_on_document).new
     notification.user = self.document.user
     notification.save
   end
+  
   def sanitize_text
     self.body = Nokogiri::HTML(self.body)
     self.title = Nokogiri::HTML(self.title)
