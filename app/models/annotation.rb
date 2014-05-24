@@ -10,7 +10,7 @@ class Annotation < ActiveRecord::Base
   has_many :upvotes, class_name: "UpVote", dependent: :destroy
   has_many :downvotes, class_name: "DownVote", dependent: :destroy
 
-  has_many :notifications, as: :notifiable, inverse_of: :notifiable
+  has_many :notifications, as: :notifiable, inverse_of: :notifiable, dependent: :destroy
 
   after_commit :set_notification, on: [:create]
 
