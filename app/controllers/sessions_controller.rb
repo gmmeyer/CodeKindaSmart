@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   before_filter :require_no_current_user!, only: [:new, :create]
 
   def new
-    @user = User.new()
+    @user = User.new
   end
 
   def create
