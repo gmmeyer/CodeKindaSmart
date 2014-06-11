@@ -112,7 +112,7 @@ class Annotation < ActiveRecord::Base
 
   def length_check
     if self.start_location == self.end_location
-      errors.add("The length of your annotation must be greater than one letter")
+      errors.add(:start_location, "The length of your annotation must be greater than one letter")
     end
   end
 
